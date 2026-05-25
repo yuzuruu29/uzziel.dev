@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Willow Creek Farmstay - Hero Section Alternate Palette Test</title>
+
+  <!-- Google Fonts: Playfair Display + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body style="margin: 0; padding: 0; background-color: #FAF8F3; font-family: 'Inter', system-ui, -apple-system, sans-serif;">
+
+  <!-- 
+    ======================================================================
+    HERO SECTION: ALTERNATE COLOR PALETTE (Warm Oatmeal & Muted Sage Green)
+    
+    Palette Specifications:
+    --color-bg:        #F4F1EA  (Warm Oatmeal / Organic Linen)
+    --color-text:      #232E26  (Deep Forest Moss / Earthy Charcoal)
+    --color-cta:       #3A5643  (Muted Sage / Organic Green)
+    --color-cta-hover: #283D2F  (Deep Pine)
+    ======================================================================
+  -->
+  <section id="hero-palette-test" style="
+    position: relative;
+    background-color: #F4F1EA;
+    padding: clamp(3.5rem, 10vw, 6rem) 1.25rem;
+    overflow: hidden;
+    color: #232E26;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+  ">
+    <!-- Subtle natural radial highlight for depth and luxury polish -->
+    <div style="
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 75% 15%, rgba(58, 86, 67, 0.04) 0%, transparent 60%);
+      pointer-events: none;
+    "></div>
+
+    <!-- Main Container -->
+    <div style="
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: left;
+      box-sizing: border-box;
+    ">
+      
+      <!-- Category/Section Label -->
+      <span style="
+        display: block;
+        font-size: clamp(0.75rem, 2vw, 0.8125rem);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #5C665D; /* Muted Sage-Gray */
+        margin-bottom: 1rem;
+        font-family: 'Inter', sans-serif;
+      ">
+        Farm Stay &middot; Cabin Retreat
+      </span>
+
+      <!-- Headline -->
+      <h1 style="
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(1.75rem, 5vw, 2.75rem);
+        font-weight: 700;
+        line-height: 1.2;
+        color: #232E26; /* Deep Moss Green */
+        margin: 0 0 1.25rem 0;
+        max-width: 780px;
+        letter-spacing: -0.01em;
+      ">
+        A quiet farm stay cabin for slow weekends, farm experiences, and rural escapes
+      </h1>
+
+      <!-- Subheadline -->
+      <p style="
+        font-family: 'Playfair Display', Georgia, serif;
+        font-style: italic;
+        font-size: clamp(1.0625rem, 3vw, 1.25rem);
+        line-height: 1.6;
+        color: #4D574F; /* Mid-tone Organic Olive */
+        margin: 0 0 2.25rem 0;
+        max-width: 720px;
+      ">
+        Stay in a quiet farm cabin, meet the animals, walk the garden, and slow down for a few days away from the city.
+      </p>
+
+      <!-- CTA Button -->
+      <a href="#inquire" 
+         class="hero-cta-btn"
+         style="
+           display: inline-block;
+           background-color: #3A5643; /* Muted Sage */
+           color: #FFFFFF;
+           padding: 0.9375rem 2.25rem;
+           border-radius: 4px;
+           font-family: 'Inter', sans-serif;
+           font-size: 0.875rem;
+           font-weight: 600;
+           letter-spacing: 0.02em;
+           text-decoration: none;
+           text-align: center;
+           border: none;
+           cursor: pointer;
+           box-shadow: 0 2px 8px rgba(58, 86, 67, 0.1);
+           transition: background-color 0.2s ease, transform 0.15s ease;
+         "
+         onmouseover="this.style.backgroundColor='#283D2F'; this.style.transform='translateY(-1px)';"
+         onmouseout="this.style.backgroundColor='#3A5643'; this.style.transform='translateY(0)';"
+         onfocus="this.style.backgroundColor='#283D2F'; this.style.outline='2px solid #3A5643';"
+         onblur="this.style.outline='none';"
+      >
+        Check Availability
+      </a>
+
+    </div>
+  </section>
+
+</body>
+</html>

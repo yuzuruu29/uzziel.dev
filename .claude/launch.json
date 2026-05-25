@@ -1,0 +1,30 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "willow-creek",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "portfolio-samples/willow-creek", "-p", "3001", "--no-clipboard"],
+      "port": 3001
+    }
+  ,
+    {
+      "name": "clearpath",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "02_clearpath_lawn_care/source", "-p", "3002", "--no-clipboard"],
+      "port": 3002
+    },
+    {
+      "name": "harvest-table",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "03_harvest_table_kitchen/source", "-p", "3003", "--no-clipboard"],
+      "port": 3003
+    },
+    {
+      "name": "portfolio",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--", "--port", "4321", "--host"],
+      "port": 4321
+    }
+  ]
+}

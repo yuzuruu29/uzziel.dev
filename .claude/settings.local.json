@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"C:\\\\Portfolio\\\\01_willow_creek_farmstay\\\\source\")",
+      "mcp__Claude_Preview__preview_start"
+    ]
+  }
+}
