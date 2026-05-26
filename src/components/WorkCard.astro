@@ -43,6 +43,7 @@ const statusLabel: Record<Props['status'], string> = {
       height="900"
       loading="lazy"
       decoding="async"
+      transition:name={`cover-${slug}`}
       class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
     />
   </div>

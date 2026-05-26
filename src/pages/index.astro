@@ -4,6 +4,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../islands/Hero.tsx';
 import AboutTeaser from '../components/AboutTeaser.astro';
 import WorkGrid from '../components/WorkGrid.astro';
+import Marquee from '../components/Marquee.astro';
+import KonamiEgg from '../islands/KonamiEgg.tsx';
 
 const all = await getCollection('work');
 const featured = all
@@ -12,9 +14,13 @@ const featured = all
 const totalCount = all.length;
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="Uzziel Malolos — Researcher, builder, full-stack creator"
+  description="Agri-econ researcher and full-stack creator from Bay, Laguna. I research, build, and ship."
+>
   <Hero client:load />
   <AboutTeaser />
+  <Marquee />
 
   <section class="container py-24">
     <div class="flex items-end justify-between mb-10 gap-6">
@@ -43,4 +49,6 @@ const totalCount = all.length;
       </a>
     </div>
   </section>
+
+  <KonamiEgg client:idle />
 </BaseLayout>

@@ -23,6 +23,23 @@ type Props = {
 const { entry, prev, next } = Astro.props as Props;
 const { Content } = await entry.render();
 const { data } = entry;
+const slug = entry.slug;
+
+const creativeWorkJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: data.title,
+  description: data.summary,
+  author: {
+    '@type': 'Person',
+    name: 'Emmanuel Uzziel A. Malolos',
+    url: 'https://uzziel.dev/about',
+  },
+  dateCreated: String(data.year),
+  url: `https://uzziel.dev/work/${slug}`,
+  creativeWorkStatus: data.status,
+  keywords: data.stack.join(', '),
+});
 
 const statusClasses: Record<typeof data.status, string> = {
   'live': 'bg-leaf/15 text-leaf',
@@ -36,7 +53,7 @@ const statusLabel: Record<typeof data.status, string> = {
 };
 ---
 
-<BaseLayout title={`${data.title} — Uzziel Malolos`} description={data.summary}>
+<BaseLayout title={`${data.title} — Uzziel Malolos`} description={data.summary} jsonLd={creativeWorkJsonLd}>
   <section
     id="case-cover"
     class="relative w-full overflow-hidden"
@@ -48,6 +65,7 @@ const statusLabel: Record<typeof data.status, string> = {
       alt={`${data.title} cover`}
       width="1600"
       height="900"
+      transition:name={`cover-${slug}`}
       class="absolute inset-0 w-full h-full object-cover will-change-transform"
     />
     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cream dark:to-ink"></div>

@@ -1,0 +1,72 @@
+---
+const items = [
+  'Astro',
+  'React',
+  'TypeScript',
+  'Godot',
+  'GDScript',
+  'Python',
+  'R',
+  'QGIS',
+  'Botpress',
+  'Claude',
+  'Tailwind',
+  'Netlify',
+  'Aseprite',
+  'Excel',
+  'Figma',
+];
+const doubled = [...items, ...items];
+---
+
+<div class="marquee" aria-label="Tools I work with" role="region">
+  <div class="track" aria-hidden="true">
+    {doubled.map((label) => (
+      <span class="item font-mono text-sm text-stone">
+        {label}
+        <span class="dot" aria-hidden="true">·</span>
+      </span>
+    ))}
+  </div>
+  <ul class="sr-only">
+    {items.map((label) => <li>{label}</li>)}
+  </ul>
+</div>
+
+<style>
+  .marquee {
+    --fade: 80px;
+    position: relative;
+    overflow: hidden;
+    padding: 1.25rem 0;
+    border-top: 1px solid rgba(138, 125, 110, 0.2);
+    border-bottom: 1px solid rgba(138, 125, 110, 0.2);
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fade), #000 calc(100% - var(--fade)), transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 var(--fade), #000 calc(100% - var(--fade)), transparent 100%);
+  }
+  .track {
+    display: inline-flex;
+    gap: 2rem;
+    white-space: nowrap;
+    animation: scroll-x 40s linear infinite;
+    will-change: transform;
+  }
+  .item {
+    display: inline-flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .dot {
+    color: #c9a14a;
+  }
+  .marquee:hover .track {
+    animation-play-state: paused;
+  }
+  @keyframes scroll-x {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .track { animation: none; }
+  }
+</style>

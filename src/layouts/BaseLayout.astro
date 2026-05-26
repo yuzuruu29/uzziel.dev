@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import CursorCompanion from '../islands/CursorCompanion.tsx';
@@ -8,15 +9,18 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  jsonLd?: string;
 }
 
 const {
   title = 'Uzziel Malolos — Agri-econ × Code',
   description = 'Portfolio of Emmanuel Uzziel A. Malolos: agricultural economics, freelance dev, and indie games.',
-  image = '/og-default.png',
+  image = '/og-default.svg',
+  jsonLd,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://uzziel.dev');
+const ogImage = new URL(image, Astro.site ?? 'https://uzziel.dev').toString();
 ---
 
 <!doctype html>
@@ -33,11 +37,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://uzziel.dev'
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical.toString()} />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={ogImage} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image" content={ogImage} />
 
     <title>{title}</title>
 
@@ -45,8 +49,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://uzziel.dev'
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0..1,300..900&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap"
     />
+
+    <ViewTransitions />
 
     <script is:inline>
       (() => {
@@ -59,10 +65,36 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://uzziel.dev'
         } catch (_) {}
       })();
     </script>
+
+    {jsonLd && <script type="application/ld+json" set:html={jsonLd} />}
+
+    <style is:global>
+      :where(a, button, [role="button"], input, select, textarea, summary, [tabindex="0"]):focus-visible {
+        outline: 2px solid #c9a14a;
+        outline-offset: 2px;
+        border-radius: 2px;
+      }
+      .skip-link {
+        position: absolute;
+        left: 1rem;
+        top: -3rem;
+        z-index: 100;
+        padding: 0.5rem 1rem;
+        background: #1a1410;
+        color: #f4ecd8;
+        border-radius: 0.375rem;
+        font-weight: 500;
+        transition: top 180ms ease;
+      }
+      .skip-link:focus {
+        top: 1rem;
+      }
+    </style>
   </head>
   <body class="bg-cream text-ink dark:bg-ink dark:text-cream antialiased">
+    <a href="#main" class="skip-link">Skip to content</a>
     <Nav />
-    <main>
+    <main id="main" transition:animate="slide">
       <slot />
     </main>
     <Footer />

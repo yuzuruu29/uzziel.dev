@@ -3,6 +3,35 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TimelineCard from '../components/TimelineCard.astro';
 import Lightbox from '../islands/Lightbox.tsx';
 
+const personJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Emmanuel Uzziel A. Malolos',
+  alternateName: 'Uzziel Malolos',
+  url: 'https://uzziel.dev',
+  jobTitle: 'Researcher and full-stack creator',
+  description:
+    'Agri-econ undergrad at UPLB and full-stack creator from Bay, Laguna. Researches land use, builds indie games and AI tools, and ships websites.',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Bay',
+    addressRegion: 'Laguna',
+    addressCountry: 'PH',
+  },
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'University of the Philippines Los Baños',
+  },
+  knowsAbout: [
+    'Natural Resource Economics',
+    'Agricultural Economics',
+    'Land Use',
+    'Web Development',
+    'Game Development',
+    'AI Integration',
+  ],
+});
+
 const intro =
   "I'm a fourth-year agri-econ student at UPLB and a full-stack creator. I research land use, build indie games and AI tools, and ship websites for clients and my church. I work mostly from Bay, Laguna with a Xiaomi Pad 6 and a folding keyboard; the heavy builds run on a small Windows tower at home.";
 
@@ -30,6 +59,7 @@ const photos = [
 <BaseLayout
   title="About — Uzziel Malolos"
   description="Agri-econ undergrad and full-stack creator from Bay, Laguna."
+  jsonLd={personJsonLd}
 >
   <section class="container pt-24 pb-12 md:pt-32">
     <p class="text-xs uppercase tracking-widest text-stone mb-3">About</p>
