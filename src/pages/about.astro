@@ -49,8 +49,8 @@ const makeThumb = (label: string) => {
 };
 
 const photos = [
-  { src: makeThumb('Bay, Laguna'), caption: 'Walking distance to rice fields. (Placeholder)' },
-  { src: makeThumb('Workspace'), caption: 'Pad 6 + folding keyboard. (Placeholder)' },
+  { src: '/photos/uzziel-trees.jpg', caption: 'UPLB grounds, between classes.' },
+  { src: '/photos/uzziel-jeepney.jpg', caption: 'Jeepney commute — campus to Bay.' },
   { src: makeThumb('TLWC Bay'), caption: 'Sunday at TLWC Bay. (Placeholder)' },
   { src: makeThumb('UPLB CEM'), caption: 'College of Economics and Management, UPLB. (Placeholder)' },
 ];
@@ -85,18 +85,22 @@ const photos = [
 
   <section class="container py-16 border-t border-stone/20">
     <h2 data-reveal class="font-display mb-6" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem);">What I'm building right now</h2>
-    <div class="grid md:grid-cols-3 gap-8 max-w-5xl">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl">
       <p data-reveal data-reveal-delay="60">
         <strong class="font-display text-lg block mb-2">TIRADOR</strong>
-        A top-down pixel roguelite in Godot, set in a Filipino barangay. Solo build. P0/P1 milestones in.
+        Top-down pixel roguelite in Godot, set in a Filipino barangay. Slingshot game. Solo build, P0/P1 milestones in.
       </p>
       <p data-reveal data-reveal-delay="120">
+        <strong class="font-display text-lg block mb-2">Heart and Soil</strong>
+        Cozy farming life-sim in Godot, set in a Filipino province. Return to the family farm. Solo build, systems shipping.
+      </p>
+      <p data-reveal data-reveal-delay="180">
         <strong class="font-display text-lg block mb-2">AI micro-agency</strong>
         Botpress flows for Philippine SMEs that actually answer in Tagalog. Portfolio sprint, not a sales sprint yet.
       </p>
-      <p data-reveal data-reveal-delay="180">
+      <p data-reveal data-reveal-delay="240">
         <strong class="font-display text-lg block mb-2">AAE 195 thesis</strong>
-        Land conversion pressure and rice productivity in Bay, Laguna, 2019–2025. Panel regression and field interviews.
+        Conversion pressure × rice productivity and profitability in Bay, Laguna, 2025 cross-sectional. Adviser: Inst. Buno.
       </p>
     </div>
   </section>

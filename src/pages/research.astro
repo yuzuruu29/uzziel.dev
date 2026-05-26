@@ -4,60 +4,106 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="Research — Uzziel Malolos"
-  description="Undergraduate thesis on agricultural land conversion pressure and paddy rice productivity in Bay, Laguna."
+  description="Undergraduate thesis on agricultural land conversion pressure and paddy rice productivity and profitability in Bay, Laguna, 2025."
 >
   <section class="container pt-24 pb-12 md:pt-32">
     <p class="text-xs uppercase tracking-widest text-stone mb-3">Research</p>
 
     <div class="rounded-lg bg-narra text-cream p-8 md:p-12">
       <h1 data-reveal class="font-display leading-[1.1] tracking-tight" style="font-size: clamp(2rem, 4.5vw, 3.5rem);">
-        Agricultural Land Conversion Pressure and Paddy Rice Productivity in Bay, Laguna (2019–2025)
+        Agricultural Land Conversion Pressure and Its Association with Paddy Rice Productivity and Profitability Among Rice Farmers in Bay, Laguna, 2025
       </h1>
       <p data-reveal data-reveal-delay="100" class="mt-6 text-cream/80 max-w-2xl">
-        Undergraduate thesis · Advised by Inst. Francis C. Buno · BS Agricultural and Applied Economics, UPLB CEM
+        AAE 195 Final Research Proposal · Thesis adviser: Inst. Francis C. Buno · Submitted to: Inst. Lea May DR. Aguila · BS Agricultural and Applied Economics, UPLB CEM · 2nd Semester A.Y. 2025–2026
       </p>
     </div>
   </section>
 
   <section class="container py-12 max-w-3xl">
     <h2 data-reveal class="font-display mb-4" style="font-size: clamp(1.5rem, 3vw, 2rem);">Abstract</h2>
-    {/* PLACEHOLDER — Uzziel to replace */}
     <p data-reveal data-reveal-delay="60" class="text-stone leading-relaxed">
-      This thesis examines how parcel-level conversion of agricultural land in Bay, Laguna interacts with paddy rice productivity over the 2019–2025 period. Using cadastral records, farmer-reported yields, and structured interviews, the study estimates a panel regression with parcel and year fixed effects. Findings — pending — are expected to clarify whether productivity changes follow from the loss of irrigation continuity rather than the loss of hectares alone.
+      Bay, Laguna remains an agriculturally important municipality even as its agricultural land base is increasingly exposed to residential, commercial, and built-up development. This study analyzes agricultural land conversion pressure alongside paddy rice productivity and profitability among rice farmers in Bay using a 2025 cross-sectional design. Conversion pressure is measured at the barangay level from the 2019 CLUP baseline and land-use, zoning, reclassification, and development records up to 2025. Productivity and profitability are measured at the farmer level — yield per hectare for productivity, and gross returns, total production costs, net returns, and net returns per hectare for profitability. The study determines whether differences in those outcomes are associated with the level of conversion pressure in the barangay where the farm operates.
     </p>
   </section>
 
   <section class="container py-12 max-w-3xl border-t border-stone/20">
-    <h2 data-reveal class="font-display mb-4" style="font-size: clamp(1.5rem, 3vw, 2rem);">Research questions</h2>
-    {/* PLACEHOLDER — Uzziel to replace */}
+    <h2 data-reveal class="font-display mb-4" style="font-size: clamp(1.5rem, 3vw, 2rem);">Research question</h2>
+    <p data-reveal data-reveal-delay="60" class="text-stone leading-relaxed mb-6">
+      How is agricultural land conversion pressure associated with paddy rice productivity and profitability among rice farmers in Bay, Laguna in 2025?
+    </p>
+    <h3 data-reveal class="font-display mb-3 text-lg">Specific objectives</h3>
     <ol data-reveal data-reveal-delay="60" class="list-decimal pl-5 space-y-2 text-stone leading-relaxed">
-      <li>How does the share of converted neighbors affect the productivity of remaining rice parcels?</li>
-      <li>Through what mechanisms — irrigation, labor cost, input timing — does conversion pressure transmit to yield?</li>
-      <li>What policy levers at the municipal level could ease the productivity penalty without halting conversion outright?</li>
+      <li>Describe the level of agricultural land conversion pressure in selected rice-producing barangays of Bay, Laguna.</li>
+      <li>Describe the socio-economic, farm, and production characteristics of rice farmers — including input-use behavior — as factors related to productivity and profitability.</li>
+      <li>Estimate paddy rice productivity in terms of yield per hectare.</li>
+      <li>Estimate paddy rice profitability in terms of gross returns, total production costs, net returns, and net returns per hectare.</li>
+      <li>Compare productivity and profitability across low, moderate, and high conversion-pressure barangays.</li>
+      <li>Examine the association between conversion pressure and paddy rice productivity and profitability.</li>
     </ol>
   </section>
 
   <section class="container py-12 max-w-3xl border-t border-stone/20">
     <h2 data-reveal class="font-display mb-4" style="font-size: clamp(1.5rem, 3vw, 2rem);">Conceptual framework</h2>
-    {/* PLACEHOLDER — Uzziel to replace */}
-    <p data-reveal data-reveal-delay="60" class="text-stone leading-relaxed">
-      The framework treats a rice parcel as a unit whose productivity depends not only on its own inputs but also on the land-use composition of its immediate neighborhood. Conversion of nearby parcels alters shared infrastructure (irrigation ditches, access roads, drainage) and the local labor pool. The model captures these spillovers via a conversion-share variable interacted with parcel characteristics.
+    <p data-reveal data-reveal-delay="60" class="text-stone leading-relaxed mb-4">
+      The framework centers the rice farmer. Farmer characteristics — age, education, farming experience, household size, farm size, land tenure, irrigation access — shape production decisions. Those decisions express themselves in input use: seed, fertilizer, pesticide, labor, machinery, irrigation. Input use directly affects productivity (yield per hectare), and productivity feeds into profitability alongside farmgate price and production costs.
+    </p>
+    <p data-reveal data-reveal-delay="120" class="text-stone leading-relaxed">
+      Agricultural land conversion pressure enters as a barangay-level contextual factor surrounding the farmer. It does not replace the farmer as the unit of analysis; it represents the development pressure that may alter the farming environment — farm size, fragmentation, irrigation continuity, land tenure security, labor availability, input costs. Each surveyed farmer is then linked to the conversion-pressure level of the barangay where the rice farm is located.
     </p>
   </section>
 
   <section class="container py-12 max-w-3xl border-t border-stone/20">
+    <h2 data-reveal class="font-display mb-4" style="font-size: clamp(1.5rem, 3vw, 2rem);">Hypotheses</h2>
+    <ol data-reveal data-reveal-delay="60" class="list-decimal pl-5 space-y-2 text-stone leading-relaxed">
+      <li>Rice farmers in barangays with higher conversion pressure have lower paddy rice productivity than farmers in lower-pressure barangays.</li>
+      <li>Rice farmers in barangays with higher conversion pressure have lower paddy rice profitability (net returns per hectare) than farmers in lower-pressure barangays.</li>
+      <li>Conversion pressure is negatively associated with paddy rice productivity.</li>
+      <li>Conversion pressure is negatively associated with paddy rice profitability.</li>
+      <li>Barangays with lower conversion pressure are more productive and profitable in paddy rice than barangays with higher conversion pressure.</li>
+    </ol>
+  </section>
+
+  <section class="container py-12 max-w-3xl border-t border-stone/20">
     <h2 data-reveal class="font-display mb-4" style="font-size: clamp(1.5rem, 3vw, 2rem);">Methodology</h2>
-    {/* PLACEHOLDER — Uzziel to replace */}
+
+    <h3 data-reveal class="font-display mt-6 mb-2 text-lg">Study area &amp; respondents</h3>
     <p data-reveal data-reveal-delay="60" class="text-stone leading-relaxed">
-      Data sources: municipal cadastre for the parcel-level conversion timeline; primary survey of farmers in three barangays for yield and cost; structured interviews with farm owners and irrigation operators. Analysis runs as a two-way fixed-effects panel regression in R; spatial joins and conversion-share construction in QGIS. APA 7 referencing per program requirement.
+      The study area is the Municipality of Bay, Laguna. Municipal records identify rice farming in San Isidro, San Antonio, Tagumpay, Calo, Dila, Maitim, Santo Domingo, Puypuy, and Masaya. Respondents are active rice farmers — owner-cultivators, leaseholders, tenants, or other operators — who cultivated paddy rice during the 2025 production year or the most recently completed 2025 cropping season. Former farmers who have already exited rice production are not included in the productivity and profitability analysis because they no longer generate current rice production data.
+    </p>
+
+    <h3 data-reveal class="font-display mt-8 mb-2 text-lg">Sampling</h3>
+    <p data-reveal data-reveal-delay="60" class="text-stone leading-relaxed">
+      Stratified random sampling. Selected barangays are first classified into low, moderate, and high conversion-pressure groups using the index described below, then farmers are randomly drawn from each group. Sample size follows the Yamane (1967) formula: n = N / (1 + Ne²). With the Municipal Profile listing 633 rice farmers and a 10 percent margin of error, the minimum is approximately 87. The study targets at least 90 respondents — roughly 30 per pressure group — to allow a more balanced comparison.
+    </p>
+
+    <h3 data-reveal class="font-display mt-8 mb-2 text-lg">Measuring conversion pressure</h3>
+    <p data-reveal data-reveal-delay="60" class="text-stone leading-relaxed mb-4">
+      The preferred measure is the <em>conversion share</em>: documented converted agricultural area divided by 2019 agricultural area, drawn from the Bay CLUP 2019–2029 baseline and reclassification, zoning, development-permit, locational-clearance, and Sangguniang Bayan records.
+    </p>
+    <p data-reveal data-reveal-delay="120" class="text-stone leading-relaxed mb-4">
+      Where complete converted-area records are unavailable, the study uses a composite conversion-pressure index built from seven indicators — documented conversion/reclassification, subdivision or development indicators, proposed agricultural-land decrease or built-up expansion, commercial or residential zoning pressure, road or urban proximity, population density or settlement pressure, and informal settlement or built-up encroachment in agricultural zones. Each indicator scores 0–2 for a total possible 14.
+    </p>
+    <p data-reveal data-reveal-delay="180" class="text-stone leading-relaxed">
+      Barangays are classified <strong>low</strong> (0–4), <strong>moderate</strong> (5–9), or <strong>high</strong> (10–14). Each farmer respondent is then assigned to a conversion-pressure group based on the barangay where the rice farm is located.
+    </p>
+
+    <h3 data-reveal class="font-display mt-8 mb-2 text-lg">Data &amp; analysis</h3>
+    <p data-reveal data-reveal-delay="60" class="text-stone leading-relaxed">
+      Primary data is collected through a structured survey questionnaire covering socio-economic characteristics, farm characteristics, input-use behavior, palay output, farmgate price, production costs, irrigation access, machinery use, land tenure, and perceived effects of nearby development. Secondary data is drawn from the Bay CLUP 2019–2029, Bay Zoning Ordinance, Municipal Profile, MPDO/MPDC and Sangguniang Bayan records, development permits, MAO production records, and PSA data where applicable. Analysis runs in four parts: descriptive statistics, productivity analysis (yield per hectare), cost-and-return analysis (gross returns, total production costs, net returns, net returns per hectare), and comparison across the three conversion-pressure groups. Spatial work and barangay scoring are done in QGIS; statistical work in R; referencing in APA 7 per program requirement.
+    </p>
+  </section>
+
+  <section class="container py-12 max-w-3xl border-t border-stone/20">
+    <h2 data-reveal class="font-display mb-4" style="font-size: clamp(1.5rem, 3vw, 2rem);">Scope and limitations</h2>
+    <p data-reveal data-reveal-delay="60" class="text-stone leading-relaxed">
+      Coverage is the 2025 production year, paddy rice only — no other crops, livestock, aquaculture, non-farm income, or full household income. Conversion pressure is measured at the barangay level using available land-use and development indicators; the 2019 CLUP is the baseline, and proposed land-use change is not treated as actual conversion unless supported by records. The design examines <em>association</em>, not direct causation; the cross-sectional structure and farmer-reported recall mean the findings should be read accordingly.
     </p>
   </section>
 
   <section class="container py-12 max-w-3xl border-t border-stone/20">
     <h2 data-reveal class="font-display mb-4" style="font-size: clamp(1.5rem, 3vw, 2rem);">Status</h2>
-    {/* PLACEHOLDER — Uzziel to replace */}
     <p data-reveal data-reveal-delay="60" class="text-stone leading-relaxed">
-      Chapters 1 and 2 drafted. Cadastral cleaning underway; farmer survey scheduled for the next dry season. Defense target: [date]. Public summary will be posted here after defense.
+      Final research proposal submitted May 13, 2026 for AAE 195. Sampling frame consolidation underway in coordination with the Bay MAO. Survey instrument is being finalized; field data collection follows once the registry is verified. A public summary will be posted here after the defense.
     </p>
   </section>
 
@@ -72,12 +118,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         Download CV (PDF)
       </a>
       <a
-        href="/downloads/chapter-2.pdf"
+        href="/downloads/proposal.pdf"
         data-cursor="hover"
         class="inline-flex items-center gap-2 px-5 py-3 rounded-full border-2 border-current font-medium text-sm hover:text-gold transition-colors"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        Read Chapter 2 (PDF)
+        Read the proposal (PDF)
       </a>
     </div>
     <p class="mt-10 text-sm text-stone italic">More research as it ships.</p>

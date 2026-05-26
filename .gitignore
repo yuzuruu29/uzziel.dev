@@ -25,3 +25,9 @@ pnpm-debug.log*
 
 # local sample reference, not tracked
 portfolio-samples/
+
+# Local Netlify folder
+.netlify
+
+# Local PDF text extractions (proposal scratch)
+proposal.txt

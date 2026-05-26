@@ -1,23 +1,23 @@
 ---
-title: "Land Conversion × Rice Productivity"
+title: "Land Conversion × Rice Productivity & Profitability"
 role: "Undergraduate researcher"
 year: 2026
 stack: ["QGIS", "R", "APA 7"]
-summary: "AAE 195 thesis on conversion pressure and farmer profitability in Bay, Laguna (2019-2025)."
+summary: "AAE 195 thesis: conversion pressure, rice yield, and farmer profitability in Bay, Laguna (2025 cross-sectional)."
 cover: "/covers/thesis.svg"
 status: "in-progress"
-order: 4
+order: 5
 featured: false
 ---
 
 I live in Bay, Laguna. Drive ten minutes in any direction and you can watch a rice field becoming a subdivision in slow motion — survey markers one month, fill dirt the next, model units by the end of the year. My AAE 195 thesis is the work of asking what that conversion does to the farmers who stay, and to the rice the rest of us eat.
 
-The central question is whether conversion pressure changes the productivity of the parcels that remain in rice. The hypothesis is that it does, but not for the reason most people assume. It is not the lost hectares themselves. It is what happens to irrigation, labor cost, and the timing of inputs once a neighborhood of fields becomes islands inside a development.
+The central question is whether agricultural land conversion pressure is associated with differences in paddy rice productivity *and* profitability among rice farmers. Productivity is the obvious half — yield per hectare during the 2025 cropping season. Profitability is the half I think more people should be asking about. A farmer can post a strong yield and still go home with thin net returns once the fertilizer, the irrigation fee, the hired labor, the machinery rental, and the land rent are subtracted. So the thesis tracks gross returns, total production costs, net returns, and net returns per hectare alongside yield.
 
-My data plan combines three things. Cadastral maps from the municipal hall give me the parcel-level conversion timeline from 2019 to 2025. Production data — yield per hectare, palay buying prices, cost of inputs — comes from [N farmers surveyed] in three barangays I am sampling. The third layer is qualitative: structured interviews with farm owners and irrigation operators about what changed and when.
+The design is cross-sectional, 2025. The unit of analysis is the rice farmer; the contextual variable is the barangay. I score each rice-producing barangay against a conversion-pressure index built from seven indicators — documented reclassification, subdivision and development permits, proposed agricultural-land decrease, commercial or residential zoning, road proximity, population density, and informal settlement encroachment in agricultural zones. Each indicator scores 0–2 for a total possible 14. Barangays land in low (0–4), moderate (5–9), or high (10–14) conversion-pressure groups. Farmers are then sampled stratified across those three groups so that low, moderate, and high are represented.
 
-The analytical method is straightforward by design. A panel regression with parcel and year fixed effects, conversion-neighborhood share as the treatment, productivity as the outcome. I am writing the model in R and the spatial work in QGIS. The thesis itself follows APA 7 because the program requires it; I would have preferred Chicago author-date but I am not the one grading it.
+The sampling frame is the Municipal Agriculture Office (MAO) registry of rice farmers. With Bay reporting 633 rice farmers and a 10 percent margin of error, the Yamane formula puts the minimum sample at about 87; I am targeting at least 90, roughly 30 per pressure group. Data collection runs through a structured questionnaire covering socio-economic profile, farm characteristics, input use, palay output, farmgate price, production costs, irrigation access, machinery use, land tenure, and perceived effects of nearby conversion. The barangay-level index draws on the Bay CLUP 2019–2029, zoning ordinance, MPDO/MPDC records, Sangguniang Bayan resolutions, development permits, and locational clearances.
 
-What I have learned so far is that the data does not love me back. Municipal records have gaps. Farmers are generous with their time but their books are kept in their heads, and reconstructing five years of yield from memory is its own methodology problem.
+Analysis sits in four parts: descriptive statistics for the socio-economic and farm-profile data, a productivity analysis (yield per hectare), a cost-and-return analysis (gross returns, total production costs, net returns, net returns per hectare), and a comparison across the three conversion-pressure groups. The study examines association, not direct causation — the cross-sectional design and recall limitations of farmer-reported data make that the honest framing. The point is to give the municipal agriculture office, the planning office, and future researchers localized evidence on how exposure to development pressure travels through to the bottom line of the people still planting rice.
 
-Defense is scheduled for [date]. The plan, if the results hold up, is to turn the thesis into a longer policy piece for the local agriculture office.
+I am running the spatial work and barangay scoring in QGIS, the statistical work in R, and the writing in APA 7 because the program requires it. Defense follows the second-semester AAE 195 schedule. The plan, if the results hold up, is to turn the thesis into a longer policy piece for the local agriculture office.
