@@ -1,5 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const baseURL = process.env.PLAYWRIGHT_BASE_URL ?? 'http://127.0.0.1:4321';
+const useLocalServer = !process.env.PLAYWRIGHT_BASE_URL;
+
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
@@ -8,10 +11,18 @@ export default defineConfig({
   workers: 1,
   reporter: [['list']],
   use: {
-    baseURL: 'https://uzziel-portfolio.netlify.app',
+    baseURL,
     ignoreHTTPSErrors: false,
     screenshot: 'off',
   },
+  webServer: useLocalServer
+    ? {
+        command: 'npm run build && npm run preview -- --host 127.0.0.1 --port 4321',
+        url: baseURL,
+        reuseExistingServer: !process.env.CI,
+        timeout: 120_000,
+      }
+    : undefined,
   projects: [
     {
       name: 'chrome-desktop',

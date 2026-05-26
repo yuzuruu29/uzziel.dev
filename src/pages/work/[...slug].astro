@@ -133,6 +133,34 @@ const statusLabel: Record<typeof data.status, string> = {
     .prose-case h2 { font-family: 'Fraunces', Georgia, serif; font-size: 1.75rem; margin: 2.5rem 0 1rem; }
     .prose-case a { color: #c9a14a; text-decoration: underline; text-underline-offset: 3px; }
     .prose-case strong { color: inherit; font-weight: 600; }
+    .prose-case img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      border: 1px solid rgb(138 125 110 / 0.3);
+      margin: 2rem 0 0.65rem;
+      background: rgb(26 20 16 / 0.08);
+    }
+    .prose-case .case-figure {
+      margin: 2rem 0 0.65rem;
+    }
+    .prose-case .case-figure img {
+      margin: 0;
+    }
+    .prose-case .case-figure figcaption {
+      margin-top: 0.5rem;
+      color: #8a7d6e;
+      font-size: 0.8125rem;
+      line-height: 1.5;
+    }
+    .prose-case p:has(> img) {
+      margin: 2rem 0 0.65rem;
+    }
+    .prose-case p:has(> img) + p,
+    .prose-case .case-figure + p {
+      margin-top: 0;
+    }
   </style>
 
   <script>

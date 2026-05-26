@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="CV — Uzziel Malolos"
+  description="Request Uzziel Malolos' current CV and document package."
+>
+  <section class="container pt-24 pb-24 md:pt-32 max-w-3xl">
+    <p class="text-xs uppercase tracking-widest text-stone mb-3">CV</p>
+    <h1 class="font-display leading-[1] tracking-tight" style="font-size: clamp(2.5rem, 6vw, 4.5rem);">
+      CV available on request.
+    </h1>
+    <p class="mt-6 text-lg leading-relaxed text-stone">
+      The public PDF link is offline while the current CV and proposal files are being prepared. For now, request the latest copy through the contact page.
+    </p>
+    <a
+      href="/contact"
+      data-cursor="hover"
+      class="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gold text-ink font-medium hover:bg-gold/90 transition-colors"
+    >
+      Request CV
+      <span aria-hidden="true">-></span>
+    </a>
+  </section>
+</BaseLayout>

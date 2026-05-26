@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TimelineCard from '../components/TimelineCard.astro';
-import Lightbox from '../islands/Lightbox.tsx';
 
 const personJsonLd = JSON.stringify({
   '@context': 'https://schema.org',
@@ -43,16 +42,9 @@ const timeline = [
   { year: '2026', text: 'AAE 195 thesis in flight; portfolio site shipped.' },
 ];
 
-const makeThumb = (label: string) => {
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'><rect width='240' height='240' fill='%236b3410'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Inter Tight, sans-serif' font-size='18' fill='%23f4ecd8'>${label}</text></svg>`;
-  return `data:image/svg+xml;utf8,${svg}`;
-};
-
 const photos = [
   { src: '/photos/uzziel-trees.jpg', caption: 'UPLB grounds, between classes.' },
   { src: '/photos/uzziel-jeepney.jpg', caption: 'Jeepney commute — campus to Bay.' },
-  { src: makeThumb('TLWC Bay'), caption: 'Sunday at TLWC Bay. (Placeholder)' },
-  { src: makeThumb('UPLB CEM'), caption: 'College of Economics and Management, UPLB. (Placeholder)' },
 ];
 ---
 
@@ -132,8 +124,23 @@ const photos = [
 
   <section class="container py-16 border-t border-stone/20">
     <h2 data-reveal class="font-display mb-6" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem);">A few photos</h2>
-    <Lightbox client:idle photos={photos} />
-    <p class="mt-4 text-xs text-stone">Placeholder thumbnails — real photos drop in later.</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      {photos.map((p) => (
+        <figure class="rounded-md overflow-hidden border border-stone/30">
+          <img
+            src={p.src}
+            alt={p.caption}
+            width="480"
+            height="480"
+            loading="eager"
+            decoding="async"
+            class="w-full aspect-square object-cover"
+          />
+          <figcaption class="sr-only">{p.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+    <p class="mt-4 text-xs text-stone">Small glimpses from campus and the commute home.</p>
   </section>
 
   <script>

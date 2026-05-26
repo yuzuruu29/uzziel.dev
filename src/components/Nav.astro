@@ -12,7 +12,7 @@ const pathname = Astro.url.pathname;
 
 <header
   id="site-nav"
-  class="sticky top-0 z-40 transition-colors duration-300"
+  class="sticky top-0 z-40 border-b border-stone/20 bg-cream/95 dark:bg-ink/95 backdrop-blur-md shadow-sm transition-shadow duration-300"
   data-scrolled="false"
 >
   <div class="container flex items-center justify-between py-5">
@@ -94,9 +94,9 @@ const pathname = Astro.url.pathname;
       const scrolled = window.scrollY > 40;
       nav?.setAttribute('data-scrolled', String(scrolled));
       if (scrolled) {
-        nav?.classList.add('backdrop-blur-md', 'bg-cream/70', 'dark:bg-ink/70', 'border-b', 'border-stone/20');
+        nav?.classList.add('shadow-sm');
       } else {
-        nav?.classList.remove('backdrop-blur-md', 'bg-cream/70', 'dark:bg-ink/70', 'border-b', 'border-stone/20');
+        nav?.classList.remove('shadow-sm');
       }
     };
     onScroll();

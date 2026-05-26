@@ -1,19 +1,16 @@
 ---
 const bio = "I'm Uzziel — I study agricultural land use at UPLB, build indie games and AI tools, and ship websites for clients and my church. Currently writing a thesis on land conversion and rice productivity in Bay, Laguna.";
-
-const portraitSvg = `<svg xmlns='http://www.w3.org/2000/svg' width='360' height='360' viewBox='0 0 360 360'><rect width='360' height='360' fill='%236b3410'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Fraunces, Georgia, serif' font-size='48' fill='%23f4ecd8'>Uzziel</text></svg>`;
-const portraitSrc = `data:image/svg+xml;utf8,${portraitSvg}`;
 ---
 
 <section class="container py-24">
   <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-10 md:gap-14 items-center">
     <div class="mx-auto md:mx-0">
       <img
-        src={portraitSrc}
-        alt="Portrait of Uzziel — placeholder"
+        src="/photos/uzziel-jeepney.jpg"
+        alt="Uzziel during a jeepney commute from campus to Bay"
         width="360"
         height="360"
-        loading="lazy"
+        loading="eager"
         decoding="async"
         class="block w-[240px] h-[240px] md:w-[320px] md:h-[320px] object-cover rounded-md border-2 border-narra"
       />

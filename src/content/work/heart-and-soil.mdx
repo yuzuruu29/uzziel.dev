@@ -4,7 +4,7 @@ role: "Solo developer · designer"
 year: 2026
 stack: ["Godot 4", "GDScript", "Aseprite"]
 summary: "Filipino cozy farming sim. Return to the province, restore the family farm, earn the trust of the barangay."
-cover: "/covers/heart-and-soil.svg"
+cover: "/work/heart-and-soil/farmstead.png"
 status: "in-progress"
 order: 2
 featured: true
@@ -14,9 +14,26 @@ Heart and Soil — internally I still call it *Lupa at Puso* — is the quieter 
 
 The setting is a fictional Filipino barangay — yero-roof homes, a sari-sari store, mango trees, a tricycle waiting area, a small plaza for tambayan. The palette is warm and provincial, set at that early-morning hour where the light is just turning gold. I drew the tiles by hand in Aseprite using flat shapes and no anti-aliasing. The reference board on my wall is family photos from Bay, not Stardew Valley.
 
+<figure class="case-figure">
+  <img src="/work/heart-and-soil/farmstead.png" alt="Heart and Soil farmstead concept art showing a Filipino farm home, vegetable plots, chickens, and warm sunset light." />
+  <figcaption>Farmstead concept art for the family home, vegetable plots, and warm province lighting.</figcaption>
+</figure>
+
+The barangay layout is designed around familiar landmarks: the farm plot, sari-sari store, mango tree, barangay hall, tricycle waiting area, and plaza. I want players to read the map quickly without losing the feeling that the place has been lived in for years.
+
+<figure class="case-figure">
+  <img src="/work/heart-and-soil/barangay-map.png" alt="Annotated Lupa at Puso barangay concept map with sari-sari store, barangay hall, farm plot, homes, plaza, and tricycle waiting area." />
+  <figcaption>Barangay map study for landmark placement, traversal, and readable rural-life staging.</figcaption>
+</figure>
+
 What is shipped so far: a multi-crop farming loop driven by `data/crops.json` (plant, water, grow, harvest, with seed consumption and inventory). A working economy loop — sell at the buy station, earn coins, return to the shop, buy the next seed. Named NPCs you can greet with E — Mang Ambo Florendo at the irrigation ditch, Lola Conching Reyes by her sari-sari, Kapitan Romy Bautista at the barangay hall, Aling Nena who always has questions. Each interaction nudges your Barangay Reputation up and tracks Utang na Loob — the small debts of kindness you owe back. The HUD shows your friend list, your reputation tier ("Bagong Dating" at the bottom), the day counter.
 
 A small event calendar runs in the background. Barangay Fiesta triggers a resource-collection quest ("Pechay: 0/5"). Community Events drop in randomly and reward reputation. None of this is the final shape. The point right now is proving the systems hold each other up — farming feeds the economy, the economy unlocks the social loop, the social loop unlocks the village.
+
+<figure class="case-figure">
+  <img src="/work/heart-and-soil/fiesta-night.png" alt="Nighttime barangay fiesta concept art with band stage, parol lights, food tables, and residents dancing in the plaza." />
+  <figcaption>Fiesta event concept for the social calendar, food tables, music, and parol-lit plaza scenes.</figcaption>
+</figure>
 
 What I'm wrestling with: pacing. A cozy game has to feel slow without feeling boring, and that is harder than the farming code. I am stealing time-of-day rhythms from Stardew, dialogue density from Animal Crossing, and the actual texture of village life from my own walks home. The next milestone is a proper morning-to-evening day cycle, a save system, and a second barangay to walk to. After that, the first beta — a single in-game month, three NPCs deeply written, one festival.
 
