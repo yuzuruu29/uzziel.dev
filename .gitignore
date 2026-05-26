@@ -31,3 +31,7 @@ portfolio-samples/
 
 # Local PDF text extractions (proposal scratch)
 proposal.txt
+
+# Playwright artifacts
+test-results/
+playwright-report/
