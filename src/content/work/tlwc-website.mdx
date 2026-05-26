@@ -1,0 +1,23 @@
+---
+title: "The Lord's Worship Center"
+role: "Web developer · admin (volunteer)"
+year: 2024
+stack: ["HTML", "CSS", "Netlify"]
+summary: "Church site for TLWC Bay. v2 rewrite underway with new design system."
+cover: "/covers/tlwc.svg"
+status: "live"
+order: 3
+featured: true
+---
+
+The Lord's Worship Center is my home church in Bay, Laguna. I have been the volunteer web developer for the last couple of years, which started the same way most volunteer roles start — somebody asked at the back of the auditorium and I said yes before thinking about it.
+
+The first version was an honest static site. HTML, a little CSS, a contact form pointed at a Netlify function. Service times, statement of faith, a livestream link on Sundays. It did what a small-church site needs to do: load fast on a phone over LTE, tell a first-time visitor where to park, and not break when somebody opens it on an old Android in the lobby.
+
+What I learned from v1 was that the actual users are not the people I assumed. The bulk of traffic is members checking the service schedule on Saturday night, not seekers researching the church. The design implications were not subtle. The schedule belongs above the fold. The map matters. The pastor photos matter less than I thought. The donate button matters more than I expected, and not for the reason you might guess — people use it to remember the bank details for offline giving.
+
+The v2 rewrite is in flight. I am moving it to a small design system that matches the tone of the building itself: warm wood, plain typography, no megachurch glossiness. Senior Pastors Rigor B. and Herminia Malolos signed off on the new color direction, which I appreciated because I am their son and I expected more notes.
+
+The harder problem on v2 is the events feed. I want it to be a single source of truth that the admin team can update from a phone without me being in the loop. I am leaning toward a Google Sheet backing a small fetch, because the admin team already lives in Sheets, and dragging them into a CMS would be a step backward.
+
+It will ship when it is ready. Volunteer work runs on volunteer time.

@@ -1,0 +1,43 @@
+---
+import WorkCard from './WorkCard.astro';
+
+type Entry = {
+  slug: string;
+  data: {
+    title: string;
+    year: number;
+    status: 'live' | 'in-progress' | 'archived';
+    summary: string;
+    stack: string[];
+    cover: string;
+    role: string;
+  };
+};
+
+interface Props {
+  entries: Entry[];
+  id?: string;
+}
+
+const { entries, id = 'work-grid' } = Astro.props;
+---
+
+<div
+  id={id}
+  data-work-grid
+  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
+>
+  {entries.map((e, i) => (
+    <WorkCard
+      slug={e.slug}
+      title={e.data.title}
+      year={e.data.year}
+      status={e.data.status}
+      summary={e.data.summary}
+      stack={e.data.stack}
+      cover={e.data.cover}
+      index={i}
+    />
+  ))}
+</div>
+

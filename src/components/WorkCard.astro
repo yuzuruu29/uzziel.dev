@@ -1,0 +1,66 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  year: number;
+  status: 'live' | 'in-progress' | 'archived';
+  summary: string;
+  stack: string[];
+  cover: string;
+  index?: number;
+}
+
+const { slug, title, year, status, summary, stack, cover, index = 0 } = Astro.props;
+
+const statusClasses: Record<Props['status'], string> = {
+  'live': 'bg-leaf/15 text-leaf',
+  'in-progress': 'bg-gold/15 text-narra',
+  'archived': 'bg-stone/15 text-stone',
+};
+
+const statusLabel: Record<Props['status'], string> = {
+  'live': 'Live',
+  'in-progress': 'In progress',
+  'archived': 'Archived',
+};
+---
+
+<a
+  href={`/work/${slug}`}
+  data-cursor="hover"
+  data-work-card
+  data-status={status}
+  data-stack={stack.join('|')}
+  data-index={index}
+  class="group block"
+  style="transition: opacity 320ms ease, transform 320ms ease;"
+>
+  <div class="relative aspect-[16/9] overflow-hidden rounded-lg border border-stone/30 group-hover:border-narra transition-colors">
+    <img
+      src={cover}
+      alt={`${title} cover`}
+      width="1600"
+      height="900"
+      loading="lazy"
+      decoding="async"
+      class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+    />
+  </div>
+  <div class="mt-4 transition-transform duration-300 ease-out group-hover:-translate-y-1">
+    <div class="flex items-baseline justify-between gap-3">
+      <h3 class="font-display text-xl md:text-2xl leading-tight">{title}</h3>
+      <span class="font-mono text-xs text-stone whitespace-nowrap">{year}</span>
+    </div>
+    <div class="mt-2 flex items-center gap-2">
+      <span class={`inline-flex items-center text-[11px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full ${statusClasses[status]}`}>
+        {statusLabel[status]}
+      </span>
+    </div>
+    <p class="mt-3 text-sm text-stone leading-relaxed">{summary}</p>
+    <ul class="mt-3 flex flex-wrap gap-1.5">
+      {stack.map((s) => (
+        <li class="font-mono text-[11px] text-stone border border-stone/30 px-2 py-0.5 rounded">{s}</li>
+      ))}
+    </ul>
+  </div>
+</a>

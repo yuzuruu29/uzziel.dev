@@ -1,0 +1,23 @@
+---
+title: "Land Conversion × Rice Productivity"
+role: "Undergraduate researcher"
+year: 2026
+stack: ["QGIS", "R", "APA 7"]
+summary: "AAE 195 thesis on conversion pressure and farmer profitability in Bay, Laguna (2019-2025)."
+cover: "/covers/thesis.svg"
+status: "in-progress"
+order: 4
+featured: false
+---
+
+I live in Bay, Laguna. Drive ten minutes in any direction and you can watch a rice field becoming a subdivision in slow motion — survey markers one month, fill dirt the next, model units by the end of the year. My AAE 195 thesis is the work of asking what that conversion does to the farmers who stay, and to the rice the rest of us eat.
+
+The central question is whether conversion pressure changes the productivity of the parcels that remain in rice. The hypothesis is that it does, but not for the reason most people assume. It is not the lost hectares themselves. It is what happens to irrigation, labor cost, and the timing of inputs once a neighborhood of fields becomes islands inside a development.
+
+My data plan combines three things. Cadastral maps from the municipal hall give me the parcel-level conversion timeline from 2019 to 2025. Production data — yield per hectare, palay buying prices, cost of inputs — comes from [N farmers surveyed] in three barangays I am sampling. The third layer is qualitative: structured interviews with farm owners and irrigation operators about what changed and when.
+
+The analytical method is straightforward by design. A panel regression with parcel and year fixed effects, conversion-neighborhood share as the treatment, productivity as the outcome. I am writing the model in R and the spatial work in QGIS. The thesis itself follows APA 7 because the program requires it; I would have preferred Chicago author-date but I am not the one grading it.
+
+What I have learned so far is that the data does not love me back. Municipal records have gaps. Farmers are generous with their time but their books are kept in their heads, and reconstructing five years of yield from memory is its own methodology problem.
+
+Defense is scheduled for [date]. The plan, if the results hold up, is to turn the thesis into a longer policy piece for the local agriculture office.

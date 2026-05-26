@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WorkGrid from '../../components/WorkGrid.astro';
+import WorkFilter from '../../islands/WorkFilter.tsx';
+
+const entries = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout
+  title="Work — Uzziel Malolos"
+  description="Selected work: games, AI tools, websites, research, and past roles."
+>
+  <section class="container pt-24 pb-12 md:pt-32">
+    <p class="text-xs uppercase tracking-widest text-stone mb-3">Work</p>
+    <h1 class="font-display leading-[1] tracking-tight" style="font-size: clamp(2.5rem, 6vw, 4.5rem);">
+      Five projects, one career arc.
+    </h1>
+    <p class="mt-6 max-w-xl text-stone">
+      Games, AI tools, websites, research, and a former bookkeeping role. Each one taught me a piece of how the next gets built.
+    </p>
+    <div class="mt-10">
+      <WorkFilter client:idle gridId="work-grid" />
+    </div>
+  </section>
+
+  <section class="container pb-32">
+    <WorkGrid entries={entries} id="work-grid" />
+  </section>
+</BaseLayout>

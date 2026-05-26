@@ -1,10 +1,46 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../islands/Hero.tsx';
 import AboutTeaser from '../components/AboutTeaser.astro';
+import WorkGrid from '../components/WorkGrid.astro';
+
+const all = await getCollection('work');
+const featured = all
+  .filter((e) => e.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+const totalCount = all.length;
 ---
 
 <BaseLayout>
   <Hero client:load />
   <AboutTeaser />
+
+  <section class="container py-24">
+    <div class="flex items-end justify-between mb-10 gap-6">
+      <div>
+        <p class="text-xs uppercase tracking-widest text-stone mb-3">Featured work</p>
+        <h2 class="font-display leading-[1] tracking-tight" style="font-size: clamp(2rem, 4.5vw, 3rem);">
+          What I am building right now.
+        </h2>
+      </div>
+      <a
+        href="/work"
+        data-cursor="hover"
+        class="group hidden md:inline-flex items-center gap-2 font-medium text-gold whitespace-nowrap"
+      >
+        See all {totalCount} projects
+        <span aria-hidden="true" class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+      </a>
+    </div>
+
+    <WorkGrid entries={featured} id="featured-grid" />
+
+    <div class="mt-10 md:hidden">
+      <a href="/work" data-cursor="hover" class="group inline-flex items-center gap-2 font-medium text-gold">
+        See all {totalCount} projects
+        <span aria-hidden="true" class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+      </a>
+    </div>
+  </section>
 </BaseLayout>
