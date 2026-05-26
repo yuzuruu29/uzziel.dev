@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../islands/Hero.tsx';
+import AboutTeaser from '../components/AboutTeaser.astro';
 ---
 
 <BaseLayout>
-  <section class="container py-32">
-    <h1>homepage shell ok</h1>
-  </section>
+  <Hero client:load />
+  <AboutTeaser />
 </BaseLayout>
