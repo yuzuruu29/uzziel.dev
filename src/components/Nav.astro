@@ -1,0 +1,130 @@
+---
+import ThemeToggle from '../islands/ThemeToggle.tsx';
+const links = [
+  { href: '/work', label: 'Work' },
+  { href: '/about', label: 'About' },
+  { href: '/research', label: 'Research' },
+  { href: '/services', label: 'Services' },
+  { href: '/contact', label: 'Contact' },
+];
+const pathname = Astro.url.pathname;
+---
+
+<header
+  id="site-nav"
+  class="sticky top-0 z-40 transition-colors duration-300"
+  data-scrolled="false"
+>
+  <div class="container flex items-center justify-between py-5">
+    <a
+      href="/"
+      data-cursor="hover"
+      class="font-display text-2xl font-medium tracking-tight"
+      aria-label="uzziel home"
+    >
+      uzziel<span class="text-gold">.</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8" aria-label="Primary">
+      {links.map((l) => (
+        <a
+          href={l.href}
+          data-cursor="hover"
+          class:list={[
+            'text-sm tracking-wide transition-colors hover:text-gold',
+            pathname.startsWith(l.href) ? 'text-gold' : '',
+          ]}
+        >
+          {l.label}
+        </a>
+      ))}
+      <ThemeToggle client:load />
+    </nav>
+
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-overlay"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-icon="menu"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div
+  id="mobile-overlay"
+  class="md:hidden fixed inset-0 z-50 hidden flex-col bg-cream dark:bg-ink text-ink dark:text-cream"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Mobile menu"
+>
+  <div class="container flex items-center justify-between py-5">
+    <span class="font-display text-2xl font-medium">uzziel<span class="text-gold">.</span></span>
+    <button
+      id="mobile-close-btn"
+      class="inline-flex items-center justify-center w-10 h-10 rounded-md"
+      aria-label="Close menu"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+
+  <nav class="container flex-1 flex flex-col justify-center stagger-in" aria-label="Mobile">
+    {links.map((l) => (
+      <a
+        href={l.href}
+        class="font-display text-4xl py-3 hover:text-gold transition-colors"
+      >
+        {l.label}
+      </a>
+    ))}
+  </nav>
+</div>
+
+<script is:inline>
+  (() => {
+    const nav = document.getElementById('site-nav');
+    const btn = document.getElementById('mobile-menu-btn');
+    const overlay = document.getElementById('mobile-overlay');
+    const close = document.getElementById('mobile-close-btn');
+
+    const onScroll = () => {
+      const scrolled = window.scrollY > 40;
+      nav?.setAttribute('data-scrolled', String(scrolled));
+      if (scrolled) {
+        nav?.classList.add('backdrop-blur-md', 'bg-cream/70', 'dark:bg-ink/70', 'border-b', 'border-stone/20');
+      } else {
+        nav?.classList.remove('backdrop-blur-md', 'bg-cream/70', 'dark:bg-ink/70', 'border-b', 'border-stone/20');
+      }
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    const openMenu = () => {
+      overlay?.classList.remove('hidden');
+      overlay?.classList.add('flex');
+      btn?.setAttribute('aria-expanded', 'true');
+      document.documentElement.style.overflow = 'hidden';
+      const nav = overlay?.querySelector('nav');
+      if (nav) {
+        nav.classList.remove('stagger-in');
+        void nav.offsetWidth;
+        nav.classList.add('stagger-in');
+      }
+    };
+    const closeMenu = () => {
+      overlay?.classList.add('hidden');
+      overlay?.classList.remove('flex');
+      btn?.setAttribute('aria-expanded', 'false');
+      document.documentElement.style.overflow = '';
+    };
+    btn?.addEventListener('click', openMenu);
+    close?.addEventListener('click', closeMenu);
+    overlay?.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+  })();
+</script>
