@@ -1,23 +1,34 @@
 ---
 title: "The Lord's Worship Center"
 role: "Web developer · admin (volunteer)"
-year: 2024
-stack: ["HTML", "CSS", "Netlify"]
-summary: "Church site for TLWC Bay. v2 rewrite underway with new design system."
-cover: "/covers/tlwc.svg"
+year: 2025
+stack: ["HTML", "CSS", "JavaScript", "Netlify"]
+summary: "Single-page church site for TLWC Bay with 10 sections, prayer form, sermon library, and feeding program gallery."
+cover: "/covers/tlwc-screenshot.png"
 status: "live"
 order: 4
 featured: true
 ---
 
-The Lord's Worship Center is my home church in Bay, Laguna. I have been the volunteer web developer for the last couple of years, which started the same way most volunteer roles start — somebody asked at the back of the auditorium and I said yes before thinking about it.
+The Lord's Worship Center is my home church in Bay, Laguna. v1 was a bare static site — service times, statement of faith, a livestream link. It worked, but it did not reflect the personality of the building or the congregation. The v2 redesign touched everything from the color palette to how visitors get from "first click" to "come visit."
 
-The first version was an honest static site. HTML, a little CSS, a contact form pointed at a Netlify function. Service times, statement of faith, a livestream link on Sundays. It did what a small-church site needs to do: load fast on a phone over LTE, tell a first-time visitor where to park, and not break when somebody opens it on an old Android in the lobby.
+**The live site ships with:**
+- A hero section with service time, location, and quick-info cards
+- First Visit guide covering what to expect, dress code, families
+- Weekly schedule (Sunday worship, Wednesday prayer, Friday life group)
+- Pastor Welcome with a photo and message from the senior pastors
+- Sermon library with 3 recent messages and YouTube links
+- Feeding program story with photo gallery
+- Church life overview: mission, vision, ministry categories
+- Community testimonial carousel
+- Photo highlights grid (leadership, youth, fellowship, outreach)
+- Give section with GCash and PayPal QR codes
+- Prayer request form with category dropdown and privacy toggle
 
-What I learned from v1 was that the actual users are not the people I assumed. The bulk of traffic is members checking the service schedule on Saturday night, not seekers researching the church. The design implications were not subtle. The schedule belongs above the fold. The map matters. The pastor photos matter less than I thought. The donate button matters more than I expected, and not for the reason you might guess — people use it to remember the bank details for offline giving.
+The design system matches the tone of the building itself: warm cream and wood tones, serif headlines, understated interactions — no megachurch glossiness. I chose a single-page architecture with smooth anchor navigation because the admin team needed something they could update by editing one HTML file, not a CMS they would never log into.
 
-The v2 rewrite is in flight. I am moving it to a small design system that matches the tone of the building itself: warm wood, plain typography, no megachurch glossiness. Senior Pastors Rigor B. and Herminia Malolos signed off on the new color direction, which I appreciated because I am their son and I expected more notes.
+What I learned from the traffic analytics contradicts the usual church-website wisdom. Members check the schedule on Saturday night more than seekers research the church. The donate button is used less for giving and more as a reference for bank details. The map matters disproportionately to the space it occupies. Every pull on this site reflects a real behavior from the congregation in Bay, not a trend from a church marketing blog.
 
-The harder problem on v2 is the events feed. I want it to be a single source of truth that the admin team can update from a phone without me being in the loop. I am leaning toward a Google Sheet backing a small fetch, because the admin team already lives in Sheets, and dragging them into a CMS would be a step backward.
+Senior Pastors Rigor B. and Herminia Malolos signed off on the design direction. I am their son, and I expected more notes. That they trusted the direction without micromanaging it made this project personal in a way client work never is.
 
-It will ship when it is ready. Volunteer work runs on volunteer time.
+Try it at [thelordsworshipcenterbay.netlify.app](https://thelordsworshipcenterbay.netlify.app/).
