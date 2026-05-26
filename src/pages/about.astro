@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TimelineCard from '../components/TimelineCard.astro';
+import Lightbox from '../islands/Lightbox.tsx';
+
+const intro =
+  "I'm a fourth-year agri-econ student at UPLB and a full-stack creator. I research land use, build indie games and AI tools, and ship websites for clients and my church. I work mostly from Bay, Laguna with a Xiaomi Pad 6 and a folding keyboard; the heavy builds run on a small Windows tower at home.";
+
+const timeline = [
+  { year: '2018', text: 'Started volunteering as web dev for The Lord\'s Worship Center.' },
+  { year: '2023', text: 'Joined Oka\'s Farm as farm accountant.' },
+  { year: '2024', text: 'Concluded Oka\'s Farm role; began thesis groundwork.' },
+  { year: '2025', text: 'TIRADOR development begins; AI micro-agency conceived.' },
+  { year: '2026', text: 'AAE 195 thesis in flight; portfolio site shipped.' },
+];
+
+const makeThumb = (label: string) => {
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'><rect width='240' height='240' fill='%236b3410'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Inter Tight, sans-serif' font-size='18' fill='%23f4ecd8'>${label}</text></svg>`;
+  return `data:image/svg+xml;utf8,${svg}`;
+};
+
+const photos = [
+  { src: makeThumb('Bay, Laguna'), caption: 'Walking distance to rice fields. (Placeholder)' },
+  { src: makeThumb('Workspace'), caption: 'Pad 6 + folding keyboard. (Placeholder)' },
+  { src: makeThumb('TLWC Bay'), caption: 'Sunday at TLWC Bay. (Placeholder)' },
+  { src: makeThumb('UPLB CEM'), caption: 'College of Economics and Management, UPLB. (Placeholder)' },
+];
+---
+
+<BaseLayout
+  title="About — Uzziel Malolos"
+  description="Agri-econ undergrad and full-stack creator from Bay, Laguna."
+>
+  <section class="container pt-24 pb-12 md:pt-32">
+    <p class="text-xs uppercase tracking-widest text-stone mb-3">About</p>
+    <h1 data-reveal class="font-display leading-[1] tracking-tight" style="font-size: clamp(2.5rem, 6vw, 4.5rem);">
+      About Uzziel
+    </h1>
+    <p data-reveal data-reveal-delay="80" class="mt-6 max-w-2xl text-lg leading-relaxed text-stone">
+      {intro}
+    </p>
+  </section>
+
+  <section class="container py-16">
+    <h2 data-reveal class="font-display mb-6" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem);">Where I'm from</h2>
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl">
+      <p data-reveal data-reveal-delay="60">
+        I grew up in Brgy. Calo, Bay, Laguna. The municipality sits along the lakeshore of Laguna de Bay, with rice fields on one side and a slow creep of subdivisions on the other. Most of what I think about — land use, food, family economics — is shaped by that immediate geography.
+      </p>
+      <p data-reveal data-reveal-delay="120">
+        I am Filipino, a fourth-year undergrad in the College of Economics and Management at UPLB, taking BS Agricultural and Applied Economics with a Natural Resource Economics major. I commute when I can and stay on campus when I cannot.
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-16 border-t border-stone/20">
+    <h2 data-reveal class="font-display mb-6" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem);">What I'm building right now</h2>
+    <div class="grid md:grid-cols-3 gap-8 max-w-5xl">
+      <p data-reveal data-reveal-delay="60">
+        <strong class="font-display text-lg block mb-2">TIRADOR</strong>
+        A top-down pixel roguelite in Godot, set in a Filipino barangay. Solo build. P0/P1 milestones in.
+      </p>
+      <p data-reveal data-reveal-delay="120">
+        <strong class="font-display text-lg block mb-2">AI micro-agency</strong>
+        Botpress flows for Philippine SMEs that actually answer in Tagalog. Portfolio sprint, not a sales sprint yet.
+      </p>
+      <p data-reveal data-reveal-delay="180">
+        <strong class="font-display text-lg block mb-2">AAE 195 thesis</strong>
+        Land conversion pressure and rice productivity in Bay, Laguna, 2019–2025. Panel regression and field interviews.
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-16 border-t border-stone/20">
+    <h2 data-reveal class="font-display mb-10 text-center" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem);">Where I've been</h2>
+    <TimelineCard entries={timeline} />
+    <div class="mt-10 max-w-3xl mx-auto grid md:grid-cols-2 gap-8">
+      <p data-reveal>
+        I have been the volunteer web developer for The Lord's Worship Center in Bay since 2018. The role started small (HTML and a contact form) and has grown into a small design system rewrite this year.
+      </p>
+      <p data-reveal data-reveal-delay="80">
+        From March 2023 to May 2024 I kept the books for Oka's Farm. Fourteen months of payables, payroll, and monthly closings — the work that taught me what the textbooks leave out.
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-16 border-t border-stone/20">
+    <h2 data-reveal class="font-display mb-6" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem);">How I work</h2>
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl">
+      <p data-reveal data-reveal-delay="60">
+        Most writing and light development happens on a Xiaomi Pad 6 with a folding keyboard — coffee shop, library, jeepney, kitchen table. The heavier builds run on a small Windows tower at home: Godot exports, large dataset crunches, anything that hits the GPU.
+      </p>
+      <p data-reveal data-reveal-delay="120">
+        Claude is my collaborator across research notes, code, and prose. I am faith-rooted (TLWC is family) but I do not push it into client work. If a deliverable is for a business, the work answers to the business.
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-16 border-t border-stone/20">
+    <h2 data-reveal class="font-display mb-6" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem);">A few photos</h2>
+    <Lightbox client:idle photos={photos} />
+    <p class="mt-4 text-xs text-stone">Placeholder thumbnails — real photos drop in later.</p>
+  </section>
+
+  <script>
+    import { initRevealOnScroll } from '../lib/revealOnScroll.ts';
+    initRevealOnScroll();
+  </script>
+</BaseLayout>

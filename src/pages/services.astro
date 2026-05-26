@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TiltCard from '../islands/TiltCard.tsx';
+
+const services = [
+  {
+    title: 'Data & bookkeeping support',
+    summary: 'Excel cleanup, monthly bookkeeping, custom reports.',
+    bullets: [
+      'Chart of accounts and ledger setup from receipts or messy sheets',
+      'Monthly close, payables tracking, payroll reconciliation',
+      'Custom reports (P&L, cash position, owner-readable summaries)',
+    ],
+    price: 'Starts at PHP 5,000 / month',
+  },
+  {
+    title: 'Website + SEO',
+    summary: 'Astro/Next sites, on-page SEO, Netlify deploys.',
+    bullets: [
+      'Design, build, and deploy on Astro or Next.js',
+      'On-page SEO: titles, meta, schema, sitemaps',
+      'Netlify hosting + form handling and analytics wiring',
+    ],
+    price: 'Starts at PHP 25,000 / project',
+  },
+  {
+    title: 'AI chatbot integration',
+    summary: 'Botpress + Claude or GPT integrations, training data, handover docs.',
+    bullets: [
+      'Botpress flow with structured nodes for predictable answers',
+      'Claude or GPT for open-ended turns; clean human handoff',
+      'Training data, deploy, and a written handover doc your team can use',
+    ],
+    price: 'Starts at PHP 18,000 / project',
+  },
+];
+
+const steps = [
+  { n: 1, title: 'Discover', text: 'A short call to learn the business and the problem.' },
+  { n: 2, title: 'Scope', text: 'A one-page brief: deliverable, timeline, price, what is out of scope.' },
+  { n: 3, title: 'Build', text: 'Weekly check-ins with working drafts you can react to.' },
+  { n: 4, title: 'Hand off', text: 'Docs, training, and a 30-day support window after launch.' },
+];
+---
+
+<BaseLayout
+  title="Services — Uzziel Malolos"
+  description="Data, web, and AI services for small Philippine teams."
+>
+  <section class="container pt-24 pb-12 md:pt-32">
+    <p class="text-xs uppercase tracking-widest text-stone mb-3">Services</p>
+    <h1 data-reveal class="font-display leading-[1] tracking-tight" style="font-size: clamp(2.5rem, 6vw, 4.5rem);">
+      Services
+    </h1>
+    <p data-reveal data-reveal-delay="80" class="mt-6 max-w-xl text-lg text-stone">
+      I help small teams ship faster with AI, data, and the web.
+    </p>
+  </section>
+
+  <section class="container py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8" style="perspective: 1000px;">
+      {services.map((s, i) => (
+        <div data-reveal data-reveal-delay={i * 100} class="h-full">
+          <TiltCard client:idle>
+            <article class="h-full flex flex-col rounded-xl border border-stone/30 bg-cream/40 dark:bg-ink/40 p-6 md:p-8">
+              <h2 class="font-display text-xl md:text-2xl leading-tight">{s.title}</h2>
+              <p class="mt-3 text-sm text-stone">{s.summary}</p>
+
+              <p class="mt-6 text-[11px] uppercase tracking-widest text-stone">What's included</p>
+              <ul class="mt-2 space-y-2 text-sm flex-1">
+                {s.bullets.map((b) => (
+                  <li class="flex gap-2">
+                    <span aria-hidden="true" class="text-gold mt-0.5">·</span>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <p class="mt-6 font-mono text-xs text-narra dark:text-gold">{s.price}</p>
+
+              <a
+                href="/contact"
+                data-cursor="hover"
+                class="mt-6 inline-flex items-center gap-2 self-start px-5 py-2.5 rounded-full bg-gold text-ink font-medium text-sm hover:bg-gold/90 transition-colors"
+              >
+                Start a conversation
+                <span aria-hidden="true">→</span>
+              </a>
+            </article>
+          </TiltCard>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="container py-16 border-t border-stone/20">
+    <h2 data-reveal class="font-display mb-10" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem);">
+      How we'll work together
+    </h2>
+    <ol class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      {steps.map((s, i) => (
+        <li data-reveal data-reveal-delay={i * 80} class="relative">
+          <p class="font-mono text-xs text-gold mb-2">0{s.n}</p>
+          <h3 class="font-display text-xl">{s.title}</h3>
+          <p class="mt-2 text-sm text-stone leading-relaxed">{s.text}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <script>
+    import { initRevealOnScroll } from '../lib/revealOnScroll.ts';
+    initRevealOnScroll();
+  </script>
+</BaseLayout>

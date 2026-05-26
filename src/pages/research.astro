@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Research — Uzziel Malolos"
+  description="Undergraduate thesis on agricultural land conversion pressure and paddy rice productivity in Bay, Laguna."
+>
+  <section class="container pt-24 pb-12 md:pt-32">
+    <p class="text-xs uppercase tracking-widest text-stone mb-3">Research</p>
+
+    <div class="rounded-lg bg-narra text-cream p-8 md:p-12">
+      <h1 data-reveal class="font-display leading-[1.1] tracking-tight" style="font-size: clamp(2rem, 4.5vw, 3.5rem);">
+        Agricultural Land Conversion Pressure and Paddy Rice Productivity in Bay, Laguna (2019–2025)
+      </h1>
+      <p data-reveal data-reveal-delay="100" class="mt-6 text-cream/80 max-w-2xl">
+        Undergraduate thesis · Advised by Inst. Francis C. Buno · BS Agricultural and Applied Economics, UPLB CEM
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-12 max-w-3xl">
+    <h2 data-reveal class="font-display mb-4" style="font-size: clamp(1.5rem, 3vw, 2rem);">Abstract</h2>
+    {/* PLACEHOLDER — Uzziel to replace */}
+    <p data-reveal data-reveal-delay="60" class="text-stone leading-relaxed">
+      This thesis examines how parcel-level conversion of agricultural land in Bay, Laguna interacts with paddy rice productivity over the 2019–2025 period. Using cadastral records, farmer-reported yields, and structured interviews, the study estimates a panel regression with parcel and year fixed effects. Findings — pending — are expected to clarify whether productivity changes follow from the loss of irrigation continuity rather than the loss of hectares alone.
+    </p>
+  </section>
+
+  <section class="container py-12 max-w-3xl border-t border-stone/20">
+    <h2 data-reveal class="font-display mb-4" style="font-size: clamp(1.5rem, 3vw, 2rem);">Research questions</h2>
+    {/* PLACEHOLDER — Uzziel to replace */}
+    <ol data-reveal data-reveal-delay="60" class="list-decimal pl-5 space-y-2 text-stone leading-relaxed">
+      <li>How does the share of converted neighbors affect the productivity of remaining rice parcels?</li>
+      <li>Through what mechanisms — irrigation, labor cost, input timing — does conversion pressure transmit to yield?</li>
+      <li>What policy levers at the municipal level could ease the productivity penalty without halting conversion outright?</li>
+    </ol>
+  </section>
+
+  <section class="container py-12 max-w-3xl border-t border-stone/20">
+    <h2 data-reveal class="font-display mb-4" style="font-size: clamp(1.5rem, 3vw, 2rem);">Conceptual framework</h2>
+    {/* PLACEHOLDER — Uzziel to replace */}
+    <p data-reveal data-reveal-delay="60" class="text-stone leading-relaxed">
+      The framework treats a rice parcel as a unit whose productivity depends not only on its own inputs but also on the land-use composition of its immediate neighborhood. Conversion of nearby parcels alters shared infrastructure (irrigation ditches, access roads, drainage) and the local labor pool. The model captures these spillovers via a conversion-share variable interacted with parcel characteristics.
+    </p>
+  </section>
+
+  <section class="container py-12 max-w-3xl border-t border-stone/20">
+    <h2 data-reveal class="font-display mb-4" style="font-size: clamp(1.5rem, 3vw, 2rem);">Methodology</h2>
+    {/* PLACEHOLDER — Uzziel to replace */}
+    <p data-reveal data-reveal-delay="60" class="text-stone leading-relaxed">
+      Data sources: municipal cadastre for the parcel-level conversion timeline; primary survey of farmers in three barangays for yield and cost; structured interviews with farm owners and irrigation operators. Analysis runs as a two-way fixed-effects panel regression in R; spatial joins and conversion-share construction in QGIS. APA 7 referencing per program requirement.
+    </p>
+  </section>
+
+  <section class="container py-12 max-w-3xl border-t border-stone/20">
+    <h2 data-reveal class="font-display mb-4" style="font-size: clamp(1.5rem, 3vw, 2rem);">Status</h2>
+    {/* PLACEHOLDER — Uzziel to replace */}
+    <p data-reveal data-reveal-delay="60" class="text-stone leading-relaxed">
+      Chapters 1 and 2 drafted. Cadastral cleaning underway; farmer survey scheduled for the next dry season. Defense target: [date]. Public summary will be posted here after defense.
+    </p>
+  </section>
+
+  <section class="container py-12 max-w-3xl border-t border-stone/20">
+    <div class="flex flex-wrap gap-4">
+      <a
+        href="/downloads/cv.pdf"
+        data-cursor="hover"
+        class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-ink text-cream dark:bg-cream dark:text-ink font-medium text-sm hover:opacity-90 transition-opacity"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download CV (PDF)
+      </a>
+      <a
+        href="/downloads/chapter-2.pdf"
+        data-cursor="hover"
+        class="inline-flex items-center gap-2 px-5 py-3 rounded-full border-2 border-current font-medium text-sm hover:text-gold transition-colors"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Read Chapter 2 (PDF)
+      </a>
+    </div>
+    <p class="mt-10 text-sm text-stone italic">More research as it ships.</p>
+  </section>
+
+  <script>
+    import { initRevealOnScroll } from '../lib/revealOnScroll.ts';
+    initRevealOnScroll();
+  </script>
+</BaseLayout>

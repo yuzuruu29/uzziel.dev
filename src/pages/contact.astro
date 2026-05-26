@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Magnetic from '../islands/Magnetic.tsx';
+---
+
+<BaseLayout
+  title="Contact — Uzziel Malolos"
+  description="Send a message. I reply within 2 business days, GMT+8."
+>
+  <section class="container pt-24 pb-12 md:pt-32">
+    <p class="text-xs uppercase tracking-widest text-stone mb-3">Contact</p>
+    <h1 data-reveal class="font-display leading-[1] tracking-tight" style="font-size: clamp(2.5rem, 6vw, 4.5rem);">
+      Let's talk.
+    </h1>
+    <p data-reveal data-reveal-delay="80" class="mt-6 max-w-xl text-lg text-stone">
+      Project inquiries, research collaborations, or just to say hi. Choose the option that fits and I'll write back.
+    </p>
+  </section>
+
+  <section class="container py-12 grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-12">
+    <div id="contact-form-wrap">
+      <form
+        id="contact-form"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/contact?success=true"
+        class="space-y-5"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="hidden">
+          <label>Don't fill: <input name="bot-field" /></label>
+        </p>
+
+        <div data-reveal>
+          <label for="name" class="block text-xs uppercase tracking-widest text-stone mb-2">Name *</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            class="w-full bg-transparent border border-stone/30 focus:border-gold rounded-md px-4 py-3 outline-none transition-colors"
+          />
+        </div>
+
+        <div data-reveal data-reveal-delay="60">
+          <label for="email" class="block text-xs uppercase tracking-widest text-stone mb-2">Email *</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            class="w-full bg-transparent border border-stone/30 focus:border-gold rounded-md px-4 py-3 outline-none transition-colors"
+          />
+        </div>
+
+        <div data-reveal data-reveal-delay="120" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label for="project-type" class="block text-xs uppercase tracking-widest text-stone mb-2">Project type</label>
+            <select
+              id="project-type"
+              name="project-type"
+              class="w-full bg-cream dark:bg-ink border border-stone/30 focus:border-gold rounded-md px-4 py-3 outline-none transition-colors"
+            >
+              <option value="Data">Data</option>
+              <option value="Web">Web</option>
+              <option value="AI">AI</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="budget" class="block text-xs uppercase tracking-widest text-stone mb-2">Budget</label>
+            <select
+              id="budget"
+              name="budget"
+              class="w-full bg-cream dark:bg-ink border border-stone/30 focus:border-gold rounded-md px-4 py-3 outline-none transition-colors"
+            >
+              <option value="Under PHP 10k">Under PHP 10k</option>
+              <option value="PHP 10–30k">PHP 10–30k</option>
+              <option value="PHP 30–60k">PHP 30–60k</option>
+              <option value="PHP 60k+">PHP 60k+</option>
+            </select>
+          </div>
+        </div>
+
+        <div data-reveal data-reveal-delay="180">
+          <label for="message" class="block text-xs uppercase tracking-widest text-stone mb-2">Message *</label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            rows="6"
+            class="w-full bg-transparent border border-stone/30 focus:border-gold rounded-md px-4 py-3 outline-none transition-colors resize-y"
+          ></textarea>
+        </div>
+
+        <div data-reveal data-reveal-delay="240">
+          <Magnetic client:load>
+            <button
+              type="submit"
+              data-cursor="hover"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gold text-ink font-medium hover:bg-gold/90 transition-colors"
+            >
+              Send message
+              <span aria-hidden="true">→</span>
+            </button>
+          </Magnetic>
+        </div>
+      </form>
+    </div>
+
+    <aside id="thank-you-panel" class="hidden" aria-live="polite">
+      <div class="rounded-lg border border-leaf/30 bg-leaf/10 p-6">
+        <h2 class="font-display text-2xl">Thanks — message received.</h2>
+        <p class="mt-3 text-sm text-stone leading-relaxed">
+          I'll get back to you within 2 business days. While you wait, see <a href="/work/tirador" class="underline text-gold">TIRADOR →</a>
+        </p>
+      </div>
+    </aside>
+
+    <aside class="space-y-8">
+      <div data-reveal>
+        <p class="text-xs uppercase tracking-widest text-stone mb-2">Response time</p>
+        <p class="text-sm leading-relaxed">Within 2 business days, GMT+8.</p>
+      </div>
+      <div data-reveal data-reveal-delay="80">
+        <p class="text-xs uppercase tracking-widest text-stone mb-2">Location</p>
+        <p class="text-sm leading-relaxed">Bay, Laguna, Philippines.</p>
+      </div>
+      <div data-reveal data-reveal-delay="160">
+        <p class="text-xs uppercase tracking-widest text-stone mb-3">Elsewhere</p>
+        <ul class="space-y-2 text-sm text-stone">
+          <li>GitHub — coming soon</li>
+          <li>LinkedIn — coming soon</li>
+          <li>Facebook — coming soon</li>
+          <li>YouTube — coming soon</li>
+          <li>Email — coming soon</li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+  <script>
+    import { initRevealOnScroll } from '../lib/revealOnScroll.ts';
+    initRevealOnScroll();
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('success') === 'true') {
+      const form = document.getElementById('contact-form-wrap');
+      const thanks = document.getElementById('thank-you-panel');
+      if (form && thanks) {
+        form.style.transition = 'height 400ms ease, opacity 300ms ease';
+        form.style.height = form.offsetHeight + 'px';
+        requestAnimationFrame(() => {
+          form.style.height = '0px';
+          form.style.opacity = '0';
+          form.style.overflow = 'hidden';
+        });
+        window.setTimeout(() => {
+          form.style.display = 'none';
+          thanks.classList.remove('hidden');
+        }, 420);
+      }
+    }
+  </script>
+</BaseLayout>
