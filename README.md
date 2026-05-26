@@ -1,43 +1,59 @@
-# Astro Starter Kit: Minimal
+# uzziel.dev
 
-```sh
-npm create astro@latest -- --template minimal
+Personal site of Emmanuel Uzziel A. Malolos — agri-econ undergrad at UPLB and full-stack creator from Bay, Laguna. The site catalogs five projects across indie games, AI agency work, volunteer web dev, and academic research, and serves as the home for a long-running thesis on land conversion and rice productivity in Bay, Laguna.
+
+## Stack
+
+- [Astro 4](https://astro.build) — static site generator
+- [React 18](https://react.dev) — interactive islands only
+- [Tailwind CSS 3](https://tailwindcss.com) — class-based dark mode
+- [Framer Motion](https://www.framer.com/motion/) + [GSAP](https://gsap.com) + [Lenis](https://lenis.darkroom.engineering) — motion
+- [MDX](https://mdxjs.com) content collections — case studies
+
+## Local development
+
+Prerequisites: Node 20 or newer.
+
+```bash
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Dev server runs on http://localhost:4321.
 
-## 🚀 Project Structure
+## Build & preview
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm run build      # outputs to dist/
+npm run preview    # serves dist/ on http://localhost:4321
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Adding a new project
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+1. Create `src/content/work/{slug}.mdx` with frontmatter matching the schema:
 
-Any static assets, like images, can be placed in the `public/` directory.
+   ```yaml
+   ---
+   title: "Project Title"
+   year: 2026
+   status: "live" | "in-progress" | "archived"
+   role: "Your role"
+   stack: ["Tool", "Tool", "Tool"]
+   summary: "One-sentence summary."
+   cover: "/covers/your-slug.svg"
+   featured: true   # appears on homepage
+   order: 6         # lower = earlier in the grid
+   ---
+   ```
 
-## 🧞 Commands
+2. Drop the cover image at `public/covers/{slug}.{svg|png|jpg}`.
+3. Write the case study body in MDX below the frontmatter.
+4. Run `npm run build` to verify and `npm run preview` to inspect.
 
-All commands are run from the root of the project, from a terminal:
+## Deploy
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+This repo is wired to Netlify. Pushes to `main` trigger an auto-deploy. Local config lives in `netlify.toml`.
 
-## 👀 Want to learn more?
+## License
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+All rights reserved. See [LICENSE](./LICENSE).
