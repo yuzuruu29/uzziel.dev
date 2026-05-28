@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Willow Creek Farmstay cover</title>
+  <desc id="desc">Editorial cover for a farmstay landing page sample.</desc>
+  <rect width="1600" height="900" fill="#2f3f2b"/>
+  <rect x="90" y="90" width="1420" height="720" rx="18" fill="#f4ecd8"/>
+  <rect x="150" y="150" width="610" height="600" rx="14" fill="#6b3410"/>
+  <path d="M190 640 C290 510 390 570 500 430 C590 315 690 345 740 240 L740 750 L190 750 Z" fill="#4a6b3a"/>
+  <circle cx="620" cy="260" r="74" fill="#c9a14a"/>
+  <text x="840" y="320" font-family="Fraunces, Georgia, serif" font-size="94" font-weight="500" fill="#1a1410">Willow Creek</text>
+  <text x="842" y="410" font-family="Fraunces, Georgia, serif" font-size="72" font-weight="500" fill="#6b3410">Farmstay</text>
+  <text x="845" y="500" font-family="Inter Tight, Arial, sans-serif" font-size="34" fill="#8a7d6e">Farm stay inquiry page</text>
+  <text x="845" y="575" font-family="JetBrains Mono, monospace" font-size="24" fill="#6b3410">HTML / CSS / JavaScript</text>
+</svg>

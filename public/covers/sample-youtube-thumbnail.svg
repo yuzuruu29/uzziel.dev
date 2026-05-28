@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AI-assisted YouTube Thumbnail Design Portfolio cover</title>
+  <desc id="desc">Editorial cover for a YouTube thumbnail design portfolio PDF.</desc>
+  <rect width="1600" height="900" fill="#f4ecd8"/>
+  <rect x="110" y="120" width="610" height="660" rx="18" fill="#1a1410"/>
+  <rect x="180" y="210" width="470" height="265" rx="12" fill="#c9a14a"/>
+  <polygon points="370,285 370,400 480,342" fill="#1a1410"/>
+  <rect x="180" y="535" width="470" height="70" rx="8" fill="#6b3410"/>
+  <rect x="180" y="640" width="330" height="26" fill="#8a7d6e"/>
+  <text x="810" y="310" font-family="Fraunces, Georgia, serif" font-size="86" font-weight="500" fill="#1a1410">YouTube Thumbnail</text>
+  <text x="814" y="395" font-family="Fraunces, Georgia, serif" font-size="72" font-weight="500" fill="#6b3410">Design Portfolio</text>
+  <text x="818" y="485" font-family="Inter Tight, Arial, sans-serif" font-size="34" fill="#8a7d6e">AI-assisted visual samples for video packaging</text>
+  <text x="820" y="565" font-family="JetBrains Mono, monospace" font-size="24" fill="#6b3410">PDF / AI design / YouTube</text>
+</svg>

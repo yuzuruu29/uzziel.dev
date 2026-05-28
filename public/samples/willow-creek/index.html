@@ -1,0 +1,579 @@
+<!-- Concept portfolio sample. Not a real client project. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Willow Creek Farmstay — A quiet farm stay cabin for slow weekends, farm experiences, and rural escapes. One private cabin, farm activities included, from $150/night.">
+  <title>Willow Creek Farmstay — Rural Cabin Escape</title>
+
+  <!-- Google Fonts: Playfair Display (display headings) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       SECTION: HEADER / NAV
+       ============================================================ -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#top" class="site-logo">
+        Willow Creek <span>Farmstay</span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#stay">Stay</a></li>
+          <li><a href="#farm">Farm</a></li>
+          <li><a href="#rates">Rates</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#inquire" class="nav-cta">Inquire</a></li>
+        </ul>
+      </nav>
+
+      <button
+        class="hamburger"
+        id="hamburger"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         SECTION: HERO
+         ============================================================ -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <span class="concept-badge">Concept portfolio sample &middot; Not a real business</span>
+          <p class="section-label">Farm Stay &middot; Cabin Retreat</p>
+          <h1>A quiet farm stay cabin for slow weekends, farm experiences, and rural escapes</h1>
+          <p class="hero-sub">Stay in a quiet farm cabin, meet the animals, walk the garden, and slow down for a few days away from the city.</p>
+          <a href="#inquire" class="btn btn-primary">Check Availability</a>
+        </div>
+        <div class="hero-visual reveal-wrap" data-reveal-delay="350">
+          <div class="reveal-curtain" aria-hidden="true"></div>
+          <img
+            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&h=1100&q=80"
+            alt="Rustic wooden cabin nestled among tall trees — a peaceful rural retreat"
+            loading="eager"
+            width="900"
+            height="1100"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: QUICK FACTS BAR
+         ============================================================ -->
+    <section class="quick-facts" aria-label="Quick facts about the cabin">
+      <div class="container">
+        <ul class="facts-bar">
+          <li>
+            <span class="fact-icon" aria-hidden="true">&#127968;</span>
+            <span class="fact-label">One private cabin</span>
+          </li>
+          <li>
+            <span class="fact-icon" aria-hidden="true">&#128176;</span>
+            <span class="fact-label">Starts at $150/night</span>
+          </li>
+          <li>
+            <span class="fact-icon" aria-hidden="true">&#128197;</span>
+            <span class="fact-label">Minimum 2-night stay</span>
+          </li>
+          <li>
+            <span class="fact-icon" aria-hidden="true">&#127807;</span>
+            <span class="fact-label">Farm activities included</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: BEST FOR
+         ============================================================ -->
+    <section class="best-for section-pad" id="stay">
+      <div class="container">
+        <p class="section-label">Who Stays Here</p>
+        <h2>Best For</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Couples</h3>
+            <p>A simple place to rest, cook, read, and spend time without a packed schedule. Good for couples who want quiet mornings, open space, and evenings by the fire.</p>
+          </div>
+          <div class="card">
+            <h3>Families</h3>
+            <p>Children can see the animals, walk the garden, and learn where some of their food comes from. The cabin works best for families who are comfortable with a real farm setting, not a hotel setup.</p>
+          </div>
+          <div class="card">
+            <h3>Remote Workers</h3>
+            <p>The cabin gives you a quiet place to focus between walks, coffee breaks, and fresh air. This is best for remote workers who want a slower work week and do not need a busy town nearby.</p>
+          </div>
+          <div class="card">
+            <h3>Small Groups</h3>
+            <p>A good fit for close friends or small family groups who want a private rural stay. The space is meant for simple meals, conversation, farm walks, and relaxed evenings.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: STAY DETAILS
+         ============================================================ -->
+    <section class="stay-details section-pad">
+      <div class="container">
+        <p class="section-label">The Cabin</p>
+        <h2>Your Stay</h2>
+        <div class="stay-layout">
+          <div class="stay-description">
+            <p>The Willow Creek cabin is a restored farmhouse cottage sitting on 40 acres of working farm and native bushland. It&rsquo;s been furnished simply but thoughtfully &mdash; natural timber, soft textiles, and a wood fireplace that earns its keep on cool nights. The cabin is self-contained and fully private, with its own entrance, outdoor space, and parking. You&rsquo;re close enough to the farm to feel part of it, and far enough to have real quiet.</p>
+          </div>
+          <div class="stay-amenities">
+            <h3>What&rsquo;s Included</h3>
+            <ul class="amenities-list">
+              <li>Private cabin</li>
+              <li>Queen bed</li>
+              <li>Small kitchen</li>
+              <li>Private bathroom</li>
+              <li>Dining area</li>
+              <li>Work table</li>
+              <li>Outdoor seating</li>
+              <li>Fire pit access when conditions allow</li>
+              <li>Basic cookware and dishes</li>
+              <li>Parking on the property</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: FARM EXPERIENCES
+         ============================================================ -->
+    <section class="farm-experiences section-pad" id="farm">
+      <div class="container">
+        <p class="section-label">During Your Stay</p>
+        <h2>Farm Experiences</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Animal Visits</h3>
+            <p>Guests can visit the animals with a host during scheduled times. We keep visits calm and supervised so the animals stay safe and guests know what to expect.</p>
+          </div>
+          <div class="card">
+            <h3>Garden Walks</h3>
+            <p>Walk through the garden and see what is growing during your stay. The garden changes by season, so some visits are full and others are quieter.</p>
+          </div>
+          <div class="card">
+            <h3>Campfire Evenings</h3>
+            <p>Spend the evening outside with a small campfire when weather and local conditions allow. We provide the fire area, and guests bring their own snacks, drinks, and stories.</p>
+          </div>
+          <div class="card">
+            <h3>Seasonal Harvest</h3>
+            <p>When something is ready to pick, guests may be invited to join a simple harvest activity. This depends on the season, weather, and what the farm is growing at the time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: RATES
+         ============================================================ -->
+    <section class="rates section-pad" id="rates">
+      <div class="container rates-inner">
+        <p class="section-label">Pricing</p>
+        <h2>Rates</h2>
+        <p class="rates-note">Stays start at <strong>$150 per night</strong> with a minimum 2-night booking. Send an inquiry with your preferred dates, guest count, and any questions, then we will reply with availability and the next steps to confirm.</p>
+        <p class="rates-sub">Your booking is not confirmed until the details are reviewed and accepted.</p>
+        <a href="#inquire" class="btn btn-rates">Check Availability</a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: GALLERY
+         ============================================================ -->
+    <section class="gallery section-pad">
+      <div class="container">
+        <p class="section-label">The Space</p>
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+          <figure class="gallery-item">
+            <div class="gallery-img reveal-wrap">
+              <div class="reveal-curtain" aria-hidden="true"></div>
+              <img
+                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&h=600&q=80"
+                alt="Exterior view of the Willow Creek cabin surrounded by native trees and open farmland"
+                loading="lazy"
+                width="800"
+                height="600"
+              >
+            </div>
+            <figcaption>Cabin exterior &mdash; nestled in native trees</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="gallery-img reveal-wrap">
+              <div class="reveal-curtain" aria-hidden="true"></div>
+              <img
+                src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&h=600&q=80"
+                alt="Cosy interior living area with wood fireplace and natural timber furniture"
+                loading="lazy"
+                width="800"
+                height="600"
+              >
+            </div>
+            <figcaption>Living area with wood fireplace</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="gallery-img reveal-wrap">
+              <div class="reveal-curtain" aria-hidden="true"></div>
+              <img
+                src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&h=600&q=80"
+                alt="Fully equipped farmhouse kitchen with timber benchtops and modern appliances"
+                loading="lazy"
+                width="800"
+                height="600"
+              >
+            </div>
+            <figcaption>Full farmhouse kitchen</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="gallery-img reveal-wrap">
+              <div class="reveal-curtain" aria-hidden="true"></div>
+              <img
+                src="https://images.unsplash.com/photo-1537726235470-8504e3beef77?auto=format&fit=crop&w=800&h=600&q=80"
+                alt="Private outdoor deck with timber seating overlooking the farm paddocks"
+                loading="lazy"
+                width="800"
+                height="600"
+              >
+            </div>
+            <figcaption>Private deck overlooking the farm</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="gallery-img reveal-wrap">
+              <div class="reveal-curtain" aria-hidden="true"></div>
+              <img
+                src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=800&h=600&q=80"
+                alt="Farm animals grazing in the paddock on a sunny morning"
+                loading="lazy"
+                width="800"
+                height="600"
+              >
+            </div>
+            <figcaption>Meet the farm animals</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="gallery-img reveal-wrap">
+              <div class="reveal-curtain" aria-hidden="true"></div>
+              <img
+                src="https://images.unsplash.com/photo-1476820865390-c52aeebb9891?auto=format&fit=crop&w=800&h=600&q=80"
+                alt="Evening campfire with glowing embers and a star-filled sky overhead"
+                loading="lazy"
+                width="800"
+                height="600"
+              >
+            </div>
+            <figcaption>Campfire evenings under the stars</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: LOCATION
+         ============================================================ -->
+    <section class="location section-pad">
+      <div class="container">
+        <p class="section-label">Getting Here</p>
+        <h2>Location</h2>
+        <div class="map-placeholder" role="img" aria-label="Map showing the general location of Willow Creek Farmstay near the local town"></div>
+        <p class="location-copy">Located near <strong>Asheville</strong>, <strong>North Carolina</strong> &mdash; approximately 90 minutes from the city. The exact address is shared upon confirmed booking. We&rsquo;re happy to provide driving directions and local tips when we confirm your stay.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: HOUSE RULES
+         ============================================================ -->
+    <section class="house-rules section-pad">
+      <div class="container">
+        <p class="section-label">Good to Know</p>
+        <h2>House Rules</h2>
+        <ul class="rules-list">
+          <li>Please respect the animals and only visit them during approved times.</li>
+          <li>Quiet hours begin in the evening so everyone can enjoy the farm peacefully.</li>
+          <li>Children must be supervised around animals, garden areas, tools, and outdoor spaces.</li>
+          <li>No parties or loud gatherings.</li>
+          <li>Please keep gates closed unless a host tells you otherwise.</li>
+          <li>Leave the cabin tidy and report any damage or issues before checkout.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: FAQ ACCORDION
+         ============================================================ -->
+    <section class="faq section-pad" id="faq">
+      <div class="container">
+        <p class="section-label">Questions</p>
+        <h2>Frequently Asked Questions</h2>
+        <div class="accordion">
+
+          <div class="accordion-item">
+            <button class="accordion-question" aria-expanded="false">
+              Is this a real business?
+              <span class="accordion-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-answer" hidden>
+              <p>No. Willow Creek Farmstay is a concept portfolio sample created to show how a small farm stay inquiry page could work. It is not a real business and not a real client project.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-question" aria-expanded="false">
+              What is included in the stay?
+              <span class="accordion-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-answer" hidden>
+              <p>The stay includes use of the private cabin, basic amenities, outdoor seating, and scheduled farm experiences when available. Some activities depend on weather, season, animal care schedules, and host availability.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-question" aria-expanded="false">
+              How many guests can stay?
+              <span class="accordion-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-answer" hidden>
+              <p>The cabin is best for couples, small families, remote workers, or small groups. The final guest limit should be confirmed through the inquiry form before booking.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-question" aria-expanded="false">
+              Are pets allowed?
+              <span class="accordion-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-answer" hidden>
+              <p>Pets are not automatically accepted because this is a farm with animals on the property. If guests want to bring a pet, they should include details in the inquiry so the host can review it first.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-question" aria-expanded="false">
+              Is there Wi-Fi?
+              <span class="accordion-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-answer" hidden>
+              <p>The cabin is intended to support quiet stays and light remote work. Guests should ask about current Wi-Fi details before booking, especially if they need it for calls, uploads, or full workdays.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-question" aria-expanded="false">
+              Can guests join farm activities?
+              <span class="accordion-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-answer" hidden>
+              <p>Yes, guests can join simple farm activities when they are available and safe. Activities may change based on the season, weather, animal needs, and the daily work on the farm.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-question" aria-expanded="false">
+              How does booking work?
+              <span class="accordion-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-answer" hidden>
+              <p>Guests send an inquiry with their dates, guest count, and stay details. The host reviews availability, answers questions, and sends the next steps if the stay is a good fit.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-question" aria-expanded="false">
+              What should guests bring?
+              <span class="accordion-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-answer" hidden>
+              <p>Guests should bring personal items, comfortable outdoor shoes, weather-appropriate clothes, groceries or snacks, and anything needed for children or work. The farm is quiet, so it is better to bring what you need before arriving.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: INQUIRY CTA
+         ============================================================ -->
+    <section class="inquiry-cta section-pad">
+      <div class="container inquiry-cta-inner">
+        <p class="section-label">Plan Your Visit</p>
+        <h2>Plan your farm stay</h2>
+        <p>Send your preferred dates, guest count, and a few details about your trip so we can check availability and reply with clear next steps.</p>
+        <a href="#inquire" class="btn btn-primary">Check Availability</a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: INQUIRY FORM
+         ============================================================ -->
+    <section class="inquiry-form-section section-pad" id="inquire">
+      <div class="container">
+        <h3 class="form-heading">Guest Inquiry Form</h3>
+
+        <form class="inquiry-form" id="inquiry-form">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your full name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address <span class="required" aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="your@email.com">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+1 (000) 000-0000">
+            </div>
+            <div class="form-group">
+              <label for="country-state">Country / State or Region</label>
+              <input type="text" id="country-state" name="country-state" autocomplete="country-name" placeholder="e.g. California, USA">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="checkin">Check-in Date <span class="required" aria-hidden="true">*</span></label>
+              <input type="date" id="checkin" name="checkin" required>
+            </div>
+            <div class="form-group">
+              <label for="checkout">Check-out Date <span class="required" aria-hidden="true">*</span></label>
+              <input type="date" id="checkout" name="checkout" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="adults">Number of Adults <span class="required" aria-hidden="true">*</span></label>
+              <select id="adults" name="adults" required>
+                <option value="" disabled selected>Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="children">Number of Children</label>
+              <select id="children" name="children">
+                <option value="0" selected>0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <fieldset>
+              <legend>Bringing Pets?</legend>
+              <div class="radio-group">
+                <label class="radio-label">
+                  <input type="radio" name="pets" value="yes">
+                  Yes
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="pets" value="no" checked>
+                  No
+                </label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="form-group">
+            <label for="occasion">Occasion or Purpose of Visit</label>
+            <input type="text" id="occasion" name="occasion" placeholder="e.g. Anniversary trip, family holiday, working retreat">
+          </div>
+
+          <div class="form-group">
+            <label for="activities">Farm Activities You&rsquo;re Interested In</label>
+            <input type="text" id="activities" name="activities" placeholder="e.g. Animal visits, campfire evenings, garden walks">
+          </div>
+
+          <div class="form-group">
+            <label for="questions">Any Questions or Special Requests?</label>
+            <textarea id="questions" name="questions" rows="4" placeholder="Anything you&rsquo;d like us to know before you arrive?"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="referral">How did you hear about us?</label>
+            <select id="referral" name="referral">
+              <option value="" disabled selected>Select an option</option>
+              <option value="google">Google Search</option>
+              <option value="instagram">Instagram</option>
+              <option value="facebook">Facebook</option>
+              <option value="airbnb">Airbnb</option>
+              <option value="friend">Friend or Family</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-submit">Send Inquiry</button>
+          <p class="form-note">We typically reply within 24 hours.</p>
+
+        </form>
+
+        <!-- THANK YOU STATE: shown after form submit, hidden by default -->
+        <div class="thank-you" id="thank-you" hidden aria-live="polite">
+          <div class="thank-you-inner">
+            <span class="thank-you-icon" aria-hidden="true">&#10003;</span>
+            <h3>Thank you!</h3>
+            <p>We received your inquiry and will reply within 24 hours. Keep an eye on your inbox &mdash; we&rsquo;re looking forward to welcoming you to Willow Creek.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">Willow Creek Farmstay</div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#stay">Stay</a>
+        <a href="#farm">Farm</a>
+        <a href="#rates">Rates</a>
+        <a href="#faq">FAQ</a>
+        <a href="#inquire">Inquire</a>
+      </nav>
+
+      <p class="footer-disclaimer">Concept portfolio sample only. Willow Creek Farmstay is a fictional business and not a real client project.</p>
+      <p class="footer-credit">Built by Uzziel Malolos &middot; Landing page and lead-capture specialist</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

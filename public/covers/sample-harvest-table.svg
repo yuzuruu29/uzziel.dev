@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Harvest Table Kitchen cover</title>
+  <desc id="desc">Editorial cover for a food preorder landing page sample.</desc>
+  <rect width="1600" height="900" fill="#6b3410"/>
+  <rect x="110" y="95" width="1380" height="710" rx="18" fill="#f4ecd8"/>
+  <circle cx="430" cy="450" r="225" fill="#c9a14a"/>
+  <circle cx="370" cy="410" r="72" fill="#f4ecd8"/>
+  <circle cx="495" cy="390" r="58" fill="#f4ecd8"/>
+  <circle cx="455" cy="520" r="84" fill="#f4ecd8"/>
+  <path d="M775 250 H1370 V650 H775 Z" fill="#1a1410"/>
+  <text x="835" y="390" font-family="Fraunces, Georgia, serif" font-size="84" font-weight="500" fill="#f4ecd8">Harvest Table</text>
+  <text x="838" y="480" font-family="Fraunces, Georgia, serif" font-size="68" font-weight="500" fill="#c9a14a">Kitchen</text>
+  <text x="840" y="555" font-family="Inter Tight, Arial, sans-serif" font-size="32" fill="#f4ecd8">Preorder and catering inquiry page</text>
+  <text x="170" y="735" font-family="JetBrains Mono, monospace" font-size="24" fill="#6b3410">HTML / CSS / JavaScript</text>
+</svg>

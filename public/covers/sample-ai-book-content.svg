@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AI Book Content Portfolio cover</title>
+  <desc id="desc">Editorial cover for an AI-assisted book content portfolio PDF.</desc>
+  <rect width="1600" height="900" fill="#1a1410"/>
+  <rect x="160" y="110" width="470" height="680" rx="16" fill="#f4ecd8"/>
+  <rect x="225" y="190" width="340" height="30" fill="#c9a14a"/>
+  <rect x="225" y="270" width="300" height="18" fill="#8a7d6e"/>
+  <rect x="225" y="325" width="330" height="18" fill="#8a7d6e"/>
+  <rect x="225" y="380" width="260" height="18" fill="#8a7d6e"/>
+  <rect x="225" y="560" width="210" height="60" fill="#6b3410"/>
+  <text x="730" y="340" font-family="Fraunces, Georgia, serif" font-size="92" font-weight="500" fill="#f4ecd8">AI Book Content</text>
+  <text x="734" y="430" font-family="Fraunces, Georgia, serif" font-size="74" font-weight="500" fill="#c9a14a">Portfolio</text>
+  <text x="738" y="520" font-family="Inter Tight, Arial, sans-serif" font-size="34" fill="#d8cdb7">Long-form samples and editorial structure</text>
+  <text x="740" y="600" font-family="JetBrains Mono, monospace" font-size="24" fill="#c9a14a">PDF / AI-assisted writing</text>
+</svg>

@@ -1,0 +1,589 @@
+<!-- Concept portfolio sample. Not a real client project. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Harvest Table Kitchen — Preorder fresh weekly meals, party trays, and catering for small events. Submit your inquiry online and pick up fresh.">
+  <title>Harvest Table Kitchen — Preorders &amp; Catering Inquiries</title>
+
+  <!-- Google Fonts: DM Serif Display (headings) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       SECTION: HEADER / NAV
+       ============================================================ -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#top" class="site-logo">
+        Harvest Table <span>Kitchen</span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#preorder">Preorders</a></li>
+          <li><a href="#catering">Catering</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#inquire" class="nav-cta">Inquire</a></li>
+        </ul>
+      </nav>
+
+      <button
+        class="hamburger"
+        id="hamburger"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         SECTION: HERO
+         ============================================================ -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="section-label">Fresh Food &middot; Preorders &amp; Catering</p>
+        <h1>Fresh weekly meals, party trays, and catering &mdash; all in one place</h1>
+        <p class="hero-sub">Order ahead. Pick up fresh. No more lost messages.</p>
+        <a href="#inquire" class="btn btn-hero">Place an Inquiry</a>
+      </div>
+      <div class="container">
+        <div class="hero-visual reveal-wrap" data-reveal-delay="350">
+          <div class="reveal-curtain" aria-hidden="true"></div>
+          <img
+            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&h=480&q=80"
+            alt="A vibrant spread of freshly prepared dishes and colourful ingredients"
+            loading="eager"
+            width="1200"
+            height="480"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: MENU HIGHLIGHTS
+         ============================================================ -->
+    <section class="menu section-pad" id="menu">
+      <div class="container">
+        <p class="section-label">What We Make</p>
+        <h2>Menu Highlights</h2>
+        <div class="menu-grid">
+
+          <div class="menu-card">
+            <span class="badge badge--weekly">Weekly Meals</span>
+            <div class="menu-img reveal-wrap">
+              <div class="reveal-curtain" aria-hidden="true"></div>
+              <img
+                src="https://images.unsplash.com/photo-1551183053-bf91798d792e?auto=format&fit=crop&w=800&h=600&q=80"
+                alt="Rich beef lasagna with golden béchamel crust — available in individual and family portions"
+                loading="lazy"
+                width="800"
+                height="600"
+              >
+            </div>
+            <div class="menu-card-body">
+              <h3>Beef Lasagna</h3>
+              <p>Rich slow-cooked beef with house béchamel, available in individual and family portions.</p>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <span class="badge badge--party">Party Trays</span>
+            <div class="menu-img reveal-wrap">
+              <div class="reveal-curtain" aria-hidden="true"></div>
+              <img
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&h=600&q=80"
+                alt="Mediterranean platter with dips, pita, marinated olives and grilled vegetables"
+                loading="lazy"
+                width="800"
+                height="600"
+              >
+            </div>
+            <div class="menu-card-body">
+              <h3>Mediterranean Platter</h3>
+              <p>A generous spread of dips, pita, marinated olives, and grilled vegetables for sharing.</p>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <span class="badge badge--seasonal">Seasonal</span>
+            <div class="menu-img reveal-wrap">
+              <div class="reveal-curtain" aria-hidden="true"></div>
+              <img
+                src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=800&h=600&q=80"
+                alt="Whole herb-roasted chicken with seasonal sides available on selected weekends"
+                loading="lazy"
+                width="800"
+                height="600"
+              >
+            </div>
+            <div class="menu-card-body">
+              <h3>Herb Roast Chicken</h3>
+              <p>Whole herb-roasted chicken with seasonal sides, available on selected weekends.</p>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <span class="badge badge--party">Party Trays</span>
+            <div class="menu-img reveal-wrap">
+              <div class="reveal-curtain" aria-hidden="true"></div>
+              <img
+                src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=800&h=600&q=80"
+                alt="Custom layered celebration cake made to order with choice of flavour and design"
+                loading="lazy"
+                width="800"
+                height="600"
+              >
+            </div>
+            <div class="menu-card-body">
+              <h3>Celebration Cake</h3>
+              <p>Custom layered cakes made to order with your choice of flavour and occasion design.</p>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <span class="badge badge--catering">Catering</span>
+            <div class="menu-img reveal-wrap">
+              <div class="reveal-curtain" aria-hidden="true"></div>
+              <img
+                src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&h=600&q=80"
+                alt="Mixed office lunch boxes with protein, salad and a sweet for catering"
+                loading="lazy"
+                width="800"
+                height="600"
+              >
+            </div>
+            <div class="menu-card-body">
+              <h3>Office Lunch Boxes</h3>
+              <p>Mixed lunch boxes with a protein, salad, and a sweet — ideal for office and event catering.</p>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <span class="badge badge--seasonal">Seasonal</span>
+            <div class="menu-img reveal-wrap">
+              <div class="reveal-curtain" aria-hidden="true"></div>
+              <img
+                src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&h=600&q=80"
+                alt="Three hearty seasonal soups in reusable containers for easy weeknight dinners"
+                loading="lazy"
+                width="800"
+                height="600"
+              >
+            </div>
+            <div class="menu-card-body">
+              <h3>Weeknight Soup Pack</h3>
+              <p>Three hearty soups in reusable containers, portioned for easy weeknight dinners.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: HOW TO PREORDER
+         ============================================================ -->
+    <section class="preorder section-pad" id="preorder">
+      <div class="container">
+        <p class="section-label">The Process</p>
+        <h2>How to Preorder</h2>
+        <div class="steps-grid">
+
+          <div class="step">
+            <div class="step-number" aria-hidden="true">1</div>
+            <h3>Submit your inquiry with order details</h3>
+            <p>Tell us what you&rsquo;d like to order, your preferred pickup date, and how many servings you need. The more detail you include, the faster we can confirm.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-number" aria-hidden="true">2</div>
+            <h3>We confirm and send your total</h3>
+            <p>We&rsquo;ll review your request and reply within 24 hours with availability confirmation and a written total. No surprises.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-number" aria-hidden="true">3</div>
+            <h3>Pay and pick up on your chosen date</h3>
+            <p>Once confirmed, pay via your preferred method and collect your order fresh on the agreed date. Delivery available within our service area.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: CATERING
+         ============================================================ -->
+    <section class="catering section-pad" id="catering">
+      <div class="container">
+        <p class="section-label">Events &amp; Gatherings</p>
+        <h2>Catering for Small Events</h2>
+        <div class="catering-layout">
+          <div class="catering-copy">
+            <p>We provide trays, platters, and fresh food for small gatherings &mdash; birthday celebrations, office lunches, baby showers, community events, and more. Everything is prepared fresh to order, never batch-cooked days in advance.</p>
+            <p>Our catering menu includes shared platters, individual serve boxes, sweet trays, and custom cake orders. We work with you to match the food to your event and guest count.</p>
+          </div>
+          <div class="catering-details">
+            <dl class="detail-list">
+              <div class="detail-row">
+                <dt>Starting from</dt>
+                <dd>$18 per person / custom tray pricing</dd>
+              </div>
+              <div class="detail-row">
+                <dt>Minimum order</dt>
+                <dd>10 servings or $180 spend</dd>
+              </div>
+              <div class="detail-row">
+                <dt>Lead time</dt>
+                <dd>5&ndash;7 days advance notice required</dd>
+              </div>
+              <div class="detail-row">
+                <dt>Events suited for</dt>
+                <dd>Up to ~30 guests</dd>
+              </div>
+            </dl>
+            <a href="#inquire" class="btn btn-primary">Inquire About Catering</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: PICKUP AND DELIVERY
+         ============================================================ -->
+    <section class="pickup-delivery section-pad">
+      <div class="container">
+        <p class="section-label">Getting Your Order</p>
+        <h2>Pickup &amp; Delivery</h2>
+        <div class="logistics-grid">
+
+          <div class="logistics-card">
+            <h3>Pickup</h3>
+            <p>Pickup is available <strong>Tuesday to Saturday</strong> between <strong>10 AM</strong> and <strong>5 PM</strong> from our confirmed kitchen pickup point. Pickup is always free.</p>
+            <p>You&rsquo;ll receive a confirmation message with your exact pickup window once your order is confirmed.</p>
+          </div>
+
+          <div class="logistics-card">
+            <h3>Delivery</h3>
+            <p>Local delivery is available within a <strong>15 km radius</strong> for orders over <strong>$120</strong>. Enter your address in the inquiry form and we&rsquo;ll confirm delivery availability.</p>
+            <p>Delivery times and fees are confirmed when we reply to your inquiry.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: LEAD TIME AND CUT-OFFS
+         ============================================================ -->
+    <section class="lead-time section-sm">
+      <div class="container">
+        <div class="info-callout">
+          <span class="info-callout-icon" aria-hidden="true">&#128336;</span>
+          <div class="info-callout-body">
+            <h2>Lead Times &amp; Cut-offs</h2>
+            <p>Weekly preorder cut-off: <strong>Friday by 5 PM</strong>. Catering and party tray orders require a minimum of <strong>5&ndash;7 days&rsquo;</strong> advance notice to allow time for preparation. Same-day orders are not available.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: DIETARY INFO
+         ============================================================ -->
+    <section class="dietary section-sm">
+      <div class="container">
+        <div class="info-callout info-callout--alt">
+          <span class="info-callout-icon" aria-hidden="true">&#127807;</span>
+          <div class="info-callout-body">
+            <h2>Dietary Information</h2>
+            <p>We accommodate common dietary needs including gluten-free, dairy-free, vegetarian, and vegan options on request. Note all allergies and dietary requirements in your inquiry form so we can confirm whether we can accommodate your needs before accepting your order.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: FAQ ACCORDION
+         ============================================================ -->
+    <section class="faq section-pad" id="faq">
+      <div class="container">
+        <p class="section-label">Questions</p>
+        <h2>Frequently Asked Questions</h2>
+        <div class="accordion">
+
+          <div class="accordion-item">
+            <button class="accordion-question" aria-expanded="false">
+              How do I place a preorder?
+              <span class="accordion-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-answer" hidden>
+              <p>Fill out the inquiry form below with your order details, preferred date, and serving size. We&rsquo;ll confirm availability and send your total within 24 hours. Your order is not confirmed until you receive a reply from us.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-question" aria-expanded="false">
+              What is the minimum order for catering?
+              <span class="accordion-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-answer" hidden>
+              <p>Catering orders typically require a minimum of 10 servings or a minimum spend of $180. Smaller orders may be considered depending on availability &mdash; just include your details in the form and we&rsquo;ll get back to you.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-question" aria-expanded="false">
+              Do you deliver?
+              <span class="accordion-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-answer" hidden>
+              <p>Delivery is available within a 15 km radius for orders over $120. Enter your address in the inquiry form and we&rsquo;ll confirm delivery availability when we review your request. Pickup from our kitchen is always free.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-question" aria-expanded="false">
+              How far in advance do I need to order?
+              <span class="accordion-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-answer" hidden>
+              <p>Weekly meal preorders close on Friday by 5 PM for that week&rsquo;s pickup. Catering and party tray orders require a minimum of 5&ndash;7 days&rsquo; notice to allow preparation time. Same-day orders are not available.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-question" aria-expanded="false">
+              Can you accommodate dietary restrictions?
+              <span class="accordion-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-answer" hidden>
+              <p>Yes &mdash; we accommodate common dietary needs including gluten-free, dairy-free, vegetarian, and vegan options on request. Please note all allergies and requirements in the inquiry form so we can confirm before accepting your order.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-question" aria-expanded="false">
+              How do I pay?
+              <span class="accordion-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-answer" hidden>
+              <p>Payment details are sent after your order is confirmed. We accept [payment methods]. Payment is required before pickup or delivery. We do not accept unconfirmed walk-in orders or payment at the door without prior arrangement.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-question" aria-expanded="false">
+              Can I pick up on the same day?
+              <span class="accordion-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-answer" hidden>
+              <p>No &mdash; we do not accept same-day orders. All orders need to be submitted and confirmed in advance. Please check the preorder cut-off time for weekly orders and allow 5&ndash;7 days for catering requests.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-question" aria-expanded="false">
+              Do you offer recurring meal plans?
+              <span class="accordion-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-answer" hidden>
+              <p>Yes, we offer weekly meal subscriptions for regular customers. Let us know in the inquiry form that you&rsquo;re interested in a recurring plan and we&rsquo;ll provide more details about how it works and what&rsquo;s available each week.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: INQUIRY CTA
+         ============================================================ -->
+    <section class="inquiry-cta section-pad">
+      <div class="container inquiry-cta-inner">
+        <p class="section-label">Place an Order</p>
+        <h2>Ready to order?</h2>
+        <p>Send us the details and we&rsquo;ll get back to you within 24 hours.</p>
+        <a href="#inquire" class="btn btn-hero">Send an Inquiry</a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: INQUIRY FORM
+         ============================================================ -->
+    <section class="inquiry-form-section section-pad" id="inquire">
+      <div class="container">
+        <h3 class="form-heading">Order Inquiry Form</h3>
+
+        <form class="inquiry-form" id="inquiry-form">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your full name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address <span class="required" aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="your@email.com">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+1 (000) 000-0000">
+            </div>
+            <div class="form-group">
+              <label for="requested-date">Requested Date <span class="required" aria-hidden="true">*</span></label>
+              <input type="date" id="requested-date" name="requested-date" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <fieldset>
+              <legend>Order Type <span class="required" aria-hidden="true">*</span></legend>
+              <div class="radio-group radio-group--wrap">
+                <label class="radio-label">
+                  <input type="radio" name="order-type" value="weekly-meal" required>
+                  Weekly Meal
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="order-type" value="party-tray">
+                  Party Tray
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="order-type" value="catering">
+                  Catering
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="order-type" value="other">
+                  Other
+                </label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="form-group">
+            <fieldset>
+              <legend>Pickup or Delivery? <span class="required" aria-hidden="true">*</span></legend>
+              <div class="radio-group">
+                <label class="radio-label">
+                  <input type="radio" name="fulfillment" value="pickup" required>
+                  Pickup
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="fulfillment" value="delivery">
+                  Delivery
+                </label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="servings">Estimated Servings</label>
+              <select id="servings" name="servings">
+                <option value="" disabled selected>Select a range</option>
+                <option value="1-5">1&ndash;5 servings</option>
+                <option value="6-15">6&ndash;15 servings</option>
+                <option value="16-30">16&ndash;30 servings</option>
+                <option value="30+">30+ servings</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="budget">Budget Range <span class="optional">(optional)</span></label>
+              <input type="text" id="budget" name="budget" placeholder="e.g. Around $150, flexible">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="items">Items Interested In <span class="required" aria-hidden="true">*</span></label>
+            <textarea id="items" name="items" rows="3" required placeholder="List the dishes or items you&rsquo;re interested in. Be as specific as you like."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="allergies">Allergies or Dietary Notes</label>
+            <input type="text" id="allergies" name="allergies" placeholder="e.g. Nut allergy, gluten-free required, vegetarian only">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="referral">How did you hear about us?</label>
+              <select id="referral" name="referral">
+                <option value="" disabled selected>Select an option</option>
+                <option value="google">Google Search</option>
+                <option value="instagram">Instagram</option>
+                <option value="facebook">Facebook</option>
+                <option value="word-of-mouth">Word of Mouth</option>
+                <option value="market">Farmers Market</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <!-- Spacer on desktop; stacks naturally on mobile -->
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Additional Notes</label>
+            <textarea id="notes" name="notes" rows="3" placeholder="Any other details, event information, or special requests we should know about."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-submit">Send My Order Inquiry</button>
+          <p class="form-note">We confirm all inquiries within 24 hours.</p>
+
+        </form>
+
+        <!-- THANK YOU STATE: shown after form submit, hidden by default -->
+        <div class="thank-you" id="thank-you" hidden aria-live="polite">
+          <div class="thank-you-inner">
+            <span class="thank-you-icon" aria-hidden="true">&#10003;</span>
+            <h3>Thank you!</h3>
+            <p>We will confirm your inquiry within 24 hours. Keep an eye on your inbox &mdash; we&rsquo;ll reply with availability and your total.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">Harvest Table Kitchen</div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#menu">Menu</a>
+        <a href="#preorder">Preorders</a>
+        <a href="#catering">Catering</a>
+        <a href="#faq">FAQ</a>
+        <a href="#inquire">Inquire</a>
+      </nav>
+
+      <p class="footer-disclaimer">Concept portfolio sample. Not a real client project.</p>
+      <p class="footer-credit">Built by Uzziel Malolos &middot; Landing page and lead-capture specialist</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

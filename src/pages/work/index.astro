@@ -5,6 +5,15 @@ import WorkGrid from '../../components/WorkGrid.astro';
 import WorkFilter from '../../islands/WorkFilter.tsx';
 
 const entries = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+const sampleSlugs = new Set([
+  'willow-creek-farmstay',
+  'clearpath-lawn-care',
+  'harvest-table-kitchen',
+  'ai-book-content-portfolio',
+  'ai-youtube-thumbnail-design-portfolio',
+]);
+const projectEntries = entries.filter((entry) => !sampleSlugs.has(entry.slug));
+const sampleEntries = entries.filter((entry) => sampleSlugs.has(entry.slug));
 ---
 
 <BaseLayout
@@ -14,17 +23,33 @@ const entries = (await getCollection('work')).sort((a, b) => a.data.order - b.da
   <section class="container pt-24 pb-12 md:pt-32">
     <p class="text-xs uppercase tracking-widest text-stone mb-3">Work</p>
     <h1 class="font-display leading-[1] tracking-tight" style="font-size: clamp(2.5rem, 6vw, 4.5rem);">
-      Five projects, one career arc.
+      Projects, samples, one career arc.
     </h1>
     <p class="mt-6 max-w-xl text-stone">
-      Games, AI tools, websites, research, and a former bookkeeping role. Each one taught me a piece of how the next gets built.
+      Games, AI tools, websites, research, and sample client-facing deliverables. Each one taught me a piece of how the next gets built.
     </p>
     <div class="mt-10">
-      <WorkFilter client:idle gridId="work-grid" />
+      <WorkFilter client:idle gridId="project-work-grid" />
     </div>
   </section>
 
-  <section class="container pb-32">
-    <WorkGrid entries={entries} id="work-grid" />
+  <section class="container pb-20">
+    <WorkGrid entries={projectEntries} id="project-work-grid" />
+  </section>
+
+  <section id="sample-portfolios" class="container pb-32">
+    <div class="mb-10 rounded-lg border border-stone/25 bg-ink text-cream px-5 py-6 md:px-8 md:py-8 dark:border-cream/20 dark:bg-cream dark:text-ink">
+      <p class="text-xs uppercase tracking-widest text-gold dark:text-narra mb-3">Sample portfolio builds</p>
+      <div class="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-6 md:gap-10 items-end">
+        <h2 class="font-display leading-[1.05] tracking-tight" style="font-size: clamp(2rem, 4vw, 3.25rem);">
+          Landing pages and PDF samples built for quick review.
+        </h2>
+        <p class="text-sm leading-relaxed text-cream/75 dark:text-ink/70">
+          Fictional client samples and AI-assisted portfolio PDFs from the local sample folder, published without changing the main case-study structure.
+        </p>
+      </div>
+    </div>
+
+    <WorkGrid entries={sampleEntries} id="sample-work-grid" />
   </section>
 </BaseLayout>
