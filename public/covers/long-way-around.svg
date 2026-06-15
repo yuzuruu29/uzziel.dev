@@ -1,4 +1,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
-  <rect width="1600" height="900" fill="#4a6b3a"/>
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="88" font-weight="500" fill="#f4ecd8">Long Way Around</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5a7b4a"/>
+      <stop offset="100%" stop-color="#2a3f1a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <!-- Winding path with map pin -->
+  <g transform="translate(800, 380)">
+    <!-- Winding road -->
+    <path d="M -200 100 Q -100 60 -100 0 Q -100 -60 0 -60 Q 100 -60 100 0 Q 100 60 200 -100" stroke="#c9a14a" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="4 12"/>
+    <!-- Start pin -->
+    <g transform="translate(-200, 100)">
+      <path d="M 0 -20 Q -20 -20 -20 0 Q -20 20 0 40 Q 20 20 20 0 Q 20 -20 0 -20" fill="#f4ecd8" stroke="#1a1410" stroke-width="2"/>
+      <circle cx="0" cy="0" r="6" fill="#c9a14a"/>
+    </g>
+    <!-- End pin (bigger) -->
+    <g transform="translate(200, -100)">
+      <path d="M 0 -30 Q -28 -30 -28 0 Q -28 30 0 60 Q 28 30 28 0 Q 28 -30 0 -30" fill="#c9a14a" stroke="#f4ecd8" stroke-width="3"/>
+      <circle cx="0" cy="0" r="10" fill="#1a1410"/>
+      <circle cx="0" cy="0" r="4" fill="#f4ecd8"/>
+    </g>
+  </g>
+  <!-- Title -->
+  <text x="800" y="640" font-family="Fraunces, Georgia, serif" font-size="56" font-weight="500" fill="#f4ecd8" text-anchor="middle">Long Way Around</text>
+  <text x="800" y="685" font-family="'Inter Tight', sans-serif" font-size="18" fill="#c9a14a" text-anchor="middle" letter-spacing="6" text-transform="uppercase">2D Pixel RPG · 4 Acts · 3 Endings</text>
+  <text x="800" y="760" font-family="'JetBrains Mono', monospace" font-size="13" fill="#8a7d6e" text-anchor="middle">Godot 4.6 · GDScript · Aseprite</text>
 </svg>

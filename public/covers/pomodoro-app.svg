@@ -1,5 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
-  <rect width="1600" height="900" fill="#6b3410"/>
-  <text x="50%" y="46%" dominant-baseline="middle" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="88" font-weight="500" fill="#f4ecd8">Pomodoro App</text>
-  <text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif" font-size="48" font-weight="400" fill="#c9a14a">Ponggi</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6b3410"/>
+      <stop offset="100%" stop-color="#2a1408"/>
+    </linearGradient>
+    <filter id="greenGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <!-- Pomodoro clock icon -->
+  <g transform="translate(800, 380)">
+    <!-- Outer ring -->
+    <circle cx="0" cy="0" r="130" fill="none" stroke="#f4ecd8" stroke-width="14" opacity="0.4"/>
+    <!-- Progress arc (3/4 done) -->
+    <circle cx="0" cy="0" r="130" fill="none" stroke="#c9ff4a" stroke-width="14" stroke-linecap="round" stroke-dasharray="612 204" transform="rotate(-90)" filter="url(#greenGlow)"/>
+    <!-- Top button -->
+    <rect x="-12" y="-150" width="24" height="14" rx="3" fill="#f4ecd8"/>
+    <!-- Center label "25" -->
+    <text x="0" y="20" font-family="'Inter Tight', sans-serif" font-size="60" font-weight="600" fill="#f4ecd8" text-anchor="middle">25</text>
+    <text x="0" y="55" font-family="'Inter Tight', sans-serif" font-size="14" fill="#f4ecd8" text-anchor="middle" letter-spacing="2" opacity="0.6">MIN</text>
+  </g>
+  <!-- Title -->
+  <text x="800" y="640" font-family="Fraunces, Georgia, serif" font-size="60" font-weight="500" fill="#f4ecd8" text-anchor="middle">Pomodoro App</text>
+  <text x="800" y="685" font-family="'Inter Tight', sans-serif" font-size="20" fill="#c9ff4a" text-anchor="middle" letter-spacing="6" text-transform="uppercase">Ponggi</text>
+  <text x="800" y="760" font-family="'JetBrains Mono', monospace" font-size="13" fill="#8a7d6e" text-anchor="middle">Flutter · Riverpod · Drift · SQLite</text>
 </svg>

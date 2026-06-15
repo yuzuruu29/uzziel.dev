@@ -1,9 +1,59 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
-  <rect width="1600" height="900" fill="#1a1410"/>
-  <circle cx="800" cy="380" r="160" fill="none" stroke="#4a6b3a" stroke-width="2" opacity="0.2"/>
-  <circle cx="800" cy="380" r="100" fill="none" stroke="#4a6b3a" stroke-width="1" opacity="0.3"/>
-  <text x="800" y="400" font-family="'JetBrains Mono', monospace" font-size="64" font-weight="500" fill="#4a6b3a" text-anchor="middle">job-hunter</text>
-  <text x="800" y="480" font-family="'Inter Tight', sans-serif" font-size="18" fill="#8a7d6e" text-anchor="middle" letter-spacing="2">$ python job_hunter.py — 7AM daily digest</text>
-  <rect x="500" y="540" width="600" height="2" rx="1" fill="#4a6b3a" opacity="0.4"/>
-  <text x="800" y="600" font-family="'Inter Tight', sans-serif" font-size="14" fill="#8a7d6e" text-anchor="middle">Python · IMAP · Anthropic API · CLI</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a1a0e"/>
+      <stop offset="100%" stop-color="#031008"/>
+    </linearGradient>
+    <filter id="greenGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <!-- Terminal + magnifying glass -->
+  <g transform="translate(800, 380)">
+    <!-- Terminal window -->
+    <rect x="-200" y="-100" width="400" height="200" rx="8" fill="#0d0a08" stroke="#4a6b3a" stroke-width="2"/>
+    <!-- Title bar -->
+    <rect x="-200" y="-100" width="400" height="20" rx="8" fill="#1a2410"/>
+    <rect x="-200" y="-88" width="400" height="8" fill="#1a2410"/>
+    <circle cx="-188" cy="-90" r="3" fill="#4a6b3a"/>
+    <circle cx="-176" cy="-90" r="3" fill="#4a6b3a"/>
+    <circle cx="-164" cy="-90" r="3" fill="#4a6b3a"/>
+    <!-- Terminal content -->
+    <g fill="#4a6b3a">
+      <rect x="-180" y="-60" width="80" height="4" rx="1"/>
+      <rect x="-180" y="-46" width="120" height="4" rx="1"/>
+      <rect x="-180" y="-32" width="60" height="4" rx="1"/>
+      <rect x="-100" y="-32" width="40" height="4" rx="1" fill="#c9a14a"/>
+      <rect x="-180" y="-18" width="100" height="4" rx="1"/>
+      <rect x="-180" y="-4" width="80" height="4" rx="1" fill="#c9a14a"/>
+      <rect x="-180" y="10" width="140" height="4" rx="1"/>
+      <rect x="-180" y="24" width="60" height="4" rx="1"/>
+      <rect x="-180" y="38" width="120" height="4" rx="1" fill="#c9a14a"/>
+      <rect x="-180" y="52" width="80" height="4" rx="1"/>
+      <rect x="-180" y="66" width="100" height="4" rx="1"/>
+      <rect x="-180" y="80" width="60" height="4" rx="1" fill="#c9a14a"/>
+    </g>
+    <!-- Cursor -->
+    <rect x="-80" y="80" width="6" height="4" fill="#4a6b3a" filter="url(#greenGlow)"/>
+  </g>
+  <!-- Magnifying glass overlay -->
+  <g transform="translate(1100, 540)">
+    <circle cx="0" cy="0" r="80" fill="none" stroke="#c9a14a" stroke-width="10"/>
+    <line x1="60" y1="60" x2="120" y2="120" stroke="#c9a14a" stroke-width="12" stroke-linecap="round"/>
+    <!-- Briefcase inside glass -->
+    <g transform="translate(0, 0)">
+      <rect x="-30" y="-10" width="60" height="40" fill="none" stroke="#c9a14a" stroke-width="4"/>
+      <rect x="-20" y="-20" width="40" height="10" fill="none" stroke="#c9a14a" stroke-width="4"/>
+      <line x1="-30" y1="0" x2="30" y2="0" stroke="#c9a14a" stroke-width="2"/>
+    </g>
+  </g>
+  <!-- Title -->
+  <text x="800" y="640" font-family="'JetBrains Mono', monospace" font-size="56" font-weight="500" fill="#4a6b3a" text-anchor="middle">job-hunter</text>
+  <text x="800" y="685" font-family="'Inter Tight', sans-serif" font-size="18" fill="#c9a14a" text-anchor="middle" letter-spacing="6" text-transform="uppercase">7AM daily digest · cover letters via Anthropic</text>
+  <text x="800" y="760" font-family="'JetBrains Mono', monospace" font-size="13" fill="#8a7d6e" text-anchor="middle">Python · IMAP · Anthropic API · CLI</text>
 </svg>

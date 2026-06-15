@@ -1,9 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
-  <rect width="1600" height="900" fill="#1a1410"/>
-  <rect x="100" y="100" width="1400" height="700" rx="12" fill="#6b3410" opacity="0.1"/>
-  <text x="800" y="370" font-family="Fraunces, Georgia, serif" font-size="80" font-weight="500" fill="#f4ecd8" text-anchor="middle">Carlos</text>
-  <text x="800" y="440" font-family="Fraunces, Georgia, serif" font-size="48" font-weight="400" fill="#c9a14a" text-anchor="middle">Fashion Theme</text>
-  <text x="800" y="510" font-family="'Inter Tight', sans-serif" font-size="16" fill="#8a7d6e" text-anchor="middle" letter-spacing="3">Custom WordPress Theme</text>
-  <rect x="600" y="560" width="400" height="2" rx="1" fill="#c9a14a" opacity="0.4"/>
-  <text x="800" y="620" font-family="'JetBrains Mono', monospace" font-size="13" fill="#8a7d6e" text-anchor="middle">PHP · WordPress · HTML · CSS · JavaScript</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1410"/>
+      <stop offset="100%" stop-color="#0d0a08"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <!-- Clothing hanger + shirt -->
+  <g transform="translate(800, 380)">
+    <!-- Hanger hook -->
+    <path d="M 0 -130 Q -20 -130 -20 -110 L -20 -90" stroke="#c9a14a" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <!-- Hanger triangle -->
+    <line x1="-20" y1="-90" x2="-140" y2="-20" stroke="#c9a14a" stroke-width="6" stroke-linecap="round"/>
+    <line x1="-20" y1="-90" x2="140" y2="-20" stroke="#c9a14a" stroke-width="6" stroke-linecap="round"/>
+    <!-- Shirt body -->
+    <path d="M -140 -20 L -180 30 L -100 60 L -80 130 L 80 130 L 100 60 L 180 30 L 140 -20 L 80 -20 Q 0 40 -80 -20 Z" fill="#c9a14a" stroke="#f4ecd8" stroke-width="2" opacity="0.9"/>
+    <!-- Collar V -->
+    <path d="M -80 -20 L 0 40 L 80 -20" stroke="#f4ecd8" stroke-width="2" fill="none"/>
+    <!-- Stitching detail -->
+    <line x1="-140" y1="0" x2="140" y2="0" stroke="#f4ecd8" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>
+  </g>
+  <!-- Title -->
+  <text x="800" y="640" font-family="Fraunces, Georgia, serif" font-size="64" font-weight="500" fill="#f4ecd8" text-anchor="middle">Carlos</text>
+  <text x="800" y="685" font-family="Fraunces, Georgia, serif" font-size="40" font-weight="400" fill="#c9a14a" text-anchor="middle">Fashion Theme</text>
+  <text x="800" y="760" font-family="'JetBrains Mono', monospace" font-size="13" fill="#8a7d6e" text-anchor="middle">Custom WordPress Theme · PHP · HTML · CSS · JS</text>
 </svg>

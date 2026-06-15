@@ -1,4 +1,48 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
-  <rect width="1600" height="900" fill="#8a7d6e"/>
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="120" font-weight="500" fill="#f4ecd8">Ancestra</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a8a896"/>
+      <stop offset="100%" stop-color="#6a6a5e"/>
+    </linearGradient>
+    <filter id="sparkle" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <!-- Old photo frame being restored with sparkle -->
+  <g transform="translate(800, 380)">
+    <!-- Photo frame (slightly tilted) -->
+    <g transform="rotate(-6)">
+      <rect x="-100" y="-120" width="200" height="240" fill="#f4ecd8" stroke="#1a1410" stroke-width="6"/>
+      <!-- Old faded photo inside -->
+      <rect x="-90" y="-110" width="180" height="220" fill="#8a7d6e" opacity="0.7"/>
+      <!-- Family silhouette (old) -->
+      <circle cx="-40" cy="-30" r="20" fill="#1a1410" opacity="0.3"/>
+      <circle cx="40" cy="-30" r="20" fill="#1a1410" opacity="0.3"/>
+      <path d="M -80 60 Q -40 0 0 30 Q 40 0 80 60 L 80 110 L -80 110 Z" fill="#1a1410" opacity="0.3"/>
+    </g>
+    <!-- Restoration overlay (clearer) -->
+    <g transform="rotate(4)">
+      <rect x="-100" y="-120" width="200" height="240" fill="none" stroke="#3fb950" stroke-width="2" opacity="0.6"/>
+    </g>
+    <!-- Sparkles -->
+    <g fill="#f4ecd8" filter="url(#sparkle)">
+      <path d="M 120 -100 L 125 -85 L 140 -80 L 125 -75 L 120 -60 L 115 -75 L 100 -80 L 115 -85 Z"/>
+      <path d="M -130 60 L -125 75 L -110 80 L -125 85 L -130 100 L -135 85 L -150 80 L -135 75 Z"/>
+      <path d="M 110 120 L 113 130 L 123 133 L 113 136 L 110 146 L 107 136 L 97 133 L 107 130 Z"/>
+    </g>
+    <!-- AI spark -->
+    <g transform="translate(80, -90)">
+      <circle cx="0" cy="0" r="18" fill="#c9a14a" stroke="#1a1410" stroke-width="2"/>
+      <text x="0" y="6" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="500" fill="#1a1410" text-anchor="middle">AI</text>
+    </g>
+  </g>
+  <!-- Title -->
+  <text x="800" y="640" font-family="Fraunces, Georgia, serif" font-size="68" font-weight="500" fill="#f4ecd8" text-anchor="middle">Ancestra</text>
+  <text x="800" y="685" font-family="'Inter Tight', sans-serif" font-size="18" fill="#c9a14a" text-anchor="middle" letter-spacing="6" text-transform="uppercase">One-tap AI restoration for old photos</text>
+  <text x="800" y="760" font-family="'JetBrains Mono', monospace" font-size="13" fill="#1a1410" text-anchor="middle" opacity="0.6">Expo · React Native · FastAPI · Replicate</text>
 </svg>

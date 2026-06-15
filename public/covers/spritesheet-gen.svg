@@ -1,15 +1,83 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
-  <rect width="1600" height="900" fill="#1a1410"/>
-  <rect x="0" y="0" width="1600" height="900" fill="#4a6b3a" opacity="0.04"/>
-  <rect x="340" y="250" width="120" height="120" fill="#c9a14a" opacity="0.2"/>
-  <rect x="460" y="250" width="120" height="120" fill="#c9a14a" opacity="0.15"/>
-  <rect x="580" y="250" width="120" height="120" fill="#c9a14a" opacity="0.2"/>
-  <rect x="700" y="370" width="120" height="120" fill="#c9a14a" opacity="0.15"/>
-  <rect x="820" y="370" width="120" height="120" fill="#c9a14a" opacity="0.2"/>
-  <rect x="940" y="370" width="120" height="120" fill="#c9a14a" opacity="0.15"/>
-  <rect x="340" y="490" width="120" height="120" fill="#c9a14a" opacity="0.15"/>
-  <rect x="460" y="490" width="120" height="120" fill="#c9a14a" opacity="0.2"/>
-  <rect x="580" y="490" width="120" height="120" fill="#c9a14a" opacity="0.15"/>
-  <text x="800" y="700" font-family="'JetBrains Mono', monospace" font-size="36" font-weight="500" fill="#4a6b3a" text-anchor="middle">SpriteSheet Gen</text>
-  <text x="800" y="760" font-family="'Inter Tight', sans-serif" font-size="14" fill="#8a7d6e" text-anchor="middle">HTML · CSS · JavaScript · Canvas</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0a08"/>
+      <stop offset="100%" stop-color="#1a2410"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <!-- Pixel grid spritesheet -->
+  <g transform="translate(800, 380)">
+    <!-- Grid background -->
+    <rect x="-240" y="-130" width="480" height="280" fill="#1a2410" stroke="#4a6b3a" stroke-width="2"/>
+    <!-- Grid lines -->
+    <g stroke="#4a6b3a" stroke-width="0.5" opacity="0.3">
+      <line x1="-240" y1="-90" x2="240" y2="-90"/>
+      <line x1="-240" y1="-50" x2="240" y2="-50"/>
+      <line x1="-240" y1="-10" x2="240" y2="-10"/>
+      <line x1="-240" y1="30" x2="240" y2="30"/>
+      <line x1="-240" y1="70" x2="240" y2="70"/>
+      <line x1="-240" y1="110" x2="240" y2="110"/>
+      <line x1="-200" y1="-130" x2="-200" y2="150"/>
+      <line x1="-160" y1="-130" x2="-160" y2="150"/>
+      <line x1="-120" y1="-130" x2="-120" y2="150"/>
+      <line x1="-80" y1="-130" x2="-80" y2="150"/>
+      <line x1="-40" y1="-130" x2="-40" y2="150"/>
+      <line x1="0" y1="-130" x2="0" y2="150"/>
+      <line x1="40" y1="-130" x2="40" y2="150"/>
+      <line x1="80" y1="-130" x2="80" y2="150"/>
+      <line x1="120" y1="-130" x2="120" y2="150"/>
+      <line x1="160" y1="-130" x2="160" y2="150"/>
+      <line x1="200" y1="-130" x2="200" y2="150"/>
+    </g>
+    <!-- Sample sprites: a character in different frames -->
+    <g fill="#c9a14a">
+      <!-- Frame 1: idle -->
+      <rect x="-220" y="-100" width="20" height="20"/>
+      <rect x="-200" y="-80" width="40" height="20"/>
+      <rect x="-220" y="-60" width="60" height="20"/>
+      <rect x="-220" y="-40" width="20" height="40"/>
+      <rect x="-180" y="-40" width="20" height="40"/>
+      <rect x="-220" y="0" width="20" height="20"/>
+      <rect x="-180" y="0" width="20" height="20"/>
+    </g>
+    <g fill="#4a6b3a">
+      <!-- Frame 2: walking -->
+      <rect x="-100" y="-100" width="20" height="20"/>
+      <rect x="-80" y="-80" width="40" height="20"/>
+      <rect x="-100" y="-60" width="60" height="20"/>
+      <rect x="-100" y="-40" width="20" height="40"/>
+      <rect x="-60" y="-40" width="20" height="40"/>
+      <rect x="-100" y="0" width="20" height="20"/>
+      <rect x="-60" y="0" width="20" height="20"/>
+    </g>
+    <g fill="#c9a14a">
+      <!-- Frame 3: jumping -->
+      <rect x="20" y="-110" width="20" height="20"/>
+      <rect x="40" y="-90" width="40" height="20"/>
+      <rect x="20" y="-70" width="60" height="20"/>
+      <rect x="0" y="-50" width="20" height="40"/>
+      <rect x="60" y="-50" width="20" height="40"/>
+    </g>
+    <g fill="#4a6b3a">
+      <!-- Frame 4: attack -->
+      <rect x="140" y="-100" width="20" height="20"/>
+      <rect x="160" y="-80" width="40" height="20"/>
+      <rect x="140" y="-60" width="60" height="20"/>
+      <rect x="100" y="-40" width="20" height="40"/>
+      <rect x="140" y="-40" width="40" height="20"/>
+      <rect x="140" y="0" width="20" height="20"/>
+      <rect x="180" y="0" width="20" height="20"/>
+    </g>
+    <!-- Export arrow at bottom -->
+    <g transform="translate(0, 180)">
+      <line x1="-60" y1="0" x2="40" y2="0" stroke="#4a6b3a" stroke-width="3"/>
+      <polygon points="40,-8 56,0 40,8" fill="#4a6b3a"/>
+      <text x="-70" y="5" font-family="'JetBrains Mono', monospace" font-size="12" fill="#4a6b3a" text-anchor="end">PNG</text>
+    </g>
+  </g>
+  <!-- Title -->
+  <text x="800" y="640" font-family="Fraunces, Georgia, serif" font-size="56" font-weight="500" fill="#f4ecd8" text-anchor="middle">SpriteSheet Gen</text>
+  <text x="800" y="685" font-family="'Inter Tight', sans-serif" font-size="18" fill="#4a6b3a" text-anchor="middle" letter-spacing="6" text-transform="uppercase">Browser-based sprite sheet generator</text>
+  <text x="800" y="760" font-family="'JetBrains Mono', monospace" font-size="13" fill="#8a7d6e" text-anchor="middle">HTML · CSS · JavaScript · Canvas</text>
 </svg>

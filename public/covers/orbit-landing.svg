@@ -1,10 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
-  <rect width="1600" height="900" fill="#1a1410"/>
-  <circle cx="800" cy="380" r="200" fill="none" stroke="#c9a14a" stroke-width="1" opacity="0.15"/>
-  <circle cx="800" cy="380" r="120" fill="none" stroke="#c9a14a" stroke-width="0.5" opacity="0.2"/>
-  <circle cx="800" cy="380" r="40" fill="#c9a14a" opacity="0.1"/>
-  <text x="800" y="400" font-family="Fraunces, Georgia, serif" font-size="72" font-weight="500" fill="#f4ecd8" text-anchor="middle">Orbit</text>
-  <text x="800" y="500" font-family="'Inter Tight', sans-serif" font-size="18" fill="#8a7d6e" text-anchor="middle" letter-spacing="3">Course Platform Landing Page</text>
-  <rect x="550" y="540" width="500" height="2" rx="1" fill="#c9a14a" opacity="0.4"/>
-  <text x="800" y="600" font-family="'JetBrains Mono', monospace" font-size="13" fill="#8a7d6e" text-anchor="middle">Vite · React · CSS · Netlify</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1410"/>
+      <stop offset="100%" stop-color="#0d0a08"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <!-- Orbit with planet -->
+  <g transform="translate(800, 380)">
+    <!-- Orbit rings -->
+    <ellipse cx="0" cy="0" rx="200" ry="80" fill="none" stroke="#c9a14a" stroke-width="2" opacity="0.4" transform="rotate(-20)"/>
+    <ellipse cx="0" cy="0" rx="240" ry="100" fill="none" stroke="#c9a14a" stroke-width="1" opacity="0.3" transform="rotate(20)"/>
+    <ellipse cx="0" cy="0" rx="160" ry="60" fill="none" stroke="#c9a14a" stroke-width="1" opacity="0.3" transform="rotate(60)"/>
+    <!-- Central planet -->
+    <circle cx="0" cy="0" r="60" fill="#c9a14a" filter="url(#glow)"/>
+    <circle cx="-15" cy="-15" r="20" fill="#f4ecd8" opacity="0.3"/>
+    <!-- Orbiting dots -->
+    <circle cx="190" cy="-15" r="8" fill="#c9a14a" transform="rotate(-20)"/>
+    <circle cx="-220" cy="35" r="6" fill="#c9a14a" transform="rotate(20)"/>
+    <circle cx="0" cy="160" r="7" fill="#c9a14a"/>
+  </g>
+  <!-- Title -->
+  <text x="800" y="640" font-family="Fraunces, Georgia, serif" font-size="80" font-weight="500" fill="#f4ecd8" text-anchor="middle" letter-spacing="-1">Orbit</text>
+  <text x="800" y="685" font-family="'Inter Tight', sans-serif" font-size="18" fill="#c9a14a" text-anchor="middle" letter-spacing="6" text-transform="uppercase">Course Platform Landing Page</text>
+  <text x="800" y="760" font-family="'JetBrains Mono', monospace" font-size="13" fill="#8a7d6e" text-anchor="middle">Vite · React · CSS · Netlify</text>
 </svg>

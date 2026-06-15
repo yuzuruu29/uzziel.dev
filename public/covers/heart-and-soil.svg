@@ -1,4 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
-  <rect width="1600" height="900" fill="#4a6b3a"/>
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="120" font-weight="500" fill="#f4ecd8">Heart and Soil</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5a7b4a"/>
+      <stop offset="100%" stop-color="#2a3f1a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <!-- Soft sun -->
+  <circle cx="1340" cy="200" r="80" fill="#c9a14a" opacity="0.15"/>
+  <circle cx="1340" cy="200" r="50" fill="#c9a14a" opacity="0.25"/>
+  <!-- Field rows -->
+  <g stroke="#4a6b3a" stroke-width="2" opacity="0.4">
+    <line x1="200" y1="600" x2="1400" y2="600"/>
+    <line x1="200" y1="640" x2="1400" y2="640"/>
+    <line x1="200" y1="680" x2="1400" y2="680"/>
+  </g>
+  <!-- Heart + sprout icon -->
+  <g transform="translate(800, 380)">
+    <!-- Heart shape -->
+    <path d="M 0 80 C -100 0 -120 -60 -60 -100 C -30 -120 0 -100 0 -70 C 0 -100 30 -120 60 -100 C 120 -60 100 0 0 80 Z" fill="#c9a14a" stroke="#f4ecd8" stroke-width="3"/>
+    <!-- Sprout growing from heart -->
+    <path d="M 0 -70 Q 0 -120 -20 -150" stroke="#4a6b3a" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M 0 -70 Q 0 -120 20 -150" stroke="#4a6b3a" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <!-- Leaves -->
+    <ellipse cx="-30" cy="-140" rx="20" ry="12" fill="#4a6b3a" transform="rotate(-30 -30 -140)"/>
+    <ellipse cx="30" cy="-140" rx="20" ry="12" fill="#4a6b3a" transform="rotate(30 30 -140)"/>
+  </g>
+  <!-- Title -->
+  <text x="800" y="640" font-family="Fraunces, Georgia, serif" font-size="64" font-weight="500" fill="#f4ecd8" text-anchor="middle">Heart and Soil</text>
+  <text x="800" y="685" font-family="'Inter Tight', sans-serif" font-size="18" fill="#c9a14a" text-anchor="middle" letter-spacing="6" text-transform="uppercase">Lupa at Puso</text>
+  <text x="800" y="760" font-family="'JetBrains Mono', monospace" font-size="13" fill="#8a7d6e" text-anchor="middle">Godot 4 · Cozy Farming Sim · Filipino Setting</text>
 </svg>
