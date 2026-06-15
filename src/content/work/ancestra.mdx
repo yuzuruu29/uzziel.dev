@@ -10,6 +10,11 @@ order: 9
 featured: false
 ---
 
+<figure class="case-figure">
+  <img src="/work/project-screenshots/ancestra-api-docs.png" alt="Ancestra FastAPI Swagger docs showing the restore job endpoints." />
+  <figcaption>Backend API docs capture — the FastAPI restore pipeline: upload, job lifecycle, provider abstraction, and result endpoints all documented and tested.</figcaption>
+</figure>
+
 Ancestra is the opposite of a prompt-engineering app. You pick an old family photo, tap Restore, compare before/after, export the result. No sliders, no inpainting UI, no tutorial video.
 
 The stack splits cleanly: an Expo React Native app in `mobile/` and a FastAPI backend in `api/`. Phase 8 shipped QA and launch-readiness polish. June 2026 work wired the real provider — Replicate with CodeFormer — plus multipart upload, background restore jobs with explicit phase tracking, local image caching so restored URLs do not expire on the phone, and HEIC/HEIF labeling for iOS uploads.

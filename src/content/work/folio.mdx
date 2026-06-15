@@ -10,6 +10,11 @@ order: 7
 featured: false
 ---
 
+<figure class="case-figure">
+  <img src="/work/project-screenshots/folio-app.png" alt="FOLIO desktop app screenshot showing the Electron interface for document processing." />
+  <figcaption>Actual desktop app capture — the Electron + React interface for scanning, reviewing, and compiling legal documents locally.</figcaption>
+</figure>
+
 FOLIO is a document intelligence desktop app for law offices. It scans, renames, compiles, and quality-checks legal documents without sending a single file to the cloud. The whole pipeline runs on the user's machine: Electron frontend, FastAPI Python backend, Tesseract OCR, and a local LLM for metadata extraction.
 
 The core loop takes a folder of scanned PDFs, runs OCR to make them searchable, extracts metadata (case number, document type, date, parties) through a local language model, applies a rename template so every file follows a consistent convention, and presents a verification screen where the user approves or corrects before the files are committed.

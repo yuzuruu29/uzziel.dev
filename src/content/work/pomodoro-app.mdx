@@ -10,6 +10,11 @@ order: 6
 featured: true
 ---
 
+<figure class="case-figure">
+  <img src="/work/project-screenshots/ponggi-app.png" alt="Ponggi desktop app screenshot showing the neon circular timer at 18:15, Session 1 of 4." />
+  <figcaption>Actual Windows desktop app capture — the neon pomodoro timer running, Session 1 of 4.</figcaption>
+</figure>
+
 Ponggi is the pomodoro app I actually use between thesis writing and Godot sprints. Flutter on Android and Windows (iOS later). When a focus block ends, you pick **Play a memory game** or **Just rest** — five break games ship in v1: Pair Up, Echo, Flash Digits, Glow Grid, and Word Crate. Each has per-game difficulty levels, a 90-second forfeit if you idle, and a stats shelf that tracks your arcade progress.
 
 The timer is the serious half. A wall-clock engine keeps focus and break alarms honest even when the app backgrounds on Android or hides to the Windows system tray mid-session. Drift-backed SQLite stores session history, settings, and entitlement state. Kill the process mid-focus, relaunch, and the dial resumes at the correct remaining time.

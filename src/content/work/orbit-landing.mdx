@@ -12,6 +12,11 @@ featured: false
 
 Orbit is a Circle-inspired course platform landing page built as a client pitch piece. Single-page, no Tailwind — just Vite + React with plain CSS and data-driven sections so the client could swap copy without touching markup.
 
+<figure class="case-figure">
+  <img src="/work/project-screenshots/orbit-landing-ui.jpg" alt="Orbit landing page screenshot showing the course platform hero and feature sections." />
+  <figcaption>Actual running landing page — hero, feature grid, and course platform positioning for the client pitch.</figcaption>
+</figure>
+
 The layout follows a familiar SaaS landing structure: hero with headline and CTA, feature grid, testimonials, pricing tier comparison, FAQ accordion, and footer. Each section pulls content from a data file, so the entire page can be re-skinned for a different course or audience by editing a JSON object instead of rewriting components.
 
 I built it without Tailwind by choice — the client's existing brand had specific CSS custom properties that did not map cleanly to a utility framework, and the scope was small enough that hand-rolled CSS kept the bundle leaner than a Tailwind install. The result is a 30 KB gzipped landing page with no runtime JS dependencies beyond React.
