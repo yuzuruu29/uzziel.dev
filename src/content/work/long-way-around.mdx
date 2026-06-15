@@ -1,0 +1,19 @@
+---
+title: "Long Way Around"
+role: "Solo developer · designer"
+year: 2026
+stack: ["Godot 4.6", "GDScript", "Aseprite"]
+summary: "2D pixel RPG with a complete four-act story, three endings, and itch.io ship gate."
+cover: "/covers/long-way-around.svg"
+status: "in-progress"
+order: 12
+featured: false
+---
+
+Long Way Around is my second Godot RPG — smaller scope than Heart and Soil, more narrative weight than TIRADOR. It runs at 384×216 internal resolution on 16×16 tiles, built in Godot 4.6 with a strict asset pipeline documented in `ASSETS.md` so every itch.io pack has a license trail.
+
+The story arc shipped through June 2026: Act 1's first-lie beat and toy quest, Act 2's Juno branches and letter choice, Act 3's Vael content, then Act 4 with a title screen and three endings. Along the way I wired an interiors pipeline (LimeZu packs), Hollow Step zone traversal, distinct NPC idle animations, y-sort for walkers, battle cutscenes, and a 74-check smoke test suite that gates exports.
+
+Audio got the same discipline — JDWasabi SFX imported with license records, an Sfx autoload on a dedicated bus, and a ship script that fails the build if regression tests or export presets drift.
+
+The game is playable start-to-finish. The remaining work is polish passes and an itch.io launch, not fundamental systems. I am treating it as proof that I can close a narrative RPG solo, not just prototype combat loops.

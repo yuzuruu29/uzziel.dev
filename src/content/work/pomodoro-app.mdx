@@ -1,0 +1,21 @@
+---
+title: "Pomodoro App (Ponggi)"
+role: "Solo developer"
+year: 2026
+stack: ["Flutter", "Riverpod", "Drift", "SQLite"]
+summary: "Neon pomodoro timer with five memory-game breaks, a physics-driven mascot, and Windows + Android builds."
+cover: "/covers/pomodoro-app.svg"
+status: "in-progress"
+order: 6
+featured: true
+---
+
+Ponggi is the pomodoro app I actually use between thesis writing and Godot sprints. Flutter on Android and Windows (iOS later). When a focus block ends, you pick **Play a memory game** or **Just rest** — five break games ship in v1: Pair Up, Echo, Flash Digits, Glow Grid, and Word Crate. Each has per-game difficulty levels, a 90-second forfeit if you idle, and a stats shelf that tracks your arcade progress.
+
+The timer is the serious half. A wall-clock engine keeps focus and break alarms honest even when the app backgrounds on Android or hides to the Windows system tray mid-session. Drift-backed SQLite stores session history, settings, and entitlement state. Kill the process mid-focus, relaunch, and the dial resumes at the correct remaining time.
+
+The mascot is the personality half. Ponggi started as a neon tomato that ripens from green to red as you complete daily sessions. The June 2026 sprint replaced embedded sprites with a physics-driven `PonggiCreature` — gravity, damping, edge bounce, gesture-to-reaction classification, angry and dizzy faces, sproutable limbs. Poke it during focus and it reacts; the troublemaker-mascot spec is written for what comes next.
+
+Phase 1a monetization adds a freemium arcade unlock through `in_app_purchase`, with local notifications, tray restore, and generated chimes on session complete. Eighty-two widget and domain tests pass on Windows. Store listing docs for Play Console and App Store are drafted.
+
+I built it because discipline software feels like punishment and I wanted a timer that felt like company. The experiment now is whether the arcade shelf earns PHP 99 from anyone besides me.
