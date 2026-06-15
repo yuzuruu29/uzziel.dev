@@ -19,3 +19,8 @@ Behind that loop are supporting pieces that make the app feel finished rather th
 I built FOLIO because the legal offices I talked to in Laguna all had the same workflow: a paralegal opens each scanned PDF, reads the first page, renames it by hand, and repeats that a hundred times per case load. The product bet is that a cheap local LLM + OCR is enough to automate the repeatable parts, and that law offices will pay a one-time desktop install fee over a monthly SaaS subscription.
 
 Integration phase is complete — frontend, backend, and Electron shell all talk to each other with the correct data shapes. Remaining: packaging for distribution, installer, and enough field testing to know which edge cases break the OCR pipeline.
+
+<figure class="case-figure">
+  <img src="/work/proof-screenshots/folio-casestudy.jpg" alt="FOLIO case study page on the portfolio" />
+  <figcaption>252/252 tests passing — 77 frontend (Vitest) + 175 backend (pytest). Full OCR pipeline, rename engine, watchdog, insight engine, and compilation all verified.</figcaption>
+</figure>

@@ -1,0 +1,16 @@
+﻿
+≡ƒÜÇ  Daily Job Hunter ΓÇö 2026-06-15 16:19
+=======================================================
+≡ƒÄ¡  Demo mode ΓÇö using sample jobs.
+
+≡ƒôè  Scoring 6 job(s)ΓÇª
+   Γ£à Apply: 3  ≡ƒæÇ Review: 1  Γ¥î Skip: 2
+
+Γ£ì∩╕Å   Generating 3 cover letter(s)ΓÇª
+     ΓåÆ Executive Assistant ΓÇô Marketing Ops (WFH) @ US E-commerce Brand
+     ΓåÆ Virtual Assistant (Remote) @ Remote Staffing Agency
+     ΓåÆ AI Marketing Operations Assistant @ SaaS Startup (US Client)
+
+≡ƒÆ╛  Digest saved ΓåÆ C:\Job Hunter\daily_digests\2026-06-15-demo.html
+    Open it in your browser to review and apply.
+=======================================================
