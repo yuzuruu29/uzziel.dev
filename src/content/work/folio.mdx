@@ -11,8 +11,18 @@ featured: false
 ---
 
 <figure class="case-figure">
-  <img src="/work/project-screenshots/folio-app.png" alt="FOLIO desktop app screenshot showing the Electron interface for document processing." />
-  <figcaption>Actual desktop app capture — the Electron + React interface for scanning, reviewing, and compiling legal documents locally.</figcaption>
+  <img src="/work/project-screenshots/folio-capture.png" alt="FOLIO desktop app Capture tab showing the local model indicator (qwen2.5:3b), drop zone for PDF/DOCX/JPG/PNG/TIFF, and processing-instructions editor." />
+  <figcaption>Capture tab — drop a legal document, set processing instructions, the local LLM (qwen2.5:3b) does the rest. No cloud, no upload.</figcaption>
+</figure>
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/folio-review.png" alt="FOLIO Review tab showing the OCR-classified filename review table with proposed names, conflict status, and approve-all/reject-all controls." />
+  <figcaption>Review tab — OCR proposes filenames from extracted metadata. You approve, reject, or edit before the rename commits.</figcaption>
+</figure>
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/folio-settings.png" alt="FOLIO Settings tab showing the firm-name, root directory, watch folder, naming template, and watch-folder-active controls." />
+  <figcaption>Settings tab — firm name, watch folder, naming template (default_legal). Watch Folder Active turns the pipeline into a hands-off daemon.</figcaption>
 </figure>
 
 FOLIO is a document intelligence desktop app for law offices. It scans, renames, compiles, and quality-checks legal documents without sending a single file to the cloud. The whole pipeline runs on the user's machine: Electron frontend, FastAPI Python backend, Tesseract OCR, and a local LLM for metadata extraction.
