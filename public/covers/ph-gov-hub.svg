@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#1a1410"/>
+  <rect x="0" y="0" width="1600" height="900" fill="#f4ecd8" opacity="0.03"/>
+  <text x="800" y="380" font-family="Fraunces, Georgia, serif" font-size="96" font-weight="500" fill="#f4ecd8" text-anchor="middle">PH Gov Hub</text>
+  <text x="800" y="460" font-family="'Inter Tight', sans-serif" font-size="20" fill="#8a7d6e" text-anchor="middle" letter-spacing="3">Philippine government services directory</text>
+  <rect x="340" y="520" width="920" height="2" rx="1" fill="#c9a14a" opacity="0.4"/>
+  <text x="800" y="580" font-family="'JetBrains Mono', monospace" font-size="14" fill="#8a7d6e" text-anchor="middle">Next.js · Tailwind · Fuse.js · Lucide</text>
+  <circle cx="1200" cy="200" r="80" fill="none" stroke="#c9a14a" stroke-width="0.5" opacity="0.15"/>
+  <circle cx="1200" cy="200" r="50" fill="none" stroke="#c9a14a" stroke-width="0.5" opacity="0.2"/>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#2a1f18"/>
+  <rect x="0" y="0" width="1600" height="900" fill="#4a6b3a" opacity="0.08"/>
+  <text x="800" y="360" font-family="Fraunces, Georgia, serif" font-size="80" font-weight="500" fill="#f4ecd8" text-anchor="middle">Lupa at Puso</text>
+  <text x="800" y="430" font-family="'Inter Tight', sans-serif" font-size="18" fill="#c9a14a" text-anchor="middle" letter-spacing="3">A Filipino Farming Simulation RPG</text>
+  <rect x="500" y="480" width="600" height="2" rx="1" fill="#4a6b3a" opacity="0.5"/>
+  <text x="800" y="530" font-family="'Inter Tight', sans-serif" font-size="15" fill="#8a7d6e" text-anchor="middle">Game Design Document — Barangay Linaw, Panay Island</text>
+  <text x="800" y="590" font-family="'JetBrains Mono', monospace" font-size="13" fill="#8a7d6e" text-anchor="middle">25 design docs · 4-week sprint plan · Godot 4.3</text>
+</svg>

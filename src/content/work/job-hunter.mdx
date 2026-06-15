@@ -1,0 +1,19 @@
+---
+title: "Job Hunter CLI"
+role: "Solo developer"
+year: 2026
+stack: ["Python", "IMAP", "Anthropic API", "YAML"]
+summary: "Daily 7AM CLI tool that reads email alerts, scores job posts by fit, and generates HTML digests."
+cover: "/covers/job-hunter.svg"
+status: "live"
+order: 14
+featured: false
+---
+
+Job Hunter is a Python CLI tool I wrote because waking up to 47 job alert emails and manually scanning each one is not sustainable when you are also shipping games and apps. It reads my Gmail inbox via IMAP every morning at 7 AM (Windows Task Scheduler), parses each job post, scores it against my candidate profile, and generates an HTML digest with rank-ordered results.
+
+The ranking uses the Anthropic API to evaluate each post against configurable criteria in `candidate_profile.json`: role fit, remote policy, timezone overlap, compensation range, required tech stack, and red-flag keywords. Every post gets a numeric score, a summary, and — if it scores high enough — a generated cover letter draft tailored to the specific post.
+
+The output is an HTML file that opens in a browser: a clean table of ranked jobs with expandable detail panels, score badges, and copy-ready cover letter snippets. A `daily_digests/` folder keeps history so I can track which postings I have already reviewed.
+
+I treat job hunting as an engineering problem because that is the only framing that keeps it from feeling like a chore. The tool costs pennies per run in API fees and saves me at least thirty minutes every morning.

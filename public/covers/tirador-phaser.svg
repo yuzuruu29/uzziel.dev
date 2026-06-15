@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs><linearGradient id="tp" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1410"/><stop offset="100%" stop-color="#6b3410"/></linearGradient></defs>
+  <rect width="1600" height="900" fill="url(#tp)"/>
+  <text x="800" y="370" font-family="Fraunces, Georgia, serif" font-size="96" font-weight="500" fill="#f4ecd8" text-anchor="middle">TIRADOR</text>
+  <text x="800" y="440" font-family="'Inter Tight', sans-serif" font-size="20" fill="#c9a14a" text-anchor="middle" letter-spacing="4">PHASER · CAPACITOR</text>
+  <text x="800" y="500" font-family="'Inter Tight', sans-serif" font-size="16" fill="#8a7d6e" text-anchor="middle">Web build · Android · iOS</text>
+  <rect x="600" y="560" width="400" height="2" rx="1" fill="#c9a14a" opacity="0.4"/>
+  <text x="800" y="620" font-family="'JetBrains Mono', monospace" font-size="13" fill="#8a7d6e" text-anchor="middle">Phaser 3 · TypeScript · GSAP · Zustand · Capacitor</text>
+</svg>

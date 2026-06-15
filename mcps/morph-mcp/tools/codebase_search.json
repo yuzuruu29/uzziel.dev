@@ -1,0 +1,31 @@
+{
+  "name": "codebase_search",
+  "description": "A code exploration tool, use this tool when exploring an unfamiliar codebase, and you're unsure of the exact file or string to look for. This tool will find all relevant bits of code given a natural lanugage description, or questin of the thing you're looking for. Natural-language question/description about the code you want to understand. Good example: \"Where does auth get handled, what are the different oauth methods supported?\", \"Trace all code that relates to how data is injested and processed\". Bad example: \"auth()\", \"auth login dashoard google email\". This tool does NOT accept regex, keyword dumps, or symbol-only queries. Fill out extra details that you as a smart model can infer in the question to aid the toolin its search. You should ALWAYS use this tool to start your search. ",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "search_string": {
+        "type": "string",
+        "description": "Natural-language question/description about the code you want to understand. Good example: \"Where does auth get handled, what are the different oauth methods supported?\", \"Trace all code that relates to how data is injested and processed\". Bad example: \"auth()\", \"auth login dashoard google email\". This tool does NOT accept regex, keyword dumps, or symbol-only queries."
+      },
+      "repo_path": {
+        "type": "string",
+        "description": "The absolute path of the folder where the search should be performed. In multi-repo workspaces, you have to specify a subfolder where the search should be performed, to avoid searching across all repos"
+      },
+      "search_type": {
+        "type": "string",
+        "enum": [
+          "default",
+          "node_modules"
+        ],
+        "description": "Search type hint. Use 'node_modules' when searching inside node_modules or other dependency directories that are normally excluded."
+      }
+    },
+    "required": [
+      "search_string",
+      "repo_path"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

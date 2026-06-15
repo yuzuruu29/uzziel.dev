@@ -1,0 +1,61 @@
+---
+title: "uzziel.dev (this site)"
+role: "Solo designer · developer"
+year: 2026
+stack: ["Astro 4", "React 18", "Tailwind CSS", "TypeScript", "GSAP", "Framer Motion", "Lenis", "Playwright"]
+summary: "The site you are on. Astro 4 static site with MDX case studies, React islands, dark mode, and 27 Playwright tests."
+cover: "/covers/portfolio.svg"
+status: "live"
+order: 0
+featured: true
+---
+
+The portfolio did not come first. I had written case studies for clients, shipped game builds, deployed AI bots, finished a thesis — but none of it lived in one place where a hiring manager or collaborator could scroll through and see the arc. The portfolio is the container. It had to feel like the work itself, not a résumé slapped onto a template.
+
+The stack choices were deliberate. Astro 4 for the static backbone — every page ships zero JavaScript unless a React island needs it. Tailwind 3 for styling because I already knew the utility class system and did not want to write custom CSS for every section. TypeScript strict across the board. Framer Motion and GSAP for motion, Lenis for the scroll feel. Playwright for 27 smoke tests across three browser configurations.
+
+<figure class="case-figure">
+  <img src="/work/portfolio/hero.jpg" alt="hero section of uzziel.dev showing the animated headline 'I research, build, and ship.'" />
+  <figcaption>The hero. Two-state dark/light toggle. The headline is split per character for the GSAP entrance.</figcaption>
+</figure>
+
+The design tokens came before any layout. Ink, narra, gold, cream, stone, leaf — six colors pulled from the materials I grew up around. Narra furniture at my grandmother's house, gold in the church retablo, leaf in the rice fields of Bay. Fraunces for display heads (slabby, warm, Filipino-print-weight) and Inter Tight for body. No interchangeable sans.
+
+<figure class="case-figure">
+  <img src="/work/portfolio/home-full.jpg" alt="full-page screenshot of the uzziel.dev home page" />
+  <figcaption>Full home page: hero, about teaser, tech marquee, featured work grid.</figcaption>
+</figure>
+
+Writing the case studies in MDX meant I could treat content like code — version-controlled, typed with Zod schemas, sorted by a numeric order field. Each project gets a status badge (live, in-progress, archived), a cover image, a stack list, and as much prose as it needs. The `[...slug].astro` route renders them with a sticky sidebar and a cover image that scales on scroll via GSAP ScrollTrigger.
+
+<figure class="case-figure">
+  <img src="/work/portfolio/work-listing.jpg" alt="work listing page showing project cards with status badges and stack tags" />
+  <figcaption>The work page. Filter chips toggle by category, each card shows status, year, and stack tags.</figcaption>
+</figure>
+
+The interactive pieces are React islands loaded only where needed. The hero headline is a character-split GSAP animation. The work filter hides and shows cards with Framer Motion layout animations. There is a custom cursor follower, a magnetic hover effect on buttons, a 3D tilt on cards, a theme toggle that persists to localStorage, and a Konami Code easter egg that spawns a pixel sprite across the screen. Every animation checks `prefers-reduced-motion` first.
+
+<figure class="case-figure">
+  <img src="/work/portfolio/case-study.jpg" alt="tirador case study page showing the cover image, article content, and sidebar with role/year/stack" />
+  <figcaption>A case study page. The cover image parallaxes on scroll, content is MDX rendered through the Astro content collection pipeline.</figcaption>
+</figure>
+
+The dark mode is class-based — a theme script in the layout head reads localStorage or falls back to `prefers-color-scheme` before the first paint, so there is no flash. The marquee that scrolls tool names across the page uses pure CSS animation. The smooth scroll is Lenis with GSAP ScrollTrigger for the parallax sections.
+
+The testing story is a single Playwright file that hits every route, checks every same-origin link resolves under 400, scrolls the full page to trigger reveal animations, freezes motion, and takes a full-page screenshot into `test-results/`. Three browser projects: Chrome desktop (1440×900), Chrome mobile (iPhone 13), Firefox desktop. Twenty-seven tests, all passing, every build.
+
+<figure class="case-figure">
+  <img src="/work/portfolio/mobile-home.jpg" alt="mobile view of the home page on iPhone 13 viewport" />
+  <figcaption>Mobile layout at 390×844. Nav collapses to a hamburger, the grid stacks vertically.</figcaption>
+</figure>
+
+The deploy is Netlify from the `main` branch. A push runs `npm run build` and publishes `dist/`. There is a `netlify.toml` redirect from `/thesis` to `/research`. No staging environment — the branch IS the staging environment, and I preview locally before pushing.
+
+I built this because every project I finish needs somewhere to live that I control. A GitHub README is not a portfolio. A PDF is not a portfolio. A Behance page is not mine. This site is. Every case study on it was written in the same voice I am using right now — plain, specific, Filipino-rooted, dry.
+
+Here is a quick walkthrough of the full site:
+
+<figure class="case-figure">
+  <video src="/work/portfolio/portfolio-recording.webm" controls muted playsinline preload="metadata" style="width:100%;border-radius:0.5rem;border:1px solid rgb(138 125 110 / 0.3);"></video>
+  <figcaption>Screen recording — a tour through every page of uzziel.dev as of June 2026.</figcaption>
+</figure>

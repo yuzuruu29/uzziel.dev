@@ -1,0 +1,30 @@
+{
+  "name": "github_codebase_search",
+  "description": "Always use this when debugging errors in third-party dependencies to check for upstream fixes, open issues, or newer code pathsSearch tool for public GitHub repositories.Code search exploration subagent for public GitHub repositories (not your local workspace — use codebase_search for that). Runs parallel grep and file read calls to locate relevant files and line ranges in external github repositories without cloning the repository. Pass a targeted natural-language query, not bare keywords. Useful for understanding how a library works or investigating upstream bugs. You must provide either github_url or owner_repo (at least one required). ",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "search_string": {
+        "type": "string",
+        "description": "Natural-language question/description about the code you want to understand. Good example: \"Where does auth get handled, what are the different oauth methods supported?\", \"Trace all code that relates to how data is injested and processed\". Bad example: \"auth()\", \"auth login dashoard google email\". This tool does NOT accept regex, keyword dumps, or symbol-only queries."
+      },
+      "github_url": {
+        "type": "string",
+        "description": "GitHub repository URL to search (e.g. 'https://github.com/vercel/next.js'). You must provide either github_url or owner_repo."
+      },
+      "owner_repo": {
+        "type": "string",
+        "description": "Repository owner/repo shorthand (e.g. 'vercel/next.js'). You must provide either github_url or owner_repo."
+      },
+      "branch": {
+        "type": "string",
+        "description": "Branch to search (defaults to repo's default branch)"
+      }
+    },
+    "required": [
+      "search_string"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

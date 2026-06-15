@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#1a1410"/>
+  <rect x="100" y="100" width="1400" height="700" rx="16" fill="#c9a14a" opacity="0.06"/>
+  <text x="800" y="370" font-family="Fraunces, Georgia, serif" font-size="80" font-weight="500" fill="#f4ecd8" text-anchor="middle">JoMel's</text>
+  <text x="800" y="440" font-family="Fraunces, Georgia, serif" font-size="56" font-weight="400" fill="#c9a14a" text-anchor="middle">Fried Chicken</text>
+  <text x="800" y="510" font-family="'Inter Tight', sans-serif" font-size="18" fill="#8a7d6e" text-anchor="middle" letter-spacing="3">Crispy. Juicy. Unforgettable.</text>
+  <rect x="580" y="560" width="440" height="2" rx="1" fill="#c9a14a" opacity="0.4"/>
+  <text x="800" y="620" font-family="'JetBrains Mono', monospace" font-size="13" fill="#8a7d6e" text-anchor="middle">brand kit · static site · SEO</text>
+</svg>

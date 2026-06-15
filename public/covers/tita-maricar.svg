@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs><linearGradient id="tm" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6b3410"/><stop offset="100%" stop-color="#c9a14a"/></linearGradient></defs>
+  <rect width="1600" height="900" fill="#1a1410"/>
+  <rect x="0" y="0" width="1600" height="900" fill="url(#tm)" opacity="0.08"/>
+  <text x="800" y="370" font-family="Fraunces, Georgia, serif" font-size="88" font-weight="500" fill="#f4ecd8" text-anchor="middle">Tita Maricar's</text>
+  <text x="800" y="430" font-family="'Inter Tight', sans-serif" font-size="18" fill="#c9a14a" text-anchor="middle" letter-spacing="4" text-transform="uppercase">Panciteria & Lutong Ulam</text>
+  <text x="800" y="490" font-family="'Inter Tight', sans-serif" font-size="16" fill="#8a7d6e" text-anchor="middle">Calo, Bay, Laguna</text>
+  <rect x="600" y="540" width="400" height="2" rx="1" fill="#c9a14a" opacity="0.5"/>
+  <text x="800" y="600" font-family="'JetBrains Mono', monospace" font-size="13" fill="#8a7d6e" text-anchor="middle">static site · social marketing · content ops</text>
+</svg>

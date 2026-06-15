@@ -1,0 +1,16 @@
+{
+  "name": "update_project_uids",
+  "description": "Update UID references in a Godot project by resaving resources (for Godot 4.4+)",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "projectPath": {
+        "type": "string",
+        "description": "Path to the Godot project directory"
+      }
+    },
+    "required": [
+      "projectPath"
+    ]
+  }
+}

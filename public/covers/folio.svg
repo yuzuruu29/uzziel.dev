@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs><linearGradient id="fg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a1410"/><stop offset="100%" stop-color="#2a1f18"/></linearGradient></defs>
+  <rect width="1600" height="900" fill="url(#fg)"/>
+  <rect x="200" y="150" width="1200" height="600" rx="12" fill="none" stroke="#c9a14a" stroke-width="2" opacity="0.3"/>
+  <rect x="240" y="190" width="200" height="280" rx="6" fill="#c9a14a" opacity="0.15"/>
+  <rect x="460" y="190" width="700" height="40" rx="4" fill="#6b3410" opacity="0.6"/>
+  <rect x="460" y="250" width="700" height="80" rx="4" fill="#8a7d6e" opacity="0.2"/>
+  <rect x="460" y="350" width="340" height="40" rx="4" fill="#8a7d6e" opacity="0.2"/>
+  <rect x="460" y="410" width="500" height="40" rx="4" fill="#8a7d6e" opacity="0.15"/>
+  <rect x="240" y="500" width="920" height="2" rx="1" fill="#c9a14a" opacity="0.3"/>
+  <text x="800" y="610" font-family="'Inter Tight', sans-serif" font-size="18" fill="#8a7d6e" text-anchor="middle" letter-spacing="2">document intelligence for law offices</text>
+  <text x="800" y="660" font-family="Fraunces, Georgia, serif" font-size="80" font-weight="500" fill="#f4ecd8" text-anchor="middle">FOLIO</text>
+</svg>

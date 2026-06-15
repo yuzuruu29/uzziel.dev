@@ -1,0 +1,32 @@
+{
+  "name": "edit_file",
+  "description": "**PRIMARY TOOL FOR EDITING FILES.** Fast, accurate, and prevents context pollution. Especially useful when making multiple edits in one file: describe all changes in a single call and the semantic edit applies them all at once, more accurately and faster than sequential edits. Unlike search-and-replace or patch edits which do narrow edits one at a time, with this tool you should do all your code changes in one go separated by `// ... existing code ...` markers. This saves tokens and improves performance because you do not need to reread files before edits. All three parameters are required.\n\nParameters:\n- path: Absolute file path to edit\n- instruction: Brief first-person description of what you're changing\n- code_edit: Only the changed lines with // ... existing code ... markers\n\nUse \"// ... existing code ...\" to represent unchanged code blocks. Include just enough surrounding context to locate each edit precisely.\n\nExample format:\n// ... existing code ...\nFIRST_EDIT\n// ... existing code ...\nSECOND_EDIT\n// ... existing code ...\n\nRules:\n- ALWAYS use \"// ... existing code ...\" for unchanged sections (omitting this marker will cause deletions)\n- Preserve exact indentation\n- For deletions: show context before and after, omit the deleted lines\n- Batch multiple edits to the same file in one call\n",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string"
+      },
+      "code_edit": {
+        "type": "string",
+        "description": "Changed lines with minimal context. Use placeholders intelligently like \"// ... existing code ...\" to represent unchanged code."
+      },
+      "instruction": {
+        "type": "string",
+        "description": "A brief single first-person sentence instruction describing changes being made to this file. Useful to disambiguate uncertainty in the edit."
+      },
+      "dryRun": {
+        "type": "boolean",
+        "default": false,
+        "description": "Preview changes without applying them."
+      }
+    },
+    "required": [
+      "path",
+      "code_edit",
+      "instruction"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
