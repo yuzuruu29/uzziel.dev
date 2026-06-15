@@ -35,3 +35,6 @@ proposal.txt
 # Playwright artifacts
 test-results/
 playwright-report/
+
+# User-supplied raw screenshots staging folder (files get curated into public/work/project-screenshots/)
+screenshots/
