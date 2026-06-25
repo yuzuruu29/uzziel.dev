@@ -1,6 +1,6 @@
 # uzziel.dev
 
-**Live:** [uzziel-portfolio.netlify.app](https://uzziel-portfolio.netlify.app)
+**Live:** [uzziel.dev](https://uzziel.dev) (also [uzziel-portfolio.netlify.app](https://uzziel-portfolio.netlify.app) until DNS propagates)
 
 Personal site of Emmanuel Uzziel A. Malolos — agri-econ undergrad at UPLB and full-stack creator from Bay, Laguna. The site catalogs projects across indie games, AI agency work, volunteer web dev, and academic research, and serves as the home for a long-running thesis on land conversion and rice productivity in Bay, Laguna.
 

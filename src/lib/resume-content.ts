@@ -5,7 +5,7 @@ export const resumeData = {
   email: 'uzzielmalolos@gmail.com',
   location: 'Bay, Laguna, Philippines (Remote-Ready)',
   linkedin: 'https://www.linkedin.com/in/emmanuel-uzziel-malolos-25574831a/',
-  website: 'https://uzziel-portfolio.netlify.app',
+  website: 'https://uzziel.dev',
   summary:
     'Full-stack creator and AI tool builder from Bay, Laguna, with 5+ years in digital content production, social media management, and video editing. Builds indie games (Godot 4), ships AI-powered web and mobile apps (Next.js, Flutter, FastAPI), designs and deploys static sites for small businesses, and manages Meta Ads support workflows. Applies AI tools (Claude, ChatGPT) to streamline content, development, and campaign operations. Currently a fourth-year BS Agricultural and Applied Economics student at UPLB working on a thesis about land conversion and rice productivity.',
 

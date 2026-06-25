@@ -6,6 +6,24 @@
   NODE_VERSION = "20"
 
 [[redirects]]
+  from = "http://uzziel.dev/*"
+  to = "https://uzziel.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.uzziel.dev/*"
+  to = "https://uzziel.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.uzziel.dev/*"
+  to = "https://uzziel.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/thesis"
   to = "/research"
   status = 301
