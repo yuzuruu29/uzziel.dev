@@ -15,8 +15,13 @@ SPLATZ is a four-player neon platformer where stacking on each other's heads is 
 Phases 1 through 6 are shipped: lobby with room codes and ready-up, coyote time and jump buffering, four defined levels (The Stack, Laser Corridor, Glitch Sync, The Gauntlet), HUD with death counter and timer, Electron wrapper with a clean production build, and a Steamworks integration branch (`SteamService`, achievements, friends invites stubbed). Vitest covers room lifecycle, kill/respawn, portal gating, and transport injection for testability.
 
 <figure class="case-figure">
+  <img src="/work/project-screenshots/splatz-ingame.png" alt="SPLATZ in-game level with neon platforms, matrix rain background, player entities, and HUD showing key fragments and timer." />
+  <figcaption>Level 1: The Stack — server-authoritative physics, neon splat trails, matrix rain, key-fragment HUD. Host starts from the lobby; state syncs over WebSocket.</figcaption>
+</figure>
+
+<figure class="case-figure">
   <img src="/work/project-screenshots/splatz-lobby.png" alt="SPLATZ game lobby with neon matrix background, room code field, and create/join controls." />
-  <figcaption>Lobby — matrix rain backdrop, room code entry, create/join flow. Server runs at ws://localhost:2567; client at Vite dev port.</figcaption>
+  <figcaption>Lobby — matrix rain backdrop, four-digit room codes, create/join flow. Server at ws://localhost:2567.</figcaption>
 </figure>
 
 The hard part was not rendering — it was server authority without Colyseus. `SplatzRoom` exposes `tick()` and `startLevelForTest()` hooks, cancellable timers, empty-room cleanup, and unsubscribe-safe network managers so GameScene does not leak listeners on scene shutdown. That discipline is what lets 54 tests stay green while I tune feel.
