@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0a08"/>
+      <stop offset="100%" stop-color="#1a1410"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g transform="translate(800, 360)" filter="url(#glow)">
+    <circle cx="0" cy="0" r="120" fill="none" stroke="#6b3410" stroke-width="2" opacity="0.5"/>
+    <circle cx="0" cy="-70" r="28" fill="#241c18" stroke="#c9a14a" stroke-width="2"/>
+    <circle cx="70" cy="20" r="28" fill="#241c18" stroke="#c9a14a" stroke-width="2"/>
+    <circle cx="-70" cy="20" r="28" fill="#241c18" stroke="#c9a14a" stroke-width="2"/>
+    <circle cx="0" cy="70" r="28" fill="#241c18" stroke="#c9a14a" stroke-width="2"/>
+    <circle cx="0" cy="0" r="36" fill="#c9a14a"/>
+    <line x1="0" y1="-42" x2="0" y2="-34" stroke="#c9a14a" stroke-width="2"/>
+    <line x1="49" y1="14" x2="42" y2="10" stroke="#c9a14a" stroke-width="2"/>
+    <line x1="-49" y1="14" x2="-42" y2="10" stroke="#c9a14a" stroke-width="2"/>
+    <line x1="0" y1="34" x2="0" y2="42" stroke="#c9a14a" stroke-width="2"/>
+  </g>
+  <text x="800" y="640" font-family="Fraunces, Georgia, serif" font-size="80" font-weight="500" fill="#f4ecd8" text-anchor="middle">HiveMind</text>
+  <text x="800" y="685" font-family="'Inter Tight', sans-serif" font-size="18" fill="#c9a14a" text-anchor="middle" letter-spacing="6">MULTI-AGENT ORCHESTRATION</text>
+  <text x="800" y="760" font-family="'JetBrains Mono', monospace" font-size="13" fill="#8a7d6e" text-anchor="middle">Next.js · BullMQ · Obsidian vault · Grok API</text>
+</svg>

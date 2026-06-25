@@ -1,0 +1,39 @@
+---
+title: "Saklay Charity Website"
+role: "Solo developer · volunteer"
+year: 2026
+stack: ["Astro 5", "Tailwind CSS", "TypeScript", "MDX", "Vercel"]
+summary: "Charity donation site for Saklay foundation. Warm Hope palette, CMS-style Markdown causes, WCAG AA, SEO-ready."
+cover: "/covers/saklay.svg"
+status: "in-progress"
+order: 7
+featured: true
+---
+
+Saklay ("a helping hand for the needy") needed a website that felt trustworthy to Filipino donors without requiring a developer every time they publish a story. I built it in Astro 5 with a Warm Hope design system — cream surfaces, wood accents, Tabler icons — and content collections so staff can add causes and beneficiary stories by dropping Markdown files, not editing React.
+
+The site maps the full nonprofit journey: hero with real org photography, causes grid (food, education, medical aid, disaster relief), team and journey pages, get-involved with volunteer paths, and a donate section wired for bank/GCash/QR methods once the foundation supplies live account details. Every page ships canonical URLs, Open Graph tags, JSON-LD NGO schema, and a sitemap aimed at `saklay.com`.
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/saklay-home-live.png" alt="Saklay charity website home page with hero poster, tagline, and warm editorial layout." />
+  <figcaption>Live preview — hero poster, impact band, and primary donate CTA. Deployed on Vercel while DNS cutover to saklay.com is pending.</figcaption>
+</figure>
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/saklay-causes-live.png" alt="Saklay causes page showing food, education, medical aid, and disaster relief program cards." />
+  <figcaption>Causes page — four program areas with real foundation photography. Content editors update `src/content/causes/*.md` without touching layout code.</figcaption>
+</figure>
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/saklay-about-live.png" alt="Saklay about page with organization story and team context." />
+  <figcaption>About page — org story, team context, and contact paths. Accessibility and SEO metadata generated from a single `site.ts` config.</figcaption>
+</figure>
+
+I took the same checklist I use for SME client sites: mobile-first type scale, reduced-motion respect, `@axe-core/cli` and Playwright in dev-deps for accessibility audits, and a DNS cutover doc so the domain flip does not break canonicals mid-crawl. Donation methods stay empty until real GCash and bank numbers are approved — better an honest email fallback than a broken QR.
+
+Still in flight: point `saklay.com` DNS to production, populate `donation.ts`, and run a final WCAG pass before the foundation announces publicly.
+
+<figure class="case-figure">
+  <img src="/work/proof-screenshots/saklay-casestudy.jpg" alt="Saklay build and accessibility tooling summary" />
+  <figcaption>Astro 5 static build passes type-check. Accessibility audit tooling installed (`@axe-core/cli`, Playwright). Content collections for causes and stories verified against schema.</figcaption>
+</figure>

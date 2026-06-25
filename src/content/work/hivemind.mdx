@@ -1,0 +1,29 @@
+---
+title: "HiveMind"
+role: "Solo architect · builder"
+year: 2026
+stack: ["TypeScript", "Next.js", "BullMQ", "Redis", "Docker", "Obsidian", "Grok API"]
+summary: "Multi-agent orchestration with an Obsidian vault as shared memory. API, queue workers, dashboard, swarm, bots."
+cover: "/covers/hivemind.svg"
+status: "in-progress"
+order: 2
+featured: true
+---
+
+HiveMind is the control plane behind how I run multiple AI agents without losing context between sessions. Instead of copy-pasting chat logs, every task, handoff, and decision lands in an Obsidian vault that Codex, Claude, Grok, and custom workers can read back on the next run.
+
+The monorepo ships four apps and a dozen packages: a REST API over the vault filesystem, a BullMQ orchestrator backed by Redis, a password-gated Next.js dashboard with live SSE updates, Slack/Discord bot listeners, and per-agent workers that poll their own scratchpads. Phases 1 through 8 are complete — routing, handoff execution, Docker Compose, parallel swarm runs, Grok streaming, vault search, synthesis, and scheduled pipeline jobs.
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/hivemind-login.png" alt="HiveMind dashboard login screen with password gate and dark editorial styling." />
+  <figcaption>Dashboard login — production auth gate before any vault mutation. API key + NextAuth password keep the orchestrator private on a home workstation or VPS.</figcaption>
+</figure>
+
+The architecture is deliberately boring in the right places. Agents register with runtime modes (`api`, `cli`, `stub`). Handoffs carry conflict resolution (`claimed_by`, stale timeout). The promoter package moves finished notes from Inbox into Projects or Knowledge Base. TraderBot, this portfolio, and game sprints all write outputs into `vault/02-Projects/` so downstream agents inherit full context.
+
+I built HiveMind because agent wrappers collapse without durable memory. The bet is that a filesystem vault + queue + dashboard is enough infrastructure for a solo operator to run a micro-agency, trading signals, and three game repos without hiring a platform team.
+
+<figure class="case-figure">
+  <img src="/work/proof-screenshots/hivemind-casestudy.jpg" alt="HiveMind phase completion summary and test results" />
+  <figcaption>201/201 integration tests passing — routing, handoffs, swarm, search, synthesizer, scheduler, and API auth paths verified across the monorepo.</figcaption>
+</figure>

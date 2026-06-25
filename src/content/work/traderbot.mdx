@@ -1,0 +1,24 @@
+---
+title: "TraderBot"
+role: "Solo developer"
+year: 2026
+stack: ["Python", "Pandas", "Binance API", "yfinance", "HiveMind", "Obsidian"]
+summary: "HiveMind-orchestrated crypto signal pipeline. Multi-indicator consensus, risk gates, backtests, vault logging."
+cover: "/covers/traderbot.svg"
+status: "in-progress"
+order: 25
+featured: false
+---
+
+TraderBot is a trading signal system I run through HiveMind instead of a standalone Telegram bot. Market data agents fetch OHLCV from Binance (crypto) or Yahoo Finance (stocks), technical analysis agents score RSI, MACD, EMA crossover, volume, and Bollinger bands, a risk agent applies position sizing against a PHP capital floor, and synthesis outputs BUY/SELL/HOLD with confidence — every run logged as Markdown in the Obsidian vault under `02-Projects/traderbot/signals/`.
+
+The June 2026 sprint added what backtests actually need: trend regime filters, threshold sweep mode, and multi-timeframe input to the consensus bridge. A 30-day BTCUSDT backtest now writes a full report to the vault — win rate, profit factor, Sharpe, monthly breakdown, best/worst trade — so I can compare signal changes across commits instead of guessing from one screenshot.
+
+<figure class="case-figure">
+  <img src="/work/proof-screenshots/traderbot-casestudy.jpg" alt="TraderBot 30-day BTCUSDT backtest output with win rate, profit factor, and Sharpe ratio." />
+  <figcaption>30-day BTCUSDT backtest — 50% win rate, 2.54 profit factor, 4.56 Sharpe, max drawdown 2.11%. Report synced to HiveMind vault for audit trail.</figcaption>
+</figure>
+
+Signals are not financial advice and the README says so plainly. The product goal is reproducible analysis infrastructure: `python scripts/run_analysis.py --asset BTCUSDT --capital 500` for live runs, `scripts/backtest.py` for historical sweeps, and vault files that any agent can read on the next orchestration tick.
+
+Phase 2 (accuracy tracking) and paper trading are next. For portfolio purposes, TraderBot demonstrates Python data pipelines, API integration, and multi-agent handoffs — the same skills I bring to automation contracts for SMEs who need dashboards, not hype.

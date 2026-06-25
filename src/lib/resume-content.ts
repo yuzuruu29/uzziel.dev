@@ -16,7 +16,7 @@ export const resumeData = {
     },
     {
       group: 'Web Development',
-      items: ['Astro 4', 'React 18', 'Next.js 14', 'TypeScript', 'Tailwind CSS', 'Vite', 'HTML/CSS', 'JavaScript'],
+      items: ['Astro 4', 'Astro 5', 'React 18', 'Next.js 14', 'TypeScript', 'Tailwind CSS', 'Vite', 'WebSocket', 'HTML/CSS', 'JavaScript'],
     },
     {
       group: 'Mobile & Desktop',
@@ -24,7 +24,7 @@ export const resumeData = {
     },
     {
       group: 'AI & Automation',
-      items: ['Claude', 'ChatGPT', 'Botpress', 'Groq', 'OpenRouter API', 'AI-assisted workflows', 'Prompt engineering'],
+      items: ['Claude', 'ChatGPT', 'Botpress', 'Groq', 'OpenRouter API', 'HiveMind multi-agent orchestration', 'BullMQ', 'AI-assisted workflows', 'Prompt engineering'],
     },
     {
       group: 'Paid Social & Marketing Ops',
@@ -81,6 +81,26 @@ export const resumeData = {
   ],
 
   projects: [
+    {
+      title: 'HiveMind',
+      summary: 'Multi-agent orchestration monorepo with Obsidian vault memory, BullMQ queue, Next.js dashboard, swarm execution, Grok API streaming, and Slack/Discord bots. Phases 1–8 complete. 201/201 tests.',
+    },
+    {
+      title: 'Saklay Charity Website',
+      summary: 'Astro 5 donation site for Saklay foundation. Warm Hope design system, Markdown content collections, WCAG AA tooling, SEO/JSON-LD. Live on Vercel; saklay.com DNS cutover pending.',
+    },
+    {
+      title: 'SPLATZ',
+      summary: 'Neon 4-player co-op platformer. Phaser 3 + server-authoritative WebSocket physics + Electron + Steamworks branch. 54/54 Vitest tests. Four levels with sync buttons and portal puzzles.',
+    },
+    {
+      title: 'TraderBot',
+      summary: 'HiveMind-orchestrated crypto signal pipeline. Binance/yfinance data, multi-indicator consensus, risk gates, backtests with vault audit trail. Trend regime filter and threshold sweep mode.',
+    },
+    {
+      title: 'Pixel Survivor',
+      summary: 'Godot 4.6 bullet heaven with Megabonk-style ricocheting projectiles. 320×180 pixel pipeline, object pools, phased GDD. Phase 1 scaffold complete.',
+    },
     {
       title: 'Yusel AI',
       summary: 'Free-first AI chat app for Filipino sellers and freelancers. Next.js + Supabase + Groq/OpenRouter. PHP Pro billing via Lemon Squeezy. Freelancer/seller chat templates with tabbed picker UI.',

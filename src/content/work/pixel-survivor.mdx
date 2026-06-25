@@ -1,0 +1,24 @@
+---
+title: "Pixel Survivor"
+role: "Solo developer"
+year: 2026
+stack: ["Godot 4.6", "GDScript", "GUT", "Aseprite", "320×180 pixel pipeline"]
+summary: "Megabonk-style bullet heaven with ricocheting projectiles, wave spawners, and crisp 320×180 rendering."
+cover: "/covers/pixel-survivor.svg"
+status: "in-progress"
+order: 26
+featured: false
+---
+
+Pixel Survivor is the survivor-like I wanted after shipping TIRADOR's arena combat — same Filipino-rooted pixel discipline, but Vampire Survivors pacing with Megabonk-style ricochet projectiles that speed up per wall bounce and despawn on enemy hit. Godot 4.6, 320×180 internal resolution, nearest-neighbor scaling, object pools from day one.
+
+Phase 1 scaffold is complete: project structure, viewport stretch, GL Compatibility renderer, autoload stubs, and agent skills for the full phased plan in `GDD_pixel_survivor.md`. The design locks early on readable silhouettes, pooled bullets, wave tables, XP gems, and a HUD that does not obscure the playfield — lessons from TIRADOR's barangay scale applied to horde density.
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/pixel-survivor-banner.png" alt="Pixel Survivor project banner with pixel art survivor game branding." />
+  <figcaption>Project banner — 320×180 pixel pipeline, ricochet combat loop. Phase 2 targets player movement, weapon pickup, and first enemy wave.</figcaption>
+</figure>
+
+I am building it in the open across Grok, Claude Code, and Codex with a shared `AGENTS.md` so no agent invents a second architecture. GUT tests will gate each phase the same way Heart and Soil and TIRADOR do — ship the smallest vertical slice that proves the bounce feels good, then polish.
+
+Not on a store timeline yet. On the portfolio it shows I can spin up a new Godot genre quickly while keeping rendering crisp and systems testable.

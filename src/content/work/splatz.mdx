@@ -1,0 +1,29 @@
+---
+title: "SPLATZ"
+role: "Solo developer"
+year: 2026
+stack: ["Phaser 3", "TypeScript", "WebSocket", "Vite", "Electron", "Vitest", "Steamworks"]
+summary: "Neon co-op platformer with server-authoritative physics, four levels, Electron shell, and Steamworks branch."
+cover: "/covers/splatz.svg"
+status: "in-progress"
+order: 24
+featured: false
+---
+
+SPLATZ is a four-player neon platformer where stacking on each other's heads is the main verb. Phaser 3 renders the juice — matrix rain, splat particles, screen shake, player trails — while a Node WebSocket server owns physics, collisions, sync buttons, key fragments, and portal unlock logic so clients cannot cheat co-op puzzles.
+
+Phases 1 through 6 are shipped: lobby with room codes and ready-up, coyote time and jump buffering, four defined levels (The Stack, Laser Corridor, Glitch Sync, The Gauntlet), HUD with death counter and timer, Electron wrapper with a clean production build, and a Steamworks integration branch (`SteamService`, achievements, friends invites stubbed). Vitest covers room lifecycle, kill/respawn, portal gating, and transport injection for testability.
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/splatz-lobby.png" alt="SPLATZ game lobby with neon matrix background, room code field, and create/join controls." />
+  <figcaption>Lobby — matrix rain backdrop, room code entry, create/join flow. Server runs at ws://localhost:2567; client at Vite dev port.</figcaption>
+</figure>
+
+The hard part was not rendering — it was server authority without Colyseus. `SplatzRoom` exposes `tick()` and `startLevelForTest()` hooks, cancellable timers, empty-room cleanup, and unsubscribe-safe network managers so GameScene does not leak listeners on scene shutdown. That discipline is what lets 54 tests stay green while I tune feel.
+
+Remaining before Steam: two-human playtesting, register achievement IDs on the partner site, and verify `steamworks.js` against a real Steam client. The game is a portfolio piece for multiplayer engineering, not just another Phaser tutorial.
+
+<figure class="case-figure">
+  <img src="/work/proof-screenshots/splatz-casestudy.jpg" alt="SPLATZ Vitest test suite results" />
+  <figcaption>54/54 Vitest tests passing across 8 files — SplatzRoom physics, lobby lifecycle, co-op mechanics, and server transport mocks.</figcaption>
+</figure>
