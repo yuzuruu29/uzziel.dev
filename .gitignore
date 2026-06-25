@@ -38,3 +38,11 @@ playwright-report/
 
 # User-supplied raw screenshots staging folder (files get curated into public/work/project-screenshots/)
 screenshots/
+
+# Generated Google Drive upload staging + its build scripts (not tracked)
+_client-drive/
+_staging_build/
+
+# Local agent tooling (not tracked)
+.commandcode/
+Master_Resume_updated.txt

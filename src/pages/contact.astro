@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Magnetic from '../islands/Magnetic.tsx';
+import { socials } from '../lib/socials';
 ---
 
 <BaseLayout
@@ -137,11 +138,17 @@ import Magnetic from '../islands/Magnetic.tsx';
       <div data-reveal data-reveal-delay="160">
         <p class="text-xs uppercase tracking-widest text-stone mb-3">Elsewhere</p>
         <ul class="space-y-2 text-sm text-stone">
-          <li>GitHub — coming soon</li>
-          <li>LinkedIn — coming soon</li>
-          <li>Facebook — coming soon</li>
-          <li>YouTube — coming soon</li>
-          <li>Email — coming soon</li>
+          {socials.map((s) =>
+            s.url ? (
+              <li>
+                <a href={s.url} data-cursor="hover" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors">
+                  {s.platform} ↗
+                </a>
+              </li>
+            ) : (
+              <li><span class="text-stone">{s.label}</span></li>
+            )
+          )}
         </ul>
       </div>
     </aside>

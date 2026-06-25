@@ -1,11 +1,16 @@
 ---
+import { socials } from '../lib/socials';
 const links = [
   { href: '/work', label: 'Work' },
   { href: '/about', label: 'About' },
+  { href: '/cv', label: 'CV' },
   { href: '/research', label: 'Research' },
   { href: '/services', label: 'Services' },
   { href: '/contact', label: 'Contact' },
 ];
+const footerSocials = socials.filter((s) =>
+  ['GitHub', 'LinkedIn', 'itch.io'].includes(s.platform)
+);
 ---
 
 <footer class="mt-32 border-t border-stone/20">
@@ -31,9 +36,17 @@ const links = [
     <div>
       <p class="text-xs uppercase tracking-widest text-stone mb-3">Elsewhere</p>
       <ul class="space-y-2 text-sm">
-        <li><span class="text-stone">GitHub — coming soon</span></li>
-        <li><span class="text-stone">LinkedIn — coming soon</span></li>
-        <li><span class="text-stone">itch.io — coming soon</span></li>
+        {footerSocials.map((s) =>
+          s.url ? (
+            <li>
+              <a href={s.url} data-cursor="hover" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors">
+                {s.platform} ↗
+              </a>
+            </li>
+          ) : (
+            <li><span class="text-stone">{s.label}</span></li>
+          )
+        )}
       </ul>
     </div>
   </div>
