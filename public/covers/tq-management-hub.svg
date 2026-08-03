@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Techquarters Management Hub project cover</title>
+  <desc id="desc">A dark financial dashboard with KPI blocks, a ledger chart, and department bars.</desc>
+  <rect width="1600" height="1000" fill="#101820"/>
+  <rect x="790" y="125" width="690" height="750" rx="26" fill="#18232d" stroke="#d7ad58" stroke-opacity=".4" stroke-width="2"/>
+  <g fill="#22313d">
+    <rect x="845" y="190" width="175" height="115" rx="16"/>
+    <rect x="1040" y="190" width="175" height="115" rx="16"/>
+    <rect x="1235" y="190" width="175" height="115" rx="16"/>
+  </g>
+  <g fill="none" stroke="#67c4b7" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M850 585l95-88 92 36 112-150 105 64 143-104"/>
+  </g>
+  <g fill="#d7ad58">
+    <rect x="875" y="690" width="70" height="105" rx="8"/>
+    <rect x="975" y="640" width="70" height="155" rx="8"/>
+    <rect x="1075" y="720" width="70" height="75" rx="8"/>
+    <rect x="1175" y="600" width="70" height="195" rx="8"/>
+    <rect x="1275" y="665" width="70" height="130" rx="8"/>
+  </g>
+  <g font-family="Arial, sans-serif">
+    <text x="105" y="215" fill="#d7ad58" font-size="24" letter-spacing="7">FINANCIAL DECISION COCKPIT</text>
+    <text x="95" y="425" fill="#f2eee4" font-size="96" font-weight="700">TECHQUARTERS</text>
+    <text x="95" y="535" fill="#67c4b7" font-size="104" font-weight="700">HUB</text>
+    <text x="105" y="665" fill="#93a4b0" font-size="30">ONE LEDGER. CLEAR DECISIONS.</text>
+    <text x="105" y="810" fill="#d7ad58" font-size="25" font-weight="700">KPI · CSV · DEPARTMENTS · BRIEFING</text>
+  </g>
+</svg>

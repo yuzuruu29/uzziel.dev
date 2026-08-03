@@ -1,0 +1,14 @@
+Emmanuel Uzziel A. Malolos
+Bay, Laguna, Philippines
+uzzielmalolos@gmail.com | uzziel.dev
+
+Hi AI Agency Institute Team,
+
+I am writing to apply for the AI App Developer position. I build Next.js applications, integrate LLM APIs (OpenRouter, Groq, Anthropic), and use AI-assisted tools like Claude Code and Cursor to move prototypes into production.
+
+Recently, I shipped Yusel AI, a full-stack chat web application for Filipino freelancers and sellers using Next.js, Supabase, and Groq/OpenRouter. I also run a Botpress-based AI micro-agency for SMEs and built a custom Job Hunter CLI in Python to automatically score job alerts with the Anthropic API. My workflow combines fast AI prototyping with rigorous local testing (using Playwright and Python).
+
+I am comfortable working with emerging AI APIs, building structured node flows, and deploying to platforms like Netlify and Vercel. I can help you ship and scale your AI products.
+
+Regards,
+Emmanuel Uzziel A. Malolos

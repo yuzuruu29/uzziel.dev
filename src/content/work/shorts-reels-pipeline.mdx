@@ -1,4 +1,4 @@
----
+﻿---
 title: "Shorts + Reels Pipeline"
 role: "Solo developer"
 year: 2026
@@ -6,12 +6,13 @@ stack: ["Python", "ffmpeg", "Whisper", "SRT"]
 summary: "Automated pipeline that cuts source videos into short-form content with burned-in subtitles."
 cover: "/covers/shorts-reels.svg"
 status: "live"
-order: 22
+order: 34
 featured: false
 ---
 
-The Shorts + Reels Pipeline is a set of Python scripts that turns long-form source video into platform-ready short-form clips. Given a sermon recording, a product demo, or a raw talking-head video, the pipeline handles detection of highlight segments, trimming to 30–60 seconds, cropping to vertical aspect ratio, running Whisper for speech-to-text, and burning the resulting SRT subtitles directly into the output.
+The Shorts + Reels Pipeline is a set of Python scripts that turns long-form source video into platform-ready short-form clips. Given a sermon recording, a product demo, or a raw talking-head video, the pipeline handles detection of highlight segments, trimming to 30â€“60 seconds, cropping to vertical aspect ratio, running Whisper for speech-to-text, and burning the resulting SRT subtitles directly into the output.
 
-The main scripts live in the pipeline directory: `make_shorts.py` takes a source file and a set of trim points, applies ffmpeg cuts with crossfade transitions, runs Whisper on each segment, and renders the final clip with hard-coded subtitles styled to be readable on a phone screen. `make_full_source_shorts.py` handles the batch case — splitting a long video into every viable short segment based on silence detection and shot boundaries.
+The main scripts live in the pipeline directory: `make_shorts.py` takes a source file and a set of trim points, applies ffmpeg cuts with crossfade transitions, runs Whisper on each segment, and renders the final clip with hard-coded subtitles styled to be readable on a phone screen. `make_full_source_shorts.py` handles the batch case â€” splitting a long video into every viable short segment based on silence detection and shot boundaries.
 
 I built this for the TLWC sermon library (long recordings that needed to become weekly 60-second sermon clips) and for Tita Maricar's daily food content. The output is an `edited_shorts/` folder with ready-to-upload MP4 files and matching `edited_subtitles/` with the raw SRT files. No video editor needed, no timeline-wrestling.
+

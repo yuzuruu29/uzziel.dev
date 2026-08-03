@@ -1,0 +1,402 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import { readFile, stat } from 'node:fs/promises';
+import path from 'node:path';
+import PDFLayout from '../layouts/PDFLayout.astro';
+import { resumeData } from '../lib/resume-content.ts';
+import { socials } from '../lib/socials.ts';
+
+const SAMPLE_SLUGS = new Set([
+  'willow-creek-farmstay',
+  'clearpath-lawn-care',
+  'harvest-table-kitchen',
+  'ai-book-content-portfolio',
+  'ai-youtube-thumbnail-design-portfolio',
+]);
+
+const SAMPLE_README_DIRS: Record<string, string> = {
+  'willow-creek-farmstay': '01_willow_creek_farmstay/source/README.md',
+  'clearpath-lawn-care': '02_clearpath_lawn_care/source/README.md',
+  'harvest-table-kitchen': '03_harvest_table_kitchen/source/README.md',
+};
+
+async function fileExists(p: string): Promise<boolean> {
+  try {
+    await stat(p);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function coverAvailable(cover: string): Promise<boolean> {
+  if (!cover || !cover.startsWith('/')) return false;
+  const cleaned = cover.replace(/^\/+/, '');
+  return fileExists(path.join(process.cwd(), 'public', cleaned));
+}
+
+async function readSampleNote(slug: string): Promise<string> {
+  const rel = SAMPLE_README_DIRS[slug];
+  if (!rel) return '';
+  try {
+    const raw = await readFile(path.join(process.cwd(), rel), 'utf-8');
+    // Drop the first H1 heading and the blockquote line right after it (if any),
+    // then take the first paragraph of prose and trim to a short note.
+    const lines = raw.split(/\r?\n/);
+    let started = false;
+    const prose: string[] = [];
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (!started) {
+        if (trimmed.startsWith('#')) continue;
+        if (trimmed.startsWith('>')) continue;
+        if (trimmed === '') continue;
+        started = true;
+      }
+      if (trimmed === '---') break;
+      if (trimmed.startsWith('##')) break;
+      if (trimmed === '') {
+        if (prose.length > 0) break;
+        continue;
+      }
+      prose.push(trimmed);
+    }
+    const note = prose.join(' ').replace(/\s+/g, ' ').trim();
+    return note.length > 320 ? note.slice(0, 317) + '...' : note;
+  } catch {
+    return '';
+  }
+}
+
+const allWork = await getCollection('work');
+const sorted = [...allWork].sort(
+  (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0),
+);
+
+const featured = sorted.filter((e) => e.data.featured === true);
+const samples = sorted.filter((e) => SAMPLE_SLUGS.has(e.slug));
+
+const nonSamples = sorted.filter((e) => !SAMPLE_SLUGS.has(e.slug));
+const live = nonSamples.filter(
+  (e) => !e.data.featured && e.data.status === 'live',
+);
+const inProgress = nonSamples.filter(
+  (e) => !e.data.featured && e.data.status === 'in-progress',
+);
+const archived = nonSamples.filter(
+  (e) => !e.data.featured && e.data.status === 'archived',
+);
+
+const featuredRendered = await Promise.all(
+  featured.map(async (entry) => {
+    const coverOk = await coverAvailable(entry.data.cover);
+    return { entry, coverOk };
+  }),
+);
+
+const sampleNotes = await Promise.all(
+  samples.map(async (entry) => ({
+    entry,
+    note: await readSampleNote(entry.slug),
+  })),
+);
+
+const linkedin = socials.find((s) => s.platform === 'LinkedIn');
+
+const services = [
+  {
+    title: 'Data & bookkeeping support',
+    summary: 'Excel cleanup, monthly bookkeeping, custom reports.',
+    bullets: [
+      'Chart of accounts and ledger setup from receipts or messy sheets',
+      'Monthly close, payables tracking, payroll reconciliation',
+      'Custom reports (P&L, cash position, owner-readable summaries)',
+    ],
+    price: 'Starts at PHP 5,000 / month',
+  },
+  {
+    title: 'Website + SEO',
+    summary: 'Astro/Next sites, on-page SEO, Netlify deploys.',
+    bullets: [
+      'Design, build, and deploy on Astro or Next.js',
+      'On-page SEO: titles, meta, schema, sitemaps',
+      'Netlify hosting + form handling and analytics wiring',
+    ],
+    price: 'Starts at PHP 25,000 / project',
+  },
+  {
+    title: 'AI chatbot integration',
+    summary: 'Botpress + Claude or GPT integrations, training data, handover docs.',
+    bullets: [
+      'Botpress flow with structured nodes for predictable answers',
+      'Claude or GPT for open-ended turns; clean human handoff',
+      'Training data, deploy, and a written handover doc your team can use',
+    ],
+    price: 'Starts at PHP 18,000 / project',
+  },
+];
+
+const steps = [
+  { n: 1, title: 'Discover', text: 'A short call to learn the business and the problem.' },
+  { n: 2, title: 'Scope', text: 'A one-page brief: deliverable, timeline, price, what is out of scope.' },
+  { n: 3, title: 'Build', text: 'Weekly check-ins with working drafts you can react to.' },
+  { n: 4, title: 'Hand off', text: 'Docs, training, and a 30-day support window after launch.' },
+];
+
+function statusBadgeClass(s: CollectionEntry<'work'>['data']['status']): string {
+  if (s === 'live') return 'status-pill status-pill-success';
+  if (s === 'in-progress') return 'status-pill badge-gold';
+  return 'status-pill';
+}
+
+function statusLabel(s: CollectionEntry<'work'>['data']['status']): string {
+  if (s === 'in-progress') return 'In progress';
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+---
+
+<PDFLayout title="Uzziel Malolos — Portfolio" description="Print-ready portfolio of Emmanuel Uzziel A. Malolos.">
+  <article class="pdf-doc">
+    <!-- 1. Cover -->
+    <section class="pdf-page">
+      <header class="pdf-header">
+        <p style="margin:0;font-size:8.5pt;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone);">
+          Portfolio
+        </p>
+        <h1>{resumeData.name}</h1>
+        <p style="font-family:'Fraunces',Georgia,serif;font-size:13pt;color:var(--narra);margin:0.2em 0 0.8em 0;">
+          {resumeData.tagline}
+        </p>
+      </header>
+
+      <p style="font-size:14pt;font-family:'Fraunces',Georgia,serif;line-height:1.4;margin:0 0 1em 0;">
+        I research, build, and ship.
+      </p>
+
+      <p style="margin:0 0 0.4em 0;">
+        <strong>{resumeData.phone}</strong>
+        &nbsp;·&nbsp;
+        <a href={`mailto:${resumeData.email}`}>{resumeData.email}</a>
+        &nbsp;·&nbsp;
+        {resumeData.location}
+        &nbsp;·&nbsp;
+        <a href={resumeData.website}>{resumeData.website.replace(/^https?:\/\//, '')}</a>
+      </p>
+
+      {linkedin?.url && (
+        <p style="margin:0;">
+          <a href={linkedin.url}>LinkedIn — emmanuel-uzziel-malolos</a>
+        </p>
+      )}
+    </section>
+
+    <!-- 2. About -->
+    <section class="pdf-page">
+      <h2>About</h2>
+      <div class="pdf-rule"></div>
+      <p>{resumeData.summary}</p>
+      <p>
+        Based in Bay, Laguna and working remotely with teams across the Philippines
+        and beyond — shipping across game development, web, mobile, and AI.
+      </p>
+    </section>
+
+    <!-- 3. Services -->
+    <section class="pdf-page">
+      <h2>Services</h2>
+      <div class="pdf-rule"></div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10pt;">
+        {services.map((s) => (
+          <article class="card">
+            <h3 style="margin-bottom:0.2em;">{s.title}</h3>
+            <p style="margin:0 0 0.5em 0;font-size:9.5pt;color:var(--stone);">{s.summary}</p>
+            <p style="margin:0.4em 0 0.2em 0;font-size:7.5pt;letter-spacing:0.08em;text-transform:uppercase;color:var(--stone);">
+              What's included
+            </p>
+            <ul style="margin:0;padding-left:1.2em;font-size:9.5pt;">
+              {s.bullets.map((b) => (
+                <li>{b}</li>
+              ))}
+            </ul>
+            <p style="margin:0.6em 0 0 0;font-family:'JetBrains Mono',monospace;font-size:8.5pt;color:var(--narra);">
+              {s.price}
+            </p>
+          </article>
+        ))}
+      </div>
+
+      <h3 style="margin-top:1em;">How we'll work together</h3>
+      <ol style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:8pt;">
+        {steps.map((s) => (
+          <li>
+            <p style="font-family:'JetBrains Mono',monospace;font-size:8.5pt;color:var(--gold);margin:0;">
+              0{s.n}
+            </p>
+            <h4 style="margin:0.2em 0 0.3em 0;">{s.title}</h4>
+            <p style="margin:0;font-size:9.5pt;color:var(--stone);">{s.text}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <!-- 4. Featured work -->
+    <section class="pdf-page">
+      <h2>Featured work</h2>
+      <div class="pdf-rule"></div>
+      <p style="color:var(--stone);font-size:9.5pt;margin:0 0 0.8em 0;">
+        Full case-study cards for the projects I lead with.
+      </p>
+
+      <div class="featured-grid">
+        {featuredRendered.map(({ entry, coverOk }) => (
+          <article class="card featured-card" data-slug={entry.slug}>
+            {coverOk && (
+              <img class="cover-thumb" src={entry.data.cover} alt={`${entry.data.title} cover`} />
+            )}
+
+            <header>
+              <h3 style="margin-bottom:0.2em;">{entry.data.title}</h3>
+              <p style="margin:0 0 0.3em 0;font-size:9.5pt;color:var(--stone);">
+                {entry.data.role} · {entry.data.year}
+              </p>
+              <p style="margin:0 0 0.5em 0;">
+                <span class={statusBadgeClass(entry.data.status)}>{statusLabel(entry.data.status)}</span>
+                {entry.data.stack.slice(0, 5).map((tech) => (
+                  <span class="badge">{tech}</span>
+                ))}
+              </p>
+            </header>
+
+            <p style="margin:0;"><strong>{entry.data.summary}</strong></p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- 5. All projects catalog -->
+    <section class="pdf-page">
+      <h2>All projects</h2>
+      <div class="pdf-rule"></div>
+      <p style="color:var(--stone);font-size:9.5pt;margin:0 0 0.8em 0;">
+        Every tracked project, grouped by status.
+      </p>
+
+      {[
+        { title: 'Live', items: live },
+        { title: 'In progress', items: inProgress },
+        { title: 'Archived', items: archived },
+      ].map((group) => (
+        <Fragment>
+          {group.items.length > 0 && (
+            <section style="margin:0 0 0.9em 0;">
+              <h3 style="margin:0 0 0.4em 0;">
+                {group.title} <span style="font-size:9pt;color:var(--stone);font-weight:400;">({group.items.length})</span>
+              </h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th style="width:30%;">Project</th>
+                    <th style="width:18%;">Role · Year</th>
+                    <th style="width:14%;">Status</th>
+                    <th>Stack &amp; summary</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {group.items.map((e) => (
+                    <tr>
+                      <td>
+                        <strong>{e.data.title}</strong>
+                      </td>
+                      <td>
+                        {e.data.role}
+                        <br />
+                        <span style="color:var(--stone);">{e.data.year}</span>
+                      </td>
+                      <td>
+                        <span class={statusBadgeClass(e.data.status)}>{statusLabel(e.data.status)}</span>
+                      </td>
+                      <td>
+                        <p style="margin:0 0 0.3em 0;">
+                          {e.data.stack.map((tech) => (
+                            <span class="badge">{tech}</span>
+                          ))}
+                        </p>
+                        <p style="margin:0;font-size:9pt;color:var(--stone);">{e.data.summary}</p>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </section>
+          )}
+        </Fragment>
+      ))}
+    </section>
+
+    <!-- 6. Sample / local builds -->
+    <section class="pdf-page">
+      <h2>Sample &amp; local builds</h2>
+      <div class="pdf-rule"></div>
+      <p style="color:var(--stone);font-size:9.5pt;margin:0 0 0.8em 0;">
+        Concept landing pages and concept portfolio PDFs shipped alongside the live work.
+      </p>
+
+      {sampleNotes.map(({ entry, note }) => (
+        <article class="card" data-slug={entry.slug} style="margin:0 0 8pt 0;">
+          <h3 style="margin:0 0 0.2em 0;">{entry.data.title}</h3>
+          <p style="margin:0 0 0.3em 0;font-size:9.5pt;color:var(--stone);">
+            {entry.data.role} · {entry.data.year}
+            &nbsp;·&nbsp;
+            <span class={statusBadgeClass(entry.data.status)}>{statusLabel(entry.data.status)}</span>
+          </p>
+          <p style="margin:0 0 0.4em 0;">
+            {entry.data.stack.map((tech) => (
+              <span class="badge">{tech}</span>
+            ))}
+          </p>
+          <p style="margin:0 0 0.4em 0;"><strong>{entry.data.summary}</strong></p>
+          {note && (
+            <p style="margin:0;font-size:9pt;color:var(--stone);font-style:italic;">
+              {note}
+            </p>
+          )}
+        </article>
+      ))}
+    </section>
+
+    <!-- 7. Skills & contact -->
+    <section class="pdf-page">
+      <h2>Skills</h2>
+      <div class="pdf-rule"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8pt;">
+        {resumeData.skills.map((grp) => (
+          <article class="card" style="margin:0;">
+            <h4 style="margin:0 0 0.3em 0;color:var(--narra);">{grp.group}</h4>
+            <p style="margin:0;">
+              {grp.items.map((item) => (
+                <span class="badge">{item}</span>
+              ))}
+            </p>
+          </article>
+        ))}
+      </div>
+
+      <h2 style="margin-top:1em;">Contact</h2>
+      <div class="pdf-rule"></div>
+      <p style="font-size:12pt;font-family:'Fraunces',Georgia,serif;margin:0 0 0.5em 0;">
+        Want to work together? Reach out.
+      </p>
+      <p style="margin:0 0 0.3em 0;">
+        <a href={`mailto:${resumeData.email}`}>{resumeData.email}</a>
+        &nbsp;·&nbsp;
+        <a href={resumeData.website}>{resumeData.website}</a>
+      </p>
+      {linkedin?.url && (
+        <p style="margin:0;">
+          <a href={linkedin.url}>{linkedin.url.replace(/^https?:\/\//, '')}</a>
+        </p>
+      )}
+    </section>
+  </article>
+</PDFLayout>

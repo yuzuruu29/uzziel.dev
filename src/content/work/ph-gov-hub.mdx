@@ -1,24 +1,25 @@
----
+﻿---
 title: "Philippine Government Hub"
 role: "Solo developer"
 year: 2026
 stack: ["Next.js 14", "TypeScript", "Tailwind CSS", "Fuse.js"]
-summary: "Directory of Philippine government services. Search, filter, browse — no backend, no auth."
+summary: "Directory of Philippine government services. Search, filter, browse â€” no backend, no auth."
 cover: "/covers/ph-gov-hub.svg"
 status: "in-progress"
-order: 8
+order: 17
 featured: false
 ---
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/ph-gov-hub-ui.jpg" alt="Philippine Government Hub screenshot showing the search and service directory." />
-  <figcaption>Actual running UI — search bar, service categories, and direct links to official government portals.</figcaption>
+  <figcaption>Actual running UI â€” search bar, service categories, and direct links to official government portals.</figcaption>
 </figure>
 
-The Philippine Government Hub is a directory app for government services — SSS, Pag-IBIG, PhilHealth, DFA passport appointments, LTO, PSA, BIR, DSWD, and more. You search or browse, get the official website, office hours, requirements, fees, and a step-by-step guide for each service. No login, no ads, no sponsored results.
+The Philippine Government Hub is a directory app for government services â€” SSS, Pag-IBIG, PhilHealth, DFA passport appointments, LTO, PSA, BIR, DSWD, and more. You search or browse, get the official website, office hours, requirements, fees, and a step-by-step guide for each service. No login, no ads, no sponsored results.
 
-The data lives in static JSON files under `data/`. Fuse.js powers the search with fuzzy matching — misspell "Pag-IBIG" and it still finds the right entry. Tailwind handles the responsive layout, Lucide icons fill the visual gaps. Mobile-first throughout.
+The data lives in static JSON files under `data/`. Fuse.js powers the search with fuzzy matching â€” misspell "Pag-IBIG" and it still finds the right entry. Tailwind handles the responsive layout, Lucide icons fill the visual gaps. Mobile-first throughout.
 
 I built it because every time I needed to renew a government document I ended up hopping between three poorly maintained websites and a Facebook page from 2019. The hub is structured the way I wished those sites were: one search bar, clear categories, no carousels. TypeScript strict keeps the JSON data shaped correctly as the dataset grows.
 
 Still in flight: a more complete service catalog, a crowdsource corrections path, and a PWA install prompt so it lives on a phone home screen like an app should.
+

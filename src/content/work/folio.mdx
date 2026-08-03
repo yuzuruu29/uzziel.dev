@@ -1,41 +1,42 @@
----
+﻿---
 title: "FOLIO"
 role: "Solo developer"
 year: 2026
 stack: ["Electron", "React", "Vite", "FastAPI", "Python", "Tesseract"]
-summary: "Document intelligence desktop app for law offices. OCR, rename, compile, verify — all local."
+summary: "Document intelligence desktop app for law offices. OCR, rename, compile, verify â€” all local."
 cover: "/covers/folio.svg"
 status: "in-progress"
-order: 7
+order: 16
 featured: false
 ---
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/folio-capture.png" alt="FOLIO desktop app Capture tab showing the local model indicator (qwen2.5:3b), drop zone for PDF/DOCX/JPG/PNG/TIFF, and processing-instructions editor." />
-  <figcaption>Capture tab — drop a legal document, set processing instructions, the local LLM (qwen2.5:3b) does the rest. No cloud, no upload.</figcaption>
+  <figcaption>Capture tab â€” drop a legal document, set processing instructions, the local LLM (qwen2.5:3b) does the rest. No cloud, no upload.</figcaption>
 </figure>
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/folio-review.png" alt="FOLIO Review tab showing the OCR-classified filename review table with proposed names, conflict status, and approve-all/reject-all controls." />
-  <figcaption>Review tab — OCR proposes filenames from extracted metadata. You approve, reject, or edit before the rename commits.</figcaption>
+  <figcaption>Review tab â€” OCR proposes filenames from extracted metadata. You approve, reject, or edit before the rename commits.</figcaption>
 </figure>
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/folio-settings.png" alt="FOLIO Settings tab showing the firm-name, root directory, watch folder, naming template, and watch-folder-active controls." />
-  <figcaption>Settings tab — firm name, watch folder, naming template (default_legal). Watch Folder Active turns the pipeline into a hands-off daemon.</figcaption>
+  <figcaption>Settings tab â€” firm name, watch folder, naming template (default_legal). Watch Folder Active turns the pipeline into a hands-off daemon.</figcaption>
 </figure>
 
 FOLIO is a document intelligence desktop app for law offices. It scans, renames, compiles, and quality-checks legal documents without sending a single file to the cloud. The whole pipeline runs on the user's machine: Electron frontend, FastAPI Python backend, Tesseract OCR, and a local LLM for metadata extraction.
 
 The core loop takes a folder of scanned PDFs, runs OCR to make them searchable, extracts metadata (case number, document type, date, parties) through a local language model, applies a rename template so every file follows a consistent convention, and presents a verification screen where the user approves or corrects before the files are committed.
 
-Behind that loop are supporting pieces that make the app feel finished rather than prototyped. A watch folder that automatically ingests new files. A dashboard with session-level PDF reports. A dossier creation tool that compiles related documents into shareable bundles. An insight engine that surfaces patterns across documents — filing gaps, date clusters, repeated party names — all computed locally. A settings panel for configuring OCR language and rename templates.
+Behind that loop are supporting pieces that make the app feel finished rather than prototyped. A watch folder that automatically ingests new files. A dashboard with session-level PDF reports. A dossier creation tool that compiles related documents into shareable bundles. An insight engine that surfaces patterns across documents â€” filing gaps, date clusters, repeated party names â€” all computed locally. A settings panel for configuring OCR language and rename templates.
 
 I built FOLIO because the legal offices I talked to in Laguna all had the same workflow: a paralegal opens each scanned PDF, reads the first page, renames it by hand, and repeats that a hundred times per case load. The product bet is that a cheap local LLM + OCR is enough to automate the repeatable parts, and that law offices will pay a one-time desktop install fee over a monthly SaaS subscription.
 
-Integration phase is complete — frontend, backend, and Electron shell all talk to each other with the correct data shapes. Remaining: packaging for distribution, installer, and enough field testing to know which edge cases break the OCR pipeline.
+Integration phase is complete â€” frontend, backend, and Electron shell all talk to each other with the correct data shapes. Remaining: packaging for distribution, installer, and enough field testing to know which edge cases break the OCR pipeline.
 
 <figure class="case-figure">
   <img src="/work/proof-screenshots/folio-casestudy.jpg" alt="FOLIO case study page on the portfolio" />
-  <figcaption>252/252 tests passing — 77 frontend (Vitest) + 175 backend (pytest). Full OCR pipeline, rename engine, watchdog, insight engine, and compilation all verified.</figcaption>
+  <figcaption>252/252 tests passing â€” 77 frontend (Vitest) + 175 backend (pytest). Full OCR pipeline, rename engine, watchdog, insight engine, and compilation all verified.</figcaption>
 </figure>
+

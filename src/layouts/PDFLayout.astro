@@ -1,0 +1,370 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Portfolio — PDF',
+  description = 'Print-ready portfolio document.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap"
+    />
+
+    <style is:global>
+      :root {
+        --ink: #1a1410;
+        --narra: #6b3410;
+        --gold: #c9a14a;
+        --cream: #f4ecd8;
+        --stone: #8a7d6e;
+        --leaf: #4a6b3a;
+      }
+
+      @page {
+        size: A4;
+        margin: 16mm;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+        color: var(--ink);
+        font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+        font-weight: 400;
+        font-size: 10.5pt;
+        line-height: 1.55;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+        color: var(--ink);
+        font-weight: 600;
+        line-height: 1.2;
+        margin: 0 0 0.4em 0;
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+
+      h1 {
+        font-weight: 700;
+        font-size: 26pt;
+        letter-spacing: -0.01em;
+      }
+      h2 {
+        font-weight: 700;
+        font-size: 18pt;
+        letter-spacing: -0.005em;
+        color: var(--narra);
+      }
+      h3 {
+        font-weight: 600;
+        font-size: 13.5pt;
+      }
+      h4 {
+        font-weight: 600;
+        font-size: 11.5pt;
+      }
+      h5 {
+        font-weight: 600;
+        font-size: 10.5pt;
+      }
+      h6 {
+        font-weight: 600;
+        font-size: 9.5pt;
+        color: var(--stone);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      p {
+        margin: 0 0 0.7em 0;
+      }
+
+      strong,
+      b {
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      em,
+      i {
+        font-style: italic;
+      }
+
+      a {
+        color: var(--narra);
+        text-decoration: underline;
+        text-decoration-color: var(--gold);
+        text-underline-offset: 2px;
+      }
+
+      code,
+      kbd,
+      samp,
+      pre {
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-weight: 400;
+        font-size: 0.92em;
+      }
+
+      code {
+        background: var(--cream);
+        color: var(--narra);
+        padding: 0.05em 0.35em;
+        border-radius: 3px;
+      }
+
+      pre {
+        background: var(--cream);
+        color: var(--ink);
+        padding: 0.7em 0.9em;
+        border-radius: 4px;
+        border: 1px solid #e7dfc8;
+        overflow-x: auto;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      pre code {
+        background: transparent;
+        color: inherit;
+        padding: 0;
+      }
+
+      ul,
+      ol {
+        margin: 0 0 0.8em 0;
+        padding-left: 1.4em;
+      }
+
+      li {
+        margin-bottom: 0.25em;
+        break-inside: avoid;
+      }
+
+      li::marker {
+        color: var(--gold);
+      }
+
+      hr {
+        border: 0;
+        border-top: 1px solid #e7dfc8;
+        margin: 1.2em 0;
+      }
+
+      blockquote {
+        margin: 0 0 0.8em 0;
+        padding: 0.4em 0.9em;
+        border-left: 3px solid var(--gold);
+        color: var(--narra);
+        font-style: italic;
+        background: #fbf6e8;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .featured-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10pt;
+      }
+
+      .featured-card {
+        display: block;
+      }
+
+      .featured-card::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+
+      .cover-thumb {
+        float: left;
+        width: 30%;
+        height: 64pt;
+        margin: 0 10pt 4pt 0;
+        object-fit: cover;
+        border: 1px solid #e7dfc8;
+        border-radius: 4px;
+        background: var(--cream);
+      }
+
+      /* Page container: start each major section cleanly, but allow long
+         sections to flow instead of forcing blank/oversized pages. */
+      .pdf-page {
+        break-before: page;
+        page-break-before: always;
+        margin-bottom: 0;
+      }
+
+      .pdf-doc > .pdf-page:first-child {
+        break-before: auto;
+        page-break-before: auto;
+      }
+
+      /* Generic card / section container helper */
+      .pdf-card,
+      .pdf-section,
+      .card,
+      section.pdf-section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        background: #ffffff;
+        border: 1px solid #e7dfc8;
+        border-radius: 6px;
+        padding: 12pt 14pt;
+        margin: 0 0 10pt 0;
+      }
+
+      /* Badges & status pills */
+      .badge,
+      .pill,
+      .status-pill {
+        display: inline-block;
+        font-family: 'Inter', system-ui, sans-serif;
+        font-weight: 500;
+        font-size: 8.5pt;
+        line-height: 1;
+        padding: 0.3em 0.65em;
+        border-radius: 999px;
+        background: var(--cream);
+        color: var(--narra);
+        border: 1px solid #e7dfc8;
+        margin: 0 0.3em 0.3em 0;
+        white-space: nowrap;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .badge-gold,
+      .pill-gold {
+        background: var(--gold);
+        color: var(--ink);
+        border-color: var(--gold);
+      }
+
+      .badge-leaf,
+      .pill-leaf,
+      .status-pill-success {
+        background: var(--leaf);
+        color: var(--cream);
+        border-color: var(--leaf);
+      }
+
+      .badge-narra,
+      .pill-narra {
+        background: var(--narra);
+        color: var(--cream);
+        border-color: var(--narra);
+      }
+
+      .badge-ink,
+      .pill-ink {
+        background: var(--ink);
+        color: var(--cream);
+        border-color: var(--ink);
+      }
+
+      .status-pill {
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-weight: 600;
+        font-size: 7.5pt;
+      }
+
+      /* Layout helpers used by PDF page content */
+      .pdf-header {
+        border-bottom: 2px solid var(--gold);
+        padding-bottom: 8pt;
+        margin-bottom: 14pt;
+      }
+
+      .pdf-footer {
+        border-top: 1px solid #e7dfc8;
+        padding-top: 6pt;
+        margin-top: 14pt;
+        color: var(--stone);
+        font-size: 8.5pt;
+      }
+
+      .pdf-rule {
+        height: 1px;
+        background: var(--gold);
+        margin: 10pt 0;
+      }
+
+      /* Tables */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 0 0.8em 0;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 6pt 8pt;
+        border-bottom: 1px solid #e7dfc8;
+        vertical-align: top;
+      }
+
+      th {
+        font-family: 'Fraunces', Georgia, serif;
+        font-weight: 600;
+        color: var(--narra);
+        background: var(--cream);
+      }
+
+      /* Print: hide on-screen controls if any sneaked in */
+      @media print {
+        body {
+          background: #ffffff;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

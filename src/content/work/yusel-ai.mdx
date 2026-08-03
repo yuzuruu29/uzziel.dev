@@ -1,36 +1,36 @@
----
+﻿---
 title: "Yusel AI"
-role: "Solo developer · founder"
+role: "Solo developer Â· founder"
 year: 2026
 stack: ["Next.js", "TypeScript", "Supabase", "Tailwind", "shadcn/ui"]
 summary: "Free-first AI chat for Filipino sellers and freelancers. Templates, PHP billing, cheap-model lineup."
 cover: "/covers/yusel-ai.svg"
 status: "in-progress"
-order: 3
+order: 8
 featured: true
 ---
 
 Yusel AI is the product-side companion to my Botpress micro-agency work. Instead of pitching chatbots I cannot let strangers try, I built a real Next.js app where a freelancer or sari-sari owner can open a thread, pick a template, and get a draft without signing up for three different APIs first.
 
-The model strategy is honest about cost. Free hosted inference through Groq, OpenRouter `:free` models, Hugging Face, and optional local Ollama — with paid frontier models hidden until someone actually needs them. Pro billing ships in PHP through Lemon Squeezy, with a single tier and copy that does not pretend unlimited free usage.
+The model strategy is honest about cost. Free hosted inference through Groq, OpenRouter `:free` models, Hugging Face, and optional local Ollama â€” with paid frontier models hidden until someone actually needs them. Pro billing ships in PHP through Lemon Squeezy, with a single tier and copy that does not pretend unlimited free usage.
 
 June 2026 sprints landed the pieces that make it feel like a product instead of a demo: a Spline 3D hero on the landing page (perf-gated so low-end phones skip WebGL), freelancer/seller chat templates with tabbed picker UI, a cheap-first model lineup on Pro, friendly 429 messages when free providers rate-limit, and middleware that stops auth from blocking static fonts and media.
 
 <figure class="case-figure">
-  <img src="/work/project-screenshots/yusel-ai-landing.png" alt="Yusel AI landing page showing the Yusel AI logo, 'Captions, replies, and listings — done in seconds' headline, Get started free and Sign in buttons, and the dark humanoid mascot on a black background." />
-  <figcaption>Landing page — dark theme, the tagline for Filipino sellers and freelancers, the 3D mascot on the right.</figcaption>
+  <img src="/work/project-screenshots/yusel-ai-landing.png" alt="Yusel AI landing page showing the Yusel AI logo, 'Captions, replies, and listings â€” done in seconds' headline, Get started free and Sign in buttons, and the dark humanoid mascot on a black background." />
+  <figcaption>Landing page â€” dark theme, the tagline for Filipino sellers and freelancers, the 3D mascot on the right.</figcaption>
 </figure>
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/yusel-ai-chat.png" alt="Yusel AI chat interface with the sidebar (Hello chat, previous 7 days), main conversation, and Groq llama-3.3-70b-versatile model selector with 30k of 30k tokens remaining." />
-  <figcaption>Chat UI — sidebar with conversation history, a real Groq llama-3.3-70b response, and the 30k/day free token counter on the model selector.</figcaption>
+  <figcaption>Chat UI â€” sidebar with conversation history, a real Groq llama-3.3-70b response, and the 30k/day free token counter on the model selector.</figcaption>
 </figure>
 
-The niche positioning is deliberate — Filipino sellers writing product captions, freelancers answering client briefs, small teams that code-switch between English and Tagalog mid-sentence. The AI micro-agency handles custom Botpress flows for owners who want a human in the loop. Yusel AI handles the self-serve side.
+The niche positioning is deliberate â€” Filipino sellers writing product captions, freelancers answering client briefs, small teams that code-switch between English and Tagalog mid-sentence. The AI micro-agency handles custom Botpress flows for owners who want a human in the loop. Yusel AI handles the self-serve side.
 
 Still in flight: production deploy, Lemon Squeezy webhook hardening, and enough real-user testing to know whether the free tier economics hold. Either way I now have a shippable AI product in the portfolio, not just test rigs.
 
 <figure class="case-figure">
   <img src="/work/proof-screenshots/yuselai-casestudy.jpg" alt="Yusel AI case study page on the portfolio" />
-  <figcaption>Live integration test — database tables ready, token budget within free limits (30,000/day), Groq Llama 3.3 70B responds in 0.4s. 11 additional test scripts cover model picker, billing, chat templates, Spline hero, and group conversations.</figcaption>
+  <figcaption>Live integration test â€” database tables ready, token budget within free limits (30,000/day), Groq Llama 3.3 70B responds in 0.4s. 11 additional test scripts cover model picker, billing, chat templates, Spline hero, and group conversations.</figcaption>
 </figure>

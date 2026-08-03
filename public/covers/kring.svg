@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Kring project cover</title>
+  <desc id="desc">A research notebook canvas on an ink-to-narra gradient, with teal source-paper nodes connected by gold citation edges above the project title.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1410"/>
+      <stop offset="100%" stop-color="#3a1f10"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+
+  <!-- Citation graph cluster -->
+  <g transform="translate(800, 380)" filter="url(#glow)">
+    <!-- Edges (gold) -->
+    <g stroke="#c9a14a" stroke-width="1.6" opacity="0.55" stroke-linecap="round">
+      <line x1="-200" y1="-90" x2="0" y2="-30"/>
+      <line x1="-220" y1="40" x2="0" y2="-30"/>
+      <line x1="-120" y1="120" x2="0" y2="-30"/>
+      <line x1="0" y1="-30" x2="190" y2="-80"/>
+      <line x1="0" y1="-30" x2="210" y2="30"/>
+      <line x1="0" y1="-30" x2="120" y2="120"/>
+      <line x1="-220" y1="40" x2="210" y2="30" opacity="0.28"/>
+      <line x1="190" y1="-80" x2="120" y2="120" opacity="0.28"/>
+    </g>
+    <!-- Source-paper nodes (project accent: muted teal clay) -->
+    <g fill="#1a1410" stroke="#5d8a7e" stroke-width="2">
+      <rect x="-228" y="-122" width="56" height="64" rx="6"/>
+      <rect x="-252" y="8" width="60" height="64" rx="6"/>
+      <rect x="-150" y="88" width="60" height="64" rx="6"/>
+      <rect x="160" y="-112" width="60" height="64" rx="6"/>
+      <rect x="180" y="-2" width="60" height="64" rx="6"/>
+      <rect x="92" y="92" width="60" height="64" rx="6"/>
+    </g>
+    <!-- Central claim node (gold) -->
+    <circle cx="0" cy="-30" r="44" fill="#c9a14a"/>
+    <circle cx="0" cy="-30" r="44" fill="none" stroke="#f4ecd8" stroke-width="1.5" opacity="0.45"/>
+    <!-- Spine lines on source nodes -->
+    <g stroke="#5d8a7e" stroke-width="1" opacity="0.5">
+      <line x1="-218" y1="-104" x2="-182" y2="-104"/>
+      <line x1="-218" y1="-92" x2="-182" y2="-92"/>
+      <line x1="-242" y1="26" x2="-202" y2="26"/>
+      <line x1="-242" y1="38" x2="-202" y2="38"/>
+      <line x1="-140" y1="106" x2="-102" y2="106"/>
+      <line x1="-140" y1="118" x2="-102" y2="118"/>
+      <line x1="170" y1="-94" x2="210" y2="-94"/>
+      <line x1="170" y1="-82" x2="210" y2="-82"/>
+      <line x1="190" y1="16" x2="230" y2="16"/>
+      <line x1="190" y1="28" x2="230" y2="28"/>
+      <line x1="102" y1="110" x2="142" y2="110"/>
+      <line x1="102" y1="122" x2="142" y2="122"/>
+    </g>
+  </g>
+
+  <!-- Title block -->
+  <text x="800" y="720" font-family="Fraunces, Georgia, serif" font-size="80" font-weight="500" fill="#f4ecd8" text-anchor="middle">Kring</text>
+  <text x="800" y="772" font-family="'Inter Tight', sans-serif" font-size="18" fill="#c9a14a" text-anchor="middle" letter-spacing="6">LOCAL-FIRST RESEARCH NOTEBOOK</text>
+  <text x="800" y="848" font-family="'JetBrains Mono', monospace" font-size="13" fill="#8a7d6e" text-anchor="middle">TypeScript · Tauri · SQLite · Astro</text>
+</svg>

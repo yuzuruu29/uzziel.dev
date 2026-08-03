@@ -10,7 +10,7 @@ export const collections = {
       stack: z.array(z.string()),
       summary: z.string(),
       cover: z.string(),
-      status: z.enum(['live', 'in-progress', 'archived']),
+      status: z.enum(['live', 'completed', 'in-progress', 'archived']),
       order: z.number(),
       featured: z.boolean().default(false),
     }),

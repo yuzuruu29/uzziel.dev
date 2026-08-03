@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Fuse Rush project cover</title>
+  <desc id="desc">Bright numbered game tiles on a dark plum mobile game board.</desc>
+  <rect width="1600" height="1000" fill="#28131f"/>
+  <g font-family="Arial, sans-serif" font-size="58" font-weight="700" text-anchor="middle">
+    <rect x="870" y="145" width="170" height="170" rx="34" fill="#ffb23f"/><text x="955" y="252" fill="#28131f">2</text>
+    <rect x="1065" y="145" width="170" height="170" rx="34" fill="#ffb23f"/><text x="1150" y="252" fill="#28131f">2</text>
+    <rect x="1260" y="145" width="170" height="170" rx="34" fill="#ff6b6b"/><text x="1345" y="252" fill="#28131f">4</text>
+    <rect x="870" y="340" width="170" height="170" rx="34" fill="#765cff"/><text x="955" y="447" fill="#fff">8</text>
+    <rect x="1065" y="340" width="170" height="170" rx="34" fill="#ff6b6b"/><text x="1150" y="447" fill="#28131f">4</text>
+    <rect x="1260" y="340" width="170" height="170" rx="34" fill="#63d6b0"/><text x="1345" y="447" fill="#28131f">16</text>
+    <rect x="870" y="535" width="170" height="170" rx="34" fill="#63d6b0"/><text x="955" y="642" fill="#28131f">16</text>
+    <rect x="1065" y="535" width="170" height="170" rx="34" fill="#765cff"/><text x="1150" y="642" fill="#fff">8</text>
+    <rect x="1260" y="535" width="170" height="170" rx="34" fill="#ffe26d"/><text x="1345" y="642" fill="#28131f">32</text>
+  </g>
+  <g font-family="Arial, sans-serif">
+    <text x="120" y="205" fill="#ffb23f" font-size="25" letter-spacing="7">60 SECOND MOBILE GAME</text>
+    <text x="110" y="465" fill="#fff4e6" font-size="130" font-weight="700">FUSE</text>
+    <text x="110" y="580" fill="#ff6b6b" font-size="116" font-weight="700">RUSH</text>
+    <text x="120" y="705" fill="#c9acba" font-size="31">MATCH · CHAIN · BOOST</text>
+    <text x="120" y="825" fill="#ffb23f" font-size="25" font-weight="700">EXPO / REACT NATIVE</text>
+  </g>
+</svg>

@@ -1,0 +1,52 @@
+---
+pid: 39136
+cwd: "C:\Portfolio"
+command: "cd \"C:\\HiveMind\" && npm run dev:api"
+started_at: 2026-06-25T05:16:42.550Z
+running_for_ms: 5854994  
+---
+
+> hive-mind@1.0.0 dev:api
+> npm run dev --workspace=api
+
+
+> api@1.0.0 dev
+> tsx watch src/index.ts
+
+Hive Mind preset runs: disabled (set HIVEMIND_API_RUNS_ENABLED=true to enable)
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7) {
+  code: 'ECONNREFUSED',
+  [errors]: [
+    Error: connect ECONNREFUSED ::1:6379
+        at createConnectionError (node:net:1746:14)
+        at afterConnectMultiple (node:net:1776:16) {
+      errno: -4078,
+      code: 'ECONNREFUSED',
+      syscall: 'connect',
+      address: '::1',
+      port: 6379
+    },
+    Error: connect ECONNREFUSED 127.0.0.1:6379
+        at createConnectionError (node:net:1746:14)
+        at afterConnectMultiple (node:net:1776:16) {
+      errno: -4078,
+      code: 'ECONNREFUSED',
+      syscall: 'connect',
+      address: '127.0.0.1',
+      port: 6379
+    }
+  ]
+}
+Hive Mind API (Phase 8) running at http://0.0.0.0:3001
+Vault: C:\HiveMind\vault (1543 notes)
+Auto-promote: true
+Job queue offline — API runs without Redis (orchestrator polling still works)
+Scheduler: 0 active job(s)
+Error: Connection is closed.
+    at EventEmitter.connectionCloseHandler (C:\HiveMind\node_modules\bullmq\node_modules\ioredis\built\Redis.js:208:28)
+    at Object.onceWrapper (node:events:631:26)
+    at EventEmitter.emit (node:events:521:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+[hive-mind] Job queue disabled — Connection is closed.. Start Redis or set REDIS_URL.

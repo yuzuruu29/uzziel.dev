@@ -1,0 +1,14 @@
+Emmanuel Uzziel A. Malolos
+Bay, Laguna, Philippines
+uzzielmalolos@gmail.com | uzziel.dev
+
+Hi Zeniark Team,
+
+I am writing to apply for the Junior Front End Developer (React) role. I build performant web applications using React, HTML/CSS, and Git, and integrate them with REST and GraphQL APIs.
+
+Recently, I shipped ApplyGuard PH, a React + Vite browser tool for remote job scoring. I also built Yusel AI, a web chat interface using Next.js and Supabase. On the static frontend side, I built the lordsworshipcenter.org church site v2 and JoMel's Fried Chicken marketing site using modern CSS and React components.
+
+I focus on writing clean, readable code and translating UI/UX designs into responsive layouts. I am based in Bay, Laguna, and work effectively in remote teams.
+
+Regards,
+Emmanuel Uzziel A. Malolos

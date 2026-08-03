@@ -1,0 +1,86 @@
+---
+pid: 32232
+cwd: "C:\Portfolio"
+command: "cd \"C:\\HiveMind\" && npm run dev:api"
+started_at: 2026-06-25T05:17:01.583Z
+running_for_ms: 5834994  
+---
+
+> hive-mind@1.0.0 dev:api
+> npm run dev --workspace=api
+
+
+> api@1.0.0 dev
+> tsx watch src/index.ts
+
+Hive Mind preset runs: disabled (set HIVEMIND_API_RUNS_ENABLED=true to enable)
+Hive Mind API (Phase 8) running at http://0.0.0.0:3001
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7) {
+  code: 'ECONNREFUSED',
+  [errors]: [
+    Error: connect ECONNREFUSED ::1:6379
+        at createConnectionError (node:net:1746:14)
+        at afterConnectMultiple (node:net:1776:16) {
+      errno: -4078,
+      code: 'ECONNREFUSED',
+      syscall: 'connect',
+      address: '::1',
+      port: 6379
+    },
+    Error: connect ECONNREFUSED 127.0.0.1:6379
+        at createConnectionError (node:net:1746:14)
+        at afterConnectMultiple (node:net:1776:16) {
+      errno: -4078,
+      code: 'ECONNREFUSED',
+      syscall: 'connect',
+      address: '127.0.0.1',
+      port: 6379
+    }
+  ]
+}
+Vault: C:\HiveMind\vault (1543 notes)
+Auto-promote: true
+Job queue offline — API runs without Redis (orchestrator polling still works)
+Scheduler: 0 active job(s)
+Error: Connection is closed.
+    at EventEmitter.connectionCloseHandler (C:\HiveMind\node_modules\bullmq\node_modules\ioredis\built\Redis.js:208:28)
+    at Object.onceWrapper (node:events:631:26)
+    at EventEmitter.emit (node:events:521:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+[hive-mind] Job queue disabled — Connection is closed.. Start Redis or set REDIS_URL.
+<-- GET /health
+--> GET /health 200 6ms
+<-- GET /api/vault/status
+<-- GET /api/inbox
+<-- GET /api/agents
+<-- GET /api/handoffs
+<-- GET /api/logs
+<-- GET /api/project-context
+--> GET /api/logs 200 12ms
+--> GET /api/inbox 200 40ms
+--> GET /api/project-context 200 23ms
+--> GET /api/vault/status 200 72ms
+--> GET /api/agents 200 749ms
+--> GET /api/handoffs 200 757ms
+<-- GET /api/registry
+--> GET /api/registry 200 1ms
+<-- GET /api/telemetry
+--> GET /api/telemetry 200 1ms
+<-- GET /api/events
+--> GET /api/events 200 5ms
+<-- GET /api/role-presets
+--> GET /api/role-presets 200 0ms
+<-- GET /api/local-models/status
+--> GET /api/local-models/status 200 0ms
+<-- GET /api/swarm/sessions?limit=5
+<-- GET /api/runtime/health
+--> GET /api/runtime/health 200 1ms
+<-- GET /api/hivemind/feature-flags
+--> GET /api/hivemind/feature-flags 200 0ms
+<-- GET /api/provider-routing/status
+--> GET /api/provider-routing/status 200 1ms
+--> GET /api/swarm/sessions?limit=5 200 10ms
+<-- GET /api/scheduler/status
+--> GET /api/scheduler/status 200 0ms

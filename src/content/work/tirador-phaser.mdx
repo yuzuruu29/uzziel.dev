@@ -1,24 +1,25 @@
----
-title: "TIRADOR (Phaser · Capacitor)"
+﻿---
+title: "TIRADOR (Phaser Â· Capacitor)"
 role: "Solo developer"
 year: 2026
 stack: ["Phaser 3", "TypeScript", "GSAP", "Zustand", "Capacitor"]
 summary: "Web-first build of the TIRADOR slingshot game, packaged for Android and iOS via Capacitor."
 cover: "/covers/tirador-phaser.svg"
 status: "in-progress"
-order: 19
+order: 31
 featured: false
 ---
 
 The Godot version of TIRADOR is the mainline. This is the web-mobile parallel build: the same barangay survivors concept, reimplemented in Phaser 3 with TypeScript, GSAP for tween-driven UI, Zustand for state management, and Capacitor for the Android and iOS wrappers.
 
-The architecture follows Phaser 3 conventions — scenes for each game state (Boot, Menu, Game, GameOver), sprite-based rendering, arcade physics for collision and movement. GSAP handles the menu transitions and UI animations that Phaser's built-in tweens struggle with. Zustand keeps game state (health, score, inventory, weapon level) in a single store that survives scene transitions. Howler.js manages audio with a fallback for browsers that block autoplay.
+The architecture follows Phaser 3 conventions â€” scenes for each game state (Boot, Menu, Game, GameOver), sprite-based rendering, arcade physics for collision and movement. GSAP handles the menu transitions and UI animations that Phaser's built-in tweens struggle with. Zustand keeps game state (health, score, inventory, weapon level) in a single store that survives scene transitions. Howler.js manages audio with a fallback for browsers that block autoplay.
 
 I started this build to explore whether Phaser's web distribution model (instant load from a URL, no install) is worth maintaining alongside the Godot binary. Capacitor gives the option of publishing to app stores from the same codebase, but the primary delivery channel for this version is a URL that loads in any browser in under two seconds.
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/tirador-phaser-ui.jpg" alt="TIRADOR Phaser web build screenshot showing the barangay arena in the browser." />
-  <figcaption>Actual web build capture — Phaser 3 version running in the browser, same barangay slingshot combat loop.</figcaption>
+  <figcaption>Actual web build capture â€” Phaser 3 version running in the browser, same barangay slingshot combat loop.</figcaption>
 </figure>
 
-The scope is narrower than the Godot version — the Phaser build focuses on the core slingshot combat loop, a single barangay map, and three weapon types. Enough to validate whether the web route reaches players who would never install a Godot executable.
+The scope is narrower than the Godot version â€” the Phaser build focuses on the core slingshot combat loop, a single barangay map, and three weapon types. Enough to validate whether the web route reaches players who would never install a Godot executable.
+

@@ -1,0 +1,21 @@
+Dear Hiring Manager,
+
+I am writing to express my strong interest in your open position. As a Philippines-based Full-Stack Developer and AI Application Specialist with 5+ years of experience across web development, video editing, and digital automation, I am excited about the opportunity to contribute to your team.
+
+My technical background includes building production applications with React 18, Next.js 14, TypeScript, Python (FastAPI), Flutter, and Godot 4. I also specialize in AI tool integration, having developed Yusel AI (AI chat platform), ApplyGuard PH, and automated video pipelines using Python, ffmpeg, and Whisper.
+
+Highlights of what I bring:
+- Proven ability to build and deploy clean, maintainable web and mobile interfaces.
+- AI-assisted workflow optimization to ship features rapidly.
+- Strong digital media background in video editing and marketing asset management.
+- Self-directed remote work capability with clear communication habits.
+
+You can view my interactive portfolio, live projects, and full resume at https://uzziel.dev (GitHub: https://github.com/yuzuruu29).
+
+Thank you for your time and consideration. I look forward to connecting with you!
+
+Sincerely,
+Emmanuel Uzziel A. Malolos
+uzzielmalolos@gmail.com
++63 991 387 3723
+Bay, Laguna, Philippines

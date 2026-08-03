@@ -1,0 +1,14 @@
+Emmanuel Uzziel A. Malolos
+Bay, Laguna, Philippines
+uzzielmalolos@gmail.com | uzziel.dev
+
+Hi Remote Product Team,
+
+I am writing to apply for the Full-Stack Developer position. I build full-stack web and desktop applications using Python (FastAPI) and TypeScript/React/Next.js.
+
+Recently, I shipped FOLIO, a document intelligence desktop application for law offices built with Electron, FastAPI, and Tesseract OCR. I also built Yusel AI (Next.js + Supabase + Groq/OpenRouter) and ApplyGuard PH (React + Vite). On the scripting side, I wrote a Python CLI tool that parses IMAP email streams, scores jobs via the Anthropic API, and generates formatted HTML digests.
+
+I write clean code, build automated tests using Playwright and Python unit tests, and maintain clear technical documentation. I can join your remote team and begin contributing immediately.
+
+Regards,
+Emmanuel Uzziel A. Malolos

@@ -1,44 +1,44 @@
----
+﻿---
 title: "Long Way Around"
-role: "Solo developer · designer"
+role: "Solo developer Â· designer"
 year: 2026
 stack: ["Godot 4.6", "GDScript", "Aseprite"]
 summary: "2D pixel RPG with a complete four-act story, three endings, and itch.io ship gate."
 cover: "/covers/long-way-around.svg"
 status: "in-progress"
-order: 11
+order: 23
 featured: false
 ---
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/long-way-around/title.png" alt="Long Way Around title screen with New Game, Load, and Quit options on a green background." />
-  <figcaption>Title screen — New Game, Load, Quit. Clean launch point for the four-act story.</figcaption>
+  <figcaption>Title screen â€” New Game, Load, Quit. Clean launch point for the four-act story.</figcaption>
 </figure>
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/long-way-around/room-a.png" alt="Long Way Around screenshot of Theo standing in room A of the pixel RPG with a green wall, chest, and patterned floor." />
-  <figcaption>Room A — Theo's starting room. The slingshot is on the floor, the chest waits to be opened, the patterned floor and wood wall set the warm interior tone.</figcaption>
+  <figcaption>Room A â€” Theo's starting room. The slingshot is on the floor, the chest waits to be opened, the patterned floor and wood wall set the warm interior tone.</figcaption>
 </figure>
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/long-way-around/village.png" alt="Long Way Around village scene with Theo talking to an NPC named Ida, who says 'You walked past twice this morning. Third time's for me, then.'" />
-  <figcaption>Village dialogue — Ida stops Theo on the road. The third-time's-the-charm line sets the tone for Act 1's first-lie beat.</figcaption>
+  <figcaption>Village dialogue â€” Ida stops Theo on the road. The third-time's-the-charm line sets the tone for Act 1's first-lie beat.</figcaption>
 </figure>
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/long-way-around/battle.png" alt="Long Way Around battle scene with Theo 24/24 HP facing a green slime, with Attack/Skill/Item/Talk action menu." />
-  <figcaption>Battle encounter — HP bar, slime enemy, action menu. The fight loop is the back half of Act 1, the pillar everything else stands on.</figcaption>
+  <figcaption>Battle encounter â€” HP bar, slime enemy, action menu. The fight loop is the back half of Act 1, the pillar everything else stands on.</figcaption>
 </figure>
 
-Long Way Around is my second Godot RPG — smaller scope than Heart and Soil, more narrative weight than TIRADOR. It runs at 384×216 internal resolution on 16×16 tiles, built in Godot 4.6 with a strict asset pipeline documented in `ASSETS.md` so every itch.io pack has a license trail.
+Long Way Around is my second Godot RPG â€” smaller scope than Heart and Soil, more narrative weight than TIRADOR. It runs at 384Ã—216 internal resolution on 16Ã—16 tiles, built in Godot 4.6 with a strict asset pipeline documented in `ASSETS.md` so every itch.io pack has a license trail.
 
 The story arc shipped through June 2026: Act 1's first-lie beat and toy quest, Act 2's Juno branches and letter choice, Act 3's Vael content, then Act 4 with a title screen and three endings. Along the way I wired an interiors pipeline (LimeZu packs), Hollow Step zone traversal, distinct NPC idle animations, y-sort for walkers, battle cutscenes, and a 74-check smoke test suite that gates exports.
 
-Audio got the same discipline — JDWasabi SFX imported with license records, an Sfx autoload on a dedicated bus, and a ship script that fails the build if regression tests or export presets drift.
+Audio got the same discipline â€” JDWasabi SFX imported with license records, an Sfx autoload on a dedicated bus, and a ship script that fails the build if regression tests or export presets drift.
 
 The game is playable start-to-finish. The remaining work is polish passes and an itch.io launch, not fundamental systems. I am treating it as proof that I can close a narrative RPG solo, not just prototype combat loops.
 
 <figure class="case-figure">
   <img src="/work/proof-screenshots/longwayaround-casestudy.jpg" alt="Long Way Around case study page on the portfolio" />
-  <figcaption>All milestone smoke tests passing via headless Godot 4.6 — M0 room loading and player movement, M1 dialogue choices and flags, M2 inventory system and UI, M3 combat with healing items and defeat recovery.</figcaption>
+  <figcaption>All milestone smoke tests passing via headless Godot 4.6 â€” M0 room loading and player movement, M1 dialogue choices and flags, M2 inventory system and UI, M3 combat with healing items and defeat recovery.</figcaption>
 </figure>

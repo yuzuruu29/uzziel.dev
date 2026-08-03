@@ -1,0 +1,14 @@
+Emmanuel Uzziel A. Malolos
+Bay, Laguna, Philippines
+uzzielmalolos@gmail.com | uzziel.dev
+
+Hi RecruitGo Team,
+
+I am writing to apply for the Junior Frontend Developer position. I build responsive web applications using React, Next.js, TypeScript, and Tailwind CSS. 
+
+Recently, I shipped ApplyGuard PH, a React + Vite browser tool that evaluates remote job posts for scams and fit score. I also built the frontend for Yusel AI, a chat application for Filipino sellers using Next.js, Tailwind CSS, and Supabase. Additionally, I designed and built JoMel's Fried Chicken's static marketing site and Tita Maricar's Carinderia's responsive web layout.
+
+I write clean, type-safe code, collaborate via Git, and follow clear checklists. I am ready to work remote and contribute to your frontend team immediately.
+
+Regards,
+Emmanuel Uzziel A. Malolos

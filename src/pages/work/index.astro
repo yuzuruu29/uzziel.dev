@@ -14,38 +14,84 @@ const sampleSlugs = new Set([
 ]);
 const projectEntries = entries.filter((entry) => !sampleSlugs.has(entry.slug));
 const sampleEntries = entries.filter((entry) => sampleSlugs.has(entry.slug));
+const activeCount = projectEntries.filter((entry) => entry.data.status === 'in-progress').length;
+const shippedCount = projectEntries.filter((entry) => ['live', 'completed'].includes(entry.data.status)).length;
+const buildingNow = projectEntries
+  .filter((entry) => entry.data.status === 'in-progress')
+  .map((entry) => ({ slug: entry.slug, title: entry.data.title }));
 ---
 
 <BaseLayout
   title="Work — Uzziel Malolos"
   description="Indie games, AI agency, web work, and research from a Filipino full-stack creator."
 >
-  <section class="container pt-24 pb-12 md:pt-32">
-    <p class="text-xs uppercase tracking-widest text-stone mb-3">Work</p>
-    <h1 class="font-display leading-[1] tracking-tight" style="font-size: clamp(2.5rem, 6vw, 4.5rem);">
-      Projects, samples, one career arc.
-    </h1>
-    <p class="mt-6 max-w-xl text-stone">
-      Games, AI tools, websites, research, and sample client-facing deliverables. Each one taught me a piece of how the next gets built.
-    </p>
-    <div class="mt-10">
+  <section class="container pb-12 pt-16 md:pb-16 md:pt-24">
+    <div class="grid gap-8 lg:grid-cols-[1fr_380px] lg:items-end">
+      <div data-reveal>
+        <p class="eyebrow">Verified work</p>
+        <h1 class="mt-5 max-w-3xl">Projects with files, decisions, and working evidence.</h1>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-stone">
+          Games, agent systems, mobile tools, websites, and research. The catalog reflects what is present locally now, with concept samples kept separate below.
+        </p>
+      </div>
+      <dl class="grid grid-cols-3 border-y border-stone/25 py-5 lg:border-y-0 lg:border-l lg:py-2 lg:pl-8" data-reveal data-reveal-delay="80">
+        <div>
+          <dt class="font-mono text-[9px] uppercase tracking-wider text-stone">Projects</dt>
+          <dd class="mt-1 font-display text-3xl">{projectEntries.length}</dd>
+        </div>
+        <div>
+          <dt class="font-mono text-[9px] uppercase tracking-wider text-stone">Active</dt>
+          <dd class="mt-1 font-display text-3xl">{activeCount}</dd>
+        </div>
+        <div>
+          <dt class="font-mono text-[9px] uppercase tracking-wider text-stone">Shipped</dt>
+          <dd class="mt-1 font-display text-3xl">{shippedCount}</dd>
+        </div>
+      </dl>
+    </div>
+    {buildingNow.length > 0 && (
+      <div class="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-stone/20 pt-6" data-reveal data-reveal-delay="160">
+        <span class="font-mono text-[10px] uppercase tracking-[0.16em] text-gold dark:text-gold">
+          Building now
+          <span class="ml-1 text-stone" aria-hidden="true">·</span>
+          <span class="ml-1 text-stone">{buildingNow.length}</span>
+        </span>
+        <ul class="flex flex-wrap items-center gap-x-2 gap-y-1.5 text-sm" aria-label="In-progress projects">
+          {buildingNow.map((entry, i) => (
+            <li class="inline-flex items-center gap-2">
+              <a
+                href={`/work/${entry.slug}`}
+                data-cursor="hover"
+                class="group inline-flex items-center gap-1.5 font-mono text-[12px] text-ink underline decoration-gold/40 decoration-1 underline-offset-[3px] transition-colors hover:decoration-gold dark:text-cream"
+              >
+                {entry.title}
+              </a>
+              {i < buildingNow.length - 1 && (
+                <span class="text-stone/60" aria-hidden="true">×</span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+    <div class="mt-10 border-t border-stone/20 pt-6">
       <WorkFilter client:idle gridId="project-work-grid" />
     </div>
   </section>
 
-  <section class="container pb-20">
+  <section class="container pb-24">
     <WorkGrid entries={projectEntries} id="project-work-grid" />
   </section>
 
-  <section id="sample-portfolios" class="container pb-32">
-    <div class="mb-10 rounded-lg border border-stone/25 bg-ink text-cream px-5 py-6 md:px-8 md:py-8 dark:border-cream/20 dark:bg-cream dark:text-ink">
-      <p class="text-xs uppercase tracking-widest text-gold dark:text-narra mb-3">Sample portfolio builds</p>
+  <section id="sample-portfolios" class="container pb-32" data-reveal>
+    <div class="mb-10 rounded-xl border border-stone/25 bg-ink px-5 py-6 text-cream md:px-8 md:py-8">
+      <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-gold mb-3">Sample portfolio builds · {sampleEntries.length}</p>
       <div class="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-6 md:gap-10 items-end">
         <h2 class="font-display leading-[1.05] tracking-tight" style="font-size: clamp(2rem, 4vw, 3.25rem);">
           Landing pages and PDF samples built for quick review.
         </h2>
-        <p class="text-sm leading-relaxed text-cream/75 dark:text-ink/70">
-          Fictional client samples and AI-assisted portfolio PDFs from the local sample folder, published without changing the main case-study structure.
+        <p class="text-sm leading-relaxed text-cream/70">
+          Fictional briefs and AI-assisted portfolio PDFs, labeled separately so concept work never reads like a client claim.
         </p>
       </div>
     </div>

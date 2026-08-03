@@ -1,0 +1,18 @@
+Hello!
+
+My name is Emmanuel Uzziel A. Malolos, a Full-Stack Creator and AI Application Builder based in Laguna, Philippines (Remote-ready). 
+
+I build fast, responsive web applications using React, Next.js, TypeScript, Python/FastAPI, and Tailwind CSS, while leveraging AI models (Claude, OpenAI, Groq) and automation workflows to streamline development and operations.
+
+Key Highlights:
+- Full-Stack Web Development (Next.js 14, React 18, TypeScript, Tailwind)
+- AI & Automation Tooling (Botpress, OpenRouter API, custom prompt engineering)
+- Multimedia & Video Editing (Adobe Premiere Pro, CapCut, Whisper/ffmpeg pipelines)
+- Live Portfolio & Resume: https://uzziel.dev
+
+I would welcome the opportunity to discuss how my technical skills and proactive work ethic can support your team.
+
+Sincerely,
+Emmanuel Uzziel A. Malolos
+uzzielmalolos@gmail.com | +63 991 387 3723
+https://uzziel.dev

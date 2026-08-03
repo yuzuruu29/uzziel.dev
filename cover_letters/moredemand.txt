@@ -1,0 +1,14 @@
+Emmanuel Uzziel A. Malolos
+Bay, Laguna, Philippines
+uzzielmalolos@gmail.com | uzziel.dev
+
+Hi Moredemand Team,
+
+I am writing to apply for the AI-First Full-Stack Developer position. I build Next.js (App Router, Server Components, Server Actions) and Supabase platforms, and regularly integrate AI-assisted workflows (Claude, ChatGPT, Groq, OpenRouter API).
+
+Recently, I shipped Yusel AI, a web app for Filipino sellers combining Next.js, Supabase, and Groq/OpenRouter. I also run a local AI micro-agency building Botpress chatbots for small businesses, and wrote a Python CLI tool (Job Hunter CLI) that scores job posts using the Anthropic API. I use Claude Code and Cursor to write, test, and deploy code quickly.
+
+I build product features and handle database and API integrations independently. I am ready to join your remote team and ship code immediately.
+
+Regards,
+Emmanuel Uzziel A. Malolos

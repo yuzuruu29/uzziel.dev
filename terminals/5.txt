@@ -1,0 +1,37 @@
+---
+pid: 35928
+cwd: "C:\Portfolio"
+command: "cd \"C:\\HiveMind\" && npm run dev:web"
+started_at: 2026-06-25T05:16:42.550Z
+running_for_ms: 5855008  
+---
+
+> hive-mind@1.0.0 dev:web
+> npm run dev --workspace=web
+
+
+> web@0.1.0 dev
+> next dev
+
+⚠ Port 3000 is in use by process 33616, using available port 3001 instead.
+▲ Next.js 16.2.9 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://192.168.1.2:3001
+- Environments: .env.local
+✓ Ready in 1384ms
+⨯ Another next dev server is already running.
+
+
+- Local:        http://localhost:3000
+- PID:          39816
+- Dir:          C:\HiveMind\apps\web
+- Log:          .next\dev\logs\next-development.log
+
+Run taskkill /PID 39816 /F to stop it.
+npm error Lifecycle script `dev` failed with error:
+npm error code 1
+npm error path C:\HiveMind\apps\web
+npm error workspace web@0.1.0
+npm error location C:\HiveMind\apps\web
+npm error command failed
+npm error command C:\WINDOWS\system32\cmd.exe /d /s /c next dev

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Pomodoro App (Ponggi)"
 role: "Solo developer"
 year: 2026
@@ -6,30 +6,30 @@ stack: ["Flutter", "Riverpod", "Drift", "SQLite"]
 summary: "Neon pomodoro timer with five memory-game breaks, a physics-driven mascot, and Windows + Android builds."
 cover: "/covers/pomodoro-app.svg"
 status: "in-progress"
-order: 6
+order: 12
 featured: true
 ---
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/ponggi-ready.png" alt="Ponggi desktop app ready state showing the neon yellow circular timer at 05:00, Ponggi character mascot, and Start focus button." />
-  <figcaption>Ready state — 5-minute focus dial, Ponggi mascot waiting to start, "Start focus" button on the neon-yellow accent.</figcaption>
+  <figcaption>Ready state â€” 5-minute focus dial, Ponggi mascot waiting to start, "Start focus" button on the neon-yellow accent.</figcaption>
 </figure>
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/ponggi-focus.png" alt="Ponggi desktop app mid-focus with the timer at 04:50, Session 1 of 4, and Pause/Give up controls." />
-  <figcaption>Focus running — 4:50 remaining, the dial has started to fill. Pause or Give up if you have to bail.</figcaption>
+  <figcaption>Focus running â€” 4:50 remaining, the dial has started to fill. Pause or Give up if you have to bail.</figcaption>
 </figure>
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/ponggi-settings.png" alt="Ponggi desktop app settings page showing focus length, short/long break durations, sessions, daily goal, sounds, and auto-start toggles." />
-  <figcaption>Settings — 5 min focus / 5 min short / 15 min long, daily goal of 8 sessions, sounds and auto-start toggles, and the Keep-running-on-close Windows option.</figcaption>
+  <figcaption>Settings â€” 5 min focus / 5 min short / 15 min long, daily goal of 8 sessions, sounds and auto-start toggles, and the Keep-running-on-close Windows option.</figcaption>
 </figure>
 
-Ponggi is the pomodoro app I actually use between thesis writing and Godot sprints. Flutter on Android and Windows (iOS later). When a focus block ends, you pick **Play a memory game** or **Just rest** — five break games ship in v1: Pair Up, Echo, Flash Digits, Glow Grid, and Word Crate. Each has per-game difficulty levels, a 90-second forfeit if you idle, and a stats shelf that tracks your arcade progress.
+Ponggi is the pomodoro app I actually use between thesis writing and Godot sprints. Flutter on Android and Windows (iOS later). When a focus block ends, you pick **Play a memory game** or **Just rest** â€” five break games ship in v1: Pair Up, Echo, Flash Digits, Glow Grid, and Word Crate. Each has per-game difficulty levels, a 90-second forfeit if you idle, and a stats shelf that tracks your arcade progress.
 
 The timer is the serious half. A wall-clock engine keeps focus and break alarms honest even when the app backgrounds on Android or hides to the Windows system tray mid-session. Drift-backed SQLite stores session history, settings, and entitlement state. Kill the process mid-focus, relaunch, and the dial resumes at the correct remaining time.
 
-The mascot is the personality half. Ponggi started as a neon tomato that ripens from green to red as you complete daily sessions. The June 2026 sprint replaced embedded sprites with a physics-driven `PonggiCreature` — gravity, damping, edge bounce, gesture-to-reaction classification, angry and dizzy faces, sproutable limbs. Poke it during focus and it reacts; the troublemaker-mascot spec is written for what comes next.
+The mascot is the personality half. Ponggi started as a neon tomato that ripens from green to red as you complete daily sessions. The June 2026 sprint replaced embedded sprites with a physics-driven `PonggiCreature` â€” gravity, damping, edge bounce, gesture-to-reaction classification, angry and dizzy faces, sproutable limbs. Poke it during focus and it reacts; the troublemaker-mascot spec is written for what comes next.
 
 Phase 1a monetization adds a freemium arcade unlock through `in_app_purchase`, with local notifications, tray restore, and generated chimes on session complete. Eighty-two widget and domain tests pass on Windows. Store listing docs for Play Console and App Store are drafted.
 
@@ -37,5 +37,5 @@ I built it because discipline software feels like punishment and I wanted a time
 
 <figure class="case-figure">
   <img src="/work/proof-screenshots/ponggi-casestudy.jpg" alt="Ponggi case study page showing test results" />
-  <figcaption>113/113 Flutter tests passing — timer engine, memory game logic (Card Match, Simon, Digit Span, Grid Recall, Word Recall), physics engine, Ponggi creature reaction classification, SQLite session storage, and entitlement/revenue logic.</figcaption>
+  <figcaption>113/113 Flutter tests passing â€” timer engine, memory game logic (Card Match, Simon, Digit Span, Grid Recall, Word Recall), physics engine, Ponggi creature reaction classification, SQLite session storage, and entitlement/revenue logic.</figcaption>
 </figure>

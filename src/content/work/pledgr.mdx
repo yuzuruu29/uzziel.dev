@@ -1,0 +1,21 @@
+---
+title: "Pledgr"
+role: "Product designer · developer"
+year: 2026
+stack: ["Expo", "React Native", "SQLite", "TypeScript"]
+summary: "Weekly-first personal budget tracker built around one practical number: how much is safe to spend today."
+cover: "/covers/pledgr.svg"
+status: "in-progress"
+order: -1
+featured: true
+---
+
+Pledgr is a local-first money app organized around weekly pledges instead of a generic monthly expense dashboard. A user sets a weekly budget, records ledger activity, and gets a safe-to-spend-today number that accounts for reserved money, spending so far, and the days left in the week.
+
+The Expo app uses React Native, SQLite, Zustand, and a pure TypeScript calculation engine. The ledger supports wallets, transfers, soft deletion, weekly pace, leak detection, rebalancing suggestions, and versioned backup and restore.
+
+## Integrity before polish
+
+Money is stored in safe integer minor units, including zero- and three-decimal currencies. Restore runs inside a transaction, validates transfer groups and currency invariants, and rolls back on failed writes. Weekly sharing exports aggregate text without transaction notes or wallet names.
+
+The core flows and tests are in place. Public release remains blocked on Android and iOS device verification, the planned visual redesign, and a final support path.

@@ -1,0 +1,21 @@
+---
+title: "HIVE Cloud"
+role: "System architect · developer"
+year: 2026
+stack: ["TypeScript", "PostgreSQL", "LLM routing", "Vitest"]
+summary: "Private hosted control plane for a transparent model router, general chat, and a non-executing verified build council."
+cover: "/covers/hive-cloud.svg"
+status: "in-progress"
+order: -2
+featured: false
+---
+
+HIVE Cloud is the hosted control plane beside the local HIVE runtime. It provides a free-first model router, a general chat surface, and a verified Build Council that reviews work without executing uploaded repositories.
+
+The architecture is a TypeScript workspace split into web, API, worker, contracts, security, database, and routing packages. PostgreSQL stores product data, Redis handles coordination, and the security boundary keeps repository execution out of the hosted service.
+
+## Product boundaries
+
+Bring-your-own-key credentials are encrypted and never returned after storage. The API exposes an OpenAI-compatible chat-completions surface, while HIVE Community remains local-first and independent.
+
+The system is still in private development. Current work centers on the full preflight path: type checks, tests, builds, migrations, and deploy-safe operational documentation.

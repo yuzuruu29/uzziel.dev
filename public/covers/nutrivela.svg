@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Nutrivela project cover</title>
+  <desc id="desc">An editorial nutrition questionnaire in cream and forest green.</desc>
+  <rect width="1600" height="1000" fill="#f2efe6"/>
+  <rect x="92" y="82" width="1416" height="836" rx="30" fill="#fbf9f2" stroke="#214c3b" stroke-width="2"/>
+  <rect x="865" y="175" width="480" height="650" rx="28" fill="#214c3b"/>
+  <text x="920" y="246" fill="#b8d8a9" font-family="Arial, sans-serif" font-size="22" letter-spacing="4">PERGUNTA 18 / 38</text>
+  <text x="920" y="340" fill="#fff" font-family="Arial, sans-serif" font-size="42" font-weight="700">Como é a sua</text>
+  <text x="920" y="392" fill="#fff" font-family="Arial, sans-serif" font-size="42" font-weight="700">rotina diária?</text>
+  <rect x="920" y="455" width="365" height="70" rx="14" fill="#f2efe6"/>
+  <rect x="920" y="545" width="365" height="70" rx="14" fill="#2f6651" stroke="#b8d8a9"/>
+  <rect x="920" y="635" width="365" height="70" rx="14" fill="#2f6651" stroke="#b8d8a9"/>
+  <g font-family="Arial, sans-serif">
+    <text x="145" y="225" fill="#537364" font-size="24" letter-spacing="6">NUTRITION QUIZ FUNNEL</text>
+    <text x="135" y="475" fill="#214c3b" font-size="126" font-weight="700">Nutrivela</text>
+    <text x="145" y="585" fill="#69756e" font-size="34">Um plano pensado</text>
+    <text x="145" y="630" fill="#69756e" font-size="34">para a sua vida.</text>
+    <text x="145" y="805" fill="#214c3b" font-size="25" font-weight="700">38 QUESTIONS · 3 ACCESSIBLE SKINS</text>
+  </g>
+</svg>

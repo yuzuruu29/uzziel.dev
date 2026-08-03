@@ -8,44 +8,74 @@ import Marquee from '../components/Marquee.astro';
 import KonamiEgg from '../islands/KonamiEgg.tsx';
 
 const all = await getCollection('work');
+const sampleSlugs = new Set([
+  'willow-creek-farmstay',
+  'clearpath-lawn-care',
+  'harvest-table-kitchen',
+  'ai-book-content-portfolio',
+  'ai-youtube-thumbnail-design-portfolio',
+]);
+const projects = all.filter((entry) => !sampleSlugs.has(entry.slug));
 const featured = all
   .filter((e) => e.data.featured)
-  .sort((a, b) => a.data.order - b.data.order);
-const totalCount = all.length;
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 6);
+const activeCount = projects.filter((entry) => entry.data.status === 'in-progress').length;
+const shippedCount = projects.filter((entry) => ['live', 'completed'].includes(entry.data.status)).length;
 ---
 
 <BaseLayout
   title="Uzziel Malolos — Researcher, builder, full-stack creator"
   description="Agri-econ researcher and full-stack creator from Bay, Laguna. I research, build, and ship."
 >
-  <Hero client:load />
-  <AboutTeaser />
+  <Hero
+    client:load
+    projectCount={projects.length}
+    activeCount={activeCount}
+    shippedCount={shippedCount}
+  />
   <Marquee />
 
-  <section class="container py-24">
-    <div class="flex items-end justify-between mb-10 gap-6">
+  <section class="container section-rule py-20 md:py-28">
+    <div class="mb-10 grid gap-6 md:grid-cols-[1fr_360px] md:items-end">
       <div>
-        <p class="text-xs uppercase tracking-widest text-stone mb-3">Featured work</p>
-        <h2 class="font-display leading-[1] tracking-tight" style="font-size: clamp(2rem, 4.5vw, 3rem);">
-          What I am building right now.
-        </h2>
+        <p class="eyebrow" data-reveal>Selected work</p>
+        <h2 class="mt-4 max-w-xl" data-reveal data-reveal-delay="100">Built, not just drafted. Used, not just shipped.</h2>
       </div>
-      <a
-        href="/work"
-        data-cursor="hover"
-        class="group hidden md:inline-flex items-center gap-2 font-medium text-gold whitespace-nowrap"
-      >
-        See all {totalCount} projects
-        <span aria-hidden="true" class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
-      </a>
+      <div class="md:justify-self-end" data-reveal data-reveal-delay="200">
+        <p class="max-w-sm text-sm leading-relaxed text-stone">
+          A working set across agent systems, indie games, local-first tools, Philippine SME sites, and agri-econ research.
+        </p>
+        <a href="/work" data-cursor="hover" class="group mt-5 inline-flex items-center gap-2 font-medium text-narra dark:text-gold">
+          Browse all {projects.length} projects
+          <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">→</span>
+        </a>
+      </div>
     </div>
 
     <WorkGrid entries={featured} id="featured-grid" />
+  </section>
 
-    <div class="mt-10 md:hidden">
-      <a href="/work" data-cursor="hover" class="group inline-flex items-center gap-2 font-medium text-gold">
-        See all {totalCount} projects
-        <span aria-hidden="true" class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+  <AboutTeaser />
+
+  <section class="container pb-8 pt-6 md:pb-16" data-reveal>
+    <div class="grid gap-6 rounded-2xl border border-narra/20 bg-narra px-6 py-8 text-cream md:grid-cols-[1fr_auto] md:items-center md:px-10 md:py-10">
+      <div>
+        <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">Have a useful problem?</p>
+        <h2 class="mt-3 max-w-2xl text-3xl text-cream md:text-4xl">
+          Let us turn it into something concrete.
+        </h2>
+        <p class="mt-3 max-w-xl text-sm leading-relaxed text-cream/70">
+          I take on focused web builds, product prototypes, automation, and research-backed work.
+        </p>
+      </div>
+      <a
+        href="/contact"
+        data-cursor="hover"
+        class="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-cream px-5 py-3 font-semibold text-ink transition-transform duration-200 hover:-translate-y-0.5"
+      >
+        Tell me what you are building
+        <span aria-hidden="true">↗</span>
       </a>
     </div>
   </section>

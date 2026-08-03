@@ -1,20 +1,20 @@
----
+﻿---
 title: "TIRADOR: Barangay Survivors"
-role: "Solo developer · designer"
+role: "Solo developer Â· designer"
 year: 2026
 stack: ["Godot 4", "GDScript", "Aseprite"]
 summary: "Filipino-themed top-down pixel roguelite. Playable arena foundation shipped."
 cover: "/work/tirador/design-board.png"
 status: "in-progress"
-order: 1
+order: 3
 featured: true
 ---
 
-I wanted a roguelite that did not pretend to be set in a generic medieval village. Most of the games I grew up playing had European castles and dwarves. The streets I actually grew up on had jeepneys, sari-sari stores, and the smell of fish frying at six in the morning. So I started TIRADOR — a top-down survivors-style game where the world is a barangay and the enemies come out of the rice fields at dusk.
+I wanted a roguelite that did not pretend to be set in a generic medieval village. Most of the games I grew up playing had European castles and dwarves. The streets I actually grew up on had jeepneys, sari-sari stores, and the smell of fish frying at six in the morning. So I started TIRADOR â€” a top-down survivors-style game where the world is a barangay and the enemies come out of the rice fields at dusk.
 
 The design problem was finding a fight loop that still felt Filipino once you stripped away the visual paint. A slingshot ("tirador") as the starting weapon was the answer. It is slow, deliberate, requires aiming. It punishes button-mashing the way our titos punish bad form. From there the upgrade tree branches into things a kid in Bay might actually pick up: bolo, slingshot rocks, palaspas, the family aso as a follower unit.
 
-I built the P0 prototype in Godot 4 over a weekend to test whether the slingshot felt good. It did, barely. The P1 milestone added an enemy spawner, a barangay map made from a TileMapLayer, and the first three weapon upgrades. In May 2026 I shipped the playable arena foundation — validated data files, a real combat loop in-scene, and concept art references wired into the design docs so art and code stay aligned. Art is hand-drawn in Aseprite using a restricted palette pulled from old komiks I scanned at home.
+I built the P0 prototype in Godot 4 over a weekend to test whether the slingshot felt good. It did, barely. The P1 milestone added an enemy spawner, a barangay map made from a TileMapLayer, and the first three weapon upgrades. In May 2026 I shipped the playable arena foundation â€” validated data files, a real combat loop in-scene, and concept art references wired into the design docs so art and code stay aligned. Art is hand-drawn in Aseprite using a restricted palette pulled from old komiks I scanned at home.
 
 <figure class="case-figure">
   <img src="/work/tirador/design-board.png" alt="TIRADOR design board showing playable characters, enemies, weapons, items, UI, terrain tiles, effects, and color palette." />
@@ -23,19 +23,20 @@ I built the P0 prototype in Godot 4 over a weekend to test whether the slingshot
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/tirador/main-menu.png" alt="TIRADOR main menu with New Game, Continue, Settings, and Quit on a barangay dusk background." />
-  <figcaption>Main menu — barangay dusk backdrop, the four entry points before you enter the arena.</figcaption>
+  <figcaption>Main menu â€” barangay dusk backdrop, the four entry points before you enter the arena.</figcaption>
 </figure>
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/tirador/character-select.png" alt="TIRADOR character select screen showing playable barangay survivors with slingshot loadouts." />
-  <figcaption>Character select — pick your survivor before the rice-field enemies spawn.</figcaption>
+  <figcaption>Character select â€” pick your survivor before the rice-field enemies spawn.</figcaption>
 </figure>
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/tirador/gameplay.png" alt="TIRADOR gameplay screenshot showing the barangay arena with the player character and enemies." />
-  <figcaption>Actual gameplay capture — barangay arena, slingshot combat, enemy spawns from the rice fields at dusk.</figcaption>
+  <figcaption>Actual gameplay capture â€” barangay arena, slingshot combat, enemy spawns from the rice fields at dusk.</figcaption>
 </figure>
 
-The build is playable but not fun yet. The thing I keep learning the hard way is that pixel art takes longer than code. Every NPC, every prop, every animation frame eats a Saturday. I have started leaning on data-driven content — a single Resource file per weapon and per enemy — so design changes do not require code changes. That decision alone saved the last sprint.
+The build is playable but not fun yet. The thing I keep learning the hard way is that pixel art takes longer than code. Every NPC, every prop, every animation frame eats a Saturday. I have started leaning on data-driven content â€” a single Resource file per weapon and per enemy â€” so design changes do not require code changes. That decision alone saved the last sprint.
 
 Next milestones are an interior dungeon (the school, after hours), a save system, and a real boss fight. I want to ship a public demo before submitting my thesis. The two deadlines fighting each other is, honestly, the most accurate part of the design.
+

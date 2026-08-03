@@ -1,0 +1,32 @@
+﻿---
+title: "Kring"
+role: "Solo developer Â· researcher"
+year: 2026
+stack: ["TypeScript", "Tauri", "SQLite", "Astro"]
+summary: "Local-first research notebook for agri-econ work. Markdown notes, citation graph, and thesis drafting in one offline app."
+cover: "/covers/kring.svg"
+status: "in-progress"
+order: 11
+featured: false
+---
+
+I drafted my first lit review in Google Docs and lost a week to broken citations when the file ballooned past 80 pages. The second draft lives in Obsidian, which fixes the writing but moves the citation graph into a separate Zotero database that does not talk to my notes the way I need. Kring is the answer I am building for myself: a local-first research notebook where the markdown, the citations, and the outlining share one SQLite file on my laptop.
+
+The decision I made early was to stop pretending a researcher is the same user as a software developer. The note model is plain markdown plus a sidecar YAML block for source keys â€” no frontmatter gymnastics, no plugin manifest. A note knows the papers it cites because the citation row in SQLite says so, not because a wikilink in the body parses correctly. That means the citation graph is queryable without re-rendering the document, and "show me every claim that leans on Folbre 2020" is one SQL call.
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/kring/graph-view.png" alt="Kring citation graph view with paper nodes and claim edges laid out across a dark canvas." />
+  <figcaption>The citation graph. Each node is a source in the bibliography; each edge is a claim in a draft that depends on that source. Orphaned claims surface in red.</figcaption>
+</figure>
+
+The interface is built in Astro with a Tauri shell wrapping the same UI the browser version ships. That means the write path is one TypeScript codebase. The desktop build adds the SQLite handle, file dialogs, and a project picker; the web build runs against an in-memory DB with a JSON export so the project file is portable between the two. The decision to keep SQLite as the source of truth and markdown as a rendered view (not the other way around) is the one I would defend hardest in review.
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/kring/draft-pane.png" alt="Kring draft pane showing a thesis chapter with inline citations resolving to a bibliography sidebar." />
+  <figcaption>Draft pane for an AAE 195 chapter. Inline citations like @folbre2020 resolve to the bibliography row on the right; the bibliography is generated from the SQLite project, not maintained by hand.</figcaption>
+</figure>
+
+What is shipped so far: the project file format, the markdown editor with citation autocomplete, the bibliography importer for BibTeX and RIS, and the citation graph view. What is still in flight: PDF annotation import (so highlights from a PDF reader land as claims), the outline-to-chapters compiler for thesis drafting, and the export pipeline that emits a clean DOCX with a real bibliography. The thesis deadline is the forcing function â€” if Kring cannot produce my final manuscript, it is not finished.
+
+The next milestone is a private beta of three â€” me, an agri-econ classmate, and a sociology student also drowning in sources. If it survives two months of their thesis drafting without someone reverting to Word, the app is real. If not, the SQLite schema still pays for itself as the citation layer behind my portfolio writing.
+

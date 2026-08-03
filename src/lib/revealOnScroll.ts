@@ -1,12 +1,18 @@
 export function initRevealOnScroll(root: ParentNode = document) {
   if (typeof window === 'undefined') return;
-  const targets = root.querySelectorAll<HTMLElement>('[data-reveal]');
+  const targets = Array.from(root.querySelectorAll<HTMLElement>('[data-reveal]'));
   if (!targets.length) return;
+
+  // Skip elements that have already been observed (so this is idempotent
+  // across astro:page-load view transitions and per-page calls).
+  const fresh = targets.filter((el) => !el.dataset.revealObserved);
+  if (!fresh.length) return;
+  fresh.forEach((el) => { el.dataset.revealObserved = 'true'; });
 
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (reduced || !('IntersectionObserver' in window)) {
-    targets.forEach((el) => el.classList.add('in'));
+    fresh.forEach((el) => el.classList.add('in'));
     return;
   }
 
@@ -22,8 +28,8 @@ export function initRevealOnScroll(root: ParentNode = document) {
         }
       });
     },
-    { threshold: 0.2 },
+    { threshold: 0.18, rootMargin: '0px 0px -8% 0px' },
   );
 
-  targets.forEach((el) => io.observe(el));
+  fresh.forEach((el) => io.observe(el));
 }

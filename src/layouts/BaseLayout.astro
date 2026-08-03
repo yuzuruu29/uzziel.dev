@@ -24,7 +24,7 @@ const ogImage = new URL(image, Astro.site ?? 'https://uzziel.dev').toString();
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9W7BQN668"></script>
@@ -65,6 +65,8 @@ const ogImage = new URL(image, Astro.site ?? 'https://uzziel.dev').toString();
     <script is:inline>
       (() => {
         try {
+          document.documentElement.classList.remove('no-js');
+          document.documentElement.classList.add('js');
           const saved = localStorage.getItem('uzziel-theme');
           const dark = saved
             ? saved === 'dark'
@@ -86,7 +88,7 @@ const ogImage = new URL(image, Astro.site ?? 'https://uzziel.dev').toString();
         position: absolute;
         left: 1rem;
         top: -3rem;
-        z-index: 100;
+        z-index: 60;
         padding: 0.5rem 1rem;
         background: #1a1410;
         color: #f4ecd8;
@@ -110,6 +112,8 @@ const ogImage = new URL(image, Astro.site ?? 'https://uzziel.dev').toString();
 
     <script>
       import Lenis from 'lenis';
+      import { initRevealOnScroll } from '../lib/revealOnScroll.ts';
+
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!reduced) {
         const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
@@ -119,6 +123,10 @@ const ogImage = new URL(image, Astro.site ?? 'https://uzziel.dev').toString();
         };
         requestAnimationFrame(raf);
       }
+
+      // Fire on initial load and re-run after every Astro view transition.
+      initRevealOnScroll();
+      document.addEventListener('astro:page-load', () => initRevealOnScroll());
     </script>
   </body>
 </html>

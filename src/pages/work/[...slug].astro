@@ -42,22 +42,25 @@ const creativeWorkJsonLd = JSON.stringify({
 });
 
 const statusClasses: Record<typeof data.status, string> = {
-  'live': 'bg-leaf/15 text-leaf',
-  'in-progress': 'bg-gold/15 text-narra',
-  'archived': 'bg-stone/15 text-stone',
+  live: 'bg-leaf text-cream',
+  completed: 'bg-gold text-ink',
+  'in-progress': 'bg-gold text-ink',
+  archived: 'bg-stone text-cream',
 };
 const statusLabel: Record<typeof data.status, string> = {
-  'live': 'Live',
+  live: 'Live',
+  completed: 'Completed',
   'in-progress': 'In progress',
-  'archived': 'Archived',
+  archived: 'Archived',
 };
 ---
 
 <BaseLayout title={`${data.title} — Uzziel Malolos`} description={data.summary} jsonLd={creativeWorkJsonLd}>
+  <div id="read-progress" class="fixed left-0 top-0 z-50 h-0.5 origin-left bg-gold" aria-hidden="true" style="scaleX(0)"></div>
+
   <section
     id="case-cover"
-    class="relative w-full overflow-hidden"
-    style="height: 60vh;"
+    class="relative flex min-h-[520px] w-full items-end overflow-hidden md:h-[68vh] md:max-h-[760px]"
   >
     <img
       id="case-cover-img"
@@ -66,27 +69,34 @@ const statusLabel: Record<typeof data.status, string> = {
       width="1600"
       height="900"
       transition:name={`cover-${slug}`}
-      class="absolute inset-0 w-full h-full object-cover will-change-transform"
+      class="absolute inset-0 h-full w-full object-cover will-change-transform"
     />
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cream dark:to-ink"></div>
-    <div class="container relative h-full flex flex-col justify-end pb-10">
-      <span class={`inline-flex w-fit items-center text-[11px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full ${statusClasses[data.status]}`}>
+    <div class="absolute inset-0 bg-ink/60"></div>
+    <div class="container relative pb-10 pt-28 md:pb-14">
+      <div class="mb-5 flex flex-wrap items-center gap-3 font-mono text-[10px] uppercase tracking-[0.15em] text-cream/65">
+        <span class={`inline-flex w-fit items-center rounded-md px-2.5 py-1 ${statusClasses[data.status]}`}>
         {statusLabel[data.status]}
-      </span>
-      <h1 class="mt-4 font-display text-cream leading-[1] tracking-tight" style="font-size: clamp(2.5rem, 6vw, 5rem);">
+        </span>
+        <span>{data.year}</span>
+        <span aria-hidden="true">·</span>
+        <span>{data.role}</span>
+      </div>
+      <h1 class="max-w-4xl text-cream">
         {data.title}
       </h1>
+      <p class="mt-5 max-w-2xl text-base leading-relaxed text-cream/75 md:text-lg">{data.summary}</p>
     </div>
   </section>
 
-  <section class="container grid grid-cols-1 md:grid-cols-[1fr_280px] gap-12 md:gap-16 py-16 md:py-24">
-    <article class="prose-case max-w-prose font-sans text-ink dark:text-cream">
+  <section class="container grid grid-cols-1 gap-12 py-16 md:grid-cols-[minmax(0,1fr)_300px] md:gap-16 md:py-24">
+    <article class="prose-case font-sans text-ink dark:text-cream">
       <Content />
     </article>
 
-    <aside class="md:sticky md:top-24 h-fit text-sm">
+    <aside class="card-surface h-fit rounded-xl p-6 text-sm md:sticky md:top-24" data-reveal data-reveal-delay="120">
+      <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-stone">Project record</p>
       <dl class="space-y-5">
-        <div>
+        <div class="mt-5 border-t border-stone/20 pt-5">
           <dt class="text-[11px] uppercase tracking-widest text-stone">Role</dt>
           <dd class="mt-1">{data.role}</dd>
         </div>
@@ -108,60 +118,24 @@ const statusLabel: Record<typeof data.status, string> = {
     </aside>
   </section>
 
-  <nav class="container pb-24 grid grid-cols-1 md:grid-cols-2 gap-6 border-t border-stone/20 pt-10" aria-label="Case study pagination">
-    <div>
+  <nav class="container grid grid-cols-1 gap-5 border-t border-stone/20 pb-24 pt-10 md:grid-cols-2" aria-label="Case study pagination" data-reveal>
+    <div class="min-h-20">
       {prev && (
-        <a href={`/work/${prev.slug}`} data-cursor="hover" class="group block">
+        <a href={`/work/${prev.slug}`} data-cursor="hover" class="group block rounded-lg border border-transparent p-3 transition-colors hover:border-stone/25">
           <p class="text-[11px] uppercase tracking-widest text-stone">← Previous</p>
           <p class="mt-2 font-display text-xl group-hover:text-gold transition-colors">{prev.data.title}</p>
         </a>
       )}
     </div>
-    <div class="md:text-right">
+    <div class="min-h-20 md:text-right">
       {next && (
-        <a href={`/work/${next.slug}`} data-cursor="hover" class="group block">
+        <a href={`/work/${next.slug}`} data-cursor="hover" class="group block rounded-lg border border-transparent p-3 transition-colors hover:border-stone/25">
           <p class="text-[11px] uppercase tracking-widest text-stone">Next →</p>
           <p class="mt-2 font-display text-xl group-hover:text-gold transition-colors">{next.data.title}</p>
         </a>
       )}
     </div>
   </nav>
-
-  <style is:global>
-    .prose-case p { margin-bottom: 1.25rem; line-height: 1.75; }
-    .prose-case p:first-of-type::first-line { font-weight: 500; }
-    .prose-case h2 { font-family: 'Fraunces', Georgia, serif; font-size: 1.75rem; margin: 2.5rem 0 1rem; }
-    .prose-case a { color: #c9a14a; text-decoration: underline; text-underline-offset: 3px; }
-    .prose-case strong { color: inherit; font-weight: 600; }
-    .prose-case img {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-      border-radius: 0.5rem;
-      border: 1px solid rgb(138 125 110 / 0.3);
-      margin: 2rem 0 0.65rem;
-      background: rgb(26 20 16 / 0.08);
-    }
-    .prose-case .case-figure {
-      margin: 2rem 0 0.65rem;
-    }
-    .prose-case .case-figure img {
-      margin: 0;
-    }
-    .prose-case .case-figure figcaption {
-      margin-top: 0.5rem;
-      color: #8a7d6e;
-      font-size: 0.8125rem;
-      line-height: 1.5;
-    }
-    .prose-case p:has(> img) {
-      margin: 2rem 0 0.65rem;
-    }
-    .prose-case p:has(> img) + p,
-    .prose-case .case-figure + p {
-      margin-top: 0;
-    }
-  </style>
 
   <script>
     import { gsap } from 'gsap';
@@ -172,14 +146,33 @@ const statusLabel: Record<typeof data.status, string> = {
     const img = document.getElementById('case-cover-img');
     const cover = document.getElementById('case-cover');
     if (img && cover && !reduced) {
-      gsap.to(img, {
-        scale: 1.15,
+      const tween = gsap.to(img, {
+        scale: 1.08,
         ease: 'none',
         scrollTrigger: {
           trigger: cover,
           start: 'top top',
           end: 'bottom top',
           scrub: 0.5,
+        },
+      });
+      document.addEventListener('astro:before-swap', () => {
+        tween.scrollTrigger?.kill();
+        tween.kill();
+      }, { once: true });
+    }
+
+    const progress = document.getElementById('read-progress');
+    const article = document.querySelector<HTMLElement>('article.prose-case');
+    if (progress && article && !reduced) {
+      gsap.to(progress, {
+        scaleX: 1,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: article,
+          start: 'top 10%',
+          end: 'bottom 80%',
+          scrub: 0.3,
         },
       });
     }

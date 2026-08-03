@@ -61,7 +61,7 @@ export default function Lightbox({ photos }: Props) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[80] backdrop-blur-md flex items-center justify-center p-6"
+            className="fixed inset-0 z-50 backdrop-blur-md flex items-center justify-center p-6"
             style={{ backgroundColor: 'rgba(26, 20, 16, 0.8)' }}
             role="dialog"
             aria-modal="true"

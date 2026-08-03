@@ -1,4 +1,4 @@
----
+﻿---
 title: "Job Hunter CLI"
 role: "Solo developer"
 year: 2026
@@ -6,17 +6,17 @@ stack: ["Python", "IMAP", "Anthropic API", "YAML"]
 summary: "Daily 7AM CLI tool that reads email alerts, scores job posts by fit, and generates HTML digests."
 cover: "/covers/job-hunter.svg"
 status: "live"
-order: 14
+order: 26
 featured: false
 ---
 
 Job Hunter is a Python CLI tool I wrote because waking up to 47 job alert emails and manually scanning each one is not sustainable when you are also shipping games and apps. It reads my Gmail inbox via IMAP every morning at 7 AM (Windows Task Scheduler), parses each job post, scores it against my candidate profile, and generates an HTML digest with rank-ordered results.
 
-The ranking uses the Anthropic API to evaluate each post against configurable criteria in `candidate_profile.json`: role fit, remote policy, timezone overlap, compensation range, required tech stack, and red-flag keywords. Every post gets a numeric score, a summary, and — if it scores high enough — a generated cover letter draft tailored to the specific post.
+The ranking uses the Anthropic API to evaluate each post against configurable criteria in `candidate_profile.json`: role fit, remote policy, timezone overlap, compensation range, required tech stack, and red-flag keywords. Every post gets a numeric score, a summary, and â€” if it scores high enough â€” a generated cover letter draft tailored to the specific post.
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/job-hunter-terminal.png" alt="Job Hunter CLI terminal output showing the demo run scoring 6 jobs and generating 3 cover letters." />
-  <figcaption>Actual CLI demo run — 6 jobs scored, 3 Apply / 1 Review / 2 Skip, 3 cover letters generated.</figcaption>
+  <figcaption>Actual CLI demo run â€” 6 jobs scored, 3 Apply / 1 Review / 2 Skip, 3 cover letters generated.</figcaption>
 </figure>
 
 The output is an HTML file that opens in a browser: a clean table of ranked jobs with expandable detail panels, score badges, and copy-ready cover letter snippets. A `daily_digests/` folder keeps history so I can track which postings I have already reviewed.
@@ -25,5 +25,6 @@ I treat job hunting as an engineering problem because that is the only framing t
 
 <figure class="case-figure">
   <img src="/work/proof-screenshots/job-hunter-casestudy.jpg" alt="Job Hunter case study page on the portfolio" />
-  <figcaption>Live demo run — 6 sample jobs scored, 3 marked Apply, 1 Review, 2 Skip. Three AI-generated cover letters produced. HTML digest saved to daily_digests/. Runs daily at 7 AM via Windows Task Scheduler.</figcaption>
+  <figcaption>Live demo run â€” 6 sample jobs scored, 3 marked Apply, 1 Review, 2 Skip. Three AI-generated cover letters produced. HTML digest saved to daily_digests/. Runs daily at 7 AM via Windows Task Scheduler.</figcaption>
 </figure>
+

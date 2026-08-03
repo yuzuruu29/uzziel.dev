@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">HIVE project cover</title>
+  <desc id="desc">Violet command interface with verified agent roles arranged in a honeycomb.</desc>
+  <rect width="1600" height="1000" fill="#120f18"/>
+  <rect x="80" y="78" width="1440" height="844" rx="34" fill="#1c1725" stroke="#8b6cff" stroke-opacity=".45" stroke-width="2"/>
+  <g fill="none" stroke="#8b6cff" stroke-width="3">
+    <path d="M1030 212l88-50 88 50v101l-88 50-88-50z"/>
+    <path d="M1210 317l88-50 88 50v101l-88 50-88-50z" opacity=".72"/>
+    <path d="M1030 422l88-50 88 50v101l-88 50-88-50z" opacity=".5"/>
+    <path d="M1210 527l88-50 88 50v101l-88 50-88-50z" opacity=".32"/>
+  </g>
+  <circle cx="1118" cy="262" r="14" fill="#d3c7ff"/>
+  <circle cx="1298" cy="367" r="14" fill="#d3c7ff"/>
+  <circle cx="1118" cy="472" r="14" fill="#d3c7ff"/>
+  <g font-family="Arial, sans-serif">
+    <text x="142" y="208" fill="#9f8cb5" font-size="26" letter-spacing="8">VERIFIED ENGINEERING RUNTIME</text>
+    <text x="142" y="440" fill="#f4ecd8" font-size="168" font-weight="700" letter-spacing="10">HIVE</text>
+    <text x="150" y="520" fill="#b6a8c4" font-size="32">PLAN · BUILD · VALIDATE · REVIEW</text>
+    <text x="142" y="816" fill="#8b6cff" font-size="28" font-weight="700">CLI / TUI / WINDOWS DESKTOP</text>
+  </g>
+</svg>

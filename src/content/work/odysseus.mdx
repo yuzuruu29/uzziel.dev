@@ -1,0 +1,32 @@
+﻿---
+title: "Odysseus"
+role: "Solo developer Â· designer"
+year: 2026
+stack: ["Godot 4", "GDScript", "SQLite"]
+summary: "Turn-based island-hopping strategy game set across the Philippine archipelago. Prototype routes, trade logic, and crew ledger in flight."
+cover: "/covers/odysseus.svg"
+status: "in-progress"
+order: 14
+featured: false
+---
+
+Most strategy games about sailing assume the Mediterranean. Odysseus asks what the genre looks like when the water is the Philippine archipelago â€” seven thousand islands, monsoon seasons, barangay polity politics, and a coastline that no European map drawn at the same scale ever got right. The working title is borrowed from a colonizer's myth on purpose; the game is about reclaiming the genre rather than honoring it.
+
+The turn structure is small on purpose. Each turn is a day of travel, a port action, and a ledger reconciliation. Travel costs â€” rice, dried fish, water, ship condition â€” are tracked as a per-segment ledger, not a global resource pool, because the design problem I actually want to solve is "what does it cost to move one step across water in the Visayas in October". That single question collapses into monsoon modifiers, port-to-port distance, hull type, and the patience of your crew. The ledger is the game.
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/odysseus/route-map.png" alt="Odysseus turn map showing a hand-traced route between Luzon, Visayas, and Mindanao ports with monsoon modifier chips." />
+  <figcaption>The route map. Each port edge carries a distance, a monsoon modifier, and a per-segment cost. The route you trace is the route you pay for.</figcaption>
+</figure>
+
+The decision I made early was to keep the simulation in SQLite, not GDScript. Game state â€” port geography, route costs, ledger rows, crew contracts â€” lives in a single `.db` file the game loads read-only and the design tools load read-write. That means balancing work happens in a SQL prompt and lands in the game the next time the build runs. I have shipped two prior Godot projects where balance lived in GDScript dictionaries and I will not do that to myself again.
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/odysseus/ledger-pane.png" alt="Odysseus ledger pane showing per-segment travel costs against the crew ledger, with running balance and ration warnings." />
+  <figcaption>The ledger pane. Running balance, per-segment costs, and ration warnings. The bottom row turns gold when the day's plan ends in profit; it turns narra when someone goes hungry.</figcaption>
+</figure>
+
+What is in flight: the route map renderer (currently TileMapLayer-backed, eventually a hand-illustrated ship's chart), the port action menu (barter, repair, gossip, recruit), and the monsoon calendar. The combat system is deliberately absent. The genre the game pushes against is the one where every voyage ends in a sea battle; the design goal here is a voyage that ends either in profit or in the decision to make do with less. A turn-based, ledger-forward, combat-free strategy game is a harder pitch and a more honest one.
+
+The next milestone is a vertically sliced three-port loop â€” Manila, Cebu, Davao â€” with the monsoon model turned on for the month of October. If the ledger reconciliation after one simulated week of play feels like doing the books for a small sari-sari fleet, the prototype worked. If it feels like a board game, I shipped the wrong game.
+

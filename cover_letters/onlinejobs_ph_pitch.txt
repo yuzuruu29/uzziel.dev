@@ -1,0 +1,19 @@
+Hi there!
+
+I am Emmanuel Uzziel Malolos ("Uzziel"), a Philippines-based Full-Stack Developer, AI Tool Builder, and Video/Content Creator with 5+ years of hands-on technical and digital production experience.
+
+Why I am a strong fit for your team:
+1. Modern Web & Full-Stack Stack: React 18, Next.js 14, TypeScript, Astro 4, Tailwind CSS, Python/FastAPI, Node.js.
+2. AI & Workflow Automation: Experienced in integrating Claude, ChatGPT, Botpress, Groq, and custom API pipelines into production web/mobile applications.
+3. Content & Video Production: Skilled with Adobe Premiere Pro, CapCut, Canva, and AI-driven video workflows (subtitling, short-form editing, asset management).
+4. Shipped Projects: Built Yusel AI (AI chat app), ApplyGuard PH (job post scoring tool), FOLIO (document intelligence app), and TIRADOR (Godot 4 game).
+
+Portfolio & Live Projects: https://uzziel.dev
+GitHub: https://github.com/yuzuruu29
+Email: uzzielmalolos@gmail.com
+Phone: +63 991 387 3723
+
+Attached is my portfolio resume (PDF). I'd love to chat about how I can bring immediate value to your project!
+
+Best regards,
+Emmanuel Uzziel A. Malolos

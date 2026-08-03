@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">HIVE Cloud project cover</title>
+  <desc id="desc">A dark cloud control plane with transparent routing nodes.</desc>
+  <rect width="1600" height="1000" fill="#0e181a"/>
+  <g stroke="#6bd4ca" stroke-opacity=".45" stroke-width="3" fill="none">
+    <path d="M910 245h420M910 390h520M910 535h420M910 680h520"/>
+    <path d="M1015 245v435M1205 245v435M1395 390v290"/>
+  </g>
+  <g fill="#6bd4ca">
+    <circle cx="1015" cy="245" r="16"/><circle cx="1205" cy="390" r="16"/><circle cx="1395" cy="535" r="16"/><circle cx="1015" cy="680" r="16"/>
+  </g>
+  <rect x="105" y="100" width="1390" height="800" rx="32" fill="none" stroke="#e7f5ef" stroke-opacity=".16" stroke-width="2"/>
+  <g font-family="Arial, sans-serif">
+    <text x="155" y="235" fill="#6bd4ca" font-size="25" letter-spacing="7">PRIVATE CONTROL PLANE</text>
+    <text x="145" y="455" fill="#edf7f3" font-size="130" font-weight="700">HIVE</text>
+    <text x="145" y="570" fill="#6bd4ca" font-size="102" font-weight="700">CLOUD</text>
+    <text x="155" y="695" fill="#a9bdb8" font-size="30">ROUTER · CHAT · BUILD COUNCIL</text>
+    <text x="155" y="822" fill="#edf7f3" fill-opacity=".52" font-size="24">NO REPOSITORY EXECUTION</text>
+  </g>
+</svg>

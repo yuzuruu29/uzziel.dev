@@ -71,7 +71,7 @@ export default function KonamiEgg() {
         'width: 32px',
         'height: 32px',
         'pointer-events: none',
-        'z-index: 9999',
+        'z-index: 60',
         'transform: translateX(-32px)',
         reduced ? '' : 'transition: transform 6s linear',
       ].join(';');

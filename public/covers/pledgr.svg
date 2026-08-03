@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Pledgr project cover</title>
+  <desc id="desc">A violet weekly budget ledger showing safe-to-spend and pacing cards.</desc>
+  <rect width="1600" height="1000" fill="#ede9f8"/>
+  <rect x="92" y="82" width="1416" height="836" rx="38" fill="#faf8ff" stroke="#6d4aff" stroke-width="3"/>
+  <rect x="865" y="180" width="480" height="220" rx="28" fill="#6d4aff"/>
+  <text x="912" y="250" fill="#d8cffd" font-family="Arial, sans-serif" font-size="24">SAFE TO SPEND TODAY</text>
+  <text x="912" y="346" fill="#ffffff" font-family="Arial, sans-serif" font-size="78" font-weight="700">₱ 742</text>
+  <rect x="865" y="438" width="480" height="112" rx="22" fill="#daf3df"/>
+  <rect x="865" y="584" width="480" height="112" rx="22" fill="#f5dfb2"/>
+  <rect x="865" y="730" width="480" height="112" rx="22" fill="#e8e1ff"/>
+  <g font-family="Arial, sans-serif">
+    <text x="155" y="240" fill="#6d4aff" font-size="25" letter-spacing="7">WEEKLY-FIRST MONEY</text>
+    <text x="145" y="480" fill="#221a3a" font-size="142" font-weight="700">Pledgr</text>
+    <text x="155" y="575" fill="#5f5870" font-size="34">Make a pledge.</text>
+    <text x="155" y="620" fill="#5f5870" font-size="34">Know today’s number.</text>
+    <text x="155" y="806" fill="#6d4aff" font-size="26" font-weight="700">LOCAL SQLITE · PRIVATE BY DEFAULT</text>
+  </g>
+</svg>

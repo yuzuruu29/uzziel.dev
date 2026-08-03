@@ -1,0 +1,23 @@
+---
+title: "HIVE"
+role: "Product architect · developer"
+year: 2026
+stack: ["TypeScript", "Electron", "Agent systems", "Playwright"]
+summary: "Verified agentic coding runtime with a CLI, terminal UI, and Windows desktop companion built around guarded execution."
+cover: "/covers/hive.svg"
+status: "in-progress"
+order: -3
+featured: true
+---
+
+HIVE stands for Hyper Intelligence for Verified Engineering. It is a coding runtime with two working surfaces: a command-line cockpit and a Windows desktop companion. Both use the same TypeScript core, provider configuration, isolated Git worktrees, multi-agent roles, and guarded change approval.
+
+The product is deliberately explicit about control. Providers must be configured, tested, and approved. Planner, builder, validator, and reviewer roles can use different models. HIVE does not silently push code or open pull requests.
+
+## What is built
+
+The current repository includes the CLI and terminal interface, an Electron desktop shell, a Vite renderer, provider setup flows, persistent coding sessions, sub-agent orchestration, release packaging, and Playwright coverage for the desktop path.
+
+## Current status
+
+Version 0.5 is in active development. The main engineering work is making the desktop and terminal experiences share one safe execution model without hiding what the agents are doing.

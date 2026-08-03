@@ -1,0 +1,35 @@
+---
+pid: 30956
+cwd: "C:\Portfolio"
+command: "cd \"C:\\HiveMind\" && npm run dev:web"
+started_at: 2026-06-25T05:17:06.365Z
+running_for_ms: 5829997  
+---
+
+> hive-mind@1.0.0 dev:web
+> npm run dev --workspace=web
+
+
+> web@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.9 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.2:3000
+- Environments: .env.local
+✓ Ready in 788ms
+
+ GET /login 200 in 638ms (next.js: 364ms, application-code: 274ms)
+ GET /api/auth/session 200 in 1073ms (next.js: 1024ms, application-code: 48ms)
+ GET /api/auth/providers 200 in 88ms (next.js: 35ms, application-code: 52ms)
+ GET /api/auth/csrf 200 in 42ms (next.js: 8ms, application-code: 34ms)
+ POST /api/auth/callback/credentials 200 in 63ms (next.js: 10ms, application-code: 53ms)
+ GET / 200 in 1557ms (next.js: 110ms, proxy.ts: 120ms, application-code: 1327ms)
+ GET /api/proxy/api/role-presets 200 in 1161ms (next.js: 1109ms, application-code: 52ms)
+ GET /api/proxy/api/local-models/status 200 in 1163ms (next.js: 1105ms, application-code: 59ms)
+ GET /api/proxy/api/runtime/health 200 in 1310ms (next.js: 1235ms, application-code: 75ms)
+ GET /api/proxy/api/hivemind/feature-flags 200 in 1208ms (next.js: 1129ms, application-code: 79ms)
+ GET /api/proxy/api/provider-routing/status 200 in 1187ms (next.js: 1103ms, application-code: 84ms)
+ GET /api/proxy/api/swarm/sessions?limit=5 200 in 1331ms (next.js: 1240ms, application-code: 90ms)
+ GET /api/proxy/api/scheduler/status 200 in 62ms (next.js: 39ms, application-code: 23ms)
+ GET /api/auth/session 200 in 75ms (next.js: 15ms, application-code: 60ms)

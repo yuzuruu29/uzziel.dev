@@ -1,18 +1,18 @@
----
+﻿---
 title: "Heart and Soil"
-role: "Solo developer · designer"
+role: "Solo developer Â· designer"
 year: 2026
 stack: ["Godot 4", "GDScript", "Aseprite"]
 summary: "Filipino cozy farming sim. Town map, fiesta events, fishing, and cooking now in the loop."
 cover: "/work/heart-and-soil/farmstead.png"
 status: "in-progress"
-order: 2
+order: 4
 featured: true
 ---
 
-Heart and Soil — internally I still call it *Lupa at Puso* — is the quieter half of my Godot output. TIRADOR is the slingshot game, the one with enemies and adrenaline and a fail state. Heart and Soil is the opposite of that. You return to your family's barangay, the rice plot has gone fallow, the lola next door has been waiting. You plant, you water, you wait, you talk to people. That is the whole loop.
+Heart and Soil â€” internally I still call it *Lupa at Puso* â€” is the quieter half of my Godot output. TIRADOR is the slingshot game, the one with enemies and adrenaline and a fail state. Heart and Soil is the opposite of that. You return to your family's barangay, the rice plot has gone fallow, the lola next door has been waiting. You plant, you water, you wait, you talk to people. That is the whole loop.
 
-The setting is a fictional Filipino barangay — yero-roof homes, a sari-sari store, mango trees, a tricycle waiting area, a small plaza for tambayan. The palette is warm and provincial, set at that early-morning hour where the light is just turning gold. I drew the tiles by hand in Aseprite using flat shapes and no anti-aliasing. The reference board on my wall is family photos from Bay, not Stardew Valley.
+The setting is a fictional Filipino barangay â€” yero-roof homes, a sari-sari store, mango trees, a tricycle waiting area, a small plaza for tambayan. The palette is warm and provincial, set at that early-morning hour where the light is just turning gold. I drew the tiles by hand in Aseprite using flat shapes and no anti-aliasing. The reference board on my wall is family photos from Bay, not Stardew Valley.
 
 <figure class="case-figure">
   <img src="/work/heart-and-soil/farmstead.png" alt="Heart and Soil farmstead concept art showing a Filipino farm home, vegetable plots, chickens, and warm sunset light." />
@@ -28,23 +28,24 @@ The barangay layout is designed around familiar landmarks: the farm plot, sari-s
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/heart-and-soil/farm.png" alt="Heart and Soil farm scene screenshot showing the family plot, vegetable rows, and provincial lighting." />
-  <figcaption>Actual farm scene capture — the family plot where the loop starts: plant, water, grow, harvest, sell.</figcaption>
+  <figcaption>Actual farm scene capture â€” the family plot where the loop starts: plant, water, grow, harvest, sell.</figcaption>
 </figure>
 
-What is shipped so far: a multi-crop farming loop driven by `data/crops.json` (plant, water, grow, harvest, with seed consumption and inventory). A working economy loop — sell at the buy station, earn coins, return to the shop, buy the next seed. Named NPCs you can greet with E — Mang Ambo Florendo at the irrigation ditch, Lola Conching Reyes by her sari-sari, Kapitan Romy Bautista at the barangay hall, Aling Nena who always has questions. Each interaction nudges your Barangay Reputation up and tracks Utang na Loob — the small debts of kindness you owe back. The HUD shows your friend list, your reputation tier ("Bagong Dating" at the bottom), the day counter. Recent sprints added a fishing rod tool, an interactable cooking station, save/load with money state, and a town-map transition so the barangay reads as one walkable place instead of a single farm scene.
+What is shipped so far: a multi-crop farming loop driven by `data/crops.json` (plant, water, grow, harvest, with seed consumption and inventory). A working economy loop â€” sell at the buy station, earn coins, return to the shop, buy the next seed. Named NPCs you can greet with E â€” Mang Ambo Florendo at the irrigation ditch, Lola Conching Reyes by her sari-sari, Kapitan Romy Bautista at the barangay hall, Aling Nena who always has questions. Each interaction nudges your Barangay Reputation up and tracks Utang na Loob â€” the small debts of kindness you owe back. The HUD shows your friend list, your reputation tier ("Bagong Dating" at the bottom), the day counter. Recent sprints added a fishing rod tool, an interactable cooking station, save/load with money state, and a town-map transition so the barangay reads as one walkable place instead of a single farm scene.
 
-A small event calendar runs in the background. Barangay Fiesta triggers a resource-collection quest ("Pechay: 0/5") and now ships with plaza decorations — parol lights, food tables, the night scene from the concept board. Community Events drop in randomly and reward reputation. None of this is the final shape. The point right now is proving the systems hold each other up — farming feeds the economy, the economy unlocks the social loop, the social loop unlocks the village.
+A small event calendar runs in the background. Barangay Fiesta triggers a resource-collection quest ("Pechay: 0/5") and now ships with plaza decorations â€” parol lights, food tables, the night scene from the concept board. Community Events drop in randomly and reward reputation. None of this is the final shape. The point right now is proving the systems hold each other up â€” farming feeds the economy, the economy unlocks the social loop, the social loop unlocks the village.
 
 <figure class="case-figure">
   <img src="/work/heart-and-soil/fiesta-night.png" alt="Nighttime barangay fiesta concept art with band stage, parol lights, food tables, and residents dancing in the plaza." />
   <figcaption>Fiesta event concept for the social calendar, food tables, music, and parol-lit plaza scenes.</figcaption>
 </figure>
 
-What I'm wrestling with: pacing. A cozy game has to feel slow without feeling boring, and that is harder than the farming code. I am stealing time-of-day rhythms from Stardew, dialogue density from Animal Crossing, and the actual texture of village life from my own walks home. The next milestone is a proper morning-to-evening day cycle, a save system, and a second barangay to walk to. After that, the first beta — a single in-game month, three NPCs deeply written, one festival.
+What I'm wrestling with: pacing. A cozy game has to feel slow without feeling boring, and that is harder than the farming code. I am stealing time-of-day rhythms from Stardew, dialogue density from Animal Crossing, and the actual texture of village life from my own walks home. The next milestone is a proper morning-to-evening day cycle, a save system, and a second barangay to walk to. After that, the first beta â€” a single in-game month, three NPCs deeply written, one festival.
 
 Heart and Soil is one of two solo Godot 4 projects I am running in parallel. TIRADOR is the one I show first because it has more screenshot-worthy combat. Heart and Soil is the one I think about longer.
 
 <figure class="case-figure">
   <img src="/work/proof-screenshots/heartandsoil-casestudy.jpg" alt="Heart and Soil case study page on the portfolio" />
-  <figcaption>199/200 GUT tests passing (541 asserts) — farming, economy, dialogue, NPCs, combat, cooking, fishing, inventory, save/load, day/night cycle, festivals, crafting, relationships, and scene UI via headless Godot 4.6.</figcaption>
+  <figcaption>199/200 GUT tests passing (541 asserts) â€” farming, economy, dialogue, NPCs, combat, cooking, fishing, inventory, save/load, day/night cycle, festivals, crafting, relationships, and scene UI via headless Godot 4.6.</figcaption>
 </figure>
+

@@ -1,5 +1,6 @@
 ---
 import ThemeToggle from '../islands/ThemeToggle.tsx';
+
 const links = [
   { href: '/work', label: 'Work' },
   { href: '/about', label: 'About' },
@@ -11,121 +12,133 @@ const links = [
 const pathname = Astro.url.pathname;
 ---
 
-<header
-  id="site-nav"
-  class="sticky top-0 z-40 border-b border-stone/20 bg-cream/95 dark:bg-ink/95 backdrop-blur-md shadow-sm transition-shadow duration-300"
-  data-scrolled="false"
->
-  <div class="container flex items-center justify-between py-5">
-    <a
-      href="/"
-      data-cursor="hover"
-      class="font-display text-2xl font-medium tracking-tight"
-      aria-label="uzziel home"
-    >
-      uzziel<span class="text-gold">.</span>
+<header id="site-nav" class="sticky top-0 z-40 border-b border-stone/20 bg-cream dark:bg-ink">
+  <div class="container flex min-h-[72px] items-center justify-between gap-6">
+    <a href="/" data-cursor="hover" class="group flex min-h-11 items-center gap-3" aria-label="uzziel.dev home">
+      <span class="font-display text-2xl font-medium tracking-tight">uzziel<span class="text-gold">.</span></span>
+      <span class="hidden border-l border-stone/25 pl-3 font-mono text-[9px] uppercase leading-snug tracking-[0.14em] text-stone sm:block">
+        Research<br />and build
+      </span>
     </a>
 
-    <nav class="hidden md:flex items-center gap-8" aria-label="Primary">
-      {links.map((l) => (
-        <a
-          href={l.href}
-          data-cursor="hover"
-          class:list={[
-            'text-sm tracking-wide transition-colors hover:text-gold',
-            pathname.startsWith(l.href) ? 'text-gold' : '',
-          ]}
-        >
-          {l.label}
-        </a>
-      ))}
-      <ThemeToggle client:load />
+    <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
+      {links.map((link) => {
+        const active = pathname.startsWith(link.href);
+        return (
+          <a
+            href={link.href}
+            data-cursor="hover"
+            aria-current={active ? 'page' : undefined}
+            class:list={[
+              'relative inline-flex min-h-11 items-center px-3 text-sm transition-colors hover:text-narra dark:hover:text-gold',
+              active ? 'font-semibold text-narra dark:text-gold' : 'text-stone',
+            ]}
+          >
+            {link.label}
+            {active && <span class="absolute inset-x-3 bottom-1 h-px bg-gold" aria-hidden="true"></span>}
+          </a>
+        );
+      })}
+      <span class="ml-2 border-l border-stone/25 pl-3"><ThemeToggle client:load /></span>
     </nav>
 
     <button
       id="mobile-menu-btn"
-      class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md"
+      type="button"
+      class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-stone/25 lg:hidden"
       aria-label="Open menu"
       aria-expanded="false"
       aria-controls="mobile-overlay"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-icon="menu"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
     </button>
   </div>
 </header>
 
 <div
   id="mobile-overlay"
-  class="md:hidden fixed inset-0 z-50 hidden flex-col bg-cream dark:bg-ink text-ink dark:text-cream"
+  class="fixed inset-0 z-50 flex-col bg-cream text-ink dark:bg-ink dark:text-cream lg:hidden"
+  data-open="false"
   role="dialog"
   aria-modal="true"
-  aria-label="Mobile menu"
+  aria-hidden="true"
+  aria-label="Site menu"
 >
-  <div class="container flex items-center justify-between py-5">
+  <div class="container flex min-h-[72px] items-center justify-between border-b border-stone/20">
     <span class="font-display text-2xl font-medium">uzziel<span class="text-gold">.</span></span>
-    <button
-      id="mobile-close-btn"
-      class="inline-flex items-center justify-center w-10 h-10 rounded-md"
-      aria-label="Close menu"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    <button id="mobile-close-btn" type="button" class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-stone/25" aria-label="Close menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
   </div>
 
-  <nav class="container flex-1 flex flex-col justify-center stagger-in" aria-label="Mobile">
-    {links.map((l) => (
-      <a
-        href={l.href}
-        class="font-display text-4xl py-3 hover:text-gold transition-colors"
-      >
-        {l.label}
-      </a>
-    ))}
-  </nav>
+  <div class="container grid flex-1 content-center gap-10 py-10 md:grid-cols-[1fr_240px] md:items-end">
+    <nav class="flex flex-col stagger-in" aria-label="Mobile navigation">
+      {links.map((link, index) => (
+        <a href={link.href} class="group flex min-h-14 items-center justify-between border-b border-stone/20 py-3 font-display text-3xl transition-colors hover:text-narra dark:hover:text-gold">
+          <span>{link.label}</span>
+          <span class="font-mono text-[10px] text-stone" aria-hidden="true">0{index + 1}</span>
+        </a>
+      ))}
+    </nav>
+    <div class="border-l border-stone/20 pl-5 text-sm text-stone">
+      <p class="font-mono text-[10px] uppercase tracking-[0.16em]">Bay, Laguna</p>
+      <p class="mt-3 leading-relaxed">Research, products, games, and useful websites from one working desk.</p>
+      <div class="mt-5"><ThemeToggle client:load /></div>
+    </div>
+  </div>
 </div>
 
 <script is:inline>
   (() => {
-    const nav = document.getElementById('site-nav');
-    const btn = document.getElementById('mobile-menu-btn');
+    const button = document.getElementById('mobile-menu-btn');
     const overlay = document.getElementById('mobile-overlay');
-    const close = document.getElementById('mobile-close-btn');
+    const closeButton = document.getElementById('mobile-close-btn');
+    let previousFocus = null;
 
-    const onScroll = () => {
-      const scrolled = window.scrollY > 40;
-      nav?.setAttribute('data-scrolled', String(scrolled));
-      if (scrolled) {
-        nav?.classList.add('shadow-sm');
-      } else {
-        nav?.classList.remove('shadow-sm');
-      }
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
+    const getFocusable = () => Array.from(
+      overlay?.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])') ?? []
+    );
 
     const openMenu = () => {
-      overlay?.classList.remove('hidden');
-      overlay?.classList.add('flex');
-      btn?.setAttribute('aria-expanded', 'true');
+      if (!overlay || !button) return;
+      previousFocus = document.activeElement;
+      overlay.dataset.open = 'true';
+      overlay.setAttribute('aria-hidden', 'false');
+      button.setAttribute('aria-expanded', 'true');
       document.documentElement.style.overflow = 'hidden';
-      const nav = overlay?.querySelector('nav');
-      if (nav) {
-        nav.classList.remove('stagger-in');
-        void nav.offsetWidth;
-        nav.classList.add('stagger-in');
-      }
+      closeButton?.focus();
     };
-    const closeMenu = () => {
-      overlay?.classList.add('hidden');
-      overlay?.classList.remove('flex');
-      btn?.setAttribute('aria-expanded', 'false');
+
+    const closeMenu = (restoreFocus = true) => {
+      if (!overlay || !button || overlay.dataset.open !== 'true') return;
+      overlay.dataset.open = 'false';
+      overlay.setAttribute('aria-hidden', 'true');
+      button.setAttribute('aria-expanded', 'false');
       document.documentElement.style.overflow = '';
+      if (restoreFocus && previousFocus instanceof HTMLElement) previousFocus.focus();
     };
-    btn?.addEventListener('click', openMenu);
-    close?.addEventListener('click', closeMenu);
-    overlay?.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMenu();
+
+    button?.addEventListener('click', openMenu);
+    closeButton?.addEventListener('click', () => closeMenu());
+    overlay?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => closeMenu(false)));
+    document.addEventListener('keydown', (event) => {
+      if (overlay?.dataset.open !== 'true') return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeMenu();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const focusable = getFocusable();
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last?.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first?.focus();
+      }
     });
   })();
 </script>

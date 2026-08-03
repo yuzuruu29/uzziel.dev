@@ -2,27 +2,40 @@
 interface Props {
   slug: string;
   title: string;
+  role: string;
   year: number;
-  status: 'live' | 'in-progress' | 'archived';
+  status: 'live' | 'completed' | 'in-progress' | 'archived';
   summary: string;
   stack: string[];
   cover: string;
   index?: number;
 }
 
-const { slug, title, year, status, summary, stack, cover, index = 0 } = Astro.props;
+const { slug, title, role, year, status, summary, stack, cover, index = 0 } = Astro.props;
 
 const statusClasses: Record<Props['status'], string> = {
-  'live': 'bg-leaf/15 text-leaf',
-  'in-progress': 'bg-gold/15 text-narra',
-  'archived': 'bg-stone/15 text-stone',
+  live: 'bg-leaf/12 text-leaf dark:bg-leaf/20 dark:text-[#b8d7a5]',
+  completed: 'bg-narra/10 text-narra dark:bg-gold/15 dark:text-gold',
+  'in-progress': 'bg-gold/18 text-narra dark:bg-gold/15 dark:text-gold',
+  archived: 'bg-stone/12 text-stone',
+};
+
+const dotClasses: Record<Props['status'], string> = {
+  live: 'bg-leaf dark:bg-[#b8d7a5]',
+  completed: 'bg-narra dark:bg-gold',
+  'in-progress': 'bg-gold',
+  archived: 'bg-stone',
 };
 
 const statusLabel: Record<Props['status'], string> = {
-  'live': 'Live',
+  live: 'Live',
+  completed: 'Completed',
   'in-progress': 'In progress',
-  'archived': 'Archived',
+  archived: 'Archived',
 };
+
+const visibleStack = stack.slice(0, 3);
+const remainingStack = Math.max(stack.length - visibleStack.length, 0);
 ---
 
 <a
@@ -32,36 +45,63 @@ const statusLabel: Record<Props['status'], string> = {
   data-status={status}
   data-stack={stack.join('|')}
   data-index={index}
-  class="group block"
-  style="transition: opacity 320ms ease, transform 320ms ease;"
+  data-reveal
+  data-reveal-delay={Math.min(index * 80, 480)}
+  class="group block h-full rounded-xl focus-visible:outline-offset-4"
+  style="transition: opacity 280ms ease, transform 280ms cubic-bezier(0.22, 1, 0.36, 1);"
 >
-  <div class="relative aspect-[16/9] overflow-hidden rounded-lg border border-stone/30 group-hover:border-narra transition-colors">
-    <img
-      src={cover}
-      alt={`${title} cover`}
-      width="1600"
-      height="900"
-      loading="lazy"
-      decoding="async"
-      transition:name={`cover-${slug}`}
-      class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-    />
-  </div>
-  <div class="mt-4 transition-transform duration-300 ease-out group-hover:-translate-y-1">
-    <div class="flex items-baseline justify-between gap-3">
-      <h3 class="font-display text-xl md:text-2xl leading-tight">{title}</h3>
-      <span class="font-mono text-xs text-stone whitespace-nowrap">{year}</span>
-    </div>
-    <div class="mt-2 flex items-center gap-2">
-      <span class={`inline-flex items-center text-[11px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full ${statusClasses[status]}`}>
+  <article class="card-surface flex h-full flex-col overflow-hidden rounded-xl transition-[border-color,box-shadow,transform] duration-200 ease-out group-hover:-translate-y-1 group-hover:border-narra/55 group-hover:shadow-[0_18px_50px_rgba(68,42,24,0.12)] ring-1 ring-transparent group-hover:ring-narra/25 dark:group-hover:border-gold/45 dark:group-hover:ring-gold/20">
+    <div class="relative aspect-[16/10] overflow-hidden border-b border-stone/20 bg-ink/5 dark:bg-cream/5">
+      <img
+        src={cover}
+        alt={`${title} project cover`}
+        width="1600"
+        height="1000"
+        loading={index < 3 ? 'eager' : 'lazy'}
+        decoding="async"
+        transition:name={`cover-${slug}`}
+        class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.025]"
+      />
+      <span class={`absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider backdrop-blur-sm ${statusClasses[status]}`}>
+        <span class={`h-1.5 w-1.5 rounded-full ${dotClasses[status]}`} aria-hidden="true"></span>
         {statusLabel[status]}
       </span>
+      <span class="absolute right-4 top-4 rounded-md bg-ink/75 px-2 py-1 font-mono text-[10px] text-cream backdrop-blur-sm">
+        {String(index + 1).padStart(2, '0')}
+      </span>
     </div>
-    <p class="mt-3 text-sm text-stone leading-relaxed">{summary}</p>
-    <ul class="mt-3 flex flex-wrap gap-1.5">
-      {stack.map((s) => (
-        <li class="font-mono text-[11px] text-stone border border-stone/30 px-2 py-0.5 rounded">{s}</li>
-      ))}
-    </ul>
-  </div>
+
+    <div class="flex flex-1 flex-col p-5 md:p-6">
+      <div class="flex items-start justify-between gap-5">
+        <div>
+          <p class="font-mono text-[10px] uppercase tracking-[0.14em] text-stone">{role}</p>
+          <h3 class="mt-2 text-2xl leading-[1.08] transition-colors duration-200 group-hover:text-narra dark:group-hover:text-gold">
+            {title}
+          </h3>
+        </div>
+        <span class="font-mono text-xs text-stone">{year}</span>
+      </div>
+
+      <p class="line-clamp-3 mt-4 text-sm leading-relaxed text-stone">{summary}</p>
+
+      <div class="mt-auto pt-6">
+        <ul class="flex flex-wrap gap-1.5" aria-label="Project technologies">
+          {visibleStack.map((item) => (
+            <li class="rounded border border-stone/25 px-2 py-1 font-mono text-[10px] text-stone">{item}</li>
+          ))}
+          {remainingStack > 0 && (
+            <li class="rounded border border-stone/25 px-2 py-1 font-mono text-[10px] text-stone">+{remainingStack}</li>
+          )}
+        </ul>
+
+        <div class="mt-5 flex items-center justify-between border-t border-stone/20 pt-4 text-sm font-medium">
+          <span class="relative">
+            <span class="relative z-10">View case study</span>
+            <span aria-hidden="true" class="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-narra transition-transform duration-300 ease-out group-hover:scale-x-100 dark:bg-gold"></span>
+          </span>
+          <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">→</span>
+        </div>
+      </div>
+    </div>
+  </article>
 </a>

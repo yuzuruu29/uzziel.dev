@@ -1,0 +1,12 @@
+---
+pid: 29456
+cwd: "C:\Portfolio"
+command: "Stop-Process -Id 23476 -Force -ErrorAction SilentlyContinue; Stop-Process -Id 39928 -Force -ErrorAction SilentlyContinue; Start-Sleep -Seconds 2; cd \"C:\\SPLATZ\\client\" && npx vite --port 5173"
+started_at: 2026-06-25T05:14:02.160Z
+running_for_ms: 6014996  
+---
+
+  VITE v6.4.3  ready in 405 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose

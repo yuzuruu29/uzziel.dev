@@ -1,0 +1,18 @@
+﻿---
+title: "Nutrivela"
+role: "Product developer"
+year: 2026
+stack: ["Next.js", "TypeScript", "Tailwind CSS", "Playwright"]
+summary: "European Portuguese nutrition quiz funnel with conditional guidance, personalized offers, and accessible demo checkout."
+cover: "/covers/nutrivela.svg"
+status: "completed"
+order: 2
+featured: false
+---
+
+Nutrivela is a complete nutrition funnel in European Portuguese. It takes a visitor through 38 questions about goals, habits, activity, hydration, diet, and body metrics before presenting a personalized plan and structured checkout.
+
+The flow includes conditional guidance screens, BMI-based recommendations, three subscription tiers, back navigation, versioned session recovery, and attribution preservation. Demo mode never asks for card details or creates a real subscription; an optional Stripe provider can replace it.
+
+The Next.js build uses TypeScript, Tailwind CSS, Zod, Vitest, Playwright, and axe checks. Three visual skins share the same accessible product logic, and the confirmation route rejects copied success URLs from another session.
+
