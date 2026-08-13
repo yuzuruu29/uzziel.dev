@@ -1,20 +1,75 @@
 <section class="container section-rule py-20 md:py-28" data-reveal>
   <div class="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:gap-16">
-    <figure class="relative max-w-lg" data-reveal data-reveal-delay="50">
-      <img
-        src="/photos/uzziel-jeepney.webp"
-        alt="Uzziel during a jeepney commute from campus to Bay"
-        width="720"
-        height="900"
-        loading="eager"
-        decoding="async"
-        fetchpriority="low"
-        class="aspect-[4/5] w-full rounded-xl border border-narra/30 object-cover"
-      />
-      <figcaption class="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-stone">
-        Campus to Bay · fieldwork and build work share the same route
-      </figcaption>
-    </figure>
+    <article
+      class="group relative isolate min-h-[570px] w-full max-w-lg overflow-hidden rounded-xl border border-[#1f6bff]/45 bg-[#05060a] p-6 text-white shadow-[0_24px_70px_rgba(5,6,10,0.24)] sm:aspect-[4/5] sm:min-h-0 sm:p-8"
+      data-reveal
+      data-reveal-delay="50"
+      aria-labelledby="aceu-studio-title"
+    >
+      <div
+        class="absolute inset-0 -z-20 bg-[linear-gradient(rgba(31,107,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(31,107,255,0.06)_1px,transparent_1px)] bg-[size:42px_42px]"
+        aria-hidden="true"
+      ></div>
+      <div
+        class="absolute -right-20 -top-16 -z-10 h-72 w-72 rounded-full bg-[#1f6bff]/20 blur-3xl transition-opacity duration-500 group-hover:opacity-80"
+        aria-hidden="true"
+      ></div>
+
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="font-sans text-2xl font-semibold tracking-[-0.04em] text-white">
+            <span class="text-[#1f6bff]" aria-hidden="true">▲</span>CEU
+          </p>
+          <p class="mt-1 font-mono text-[9px] uppercase tracking-[0.24em] text-white/50">AI Solutions</p>
+        </div>
+        <p class="font-mono text-[9px] uppercase tracking-[0.16em] text-white/40">Studio · 2026</p>
+      </div>
+
+      <svg
+        viewBox="0 0 420 300"
+        class="absolute left-1/2 top-[16%] -z-10 w-[110%] -translate-x-1/2 text-[#1f6bff]"
+        fill="none"
+        aria-hidden="true"
+      >
+        <ellipse cx="210" cy="150" rx="155" ry="55" stroke="currentColor" stroke-width="1.5" opacity=".72" transform="rotate(-18 210 150)" />
+        <ellipse cx="210" cy="150" rx="155" ry="55" stroke="currentColor" stroke-width="1.5" opacity=".4" transform="rotate(38 210 150)" />
+        <ellipse cx="210" cy="150" rx="155" ry="55" stroke="currentColor" stroke-width="1.5" opacity=".2" transform="rotate(92 210 150)" />
+        <circle cx="210" cy="150" r="31" fill="currentColor" opacity=".95" />
+        <circle cx="348" cy="95" r="7" fill="white" opacity=".85" />
+        <circle cx="90" cy="225" r="5" fill="white" opacity=".55" />
+      </svg>
+
+      <div class="absolute inset-x-6 bottom-6 sm:inset-x-8 sm:bottom-8">
+        <p class="font-mono text-[9px] uppercase tracking-[0.18em] text-[#8fb1ff]">Co-founder · Design & engineering</p>
+        <h3 id="aceu-studio-title" class="mt-3 max-w-sm font-sans text-3xl font-semibold leading-[1.02] tracking-[-0.045em] text-white sm:text-4xl">
+          Building useful AI systems with founders in the room.
+        </h3>
+        <p class="mt-4 max-w-md text-sm leading-relaxed text-white/60">
+          I co-founded ACEU AI Solutions with Aaron Panergayo. We design and ship automation, AI products, and production-ready systems for small teams.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a
+            href="https://aceu-ai-solutions-portfolio.netlify.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor="hover"
+            data-cursor-label="Visit studio"
+            data-magnetic
+            class="inline-flex min-h-11 items-center gap-2 rounded-lg bg-[#1f6bff] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#3d7fff]"
+          >
+            Visit ACEU <span aria-hidden="true">↗</span>
+          </a>
+          <a
+            href="/work/aceu-ai-solutions"
+            data-cursor="hover"
+            data-cursor-label="View case"
+            class="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/20 px-4 py-2.5 text-sm font-medium text-white/80 transition-colors hover:border-white/45 hover:text-white"
+          >
+            Case study <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </article>
 
     <div data-reveal data-reveal-delay="100">
       <p class="eyebrow">About the practice</p>
