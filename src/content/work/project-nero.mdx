@@ -1,0 +1,27 @@
+---
+title: "Project Nero"
+role: "Solo developer"
+year: 2026
+stack: ["TypeScript", "React", "Phaser", "Colyseus", "PostgreSQL"]
+summary: "Browser cyberpunk pixel MMORPG — server-authoritative zones, telegraphed dodgeable combat, a first-person raycast mode, and a self-hosted server friends join over LAN."
+cover: "/covers/project-nero.svg"
+status: "in-progress"
+order: -8
+featured: true
+---
+
+Project Nero is the unreasonable project: a cyberpunk pixel MMORPG that runs in a browser tab. The pnpm monorepo splits responsibilities cleanly — React owns accounts, characters, and social UI; Phaser owns world rendering; Fastify serves authenticated HTTP APIs; Colyseus runs server-authoritative zone rooms; PostgreSQL and Drizzle persist all of it.
+
+The server is the referee, not a relay. Movement runs at 20 Hz authoritative with local prediction and remote interpolation. Combat abilities sit on `1`–`3` with basic attack on `Space`: damage rolls carry ±12% variance and a 10% crit chance, dash is a real 96-pixel server-side displacement, and Arc Bolt chains to two extra targets at 60% falloff. Every hit, crit, miss, and heal broadcasts as an authoritative `combat_event`, so all clients render the same numbers. Rejected casts return a reason instead of failing silently.
+
+## Enemies you can outplay
+
+Enemy AI is a behavior state machine — idle, chase, telegraphed windup, leash-return-and-heal — with melee, kiting-ranged, and heavy archetypes defined in game data. Every attack broadcasts its telegraph and re-checks range at resolution, which means attacks are dodgeable by moving, not by RNG. On the client, a juice layer sells each exchange: trauma-based camera shake, hit-stop, pooled floating combat text, telegraph rings, squash-and-stretch, and kill toasts with real XP values. All of it honors reduced-motion settings.
+
+There are two ways to see the same world: the top-down pixel view, and a Wolfenstein-style first-person raycast mode (toggle `V`) that renders the same 2D zones with DDA walls and billboarded entities — purely client-side over the unchanged simulation.
+
+## The self-hosted move
+
+Auth does verified registration, HttpOnly rotating refresh cookies, CSRF protection, and password reset with session revocation. Guilds and clans share one organization model. 322 source tests pass alongside a live Chromium acceptance flow that proves two cookie sessions entering the same zone concurrently.
+
+The favorite feature is `pnpm host`: one process builds and serves both client and game on a single port, with accounts stored in an embedded PGlite database — no Docker, no cloud. Friends join by opening the host's LAN address. Cloud production stays strict and fails closed without managed Postgres, Redis, and SMTP; the LAN relaxations only unlock behind `SELF_HOSTED=true`.

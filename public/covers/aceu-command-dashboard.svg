@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">ACEU Command Dashboard cover</title>
+  <desc id="desc">Warm paper panel with kanban columns and a sync mark.</desc>
+  <rect width="1600" height="1000" fill="#e7e0d0"/>
+  <rect x="80" y="78" width="1440" height="844" rx="34" fill="#f6f1e7" stroke="#b08d3f" stroke-opacity=".55" stroke-width="2"/>
+  <g>
+    <rect x="1010" y="240" width="150" height="380" rx="14" fill="#fffdf7" stroke="#d8cdb4" stroke-width="2"/>
+    <rect x="1180" y="240" width="150" height="300" rx="14" fill="#fffdf7" stroke="#d8cdb4" stroke-width="2"/>
+    <rect x="1350" y="240" width="150" height="340" rx="14" fill="#fffdf7" stroke="#d8cdb4" stroke-width="2"/>
+    <g fill="#efe7d5">
+      <rect x="1030" y="268" width="110" height="52" rx="8"/><rect x="1030" y="332" width="110" height="52" rx="8"/>
+      <rect x="1030" y="396" width="110" height="52" rx="8"/><rect x="1200" y="268" width="110" height="52" rx="8"/>
+      <rect x="1200" y="332" width="110" height="52" rx="8"/><rect x="1370" y="268" width="110" height="52" rx="8"/>
+      <rect x="1370" y="332" width="110" height="52" rx="8"/><rect x="1370" y="396" width="110" height="52" rx="8"/>
+    </g>
+    <rect x="1030" y="268" width="110" height="52" rx="8" fill="#2b3f57"/>
+    <rect x="1370" y="268" width="110" height="52" rx="8" fill="#b08d3f"/>
+  </g>
+  <g font-family="Arial, sans-serif">
+    <text x="142" y="208" fill="#8a8272" font-size="26" letter-spacing="8">TWO-FOUNDER OPS · LOCAL-FIRST + SYNC</text>
+    <text x="142" y="410" fill="#241d12" font-size="126" font-weight="700">COMMAND</text>
+    <text x="142" y="548" fill="#2b3f57" font-size="126" font-weight="700">DASHBOARD</text>
+    <text x="150" y="628" fill="#8a8272" font-size="32">PROJECTS · KANBAN · LIBRARY · DAILY VERSE</text>
+    <text x="142" y="816" fill="#b08d3f" font-size="28" font-weight="700">VANILLA JS · SUPABASE RLS · PWA</text>
+  </g>
+</svg>

@@ -30,12 +30,18 @@ const pathname = Astro.url.pathname;
             data-cursor="hover"
             aria-current={active ? 'page' : undefined}
             class:list={[
-              'relative inline-flex min-h-11 items-center px-3 text-sm transition-colors hover:text-narra dark:hover:text-gold',
+              'group relative inline-flex min-h-11 items-center px-3 text-sm transition-colors hover:text-narra dark:hover:text-gold',
               active ? 'font-semibold text-narra dark:text-gold' : 'text-stone',
             ]}
           >
             {link.label}
-            {active && <span class="absolute inset-x-3 bottom-1 h-px bg-gold" aria-hidden="true"></span>}
+            <span
+              aria-hidden="true"
+              class:list={[
+                'absolute inset-x-3 bottom-1 h-px origin-left bg-gold transition-transform duration-300 ease-out',
+                active ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100',
+              ]}
+            ></span>
           </a>
         );
       })}
@@ -90,38 +96,52 @@ const pathname = Astro.url.pathname;
 
 <script is:inline>
   (() => {
-    const button = document.getElementById('mobile-menu-btn');
-    const overlay = document.getElementById('mobile-overlay');
-    const closeButton = document.getElementById('mobile-close-btn');
+    // Delegated so the menu keeps working after Astro view transitions
+    // (the header DOM is replaced on navigation; document listeners are not).
+    if (window.__uzNavBound) return;
+    window.__uzNavBound = true;
+
     let previousFocus = null;
 
-    const getFocusable = () => Array.from(
+    const getOverlay = () => document.getElementById('mobile-overlay');
+    const getButton = () => document.getElementById('mobile-menu-btn');
+    const getFocusable = (overlay) => Array.from(
       overlay?.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])') ?? []
     );
 
     const openMenu = () => {
+      const overlay = getOverlay();
+      const button = getButton();
       if (!overlay || !button) return;
       previousFocus = document.activeElement;
       overlay.dataset.open = 'true';
       overlay.setAttribute('aria-hidden', 'false');
       button.setAttribute('aria-expanded', 'true');
       document.documentElement.style.overflow = 'hidden';
-      closeButton?.focus();
+      document.getElementById('mobile-close-btn')?.focus();
     };
 
     const closeMenu = (restoreFocus = true) => {
-      if (!overlay || !button || overlay.dataset.open !== 'true') return;
+      const overlay = getOverlay();
+      const button = getButton();
+      if (!overlay || overlay.dataset.open !== 'true') return;
       overlay.dataset.open = 'false';
       overlay.setAttribute('aria-hidden', 'true');
-      button.setAttribute('aria-expanded', 'false');
+      button?.setAttribute('aria-expanded', 'false');
       document.documentElement.style.overflow = '';
       if (restoreFocus && previousFocus instanceof HTMLElement) previousFocus.focus();
     };
 
-    button?.addEventListener('click', openMenu);
-    closeButton?.addEventListener('click', () => closeMenu());
-    overlay?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => closeMenu(false)));
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      if (target.closest('#mobile-menu-btn')) { openMenu(); return; }
+      if (target.closest('#mobile-close-btn')) { closeMenu(); return; }
+      if (target.closest('#mobile-overlay a')) closeMenu(false);
+    });
+
     document.addEventListener('keydown', (event) => {
+      const overlay = getOverlay();
       if (overlay?.dataset.open !== 'true') return;
       if (event.key === 'Escape') {
         event.preventDefault();
@@ -129,7 +149,7 @@ const pathname = Astro.url.pathname;
         return;
       }
       if (event.key !== 'Tab') return;
-      const focusable = getFocusable();
+      const focusable = getFocusable(overlay);
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
       if (event.shiftKey && document.activeElement === first) {
@@ -139,6 +159,11 @@ const pathname = Astro.url.pathname;
         event.preventDefault();
         first?.focus();
       }
+    });
+
+    // A swap while the menu is open would otherwise leave scroll locked.
+    document.addEventListener('astro:after-swap', () => {
+      document.documentElement.style.overflow = '';
     });
   })();
 </script>

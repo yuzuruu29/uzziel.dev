@@ -1,0 +1,25 @@
+---
+title: "ACEU AI Solutions"
+role: "Co-founder · design engineer"
+year: 2026
+stack: ["HTML", "GSAP", "Lenis", "GLSL", "Netlify"]
+summary: "Founder-led AI studio site in a single HTML file — GLSL shader backdrop, magnetic buttons, velocity-reactive marquee, and Netlify Forms intake."
+cover: "/covers/aceu-ai-solutions.svg"
+status: "live"
+order: -6
+featured: false
+---
+
+ACEU AI Solutions is the two-founder AI engineering studio I run with Aaron Christian Panergayo. The portfolio site had one brief: look like a studio that ships cinematic work, without a framework, a build step, or a CMS bill. The whole site is one `index.html` on Netlify, with Lenis and GSAP from CDN.
+
+The brand is void black, charcoal, and one signature blue, set in Space Grotesk with JetBrains Mono labels. A live SVG orbital logo spins in the corner. Behind the content sit the cybernetic layers: a GLSL shader backdrop, a particle constellation, grid, grain, soft scanlines, and a glow cursor that switches to a VIEW state over project cards. First load runs a cinematic boot sequence into the hero.
+
+## Motion as the product demo
+
+For an AI studio, the site itself is the first portfolio piece, so the motion got engineering attention. Buttons are GSAP-owned magnetics with a label roll, elastic release, and a tactile press. The capability marquee reads scroll velocity and speeds up with it. Cards wear HUD corner brackets; the hero has pointer-tracked depth; scroll choreography runs on ScrollTrigger with Flip for state changes.
+
+## Built to be edited by non-designers
+
+Everything a founder needs to update lives in five JavaScript arrays at the top of the file — `PROJECTS`, `FOUNDERS`, `SERVICES`, `EMAIL`, and the contact form config. Adding a case study means appending an object, not touching markup. The work section currently showcases ApplyGuard PH, Needs vs. Wants, and Pledgr, each pulling from the studio's shipped products.
+
+Contact runs through Netlify Forms with an AJAX submit that notifies the studio inbox. No backend, no secrets, nothing to maintain — which is the correct amount of infrastructure for a site whose job is to get the first reply.

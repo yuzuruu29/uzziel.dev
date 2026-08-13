@@ -111,17 +111,57 @@
 
   .button-primary,
   .button-secondary {
+    position: relative;
     display: inline-flex;
     min-height: 3rem;
     align-items: center;
     justify-content: center;
     gap: 0.6rem;
+    overflow: hidden;
     border: 1px solid transparent;
     border-radius: 0.65rem;
     padding: 0.7rem 1.15rem;
     font-weight: 600;
     line-height: 1.2;
     transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+  }
+
+  /* Sheen sweep on hover. */
+  .button-primary::after,
+  .button-secondary::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 0.22) 50%, transparent 65%);
+    content: '';
+    pointer-events: none;
+    transform: translateX(-130%);
+  }
+
+  .button-secondary::after {
+    background: linear-gradient(105deg, transparent 35%, rgb(201 161 74 / 0.2) 50%, transparent 65%);
+  }
+
+  .button-primary:hover::after,
+  .button-secondary:hover::after {
+    transform: translateX(130%);
+    transition: transform 700ms ease;
+  }
+
+  /* Trailing icon nudge. */
+  .button-primary [aria-hidden='true'],
+  .button-secondary [aria-hidden='true'] {
+    transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .button-primary:hover [aria-hidden='true'],
+  .button-secondary:hover [aria-hidden='true'] {
+    transform: translateX(3px);
+  }
+
+  .button-primary:active,
+  .button-secondary:active {
+    transform: scale(0.97);
+    transition-duration: 80ms;
   }
 
   .button-primary {
@@ -173,6 +213,55 @@
   @media (min-width: 768px) {
     .container { padding-inline: 2rem; }
   }
+}
+
+/* Scroll-aware header chrome (toggled from BaseLayout). */
+#site-nav {
+  transition: background-color 260ms ease, box-shadow 260ms ease;
+}
+
+#site-nav[data-scrolled='true'] {
+  background: rgb(244 236 216 / 0.88);
+  box-shadow: 0 10px 34px rgb(26 20 16 / 0.07);
+  -webkit-backdrop-filter: blur(12px) saturate(1.1);
+  backdrop-filter: blur(12px) saturate(1.1);
+}
+
+.dark #site-nav[data-scrolled='true'] {
+  background: rgb(26 20 16 / 0.84);
+  box-shadow: 0 10px 34px rgb(0 0 0 / 0.32);
+}
+
+/* Gold spotlight that follows the pointer across work cards
+   (coords set by the delegated pointermove handler in BaseLayout). */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  [data-work-card] article {
+    position: relative;
+  }
+
+  [data-work-card] article::after {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: radial-gradient(
+      340px circle at var(--mx, 50%) var(--my, 50%),
+      rgb(201 161 74 / 0.13),
+      transparent 65%
+    );
+    border-radius: inherit;
+    content: '';
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 240ms ease;
+  }
+
+  [data-work-card]:hover article::after {
+    opacity: 1;
+  }
+}
+
+[data-magnetic] {
+  will-change: transform;
 }
 
 @layer utilities {
@@ -295,7 +384,9 @@
   }
 
   .button-primary:hover,
-  .button-secondary:hover {
+  .button-secondary:hover,
+  .button-primary:active,
+  .button-secondary:active {
     transform: none;
   }
 }

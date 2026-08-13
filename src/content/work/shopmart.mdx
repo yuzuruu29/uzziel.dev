@@ -1,0 +1,25 @@
+---
+title: "ShopMart"
+role: "Security & release engineer"
+year: 2026
+stack: ["NestJS", "Next.js", "Expo", "Supabase", "Stripe"]
+summary: "Security hardening and release acceptance for a multi-seller marketplace monorepo — 30 of 31 Supabase Advisor findings closed and an honest release verdict."
+cover: "/covers/shopmart.svg"
+status: "in-progress"
+order: -4
+featured: false
+---
+
+ShopMart is a multi-seller e-commerce marketplace: an Expo mobile app, a Next.js 15 admin dashboard, a NestJS 11 API, and a BullMQ worker, all in one Turborepo with Supabase for Postgres, auth, search, and storage, and Stripe for payments. My work on it is the unglamorous kind — taking a feature-complete codebase through security hardening and release acceptance, and refusing to call it done before the evidence exists.
+
+## The hardening pass
+
+The security work closed real holes, not lint warnings: storage ownership checks so sellers can only touch their own files, order relationship checks so one buyer cannot read another's order, refund authorization, atomic auth identity provisioning, and a row-level-security fix for a user-role escalation path. Stripe handling is fail-closed — checkout and webhooks disable themselves entirely unless both the provider and webhook credentials are configured, because a half-configured payment path is worse than none.
+
+Supabase's own Security Advisor went from 31 findings to zero errors and one accepted warning (leaked-password protection, which requires a paid plan the project isn't on — documented as an accepted risk rather than quietly ignored).
+
+## Release acceptance means saying "not yet"
+
+The gate evidence: 165 workspace unit tests plus 155 mocked scenario tests pass, 17 of 17 type-check tasks, 11 of 11 workspace builds including the Expo export for iOS, Android, and web, and a compiled API that answers its health check. Lint is at zero errors and the dependency audit is triaged, with the remaining advisories requiring upstream framework changes.
+
+The verdict I wrote for it is `CONDITIONALLY READY — NOT PRODUCTION-VERIFIED`, because mounted database RLS tests, real Stripe test-mode transactions, and device checks haven't run yet. A release report that says "not yet, and here is exactly what's missing" is worth more than a green badge nobody can defend.

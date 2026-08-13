@@ -1,0 +1,27 @@
+---
+title: "ShirtKo"
+role: "Full-stack developer"
+year: 2026
+stack: ["Next.js", "Expo", "Supabase", "Tailwind CSS", "TypeScript"]
+summary: "Premium apparel storefront for a Calauan, Laguna print shop — web and mobile, GCash and COD checkout, and an admin that verifies payments in one click."
+cover: "/covers/shirtko.svg"
+status: "live"
+order: -10
+featured: true
+---
+
+ShirtKo sells graphic tees and custom prints out of Calauan, Laguna. The owner was running the whole operation through Messenger chats. The build moves the register into the product: shoppers browse a real catalog, check out with GCash transfer or cash on delivery, and Messenger goes back to being support instead of the point of sale.
+
+The storefront is Next.js on Vercel with Supabase behind it. Shoppers sign in with Google or an email magic link; checkout is auth-gated. The catalog carries 30 live designs — 6 signature pieces plus 24 design groups distilled from 214 gallery images — with search, filters, wishlist hearts, and sizes through 5XL. A Custom Print Studio at `/custom` takes artwork uploads and quote requests.
+
+## The trust boundary
+
+The checkout never trusts the browser. Prices come from the static catalog plus an owner-controlled `product_price_overrides` table; the server reprices every line item inside a service-role `create_order_with_items` function, and affiliate credit only attaches from a validated code. Line items carry the print shop's actual MOD Factory blank SKUs, so the owner's supplier order matches the sale without translation.
+
+Payments stay Filipino-practical. The shopper submits a GCash reference on the order page; ShirtKo verifies and marks it paid — the shopper cannot mark their own order. The admin side collapses that loop into one click, from the order page, the table row, or in bulk, with filtered Excel export, a cmd+K command palette, a CSS-only 30-day revenue chart, and an installable PWA.
+
+## Mobile without a second codebase mentality
+
+The Expo app shares the same Supabase backend and a live `/api/catalog` feed with a bundled snapshot fallback. It ships the full premium kit — brand fonts behind a splash gate, FlashList shop grid, sticky-CTA product pages, bag steppers, an orders timeline with GCash receipt submission — and its vitest suite runs 84 tests green.
+
+The site is live, CI runs checks plus catalog-drift detection on every push, and the remaining work is the owner's: confirm real prices, fill the size chart, swap in a hero photo.

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">ShirtKo project cover</title>
+  <desc id="desc">Burgundy storefront panel with a graphic tee outline and print-shop labels.</desc>
+  <rect width="1600" height="1000" fill="#2a0e13"/>
+  <rect x="80" y="78" width="1440" height="844" rx="34" fill="#471722" stroke="#e8b64c" stroke-opacity=".5" stroke-width="2"/>
+  <g fill="none" stroke="#f3ede2" stroke-width="6" stroke-linejoin="round">
+    <path d="M1150 240l70-44h150l70 44 56 88-92 58-24-38v272h-350V348l-24 38-92-58z"/>
+  </g>
+  <rect x="1216" y="380" width="118" height="118" rx="12" fill="#e8b64c"/>
+  <circle cx="1275" cy="439" r="30" fill="#471722"/>
+  <g font-family="Arial, sans-serif">
+    <text x="142" y="208" fill="#d9a0aa" font-size="26" letter-spacing="8">APPAREL · CUSTOM PRINT · CALAUAN</text>
+    <text x="142" y="440" fill="#f3ede2" font-size="160" font-weight="700" letter-spacing="6">SHIRTKO</text>
+    <text x="150" y="520" fill="#d9a0aa" font-size="32">WEB + MOBILE STOREFRONT · GCASH / COD</text>
+    <text x="142" y="816" fill="#e8b64c" font-size="28" font-weight="700">NEXT.JS · EXPO · SUPABASE</text>
+  </g>
+</svg>

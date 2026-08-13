@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Needs vs. Wants project cover</title>
+  <desc id="desc">Receipt-paper panel with a need-want split donut in supermarket crimson and green.</desc>
+  <rect width="1600" height="1000" fill="#e9e4d6"/>
+  <rect x="80" y="78" width="1440" height="844" rx="34" fill="#faf7f0" stroke="#c8a23e" stroke-opacity=".6" stroke-width="2"/>
+  <g transform="translate(1210 380) rotate(-90)">
+    <circle r="190" fill="none" stroke="#0b6b3a" stroke-width="64" stroke-dasharray="740 454"/>
+    <circle r="190" fill="none" stroke="#c8102e" stroke-width="64" stroke-dasharray="454 740" stroke-dashoffset="-740"/>
+  </g>
+  <circle cx="1210" cy="380" r="10" fill="#231d15"/>
+  <g font-family="Arial, sans-serif">
+    <text x="142" y="208" fill="#8a8272" font-size="26" letter-spacing="8">SPENDING TRAINER · NOT A LEDGER</text>
+    <text x="142" y="410" fill="#231d15" font-size="128" font-weight="700">NEEDS</text>
+    <text x="142" y="548" fill="#c8102e" font-size="128" font-weight="700">vs. WANTS</text>
+    <text x="150" y="628" fill="#8a8272" font-size="32">ONE BINARY CHOICE PER PURCHASE</text>
+    <text x="142" y="816" fill="#0b6b3a" font-size="28" font-weight="700">ANDROID · KOTLIN · COMPOSE · v2.0.15</text>
+  </g>
+</svg>

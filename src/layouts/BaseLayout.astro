@@ -113,6 +113,7 @@ const ogImage = new URL(image, Astro.site ?? 'https://uzziel.dev').toString();
     <script>
       import Lenis from 'lenis';
       import { initRevealOnScroll } from '../lib/revealOnScroll.ts';
+      import { initMagnetic } from '../lib/magnetic.ts';
 
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!reduced) {
@@ -124,9 +125,32 @@ const ogImage = new URL(image, Astro.site ?? 'https://uzziel.dev').toString();
         requestAnimationFrame(raf);
       }
 
+      // Header chrome: translucent + shadow once the page scrolls.
+      const syncNav = () => {
+        const nav = document.getElementById('site-nav');
+        if (nav) nav.dataset.scrolled = window.scrollY > 12 ? 'true' : 'false';
+      };
+      window.addEventListener('scroll', syncNav, { passive: true });
+
+      // Gold spotlight follows the pointer across work cards (CSS reads --mx/--my).
+      document.addEventListener('pointermove', (e) => {
+        const target = e.target;
+        if (!(target instanceof Element)) return;
+        const card = target.closest<HTMLElement>('[data-work-card] article');
+        if (!card) return;
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+        card.style.setProperty('--my', `${e.clientY - r.top}px`);
+      });
+
       // Fire on initial load and re-run after every Astro view transition.
-      initRevealOnScroll();
-      document.addEventListener('astro:page-load', () => initRevealOnScroll());
+      const initPage = () => {
+        initRevealOnScroll();
+        initMagnetic();
+        syncNav();
+      };
+      initPage();
+      document.addEventListener('astro:page-load', initPage);
     </script>
   </body>
 </html>

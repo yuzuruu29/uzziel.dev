@@ -1,0 +1,23 @@
+---
+title: "Needs vs. Wants"
+role: "Product designer · Android developer"
+year: 2026
+stack: ["Kotlin", "Jetpack Compose", "Supabase", "PayPal", "Remotion"]
+summary: "A spending trainer, not a ledger: every purchase forces one binary choice. Shipped to 2.0.15 with Pro and Max tiers, PHP-priced billing, and a cited AI advisor."
+cover: "/covers/needs-vs-wants.svg"
+status: "live"
+order: -9
+featured: true
+---
+
+Most budgeting apps are ledgers — you find out you overspent at month-end, when the money is already gone. Needs vs. Wants makes you confront the impulse at the register: every entry forces one binary choice, Need or Want, before the purchase gets logged. Need is green like produce, Want is red like a stop light. The palette borrows from the supermarkets Filipinos actually shop in — Puregold crimson, Robinsons green, warm receipt-paper white.
+
+The Android app is Kotlin and Jetpack Compose, offline-first by design. The diary lives on the phone in Room and never touches project servers. Entries fill a 5-column ledger sheet — date, time, item, cost, type — capped at 20 rows per sheet like a real notepad, with a 30-day history grouped by day. Cost is stored as `Long` cents so currency changes never corrupt the math. An optional daily budget adds a meter to the log screen and a dry "Log anyway?" confirmation when you're about to blow past it.
+
+## From side project to shipping product
+
+The app has moved through fifteen releases to 2.0.15, and grew a real business model on the way: a free tier with a daily log quota, Pro at PHP 49 a month for unlimited sheets and lifetime history, and Max at PHP 99 which unlocks an AI Financial Advisor grounded in NotebookLM economics study notebooks — a RAG engine that cites its sources in footnotes and runs from an offline asset index. Billing goes through PayPal or PayMongo with signed custom IDs, webhook-granted entitlements, and a sign-out that actually revokes Pro on the device. The test suite sits at 343 green.
+
+The soft-launch site serves the APK directly with honest copy, live pricing, install and backup how-tos, and a homepage teaser cut from a 10-video Remotion ad campaign — including scenario ads like "Sweldo Day" and "Petsa de Peligro" that stage the app inside real Filipino payday math.
+
+Sentry crash reporting is opt-out, backups go through Android's file picker to a folder the user owns, and the update check tells you when the site has a newer APK. The point of the whole system is a user who, thirty days in, can see exactly which category is eating their sweldo.
