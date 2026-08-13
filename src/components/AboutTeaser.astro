@@ -1,102 +1,124 @@
-<section class="container section-rule py-20 md:py-28" data-reveal>
-  <div class="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:gap-16">
-    <article
-      class="group relative isolate min-h-[570px] w-full max-w-lg overflow-hidden rounded-xl border border-[#1f6bff]/45 bg-[#05060a] p-6 text-white shadow-[0_24px_70px_rgba(5,6,10,0.24)] sm:aspect-[4/5] sm:min-h-0 sm:p-8"
-      data-reveal
-      data-reveal-delay="50"
-      aria-labelledby="aceu-studio-title"
-    >
-      <div
-        class="absolute inset-0 -z-20 bg-[linear-gradient(rgba(31,107,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(31,107,255,0.06)_1px,transparent_1px)] bg-[size:42px_42px]"
-        aria-hidden="true"
-      ></div>
-      <div
-        class="absolute -right-20 -top-16 -z-10 h-72 w-72 rounded-full bg-[#1f6bff]/20 blur-3xl transition-opacity duration-500 group-hover:opacity-80"
-        aria-hidden="true"
-      ></div>
+---
+// Home page: ACEU studio band (co-founder showcase) + practice section.
+const method = [
+  { n: '01', title: 'Frame', text: 'Real constraints, useful scope, clear outcomes. The problem gets written down before anything gets built.' },
+  { n: '02', title: 'Build', text: 'Web, mobile, desktop, agent systems. Legible code, data-driven content, working drafts you can react to.' },
+  { n: '03', title: 'Ship', text: 'Tests, handoffs, deployment, iteration. A thing counts when someone else can run it without me.' },
+];
+---
 
-      <div class="flex items-start justify-between gap-4">
-        <div>
-          <p class="font-sans text-2xl font-semibold tracking-[-0.04em] text-white">
+<!-- The studio — full-bleed void band, ACEU's own accent system -->
+<section class="relative" aria-labelledby="aceu-studio-title">
+  <div class="dither-up" style="background: #05060a;" aria-hidden="true"></div>
+  <div class="relative overflow-hidden bg-[#05060a] text-white">
+    <div
+      class="absolute inset-0 bg-[linear-gradient(rgba(31,107,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(31,107,255,0.05)_1px,transparent_1px)] bg-[size:44px_44px]"
+      aria-hidden="true"
+    ></div>
+    <div class="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-[#1f6bff]/15 blur-3xl" aria-hidden="true"></div>
+
+    <div class="container relative py-16 md:py-24">
+      <div class="flex flex-wrap items-baseline justify-between gap-3 border-b border-white/10 pb-4" data-reveal>
+        <p class="font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-[#8fb1ff]">02 · The studio</p>
+        <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-white/40">Co-founder · Design & engineering</p>
+      </div>
+
+      <div class="grid gap-12 pt-12 lg:grid-cols-12 lg:items-center lg:gap-10">
+        <div class="lg:col-span-7" data-reveal>
+          <p class="font-sans text-3xl font-semibold tracking-[-0.04em] text-white md:text-4xl">
             <span class="text-[#1f6bff]" aria-hidden="true">▲</span>CEU
+            <span class="ml-2 align-middle font-mono text-[10px] font-medium uppercase tracking-[0.24em] text-white/50">AI Solutions</span>
           </p>
-          <p class="mt-1 font-mono text-[9px] uppercase tracking-[0.24em] text-white/50">AI Solutions</p>
-        </div>
-        <p class="font-mono text-[9px] uppercase tracking-[0.16em] text-white/40">Studio · 2026</p>
-      </div>
-
-      <svg
-        viewBox="0 0 420 300"
-        class="absolute left-1/2 top-[16%] -z-10 w-[110%] -translate-x-1/2 text-[#1f6bff]"
-        fill="none"
-        aria-hidden="true"
-      >
-        <ellipse cx="210" cy="150" rx="155" ry="55" stroke="currentColor" stroke-width="1.5" opacity=".72" transform="rotate(-18 210 150)" />
-        <ellipse cx="210" cy="150" rx="155" ry="55" stroke="currentColor" stroke-width="1.5" opacity=".4" transform="rotate(38 210 150)" />
-        <ellipse cx="210" cy="150" rx="155" ry="55" stroke="currentColor" stroke-width="1.5" opacity=".2" transform="rotate(92 210 150)" />
-        <circle cx="210" cy="150" r="31" fill="currentColor" opacity=".95" />
-        <circle cx="348" cy="95" r="7" fill="white" opacity=".85" />
-        <circle cx="90" cy="225" r="5" fill="white" opacity=".55" />
-      </svg>
-
-      <div class="absolute inset-x-6 bottom-6 sm:inset-x-8 sm:bottom-8">
-        <p class="font-mono text-[9px] uppercase tracking-[0.18em] text-[#8fb1ff]">Co-founder · Design & engineering</p>
-        <h3 id="aceu-studio-title" class="mt-3 max-w-sm font-sans text-3xl font-semibold leading-[1.02] tracking-[-0.045em] text-white sm:text-4xl">
-          Building useful AI systems with founders in the room.
-        </h3>
-        <p class="mt-4 max-w-md text-sm leading-relaxed text-white/60">
-          I co-founded ACEU AI Solutions with Aaron Panergayo. We design and ship automation, AI products, and production-ready systems for small teams.
-        </p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a
-            href="https://aceu-ai-solutions-portfolio.netlify.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-cursor="hover"
-            data-cursor-label="Visit studio"
-            data-magnetic
-            class="inline-flex min-h-11 items-center gap-2 rounded-lg bg-[#1f6bff] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#3d7fff]"
+          <h2
+            id="aceu-studio-title"
+            class="mt-7 max-w-2xl font-sans font-semibold leading-[1.04] tracking-[-0.045em] text-white"
+            style="font-size: clamp(2rem, 4.4vw, 3.5rem);"
           >
-            Visit ACEU <span aria-hidden="true">↗</span>
-          </a>
-          <a
-            href="/work/aceu-ai-solutions"
-            data-cursor="hover"
-            data-cursor-label="View case"
-            class="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/20 px-4 py-2.5 text-sm font-medium text-white/80 transition-colors hover:border-white/45 hover:text-white"
-          >
-            Case study <span aria-hidden="true">→</span>
-          </a>
+            Building useful AI systems with founders in the room.
+          </h2>
+          <p class="mt-6 max-w-xl text-base leading-relaxed text-white/65">
+            I co-founded ACEU AI Solutions with Aaron Panergayo. We design and ship automation, AI products, and production-ready systems for small teams.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a
+              href="https://aceu-ai-solutions-portfolio.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="hover"
+              data-cursor-label="Visit studio"
+              data-magnetic
+              class="inline-flex min-h-12 items-center gap-2 rounded-[2px] bg-[#1f6bff] px-5 py-3 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-[#3d7fff]"
+            >
+              Visit ACEU <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              href="/work/aceu-ai-solutions"
+              data-cursor="hover"
+              data-cursor-label="View case"
+              class="inline-flex min-h-12 items-center gap-2 rounded-[2px] border border-white/25 px-5 py-3 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-white/80 transition-colors hover:border-white/60 hover:text-white"
+            >
+              Case study <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="relative lg:col-span-5" data-reveal data-reveal-delay="120">
+          <svg viewBox="0 0 420 320" class="mx-auto w-full max-w-md text-[#1f6bff]" fill="none" aria-hidden="true">
+            <ellipse cx="210" cy="160" rx="165" ry="58" stroke="currentColor" stroke-width="1.5" opacity=".72" transform="rotate(-18 210 160)" />
+            <ellipse cx="210" cy="160" rx="165" ry="58" stroke="currentColor" stroke-width="1.5" opacity=".4" transform="rotate(38 210 160)" />
+            <ellipse cx="210" cy="160" rx="165" ry="58" stroke="currentColor" stroke-width="1.5" opacity=".2" transform="rotate(92 210 160)" />
+            <circle cx="210" cy="160" r="34" fill="currentColor" opacity=".95" />
+            <circle cx="352" cy="102" r="7" fill="white" opacity=".85" />
+            <circle cx="88" cy="236" r="5" fill="white" opacity=".55" />
+          </svg>
+          <dl class="mt-6 grid grid-cols-2 gap-4 border-t border-white/10 pt-5 font-mono text-[10px] uppercase tracking-[0.14em]">
+            <div>
+              <dt class="text-white/40">Founders</dt>
+              <dd class="mt-1.5 text-white/75">Panergayo · Malolos</dd>
+            </div>
+            <div>
+              <dt class="text-white/40">Ships</dt>
+              <dd class="mt-1.5 text-white/75">Automation · AI products</dd>
+            </div>
+          </dl>
         </div>
       </div>
-    </article>
+    </div>
+  </div>
+  <div class="dither-down" style="background: #05060a;" aria-hidden="true"></div>
+</section>
 
-    <div data-reveal data-reveal-delay="100">
-      <p class="eyebrow">About the practice</p>
-      <h2 class="mt-5 max-w-3xl">The subject changes. The method stays practical.</h2>
-      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-stone">
-        I study agricultural land use at UPLB, build local-first tools and indie games, and ship websites for small organizations. The common thread is evidence: understand the real constraint, make the system legible, then test the result.
+<!-- The practice -->
+<section class="container py-20 md:py-28">
+  <div class="ledger-head" data-reveal>
+    <p class="eyebrow">03 · The practice</p>
+    <p class="meta-mono hidden sm:block">Frame → Build → Ship</p>
+  </div>
+
+  <div class="grid gap-12 pt-12 lg:grid-cols-12 lg:gap-10">
+    <div class="lg:col-span-5" data-reveal>
+      <h2 class="max-w-md">The subject changes. <em class="text-accent">The method stays practical.</em></h2>
+      <p class="mt-6 max-w-md text-lg leading-relaxed text-stone">
+        I build local-first tools, indie games, and websites for small organizations. The common thread is practical delivery: understand the real constraint, make the system legible, then test the result.
       </p>
-
-      <dl class="mt-9 grid gap-5 border-y border-stone/25 py-6 sm:grid-cols-3">
-        <div>
-          <dt class="font-mono text-[10px] uppercase tracking-wider text-stone">Research</dt>
-          <dd class="mt-2 text-sm">Land use, rice productivity, field evidence</dd>
-        </div>
-        <div>
-          <dt class="font-mono text-[10px] uppercase tracking-wider text-stone">Build</dt>
-          <dd class="mt-2 text-sm">Web, mobile, desktop, agent systems</dd>
-        </div>
-        <div>
-          <dt class="font-mono text-[10px] uppercase tracking-wider text-stone">Ship</dt>
-          <dd class="mt-2 text-sm">Tests, handoffs, deployment, iteration</dd>
-        </div>
-      </dl>
-
-      <a href="/about" data-cursor="hover" data-magnetic class="button-secondary mt-8">
+      <a href="/about" data-cursor="hover" data-magnetic class="button-secondary mt-9">
         Read the full story
         <span aria-hidden="true">→</span>
       </a>
     </div>
+
+    <dl class="lg:col-span-7">
+      {method.map((step, i) => (
+        <div
+          class="grid grid-cols-[3.5rem_1fr] items-start gap-6 border-b border-line py-7 first:border-t md:grid-cols-[4.5rem_10rem_1fr] md:gap-8"
+          data-reveal
+          data-reveal-delay={i * 90}
+        >
+          <span class="font-display text-3xl text-gold md:text-4xl" aria-hidden="true">{step.n}</span>
+          <dt class="font-display text-2xl leading-tight">{step.title}</dt>
+          <dd class="col-span-2 -mt-2 text-sm leading-relaxed text-stone md:col-span-1 md:mt-1">{step.text}</dd>
+        </div>
+      ))}
+    </dl>
   </div>
 </section>

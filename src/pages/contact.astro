@@ -2,23 +2,29 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Magnetic from '../islands/Magnetic.tsx';
 import { socials } from '../lib/socials';
+
+const inputClass =
+  'w-full border-0 border-b border-[color:var(--line-strong)] bg-transparent px-0 py-3 text-base outline-none transition-colors focus:border-[color:var(--accent)]';
 ---
 
 <BaseLayout
   title="Contact — Uzziel Malolos"
   description="Send a message. I reply within 2 business days, GMT+8."
 >
-  <section class="container pt-24 pb-12 md:pt-32">
-    <p class="text-xs uppercase tracking-widest text-stone mb-3">Contact</p>
-    <h1 data-reveal class="font-display leading-[1] tracking-tight" style="font-size: clamp(2.5rem, 6vw, 4.5rem);">
-      Let's talk.
+  <section class="container pb-14 pt-12 md:pt-16">
+    <div class="ledger-head" data-reveal>
+      <p class="eyebrow">Contact · Open channel</p>
+      <p class="meta-mono hidden sm:block">Replies within 2 business days — GMT+8</p>
+    </div>
+    <h1 data-reveal class="mt-10" style="font-size: clamp(2.8rem, 7.5vw, 6rem); line-height: 0.98;">
+      Let's <em class="text-accent">talk.</em>
     </h1>
-    <p data-reveal data-reveal-delay="80" class="mt-6 max-w-xl text-lg text-stone">
-      Project inquiries, research collaborations, or just to say hi. Choose the option that fits and I'll write back.
+    <p data-reveal data-reveal-delay="80" class="mt-7 max-w-xl text-lg leading-relaxed text-stone">
+      Project inquiries, product collaborations, or just to say hi. Choose the option that fits and I'll write back.
     </p>
   </section>
 
-  <section class="container py-12 grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-12">
+  <section class="container grid grid-cols-1 gap-14 py-10 md:grid-cols-[3fr_2fr] md:gap-16">
     <div id="contact-form-wrap">
       <form
         id="contact-form"
@@ -27,7 +33,7 @@ import { socials } from '../lib/socials';
         data-netlify="true"
         netlify-honeypot="bot-field"
         action="/contact?success=true"
-        class="space-y-5"
+        class="space-y-8"
       >
         <input type="hidden" name="form-name" value="contact" />
         <p class="hidden">
@@ -35,35 +41,19 @@ import { socials } from '../lib/socials';
         </p>
 
         <div data-reveal>
-          <label for="name" class="block text-xs uppercase tracking-widest text-stone mb-2">Name *</label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            class="w-full bg-transparent border border-stone/30 focus:border-gold rounded-md px-4 py-3 outline-none transition-colors"
-          />
+          <label for="name" class="meta-mono mb-1 block">01 — Name *</label>
+          <input id="name" name="name" type="text" required autocomplete="name" class={inputClass} />
         </div>
 
         <div data-reveal data-reveal-delay="60">
-          <label for="email" class="block text-xs uppercase tracking-widest text-stone mb-2">Email *</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            class="w-full bg-transparent border border-stone/30 focus:border-gold rounded-md px-4 py-3 outline-none transition-colors"
-          />
+          <label for="email" class="meta-mono mb-1 block">02 — Email *</label>
+          <input id="email" name="email" type="email" required autocomplete="email" class={inputClass} />
         </div>
 
-        <div data-reveal data-reveal-delay="120" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div data-reveal data-reveal-delay="120" class="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div>
-            <label for="project-type" class="block text-xs uppercase tracking-widest text-stone mb-2">Project type</label>
-            <select
-              id="project-type"
-              name="project-type"
-              class="w-full bg-cream dark:bg-ink border border-stone/30 focus:border-gold rounded-md px-4 py-3 outline-none transition-colors"
-            >
+            <label for="project-type" class="meta-mono mb-1 block">03 — Project type</label>
+            <select id="project-type" name="project-type" class={`${inputClass} bg-cream dark:bg-ink`}>
               <option value="Data">Data</option>
               <option value="Web">Web</option>
               <option value="AI">AI</option>
@@ -71,12 +61,8 @@ import { socials } from '../lib/socials';
             </select>
           </div>
           <div>
-            <label for="budget" class="block text-xs uppercase tracking-widest text-stone mb-2">Budget</label>
-            <select
-              id="budget"
-              name="budget"
-              class="w-full bg-cream dark:bg-ink border border-stone/30 focus:border-gold rounded-md px-4 py-3 outline-none transition-colors"
-            >
+            <label for="budget" class="meta-mono mb-1 block">04 — Budget</label>
+            <select id="budget" name="budget" class={`${inputClass} bg-cream dark:bg-ink`}>
               <option value="Under PHP 10k">Under PHP 10k</option>
               <option value="PHP 10–30k">PHP 10–30k</option>
               <option value="PHP 30–60k">PHP 30–60k</option>
@@ -86,23 +72,13 @@ import { socials } from '../lib/socials';
         </div>
 
         <div data-reveal data-reveal-delay="180">
-          <label for="message" class="block text-xs uppercase tracking-widest text-stone mb-2">Message *</label>
-          <textarea
-            id="message"
-            name="message"
-            required
-            rows="6"
-            class="w-full bg-transparent border border-stone/30 focus:border-gold rounded-md px-4 py-3 outline-none transition-colors resize-y"
-          ></textarea>
+          <label for="message" class="meta-mono mb-1 block">05 — Message *</label>
+          <textarea id="message" name="message" required rows="6" class={`${inputClass} resize-y`}></textarea>
         </div>
 
         <div data-reveal data-reveal-delay="240">
           <Magnetic client:load>
-            <button
-              type="submit"
-              data-cursor="hover"
-              class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gold text-ink font-medium hover:bg-gold/90 transition-colors"
-            >
+            <button type="submit" data-cursor="hover" class="button-primary">
               Send message
               <span aria-hidden="true">→</span>
             </button>
@@ -112,45 +88,53 @@ import { socials } from '../lib/socials';
     </div>
 
     <aside id="thank-you-panel" class="hidden" aria-live="polite">
-      <div class="rounded-lg border border-leaf/30 bg-leaf/10 p-6">
-        <h2 class="font-display text-2xl">Thanks — message received.</h2>
-        <p class="mt-3 text-sm text-stone leading-relaxed">
-          I'll get back to you within 2 business days. While you wait, see <a href="/work/tirador" class="underline text-gold">TIRADOR →</a>
+      <div class="border-t-2 border-leaf bg-surface p-7">
+        <p class="meta-mono flex items-center gap-2">
+          <span class="inline-block h-1.5 w-1.5 bg-leaf" aria-hidden="true"></span>
+          Message received
+        </p>
+        <h2 class="mt-4 text-2xl">Thanks — it's in the ledger.</h2>
+        <p class="mt-3 text-sm leading-relaxed text-stone">
+          I'll get back to you within 2 business days. While you wait, see <a href="/work/tirador" class="link-line text-accent">TIRADOR →</a>
         </p>
       </div>
     </aside>
 
-    <aside class="space-y-8">
-      <div data-reveal>
-        <p class="text-xs uppercase tracking-widest text-stone mb-2">Response time</p>
-        <p class="text-sm leading-relaxed">Within 2 business days, GMT+8.</p>
-      </div>
-      <div data-reveal data-reveal-delay="80">
-        <p class="text-xs uppercase tracking-widest text-stone mb-2">Location</p>
-        <p class="text-sm leading-relaxed">Bay, Laguna, Philippines.</p>
-      </div>
-      <div data-reveal data-reveal-delay="120">
-        <p class="text-xs uppercase tracking-widest text-stone mb-2">Message delivery</p>
-        <p class="text-sm leading-relaxed">
-          This form is handled by Netlify Forms. After deployment, submissions appear in the Netlify dashboard under <span class="font-medium text-ink dark:text-cream">Forms -> contact</span>; email alerts are enabled from Netlify's form notifications.
-        </p>
-      </div>
-      <div data-reveal data-reveal-delay="160">
-        <p class="text-xs uppercase tracking-widest text-stone mb-3">Elsewhere</p>
-        <ul class="space-y-2 text-sm text-stone">
-          {socials.map((s) =>
-            s.url ? (
-              <li>
-                <a href={s.url} data-cursor="hover" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors">
-                  {s.platform} ↗
-                </a>
-              </li>
-            ) : (
-              <li><span class="text-stone">{s.label}</span></li>
-            )
-          )}
-        </ul>
-      </div>
+    <aside>
+      <dl>
+        <div class="border-b border-line py-5 first:border-t" data-reveal>
+          <dt class="meta-mono">Response time</dt>
+          <dd class="mt-2 text-sm leading-relaxed">Within 2 business days, GMT+8.</dd>
+        </div>
+        <div class="border-b border-line py-5" data-reveal data-reveal-delay="80">
+          <dt class="meta-mono">Location</dt>
+          <dd class="mt-2 text-sm leading-relaxed">Bay, Laguna, Philippines — 14.18°N, 121.28°E.</dd>
+        </div>
+        <div class="border-b border-line py-5" data-reveal data-reveal-delay="120">
+          <dt class="meta-mono">Message delivery</dt>
+          <dd class="mt-2 text-sm leading-relaxed text-stone">
+            This form is handled by Netlify Forms. After deployment, submissions appear in the Netlify dashboard under <span class="font-medium text-ink dark:text-cream">Forms → contact</span>; email alerts are enabled from Netlify's form notifications.
+          </dd>
+        </div>
+        <div class="py-5" data-reveal data-reveal-delay="160">
+          <dt class="meta-mono mb-3">Elsewhere</dt>
+          <dd>
+            <ul class="space-y-2.5 text-sm">
+              {socials.map((s) =>
+                s.url ? (
+                  <li>
+                    <a href={s.url} data-cursor="hover" target="_blank" rel="noopener noreferrer" class="group text-stone transition-colors hover:text-accent">
+                      <span class="link-line">{s.platform}</span> <span aria-hidden="true" class="inline-block transition-transform duration-200 group-hover:translate-x-0.5">↗</span>
+                    </a>
+                  </li>
+                ) : (
+                  <li><span class="text-stone">{s.label}</span></li>
+                )
+              )}
+            </ul>
+          </dd>
+        </div>
+      </dl>
     </aside>
   </section>
 

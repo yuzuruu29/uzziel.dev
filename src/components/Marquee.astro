@@ -9,8 +9,10 @@ const items = [
   'GDScript',
   'Python',
   'FastAPI',
-  'R',
-  'QGIS',
+  'Kotlin',
+  'Jetpack Compose',
+  'Phaser',
+  'WebRTC',
   'Supabase',
   'Botpress',
   'Claude',
@@ -26,9 +28,9 @@ const doubled = [...items, ...items];
 <div class="marquee" aria-label="Tools I work with" role="region">
   <div class="track" aria-hidden="true">
     {doubled.map((label) => (
-      <span class="item font-mono text-sm text-stone">
+      <span class="item font-mono text-[11px] uppercase tracking-[0.2em] text-stone">
         {label}
-        <span class="dot" aria-hidden="true">·</span>
+        <span class="px" aria-hidden="true"></span>
       </span>
     ))}
   </div>
@@ -42,26 +44,29 @@ const doubled = [...items, ...items];
     --fade: 80px;
     position: relative;
     overflow: hidden;
-    padding: 1.25rem 0;
-    border-top: 1px solid rgba(138, 125, 110, 0.2);
-    border-bottom: 1px solid rgba(138, 125, 110, 0.2);
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--border);
     -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fade), #000 calc(100% - var(--fade)), transparent 100%);
             mask-image: linear-gradient(to right, transparent 0, #000 var(--fade), #000 calc(100% - var(--fade)), transparent 100%);
   }
   .track {
     display: inline-flex;
-    gap: 2rem;
+    gap: 2.25rem;
     white-space: nowrap;
-    animation: scroll-x 40s linear infinite;
+    animation: scroll-x 44s linear infinite;
     will-change: transform;
   }
   .item {
     display: inline-flex;
     align-items: center;
-    gap: 2rem;
+    gap: 2.25rem;
   }
-  .dot {
-    color: #c9a14a;
+  /* Pixel-square separator — the dither motif at word scale. */
+  .px {
+    width: 5px;
+    height: 5px;
+    background: var(--gold);
+    flex: none;
   }
   .marquee:hover .track {
     animation-play-state: paused;

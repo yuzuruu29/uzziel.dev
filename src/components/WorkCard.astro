@@ -9,20 +9,14 @@ interface Props {
   stack: string[];
   cover: string;
   index?: number;
+  aspect?: 'wide' | 'tall';
 }
 
-const { slug, title, role, year, status, summary, stack, cover, index = 0 } = Astro.props;
-
-const statusClasses: Record<Props['status'], string> = {
-  live: 'bg-leaf/12 text-leaf dark:bg-leaf/20 dark:text-[#b8d7a5]',
-  completed: 'bg-narra/10 text-narra dark:bg-gold/15 dark:text-gold',
-  'in-progress': 'bg-gold/18 text-narra dark:bg-gold/15 dark:text-gold',
-  archived: 'bg-stone/12 text-stone',
-};
+const { slug, title, role, year, status, summary, stack, cover, index = 0, aspect = 'wide' } = Astro.props;
 
 const dotClasses: Record<Props['status'], string> = {
-  live: 'bg-leaf dark:bg-[#b8d7a5]',
-  completed: 'bg-narra dark:bg-gold',
+  live: 'bg-[#9ec87f]',
+  completed: 'bg-gold',
   'in-progress': 'bg-gold',
   archived: 'bg-stone',
 };
@@ -34,8 +28,10 @@ const statusLabel: Record<Props['status'], string> = {
   archived: 'Archived',
 };
 
+const aspectClass = aspect === 'tall' ? 'aspect-[4/3]' : 'aspect-[16/10]';
 const visibleStack = stack.slice(0, 3);
 const remainingStack = Math.max(stack.length - visibleStack.length, 0);
+const stackLine = visibleStack.join(' · ') + (remainingStack > 0 ? ` +${remainingStack}` : '');
 ---
 
 <a
@@ -47,12 +43,12 @@ const remainingStack = Math.max(stack.length - visibleStack.length, 0);
   data-stack={stack.join('|')}
   data-index={index}
   data-reveal
-  data-reveal-delay={Math.min(index * 80, 480)}
-  class="group block h-full rounded-xl focus-visible:outline-offset-4"
+  data-reveal-delay={Math.min(index * 70, 420)}
+  class="group block h-full focus-visible:outline-offset-4"
   style="transition: opacity 280ms ease, transform 280ms cubic-bezier(0.22, 1, 0.36, 1);"
 >
-  <article class="card-surface flex h-full flex-col overflow-hidden rounded-xl transition-[border-color,box-shadow,transform] duration-200 ease-out group-hover:-translate-y-1 group-hover:border-narra/55 group-hover:shadow-[0_18px_50px_rgba(68,42,24,0.12)] ring-1 ring-transparent group-hover:ring-narra/25 dark:group-hover:border-gold/45 dark:group-hover:ring-gold/20">
-    <div class="relative aspect-[16/10] overflow-hidden border-b border-stone/20 bg-ink/5 dark:bg-cream/5">
+  <article class="flex h-full flex-col overflow-hidden border border-line bg-raised transition-[border-color,box-shadow,transform] duration-300 ease-out group-hover:-translate-y-1 group-hover:border-line-strong group-hover:shadow-[0_24px_60px_rgba(26,20,16,0.14)]">
+    <div class={`relative overflow-hidden border-b border-line ${aspectClass}`}>
       <img
         src={cover}
         alt={`${title} project cover`}
@@ -61,48 +57,44 @@ const remainingStack = Math.max(stack.length - visibleStack.length, 0);
         loading={index < 3 ? 'eager' : 'lazy'}
         decoding="async"
         transition:name={`cover-${slug}`}
-        class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.025]"
+        class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
       />
-      <span class={`absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider backdrop-blur-sm ${statusClasses[status]}`}>
-        <span class={`h-1.5 w-1.5 rounded-full ${dotClasses[status]}`} aria-hidden="true"></span>
+      <div class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-ink/45 to-transparent" aria-hidden="true"></div>
+
+      <span class="absolute left-4 top-4 inline-flex items-center gap-1.5 bg-ink/75 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-cream backdrop-blur-sm">
+        <span class={`h-1.5 w-1.5 ${dotClasses[status]}`} aria-hidden="true"></span>
         {statusLabel[status]}
       </span>
-      <span class="absolute right-4 top-4 rounded-md bg-ink/75 px-2 py-1 font-mono text-[10px] text-cream backdrop-blur-sm">
+
+      <span class="absolute bottom-2 right-4 font-display text-3xl text-cream/90 mix-blend-difference" aria-hidden="true">
         {String(index + 1).padStart(2, '0')}
       </span>
     </div>
 
     <div class="flex flex-1 flex-col p-5 md:p-6">
-      <div class="flex items-start justify-between gap-5">
-        <div>
-          <p class="font-mono text-[10px] uppercase tracking-[0.14em] text-stone">{role}</p>
-          <h3 class="mt-2 text-2xl leading-[1.08] transition-colors duration-200 group-hover:text-narra dark:group-hover:text-gold">
-            {title}
-          </h3>
-        </div>
-        <span class="font-mono text-xs text-stone">{year}</span>
+      <div class="meta-mono flex items-baseline justify-between gap-4">
+        <span class="truncate">{role}</span>
+        <span class="flex-none">{year}</span>
       </div>
 
-      <p class="line-clamp-3 mt-4 text-sm leading-relaxed text-stone">{summary}</p>
+      <h3 class="mt-3 text-2xl leading-[1.06] transition-colors duration-200 group-hover:text-accent">
+        {title}
+      </h3>
 
-      <div class="mt-auto pt-6">
-        <ul class="flex flex-wrap gap-1.5" aria-label="Project technologies">
-          {visibleStack.map((item) => (
-            <li class="rounded border border-stone/25 px-2 py-1 font-mono text-[10px] text-stone">{item}</li>
-          ))}
-          {remainingStack > 0 && (
-            <li class="rounded border border-stone/25 px-2 py-1 font-mono text-[10px] text-stone">+{remainingStack}</li>
-          )}
-        </ul>
+      <p class="line-clamp-3 mt-3 text-sm leading-relaxed text-stone">{summary}</p>
 
-        <div class="mt-5 flex items-center justify-between border-t border-stone/20 pt-4 text-sm font-medium">
-          <span class="relative">
-            <span class="relative z-10">View case study</span>
-            <span aria-hidden="true" class="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-narra transition-transform duration-300 ease-out group-hover:scale-x-100 dark:bg-gold"></span>
-          </span>
-          <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">→</span>
-        </div>
+      <div class="mt-auto flex items-center justify-between gap-4 pt-6">
+        <p class="min-w-0 truncate border-t border-line pt-3 font-mono text-[10px] uppercase tracking-[0.06em] text-stone" aria-label="Project technologies">
+          {stackLine}
+        </p>
+        <span
+          aria-hidden="true"
+          class="inline-flex h-9 w-9 flex-none items-center justify-center border border-line-strong text-sm transition-all duration-200 group-hover:border-gold group-hover:bg-gold group-hover:text-ink"
+        >
+          →
+        </span>
       </div>
+      <span class="sr-only">View case study</span>
     </div>
   </article>
 </a>

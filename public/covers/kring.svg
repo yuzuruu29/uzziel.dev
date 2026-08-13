@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
   <title id="title">Kring project cover</title>
-  <desc id="desc">A research notebook canvas on an ink-to-narra gradient, with teal source-paper nodes connected by gold citation edges above the project title.</desc>
+  <desc id="desc">A writing notebook canvas on an ink-to-narra gradient, with teal source-paper nodes connected by gold citation edges above the project title.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#1a1410"/>
@@ -57,6 +57,6 @@
 
   <!-- Title block -->
   <text x="800" y="720" font-family="Fraunces, Georgia, serif" font-size="80" font-weight="500" fill="#f4ecd8" text-anchor="middle">Kring</text>
-  <text x="800" y="772" font-family="'Inter Tight', sans-serif" font-size="18" fill="#c9a14a" text-anchor="middle" letter-spacing="6">LOCAL-FIRST RESEARCH NOTEBOOK</text>
+  <text x="800" y="772" font-family="'Inter Tight', sans-serif" font-size="18" fill="#c9a14a" text-anchor="middle" letter-spacing="6">LOCAL-FIRST WRITING NOTEBOOK</text>
   <text x="800" y="848" font-family="'JetBrains Mono', monospace" font-size="13" fill="#8a7d6e" text-anchor="middle">TypeScript · Tauri · SQLite · Astro</text>
 </svg>

@@ -2,7 +2,7 @@
 
 **Live:** [uzziel.dev](https://uzziel.dev) (also [uzziel-portfolio.netlify.app](https://uzziel-portfolio.netlify.app) until DNS propagates)
 
-Personal site of Emmanuel Uzziel A. Malolos — agri-econ undergrad at UPLB and full-stack creator from Bay, Laguna. The site catalogs projects across indie games, AI agency work, volunteer web dev, and academic research, and serves as the home for a long-running thesis on land conversion and rice productivity in Bay, Laguna.
+Personal site of Emmanuel Uzziel A. Malolos — full-stack creator and ACEU AI Solutions co-founder from Bay, Laguna. The site catalogs shipped and in-progress projects across indie games, AI systems, mobile apps, volunteer web work, and small-business tools.
 
 ## Stack
 

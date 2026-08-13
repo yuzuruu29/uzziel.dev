@@ -5,7 +5,6 @@ const links = [
   { href: '/work', label: 'Work' },
   { href: '/about', label: 'About' },
   { href: '/cv', label: 'CV' },
-  { href: '/research', label: 'Research' },
   { href: '/services', label: 'Services' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -13,51 +12,86 @@ const footerSocials = socials.filter((social) => ['GitHub', 'LinkedIn', 'itch.io
 const year = new Date().getFullYear();
 ---
 
-<footer class="mt-28 border-t border-stone/20 bg-ink text-cream" data-reveal>
-  <div class="container grid gap-12 py-14 md:grid-cols-[1.35fr_0.65fr] md:py-20">
-    <div>
-      <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">From Bay, Laguna</p>
-      <h2 class="mt-4 max-w-2xl text-4xl text-cream md:text-5xl">Research-backed. Built to run.</h2>
-      <p class="mt-5 max-w-xl leading-relaxed text-cream/65">
-        Available for focused product builds, web work, automation, and research collaborations.
-      </p>
-      <a href="/contact" data-cursor="hover" data-magnetic class="group mt-8 inline-flex min-h-12 items-center gap-2 rounded-lg bg-gold px-5 py-3 font-semibold text-ink">
-        Start a conversation <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-0.5">↗</span>
-      </a>
-    </div>
+<footer class="mt-28">
+  <div class="dither-up dither-ink" aria-hidden="true"></div>
+  <div class="section-ink relative overflow-hidden">
+    <div class="ledger-grid pointer-events-none absolute inset-0 opacity-60" aria-hidden="true"></div>
 
-    <div class="grid grid-cols-2 gap-8 border-t border-cream/15 pt-8 md:border-l md:border-t-0 md:pl-10 md:pt-0">
-      <div>
-        <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-cream/55">Site</p>
-        <ul class="mt-4 space-y-2.5">
-          {links.map((link) => (
-            <li><a href={link.href} data-cursor="hover" class="text-sm text-cream/75 transition-colors hover:text-gold">{link.label}</a></li>
-          ))}
-        </ul>
+    <div class="container relative">
+      <!-- CTA block -->
+      <div class="grid gap-10 border-b border-line py-16 md:grid-cols-[1.4fr_auto] md:items-end md:py-24" data-reveal>
+        <div>
+          <p class="eyebrow">Have a useful problem?</p>
+          <h2 class="mt-6 max-w-3xl text-cream" style="font-size: clamp(2.4rem, 5.6vw, 4.4rem);">
+            Let us turn it into <em class="text-gold">something concrete.</em>
+          </h2>
+          <p class="mt-6 max-w-xl leading-relaxed text-cream/70">
+            Focused web builds, product prototypes, automation, and product systems — scoped plainly, tested to run.
+          </p>
+        </div>
+        <a href="/contact" data-cursor="hover" data-magnetic class="button-primary md:mb-2">
+          Start a conversation <span aria-hidden="true">↗</span>
+        </a>
       </div>
-      <div>
-        <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-cream/55">Elsewhere</p>
-        <ul class="mt-4 space-y-2.5">
-          {footerSocials.map((social) => (
-            <li>
-              {social.url ? (
-                <a href={social.url} data-cursor="hover" target="_blank" rel="noopener noreferrer" class="group text-sm text-cream/75 transition-colors hover:text-gold">
-                  {social.platform} <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-0.5">↗</span>
-                </a>
-              ) : (
-                <span class="text-sm text-cream/55">{social.label}</span>
-              )}
+
+      <!-- Meta columns -->
+      <div class="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
+        <div>
+          <p class="meta-mono text-gold">From Bay, Laguna</p>
+          <p class="mt-4 max-w-xs text-sm leading-relaxed text-cream/70">
+            Products, games, and useful websites from one working desk. Built clearly, tested to run.
+          </p>
+        </div>
+        <div>
+          <p class="meta-mono text-cream/50">Site</p>
+          <ul class="mt-4 space-y-2.5">
+            {links.map((link) => (
+              <li><a href={link.href} data-cursor="hover" class="link-line text-sm text-cream/75 transition-colors hover:text-gold">{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p class="meta-mono text-cream/50">Elsewhere</p>
+          <ul class="mt-4 space-y-2.5">
+            {footerSocials.map((social) => (
+              <li>
+                {social.url ? (
+                  <a href={social.url} data-cursor="hover" target="_blank" rel="noopener noreferrer" class="group text-sm text-cream/75 transition-colors hover:text-gold">
+                    <span class="link-line">{social.platform}</span> <span aria-hidden="true" class="inline-block transition-transform duration-200 group-hover:translate-x-0.5">↗</span>
+                  </a>
+                ) : (
+                  <span class="text-sm text-cream/55">{social.label}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p class="meta-mono text-cream/50">Coordinates</p>
+          <ul class="mt-4 space-y-2.5 font-mono text-[11px] uppercase tracking-[0.12em] text-cream/60">
+            <li>14.18°N — 121.28°E</li>
+            <li>GMT+8 · Philippines</li>
+            <li class="flex items-center gap-2">
+              <span class="inline-block h-1.5 w-1.5 bg-leaf" aria-hidden="true"></span>
+              Open to focused work
             </li>
-          ))}
-        </ul>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="border-t border-cream/15">
-    <div class="container flex flex-wrap justify-between gap-3 py-6 font-mono text-[10px] uppercase tracking-wider text-cream/55">
-      <span>© {year} Emmanuel Uzziel A. Malolos</span>
-      <span>Astro · React · Built in the Philippines</span>
+    <!-- Giant wordmark -->
+    <div class="relative select-none overflow-hidden" aria-hidden="true">
+      <p class="outline-word whitespace-nowrap text-center" style="font-size: clamp(4.5rem, 17.5vw, 15rem); margin-bottom: -0.16em;">
+        UZZIEL
+      </p>
+    </div>
+
+    <div class="relative border-t border-line">
+      <div class="container flex flex-wrap justify-between gap-3 py-6 font-mono text-[10px] uppercase tracking-[0.14em] text-cream/55">
+        <span>© {year} Emmanuel Uzziel A. Malolos</span>
+        <span>Astro · React · Built in the Philippines</span>
+      </div>
     </div>
   </div>
 </footer>

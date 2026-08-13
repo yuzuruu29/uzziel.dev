@@ -31,19 +31,23 @@ Fonts:
 - mono: JetBrains Mono
 
 ## Brand
-- Positioning line: "I research, build, and ship."
+- Positioning line: "I design, build, and ship."
 - Voice: plain, specific, Filipino-rooted, dry. No corporate filler. Active verbs. Human actors as subjects.
-- Audience: Filipino SME owners, remote freelance hiring managers, academic peers, indie gamedev community.
+- Audience: Filipino SME owners, remote freelance hiring managers, product teams, indie gamedev community.
 
 ## Site map
-/ · /work · /work/[slug] · /about · /research · /services · /contact
+/ · /work · /work/[slug] · /about · /cv · /services · /contact
 
 ## Featured projects
-1. TIRADOR: Barangay Survivors — Godot pixel roguelite
-2. AI Micro-Agency — Botpress chatbots for PH SMEs
-3. The Lord's Worship Center website — volunteer web work
-4. AAE 195 Thesis — land conversion × rice productivity in Bay, Laguna (2019-2025)
-5. Oka's Farm Bookkeeping — past role, agri accounting
+1. ShirtKo — apparel storefront, web + mobile
+2. Needs vs. Wants — Android spending trainer
+3. Project Nero — browser cyberpunk pixel MMORPG
+4. ACEU AI Solutions — co-founded AI product studio
+5. TIRADOR: Barangay Survivors — Godot pixel roguelite
+
+## Public presentation boundary
+- Present projects, products, games, websites, and working systems only.
+- Never publish AAE 195/200, thesis details, academic research materials, or a `/research` route. Those sources remain private in the Obsidian vault.
 
 ## Working style
 - Phases run one at a time. Stop and report at the end of each.

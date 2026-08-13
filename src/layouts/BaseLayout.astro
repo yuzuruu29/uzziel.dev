@@ -13,8 +13,8 @@ interface Props {
 }
 
 const {
-  title = 'Uzziel Malolos — Agri-econ × Code',
-  description = 'Portfolio of Emmanuel Uzziel A. Malolos: agricultural economics, freelance dev, and indie games.',
+  title = 'Uzziel Malolos — Products, systems, and games',
+  description = 'Portfolio of Emmanuel Uzziel A. Malolos: full-stack products, automation, websites, and indie games.',
   image = '/og-default.svg',
   jsonLd,
 } = Astro.props;
@@ -80,7 +80,7 @@ const ogImage = new URL(image, Astro.site ?? 'https://uzziel.dev').toString();
 
     <style is:global>
       :where(a, button, [role="button"], input, select, textarea, summary, [tabindex="0"]):focus-visible {
-        outline: 2px solid #c9a14a;
+        outline: 2px solid var(--accent, #6b3410);
         outline-offset: 2px;
         border-radius: 2px;
       }
@@ -108,6 +108,7 @@ const ogImage = new URL(image, Astro.site ?? 'https://uzziel.dev').toString();
       <slot />
     </main>
     <Footer />
+    <div class="grain-overlay" aria-hidden="true"></div>
     <CursorCompanion client:load />
 
     <script>

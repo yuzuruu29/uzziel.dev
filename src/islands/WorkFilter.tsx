@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
 import { motionTokens } from '../lib/motionTokens';
 
-type FilterKey = 'all' | 'active' | 'shipped' | 'game' | 'web' | 'ai' | 'research';
+type FilterKey = 'all' | 'active' | 'shipped' | 'game' | 'web' | 'ai';
 
 const CHIPS: { key: FilterKey; label: string }[] = [
   { key: 'all', label: 'All' },
@@ -11,14 +11,12 @@ const CHIPS: { key: FilterKey; label: string }[] = [
   { key: 'game', label: 'Games' },
   { key: 'web', label: 'Web' },
   { key: 'ai', label: 'AI + systems' },
-  { key: 'research', label: 'Research' },
 ];
 
 const STACK_MATCH: Record<Exclude<FilterKey, 'all' | 'active' | 'shipped'>, string[]> = {
   game: ['Godot 4', 'Godot 4.6', 'GDScript', 'Aseprite', 'Mobile game'],
   web: ['HTML', 'CSS', 'Netlify', 'Astro', 'React', 'Next.js', 'Tailwind CSS'],
   ai: ['Agent systems', 'LLM routing', 'Botpress', 'Claude', 'ChatGPT', 'FastAPI', 'Groq'],
-  research: ['QGIS', 'R', 'APA 7', 'Research'],
 };
 
 function matches(key: FilterKey, stack: string[], status: string): boolean {
@@ -37,7 +35,6 @@ export default function WorkFilter({ gridId = 'work-grid' }: { gridId?: string }
     game: 0,
     web: 0,
     ai: 0,
-    research: 0,
   });
   const reduced = useReducedMotion();
 
@@ -100,16 +97,16 @@ export default function WorkFilter({ gridId = 'work-grid' }: { gridId?: string }
               onClick={() => setActive(chip.key)}
               aria-pressed={isActive}
               className={
-                'min-h-11 rounded-lg border px-3.5 py-2 text-sm font-medium transition-colors ' +
+                'min-h-11 rounded-[2px] border px-4 py-2 font-mono text-[11px] font-medium uppercase tracking-[0.13em] transition-colors ' +
                 (isActive
                   ? 'border-ink bg-ink text-cream dark:border-gold dark:bg-gold dark:text-ink'
-                  : 'border-stone/30 text-stone hover:border-narra hover:text-narra dark:hover:border-gold dark:hover:text-gold')
+                  : 'border-line-strong text-stone hover:border-narra hover:text-narra dark:hover:border-gold dark:hover:text-gold')
               }
               whileTap={reduced ? undefined : { scale: 0.97 }}
               transition={{ duration: motionTokens.duration.fast, ease: motionTokens.easing.sharp }}
             >
               {chip.label}
-              <span className={isActive ? 'ml-2 font-mono text-[10px] text-cream/70 dark:text-ink' : 'ml-2 font-mono text-[10px] text-stone'}>
+              <span className={isActive ? 'ml-2 text-[9px] text-cream/70 dark:text-ink/70' : 'ml-2 text-[9px] opacity-70'}>
                 {counts[chip.key]}
               </span>
             </motion.button>

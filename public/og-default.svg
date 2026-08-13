@@ -8,7 +8,7 @@
   <rect width="1200" height="630" fill="url(#bg)"/>
   <g fill="#f4ecd8" font-family="Fraunces, Georgia, serif">
     <text x="80" y="280" font-size="92" font-weight="600" letter-spacing="-2">uzziel<tspan fill="#c9a14a">.</tspan></text>
-    <text x="80" y="360" font-size="40" font-weight="400" fill="#c9a14a" font-style="italic">I research, build, and ship.</text>
+    <text x="80" y="360" font-size="40" font-weight="400" fill="#c9a14a" font-style="italic">I design, build, and ship.</text>
   </g>
   <g fill="#8a7d6e" font-family="JetBrains Mono, monospace" font-size="22">
     <text x="80" y="540">Emmanuel Uzziel A. Malolos</text>

@@ -8,9 +8,9 @@ const personJsonLd = JSON.stringify({
   name: 'Emmanuel Uzziel A. Malolos',
   alternateName: 'Uzziel Malolos',
   url: 'https://uzziel.dev',
-  jobTitle: 'Researcher and full-stack creator',
+  jobTitle: 'Full-stack creator and product builder',
   description:
-    'Agri-econ undergrad at UPLB and full-stack creator from Bay, Laguna. Researches land use, builds indie games and AI tools, and ships websites.',
+    'Full-stack creator and ACEU AI Solutions co-founder from Bay, Laguna. Builds indie games, AI tools, mobile apps, and websites.',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Bay',
@@ -22,24 +22,33 @@ const personJsonLd = JSON.stringify({
     name: 'University of the Philippines Los Baños',
   },
   knowsAbout: [
-    'Natural Resource Economics',
-    'Agricultural Economics',
-    'Land Use',
+    'Product Design',
+    'Full-Stack Development',
     'Web Development',
     'Game Development',
     'AI Integration',
+    'Automation',
   ],
 });
 
 const intro =
-  "I'm a fourth-year agri-econ student at UPLB and a full-stack creator. I research land use, build indie games and AI tools, and ship websites for clients and my church. I work mostly from Bay, Laguna with a Xiaomi Pad 6 and a folding keyboard; the heavy builds run on a small Windows tower at home.";
+  "I'm a fourth-year student at UPLB, a full-stack creator, and a co-founder of ACEU AI Solutions. I build indie games, AI tools, mobile apps, and websites for small teams and my church. I work mostly from Bay, Laguna with a Xiaomi Pad 6 and a folding keyboard; the heavy builds run on a small Windows tower at home.";
 
 const timeline = [
   { year: '2018', text: 'Started volunteering as web dev for The Lord\'s Worship Center.' },
   { year: '2023', text: 'Joined Oka\'s Farm as farm accountant.' },
-  { year: '2024', text: 'Concluded Oka\'s Farm role; began thesis groundwork.' },
+  { year: '2024', text: 'Concluded Oka\'s Farm role; expanded into independent product work.' },
   { year: '2025', text: 'TIRADOR development begins; AI micro-agency conceived.' },
   { year: '2026', text: 'Yusel AI, ApplyGuard PH, and Pomodoro App shipped; Heart and Soil town map; Long Way Around story complete.' },
+];
+
+const building = [
+  { name: 'TIRADOR', text: 'Top-down pixel roguelite in Godot. Playable arena foundation shipped; slingshot combat loop in a barangay TileMap.' },
+  { name: 'Heart and Soil', text: 'Cozy farming sim in Godot. Town map transition, fiesta decorations, fishing, cooking, save/load — systems stacking.' },
+  { name: 'Yusel AI', text: 'Next.js chat app for Filipino sellers and freelancers. Free-first models, templates, PHP Pro billing in flight.' },
+  { name: 'Long Way Around', text: '2D pixel RPG in Godot 4.6. Four-act story complete with three endings; itch.io ship gate passing.' },
+  { name: 'Pomodoro App (Ponggi)', text: 'Flutter pomodoro with five memory-game breaks, physics mascot, tray support on Windows. 82 tests green.' },
+  { name: 'ApplyGuard PH', text: 'Free browser scanner for remote job posts. Verdict, fit score, scam risk — no login, runs on device.' },
 ];
 
 const photos = [
@@ -50,108 +59,160 @@ const photos = [
 
 <BaseLayout
   title="About — Uzziel Malolos"
-  description="Agri-econ undergrad and full-stack creator from Bay, Laguna."
+  description="Full-stack creator and ACEU AI Solutions co-founder from Bay, Laguna."
   jsonLd={personJsonLd}
 >
-  <section class="container pt-24 pb-12 md:pt-32">
-    <p class="text-xs uppercase tracking-widest text-stone mb-3">About</p>
-    <h1 data-reveal class="font-display leading-[1] tracking-tight" style="font-size: clamp(2.5rem, 6vw, 4.5rem);">
-      About Uzziel
-    </h1>
-    <p data-reveal data-reveal-delay="80" class="mt-6 max-w-2xl text-lg leading-relaxed text-stone">
-      {intro}
-    </p>
-  </section>
-
-  <section class="container py-16">
-    <h2 data-reveal class="font-display mb-6" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem);">Where I'm from</h2>
-    <div class="grid md:grid-cols-2 gap-8 max-w-4xl">
-      <p data-reveal data-reveal-delay="60">
-        I grew up in Brgy. Calo, Bay, Laguna. The municipality sits along the lakeshore of Laguna de Bay, with rice fields on one side and a slow creep of subdivisions on the other. Most of what I think about — land use, food, family economics — is shaped by that immediate geography.
-      </p>
-      <p data-reveal data-reveal-delay="120">
-        I am Filipino, a fourth-year undergrad in the College of Economics and Management at UPLB, taking BS Agricultural and Applied Economics with a Natural Resource Economics major. I commute when I can and stay on campus when I cannot.
-      </p>
+  <!-- Intro -->
+  <section class="container pb-16 pt-12 md:pt-16">
+    <div class="ledger-head" data-reveal>
+      <p class="eyebrow">About · The person</p>
+      <p class="meta-mono hidden sm:block">Bay · Laguna — 14.18°N, 121.28°E</p>
     </div>
-  </section>
 
-  <section class="container py-16 border-t border-stone/20">
-    <h2 data-reveal class="font-display mb-6" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem);">What I'm building right now</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl">
-      <p data-reveal data-reveal-delay="60">
-        <strong class="font-display text-lg block mb-2">TIRADOR</strong>
-        Top-down pixel roguelite in Godot. Playable arena foundation shipped; slingshot combat loop in a barangay TileMap.
-      </p>
-      <p data-reveal data-reveal-delay="120">
-        <strong class="font-display text-lg block mb-2">Heart and Soil</strong>
-        Cozy farming sim in Godot. Town map transition, fiesta decorations, fishing, cooking, save/load — systems stacking.
-      </p>
-      <p data-reveal data-reveal-delay="180">
-        <strong class="font-display text-lg block mb-2">Yusel AI</strong>
-        Next.js chat app for Filipino sellers and freelancers. Free-first models, templates, PHP Pro billing in flight.
-      </p>
-      <p data-reveal data-reveal-delay="240">
-        <strong class="font-display text-lg block mb-2">Long Way Around</strong>
-        2D pixel RPG in Godot 4.6. Four-act story complete with three endings; itch.io ship gate passing.
-      </p>
-      <p data-reveal data-reveal-delay="300">
-        <strong class="font-display text-lg block mb-2">Pomodoro App (Ponggi)</strong>
-        Flutter pomodoro with five memory-game breaks, physics mascot, tray support on Windows. 82 tests green.
-      </p>
-      <p data-reveal data-reveal-delay="360">
-        <strong class="font-display text-lg block mb-2">ApplyGuard PH</strong>
-        Free browser scanner for remote job posts. Verdict, fit score, scam risk — no login, runs on device.
-      </p>
-      <p data-reveal data-reveal-delay="420">
-        <strong class="font-display text-lg block mb-2">AAE 195 thesis</strong>
-        Conversion pressure × rice productivity and profitability in Bay, Laguna, 2025 cross-sectional. Adviser: Inst. Buno.
-      </p>
-    </div>
-  </section>
-
-  <section class="container py-16 border-t border-stone/20">
-    <h2 data-reveal class="font-display mb-10 text-center" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem);">Where I've been</h2>
-    <TimelineCard entries={timeline} />
-    <div class="mt-10 max-w-3xl mx-auto grid md:grid-cols-2 gap-8">
-      <p data-reveal>
-        I have been the volunteer web developer for The Lord's Worship Center in Bay since 2018. The role started small (HTML and a contact form) and has grown into a small design system rewrite this year.
-      </p>
-      <p data-reveal data-reveal-delay="80">
-        From March 2023 to May 2024 I kept the books for Oka's Farm. Fourteen months of payables, payroll, and monthly closings — the work that taught me what the textbooks leave out.
-      </p>
-    </div>
-  </section>
-
-  <section class="container py-16 border-t border-stone/20">
-    <h2 data-reveal class="font-display mb-6" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem);">How I work</h2>
-    <div class="grid md:grid-cols-2 gap-8 max-w-4xl">
-      <p data-reveal data-reveal-delay="60">
-        Most writing and light development happens on a Xiaomi Pad 6 with a folding keyboard — coffee shop, library, jeepney, kitchen table. The heavier builds run on a small Windows tower at home: Godot exports, large dataset crunches, anything that hits the GPU.
-      </p>
-      <p data-reveal data-reveal-delay="120">
-        Claude is my collaborator across research notes, code, and prose. I am faith-rooted (TLWC is family) but I do not push it into client work. If a deliverable is for a business, the work answers to the business.
-      </p>
-    </div>
-  </section>
-
-  <section class="container py-16 border-t border-stone/20">
-    <h2 data-reveal class="font-display mb-6" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem);">A few photos</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-      {photos.map((p) => (
-        <figure class="rounded-md overflow-hidden border border-stone/30">
+    <div class="grid gap-12 pt-10 lg:grid-cols-12 lg:gap-14">
+      <div class="lg:col-span-7">
+        <h1 data-reveal style="font-size: clamp(2.8rem, 7vw, 5.75rem); line-height: 0.98;">
+          One desk in<br />
+          <em class="text-accent">Bay, Laguna.</em>
+        </h1>
+        <p data-reveal data-reveal-delay="100" class="mt-8 max-w-2xl text-lg leading-relaxed text-stone">
+          {intro}
+        </p>
+      </div>
+      <figure class="relative mx-auto w-full max-w-sm lg:col-span-5 lg:max-w-none" data-reveal data-reveal-delay="160">
+        <div class="absolute -bottom-3 -right-3 h-full w-full border border-gold/50" aria-hidden="true"></div>
+        <div class="relative overflow-hidden border border-line-strong">
           <img
-            src={p.src}
-            alt={p.caption}
-            width="480"
-            height="480"
+            src="/photos/uzziel-trees.jpg"
+            alt="Uzziel on the UPLB grounds, between classes"
+            width="640"
+            height="800"
             loading="eager"
             decoding="async"
-            class="w-full aspect-square object-cover"
+            class="aspect-[4/5] w-full object-cover"
           />
-          <figcaption class="sr-only">{p.caption}</figcaption>
+          <div class="dither-up dither-page absolute inset-x-0 bottom-0" aria-hidden="true"></div>
+        </div>
+        <figcaption class="meta-mono mt-4 flex items-center justify-between gap-4">
+          <span>UPLB grounds</span>
+          <span>Between classes</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 01 Roots -->
+  <section class="container py-16 md:py-20">
+    <div class="ledger-head" data-reveal>
+      <p class="eyebrow">01 · Roots</p>
+      <p class="meta-mono hidden sm:block">Brgy. Calo, Bay, Laguna</p>
+    </div>
+    <div class="grid gap-8 pt-10 lg:grid-cols-12">
+      <h2 class="text-3xl lg:col-span-4" data-reveal>Where I'm from</h2>
+      <div class="grid gap-8 md:grid-cols-2 lg:col-span-8">
+        <p data-reveal data-reveal-delay="60" class="leading-relaxed">
+          I grew up in Brgy. Calo, Bay, Laguna. Working around small local businesses, church volunteers, commuters, and family-run operations shaped the products I build: practical tools that work on ordinary devices and make sense without a manual.
+        </p>
+        <p data-reveal data-reveal-delay="120" class="leading-relaxed">
+          I am Filipino, a fourth-year undergrad in the College of Economics and Management at UPLB, taking BS Agricultural and Applied Economics with a Natural Resource Economics major. I commute when I can and stay on campus when I cannot.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 On the bench -->
+  <section class="container py-16 md:py-20">
+    <div class="ledger-head" data-reveal>
+      <p class="eyebrow">02 · On the bench</p>
+      <p class="meta-mono hidden sm:block">Six builds in motion</p>
+    </div>
+    <div class="grid gap-8 pt-10 lg:grid-cols-12">
+      <h2 class="text-3xl lg:col-span-4" data-reveal>What I'm building right now</h2>
+      <div class="lg:col-span-8">
+        {building.map((item, i) => (
+          <div
+            class="grid grid-cols-[2.5rem_1fr] items-baseline gap-4 border-b border-line py-5 first:border-t md:grid-cols-[2.5rem_14rem_1fr] md:gap-6"
+            data-reveal
+            data-reveal-delay={Math.min(i * 70, 350)}
+          >
+            <span class="font-mono text-[11px] text-gold" aria-hidden="true">0{i + 1}</span>
+            <h3 class="text-xl leading-tight">{item.name}</h3>
+            <p class="col-span-2 mt-1 text-sm leading-relaxed text-stone md:col-span-1 md:mt-0">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 The route -->
+  <section class="container py-16 md:py-20">
+    <div class="ledger-head" data-reveal>
+      <p class="eyebrow">03 · The route</p>
+      <p class="meta-mono hidden sm:block">2018 — present</p>
+    </div>
+    <div class="grid gap-8 pt-10 lg:grid-cols-12">
+      <h2 class="text-3xl lg:col-span-4" data-reveal>Where I've been</h2>
+      <div class="lg:col-span-8">
+        <TimelineCard entries={timeline} />
+        <div class="mt-10 grid gap-8 md:grid-cols-2">
+          <p data-reveal class="text-sm leading-relaxed text-stone">
+            I have been the volunteer web developer for The Lord's Worship Center in Bay since 2018. The role started small (HTML and a contact form) and has grown into a small design system rewrite this year.
+          </p>
+          <p data-reveal data-reveal-delay="80" class="text-sm leading-relaxed text-stone">
+            From March 2023 to May 2024 I kept the books for Oka's Farm. Fourteen months of payables, payroll, and monthly closings — the work that taught me what the textbooks leave out.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 The desk -->
+  <section class="container py-16 md:py-20">
+    <div class="ledger-head" data-reveal>
+      <p class="eyebrow">04 · The desk</p>
+      <p class="meta-mono hidden sm:block">Pad 6 on the road · tower at home</p>
+    </div>
+    <div class="grid gap-8 pt-10 lg:grid-cols-12">
+      <h2 class="text-3xl lg:col-span-4" data-reveal>How I work</h2>
+      <div class="grid gap-8 md:grid-cols-2 lg:col-span-8">
+        <p data-reveal data-reveal-delay="60" class="leading-relaxed">
+          Most writing and light development happens on a Xiaomi Pad 6 with a folding keyboard — coffee shop, library, jeepney, kitchen table. The heavier builds run on a small Windows tower at home: Godot exports, video renders, anything that hits the GPU.
+        </p>
+        <p data-reveal data-reveal-delay="120" class="leading-relaxed">
+          Claude is my collaborator across project notes, code, and prose. I am faith-rooted (TLWC is family) but I do not push it into client work. If a deliverable is for a business, the work answers to the business.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 Field notes -->
+  <section class="container py-16 md:py-24">
+    <div class="ledger-head" data-reveal>
+      <p class="eyebrow">05 · Field notes</p>
+      <p class="meta-mono hidden sm:block">Campus and the commute home</p>
+    </div>
+    <h2 class="sr-only">A few photos</h2>
+    <div class="grid gap-6 pt-10 md:grid-cols-2 md:gap-8">
+      {photos.map((p, i) => (
+        <figure data-reveal data-reveal-delay={i * 100}>
+          <div class="relative overflow-hidden border border-line-strong">
+            <img
+              src={p.src}
+              alt={p.caption}
+              width="960"
+              height="960"
+              loading="lazy"
+              decoding="async"
+              class="aspect-square w-full object-cover"
+            />
+            <div class="dither-up dither-page absolute inset-x-0 bottom-0" aria-hidden="true"></div>
+          </div>
+          <figcaption class="meta-mono mt-3 flex items-baseline gap-3">
+            <span class="inline-block h-[5px] w-[5px] flex-none translate-y-[-1px] bg-gold" aria-hidden="true"></span>
+            {p.caption}
+          </figcaption>
         </figure>
       ))}
     </div>
-    <p class="mt-4 text-xs text-stone">Small glimpses from campus and the commute home.</p>
   </section>
 </BaseLayout>

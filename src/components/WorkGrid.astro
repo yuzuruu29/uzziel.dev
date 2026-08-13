@@ -17,27 +17,50 @@ type Entry = {
 interface Props {
   entries: Entry[];
   id?: string;
+  /** 'uniform' = 3-up catalog grid; 'editorial' = asymmetric 7/5 rhythm. */
+  variant?: 'uniform' | 'editorial';
 }
 
-const { entries, id = 'work-grid' } = Astro.props;
+const { entries, id = 'work-grid', variant = 'uniform' } = Astro.props;
+
+// Alternating 7/5 column rhythm for the editorial grid.
+const spans = ['md:col-span-7', 'md:col-span-5', 'md:col-span-5', 'md:col-span-7', 'md:col-span-7', 'md:col-span-5'];
+const aspects: Array<'wide' | 'tall'> = ['wide', 'tall', 'tall', 'wide', 'wide', 'tall'];
 ---
 
-<div
-  id={id}
-  data-work-grid
-  class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-7 xl:grid-cols-3"
->
-  {entries.map((e, i) => (
-    <WorkCard
-      slug={e.slug}
-      title={e.data.title}
-      role={e.data.role}
-      year={e.data.year}
-      status={e.data.status}
-      summary={e.data.summary}
-      stack={e.data.stack}
-      cover={e.data.cover}
-      index={i}
-    />
-  ))}
-</div>
+{variant === 'editorial' ? (
+  <div id={id} data-work-grid class="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
+    {entries.map((e, i) => (
+      <div class={`h-full ${spans[i % spans.length]}`}>
+        <WorkCard
+          slug={e.slug}
+          title={e.data.title}
+          role={e.data.role}
+          year={e.data.year}
+          status={e.data.status}
+          summary={e.data.summary}
+          stack={e.data.stack}
+          cover={e.data.cover}
+          index={i}
+          aspect={aspects[i % aspects.length]}
+        />
+      </div>
+    ))}
+  </div>
+) : (
+  <div id={id} data-work-grid class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-7 xl:grid-cols-3">
+    {entries.map((e, i) => (
+      <WorkCard
+        slug={e.slug}
+        title={e.data.title}
+        role={e.data.role}
+        year={e.data.year}
+        status={e.data.status}
+        summary={e.data.summary}
+        stack={e.data.stack}
+        cover={e.data.cover}
+        index={i}
+      />
+    ))}
+  </div>
+)}

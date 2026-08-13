@@ -7,7 +7,7 @@ export const resumeData = {
   linkedin: 'https://www.linkedin.com/in/emmanuel-uzziel-malolos-25574831a/',
   website: 'https://uzziel.dev',
   summary:
-    'Full-stack creator and AI tool builder from Bay, Laguna, with 5+ years in digital content production, social media management, and video editing. Builds indie games (Godot 4), ships AI-powered web and mobile apps (Next.js, Flutter, FastAPI), designs and deploys static sites for small businesses, and manages Meta Ads support workflows. Applies AI tools (Claude, ChatGPT) to streamline content, development, and campaign operations. Currently a fourth-year BS Agricultural and Applied Economics student at UPLB working on a thesis about land conversion and rice productivity.',
+    'Full-stack creator and AI tool builder from Bay, Laguna, with 5+ years in digital content production, social media management, and video editing. Builds indie games (Godot 4), ships AI-powered web and mobile apps (Next.js, Flutter, FastAPI), designs and deploys static sites for small businesses, and manages Meta Ads support workflows. Applies AI tools (Claude, ChatGPT) to streamline content, development, and campaign operations.',
 
   skills: [
     {
@@ -39,8 +39,8 @@ export const resumeData = {
       items: ['Git', 'GitHub', 'Netlify', 'WordPress', 'Google Workspace', 'Notion', 'Playwright', 'SOP creation', 'Checklist-based QA'],
     },
     {
-      group: 'Data & Research',
-      items: ['QGIS', 'R', 'Excel', 'Survey design', 'Cost-and-return analysis', 'APA 7'],
+      group: 'Data & Reporting',
+      items: ['Excel', 'Google Sheets', 'Data cleanup', 'Dashboard reporting', 'CSV workflows'],
     },
   ],
 
@@ -168,10 +168,6 @@ export const resumeData = {
     {
       title: 'AI Micro-Agency',
       summary: 'Botpress + Claude/GPT chatbots for Philippine SMEs. Structured nodes for FAQs, LLM for open-ended turns, explicit human handoff. Test rigs for kakanin seller, print shop, barbershop.',
-    },
-    {
-      title: 'AAE 195 Thesis',
-      summary: 'Agricultural land conversion pressure vs paddy rice productivity and profitability in Bay, Laguna (2025 cross-sectional). QGIS spatial analysis, R statistics, 90+ farmer respondents.',
     },
   ],
 

@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ---------------------------------------------------------------------------
+   Field Ledger design system.
+   Brand palette is locked (ink/narra/gold/cream/stone/leaf); everything else
+   is derived through CSS variables so the same components render correctly on
+   cream pages, ink bands (.section-ink), and both themes.
+--------------------------------------------------------------------------- */
+
 :root {
   --ink: #1a1410;
   --narra: #6b3410;
@@ -9,28 +16,79 @@
   --cream: #f4ecd8;
   --stone: #75695d;
   --leaf: #3f6332;
+
+  --page-bg: #f4ecd8;
   --surface: #fbf6e9;
   --surface-raised: #fffaf0;
-  --border: rgb(107 52 16 / 0.18);
+  --border: rgb(107 52 16 / 0.16);
+  --line-strong: rgb(107 52 16 / 0.34);
   --muted: #6f6459;
+
+  /* Accent that survives contrast on the current background:
+     narra on cream, gold on ink. */
+  --accent: #6b3410;
+
+  /* Button color pipeline (see .button-primary). */
+  --btn-bg: #1a1410;
+  --btn-fg: #f4ecd8;
+  --btn-hover-bg: #c9a14a;
+  --btn-hover-fg: #1a1410;
+
+  /* Ink band color: true ink on light theme, deeper ink on dark theme so the
+     section rhythm survives dark mode. */
+  --section-ink-bg: #1a1410;
+
+  /* Signature: Bayer-style pixel dissolve, used as a mask so it can take any
+     background color. Dense at the bottom, sparse at the top. */
+  --dither: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='32'%3E%3Cg fill='black'%3E%3Crect x='8' width='4' height='4'/%3E%3Crect y='4' width='4' height='4'/%3E%3Crect x='4' y='8' width='4' height='4'/%3E%3Crect x='12' y='8' width='4' height='4'/%3E%3Crect y='12' width='4' height='4'/%3E%3Crect x='8' y='12' width='4' height='4'/%3E%3Crect x='4' y='16' width='4' height='4'/%3E%3Crect x='8' y='16' width='4' height='4'/%3E%3Crect x='12' y='16' width='4' height='4'/%3E%3Crect y='20' width='4' height='4'/%3E%3Crect x='4' y='20' width='4' height='4'/%3E%3Crect x='12' y='20' width='4' height='4'/%3E%3Crect y='24' width='16' height='8'/%3E%3C/g%3E%3C/svg%3E");
+
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 .dark {
+  --page-bg: #1a1410;
   --surface: #211a15;
   --surface-raised: #2a211a;
-  --border: rgb(244 236 216 / 0.16);
+  --border: rgb(244 236 216 / 0.14);
+  --line-strong: rgb(244 236 216 / 0.32);
   --muted: #b8aa99;
+  --accent: #c9a14a;
+
+  --btn-bg: #c9a14a;
+  --btn-fg: #1a1410;
+  --btn-hover-bg: #f4ecd8;
+  --btn-hover-fg: #1a1410;
+
+  --section-ink-bg: #120d0a;
+}
+
+/* Scoped dark region — an ink band inside a light page. Carries the same
+   token overrides as .dark so var-driven components adapt automatically. */
+.section-ink {
+  background: var(--section-ink-bg);
+  color: var(--cream);
+  --surface: #211a15;
+  --surface-raised: #2a211a;
+  --border: rgb(244 236 216 / 0.14);
+  --line-strong: rgb(244 236 216 / 0.32);
+  --muted: #b8aa99;
+  --accent: #c9a14a;
+  --btn-bg: #c9a14a;
+  --btn-fg: #1a1410;
+  --btn-hover-bg: #f4ecd8;
+  --btn-hover-fg: #1a1410;
+}
+
+.dark .section-ink {
+  --surface: #1b1410;
+  --surface-raised: #241c16;
 }
 
 @layer base {
   html {
-    background: var(--cream);
+    background: var(--page-bg);
     font-family: 'Inter Tight', system-ui, sans-serif;
     scroll-behavior: smooth;
-  }
-
-  html.dark {
-    background: var(--ink);
   }
 
   body {
@@ -47,15 +105,21 @@
 
   h1, h2, h3, h4 {
     font-family: 'Fraunces', Georgia, serif;
-    font-weight: 500;
-    line-height: 1.08;
-    letter-spacing: -0.025em;
+    font-optical-sizing: auto;
+    font-weight: 480;
+    line-height: 1.04;
+    letter-spacing: -0.028em;
     text-wrap: balance;
   }
 
   h1 { font-size: clamp(2.75rem, 6vw, 4.75rem); }
-  h2 { font-size: clamp(2rem, 4vw, 3.25rem); }
-  h3 { font-size: clamp(1.35rem, 2.4vw, 2rem); }
+  h2 { font-size: clamp(1.9rem, 4vw, 3.1rem); }
+  h3 { font-size: clamp(1.3rem, 2.4vw, 1.9rem); }
+
+  em, i {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+  }
 
   p {
     text-wrap: pretty;
@@ -83,25 +147,50 @@
     padding-inline: 1.25rem;
   }
 
+  @media (min-width: 768px) {
+    .container { padding-inline: 2.5rem; }
+  }
+
+  /* Mono meta label with a pixel-square tick — the ledger voice. */
   .eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 0.65rem;
+    gap: 0.7rem;
     color: var(--muted);
     font-family: 'JetBrains Mono', ui-monospace, monospace;
     font-size: 0.6875rem;
     font-weight: 500;
-    letter-spacing: 0.14em;
-    line-height: 1.3;
+    letter-spacing: 0.16em;
+    line-height: 1.4;
     text-transform: uppercase;
   }
 
   .eyebrow::before {
-    width: 1.75rem;
-    height: 1px;
-    background: currentColor;
+    width: 7px;
+    height: 7px;
+    background: var(--gold);
     content: '';
-    opacity: 0.6;
+    flex: none;
+  }
+
+  /* Section header row: index + heading share one hairline baseline. */
+  .ledger-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.9rem;
+  }
+
+  .meta-mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
   }
 
   .card-surface {
@@ -109,6 +198,8 @@
     border: 1px solid var(--border);
   }
 
+  /* Squared editorial buttons. Label is mono uppercase; hover fills from the
+     baseline up (::after) and swaps the label color. */
   .button-primary,
   .button-secondary {
     position: relative;
@@ -116,46 +207,45 @@
     min-height: 3rem;
     align-items: center;
     justify-content: center;
-    gap: 0.6rem;
+    gap: 0.65rem;
     overflow: hidden;
+    isolation: isolate;
     border: 1px solid transparent;
-    border-radius: 0.65rem;
-    padding: 0.7rem 1.15rem;
+    border-radius: 2px;
+    padding: 0.75rem 1.5rem;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.72rem;
     font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
     line-height: 1.2;
-    transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+    transition: color 220ms ease, border-color 220ms ease, transform 220ms ease;
   }
 
-  /* Sheen sweep on hover. */
   .button-primary::after,
   .button-secondary::after {
     position: absolute;
     inset: 0;
-    background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 0.22) 50%, transparent 65%);
+    z-index: -1;
     content: '';
-    pointer-events: none;
-    transform: translateX(-130%);
-  }
-
-  .button-secondary::after {
-    background: linear-gradient(105deg, transparent 35%, rgb(201 161 74 / 0.2) 50%, transparent 65%);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 340ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .button-primary:hover::after,
   .button-secondary:hover::after {
-    transform: translateX(130%);
-    transition: transform 700ms ease;
+    transform: scaleY(1);
   }
 
-  /* Trailing icon nudge. */
   .button-primary [aria-hidden='true'],
   .button-secondary [aria-hidden='true'] {
-    transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .button-primary:hover [aria-hidden='true'],
   .button-secondary:hover [aria-hidden='true'] {
-    transform: translateX(3px);
+    transform: translateX(4px);
   }
 
   .button-primary:active,
@@ -165,38 +255,37 @@
   }
 
   .button-primary {
-    background: var(--ink);
-    color: var(--cream);
+    background: var(--btn-bg);
+    color: var(--btn-fg);
+  }
+
+  .button-primary::after {
+    background: var(--btn-hover-bg);
   }
 
   .button-primary:hover {
-    background: var(--narra);
-    transform: translateY(-2px);
-  }
-
-  .dark .button-primary {
-    background: var(--gold);
-    color: var(--ink);
-  }
-
-  .dark .button-primary:hover {
-    background: var(--cream);
+    color: var(--btn-hover-fg);
   }
 
   .button-secondary {
-    border-color: var(--border);
+    border-color: var(--line-strong);
     color: inherit;
+    background: transparent;
+  }
+
+  .button-secondary::after {
+    background: var(--accent);
   }
 
   .button-secondary:hover {
-    border-color: var(--narra);
-    color: var(--narra);
-    transform: translateY(-2px);
+    border-color: var(--accent);
+    color: var(--page-bg);
   }
 
+  /* On dark grounds the hover fill is gold, so the label must turn ink. */
+  .section-ink .button-secondary:hover,
   .dark .button-secondary:hover {
-    border-color: var(--gold);
-    color: var(--gold);
+    color: #1a1410;
   }
 
   .section-rule {
@@ -210,25 +299,119 @@
     -webkit-line-clamp: 3;
   }
 
-  @media (min-width: 768px) {
-    .container { padding-inline: 2rem; }
+  .line-clamp-2 {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  /* Animated underline for inline links. */
+  .link-line {
+    position: relative;
+  }
+
+  .link-line::after {
+    position: absolute;
+    inset-inline: 0;
+    bottom: -3px;
+    height: 1px;
+    background: currentColor;
+    content: '';
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .link-line:hover::after,
+  .group:hover .link-line::after {
+    transform: scaleX(1);
   }
 }
 
-/* Scroll-aware header chrome (toggled from BaseLayout). */
+/* ---------------------------------------------------------------------------
+   Signature textures
+--------------------------------------------------------------------------- */
+
+/* Pixel-dissolve band. Give it a background color (usually .dither-ink) and
+   place it where a section dissolves into the page:
+   .dither-up   — solid at its bottom edge (put ABOVE an ink section)
+   .dither-down — solid at its top edge   (put BELOW an ink section) */
+.dither-up,
+.dither-down {
+  height: 32px;
+  -webkit-mask-image: var(--dither);
+  mask-image: var(--dither);
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
+  -webkit-mask-size: 16px 32px;
+  mask-size: 16px 32px;
+  pointer-events: none;
+}
+
+.dither-down {
+  transform: scaleY(-1);
+}
+
+.dither-ink {
+  background: var(--section-ink-bg);
+}
+
+.dither-page {
+  background: var(--page-bg);
+}
+
+/* Film grain over everything. Sits under the custom cursor, above content. */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background-image: var(--grain);
+  background-size: 220px 220px;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.dark .grain-overlay {
+  opacity: 0.07;
+}
+
+/* Faint ledger grid for dark panels. */
+.ledger-grid {
+  background-image:
+    linear-gradient(rgb(244 236 216 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(244 236 216 / 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Giant outlined wordmark (footer). */
+.outline-word {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 560;
+  letter-spacing: 0.02em;
+  line-height: 0.86;
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(244 236 216 / 0.22);
+  user-select: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Chrome
+--------------------------------------------------------------------------- */
+
 #site-nav {
   transition: background-color 260ms ease, box-shadow 260ms ease;
 }
 
 #site-nav[data-scrolled='true'] {
-  background: rgb(244 236 216 / 0.88);
+  background: rgb(244 236 216 / 0.9);
   box-shadow: 0 10px 34px rgb(26 20 16 / 0.07);
   -webkit-backdrop-filter: blur(12px) saturate(1.1);
   backdrop-filter: blur(12px) saturate(1.1);
 }
 
 .dark #site-nav[data-scrolled='true'] {
-  background: rgb(26 20 16 / 0.84);
+  background: rgb(26 20 16 / 0.86);
   box-shadow: 0 10px 34px rgb(0 0 0 / 0.32);
 }
 
@@ -245,7 +428,7 @@
     z-index: 1;
     background: radial-gradient(
       340px circle at var(--mx, 50%) var(--my, 50%),
-      rgb(201 161 74 / 0.13),
+      rgb(201 161 74 / 0.12),
       transparent 65%
     );
     border-radius: inherit;
@@ -264,9 +447,33 @@
   will-change: transform;
 }
 
+/* ---------------------------------------------------------------------------
+   Utilities
+--------------------------------------------------------------------------- */
+
 @layer utilities {
   .text-stone {
     color: var(--muted);
+  }
+
+  .text-accent {
+    color: var(--accent);
+  }
+
+  .border-line {
+    border-color: var(--border);
+  }
+
+  .border-line-strong {
+    border-color: var(--line-strong);
+  }
+
+  .bg-surface {
+    background-color: var(--surface);
+  }
+
+  .bg-raised {
+    background-color: var(--surface-raised);
   }
 
   .theme-ripple {
@@ -285,23 +492,38 @@
     }
   }
 
+  /* Scroll reveals. Default rises; variants via attribute value. */
   [data-reveal] {
     opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 520ms cubic-bezier(0.22, 1, 0.36, 1), transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(16px);
+    transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1), transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
     will-change: opacity, transform;
   }
 
+  [data-reveal='left'] { transform: translateX(-24px); }
+  [data-reveal='right'] { transform: translateX(24px); }
+  [data-reveal='zoom'] { transform: scale(0.96); }
+
+  [data-reveal='mask'] {
+    clip-path: inset(0 0 100% 0);
+    transform: none;
+    transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1), clip-path 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
   [data-reveal].in {
     opacity: 1;
     transform: none;
   }
 
+  [data-reveal='mask'].in {
+    clip-path: inset(0 0 0 0);
+  }
+
   /* JS disabled or observer unsupported — reveal everything immediately. */
-  .no-js [data-reveal],
-  [data-reveal].in {
+  .no-js [data-reveal] {
     opacity: 1;
     transform: none;
+    clip-path: none;
   }
 
   .work-card-hidden {
@@ -347,32 +569,121 @@
   visibility: visible;
 }
 
+/* ---------------------------------------------------------------------------
+   Case study prose
+--------------------------------------------------------------------------- */
+
 .prose-case {
-  max-width: 68ch;
+  max-width: 66ch;
+  counter-reset: case-section;
 }
 
-.prose-case p { margin-bottom: 1.25rem; line-height: 1.78; }
-.prose-case p:first-of-type { font-size: 1.1rem; }
-.prose-case h2 { margin: 2.75rem 0 1rem; font-size: 1.8rem; }
-.prose-case h3 { margin: 2rem 0 0.75rem; font-size: 1.35rem; }
-.prose-case a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
-.prose-case strong { color: inherit; font-weight: 650; }
+.prose-case p {
+  margin-bottom: 1.35rem;
+  line-height: 1.8;
+}
+
+.prose-case > p:first-of-type {
+  font-size: 1.22rem;
+  line-height: 1.65;
+  color: inherit;
+}
+
+.prose-case > p:first-of-type::first-letter {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 560;
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding-right: 0.09em;
+  padding-top: 0.04em;
+}
+
+.prose-case h2 {
+  margin: 3rem 0 1rem;
+  font-size: 1.75rem;
+  counter-increment: case-section;
+}
+
+.prose-case h2::before {
+  display: block;
+  margin-bottom: 0.5rem;
+  content: counter(case-section, decimal-leading-zero);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+}
+
+.prose-case h3 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.3rem;
+}
+
+.prose-case a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: rgb(201 161 74 / 0.55);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 200ms ease;
+}
+
+.prose-case a:hover {
+  text-decoration-color: var(--gold);
+}
+
+.prose-case strong {
+  color: inherit;
+  font-weight: 650;
+}
+
+.prose-case ul,
+.prose-case ol {
+  margin: 0 0 1.35rem;
+  padding-left: 1.2rem;
+}
+
+.prose-case li {
+  margin-bottom: 0.4rem;
+}
+
 .prose-case img {
   width: 100%;
   aspect-ratio: 16 / 10;
   border: 1px solid var(--border);
-  border-radius: 0.75rem;
   background: rgb(26 20 16 / 0.08);
   object-fit: cover;
 }
-.prose-case .case-figure { margin: 2.25rem 0; }
+
+.prose-case .case-figure {
+  margin: 2.5rem 0;
+}
+
 .prose-case .case-figure figcaption {
-  margin-top: 0.65rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-top: 0.7rem;
   color: var(--muted);
   font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   line-height: 1.55;
+  letter-spacing: 0.02em;
 }
+
+.prose-case .case-figure figcaption::before {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  content: '';
+  flex: none;
+  transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------------------------------
+   Reduced motion
+--------------------------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

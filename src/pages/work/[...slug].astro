@@ -10,6 +10,8 @@ export async function getStaticPaths() {
       entry,
       prev: i > 0 ? entries[i - 1] : null,
       next: i < entries.length - 1 ? entries[i + 1] : null,
+      position: i + 1,
+      total: entries.length,
     },
   }));
 }
@@ -18,9 +20,11 @@ type Props = {
   entry: CollectionEntry<'work'>;
   prev: CollectionEntry<'work'> | null;
   next: CollectionEntry<'work'> | null;
+  position: number;
+  total: number;
 };
 
-const { entry, prev, next } = Astro.props as Props;
+const { entry, prev, next, position, total } = Astro.props as Props;
 const { Content } = await entry.render();
 const { data } = entry;
 const slug = entry.slug;
@@ -53,14 +57,16 @@ const statusLabel: Record<typeof data.status, string> = {
   'in-progress': 'In progress',
   archived: 'Archived',
 };
+
+const indexLabel = `${String(position).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
 ---
 
 <BaseLayout title={`${data.title} — Uzziel Malolos`} description={data.summary} jsonLd={creativeWorkJsonLd}>
-  <div id="read-progress" class="fixed left-0 top-0 z-50 h-0.5 origin-left bg-gold" aria-hidden="true" style="scaleX(0)"></div>
+  <div id="read-progress" class="fixed left-0 top-0 z-50 h-[3px] w-full origin-left bg-gold" aria-hidden="true" style="transform: scaleX(0);"></div>
 
   <section
     id="case-cover"
-    class="relative flex min-h-[520px] w-full items-end overflow-hidden md:h-[68vh] md:max-h-[760px]"
+    class="relative flex min-h-[540px] w-full items-end overflow-hidden md:h-[70vh] md:max-h-[780px]"
   >
     <img
       id="case-cover-img"
@@ -71,69 +77,97 @@ const statusLabel: Record<typeof data.status, string> = {
       transition:name={`cover-${slug}`}
       class="absolute inset-0 h-full w-full object-cover will-change-transform"
     />
-    <div class="absolute inset-0 bg-ink/60"></div>
-    <div class="container relative pb-10 pt-28 md:pb-14">
-      <div class="mb-5 flex flex-wrap items-center gap-3 font-mono text-[10px] uppercase tracking-[0.15em] text-cream/65">
-        <span class={`inline-flex w-fit items-center rounded-md px-2.5 py-1 ${statusClasses[data.status]}`}>
-        {statusLabel[data.status]}
+    <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/40 to-ink/25" aria-hidden="true"></div>
+
+    <div class="container relative pb-16 pt-28 md:pb-20">
+      <div class="mb-6 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[10px] uppercase tracking-[0.16em] text-cream/70">
+        <a href="/work" data-cursor="hover" class="link-line text-cream/70 transition-colors hover:text-gold">← Work</a>
+        <span aria-hidden="true" class="text-cream/40">/</span>
+        <span>{indexLabel}</span>
+        <span class={`inline-flex w-fit items-center px-2.5 py-1 tracking-[0.14em] ${statusClasses[data.status]}`}>
+          {statusLabel[data.status]}
         </span>
         <span>{data.year}</span>
-        <span aria-hidden="true">·</span>
+        <span aria-hidden="true" class="text-cream/40">·</span>
         <span>{data.role}</span>
       </div>
-      <h1 class="max-w-4xl text-cream">
+      <h1 class="max-w-4xl text-cream" style="font-size: clamp(2.6rem, 6.5vw, 5.5rem); line-height: 1;">
         {data.title}
       </h1>
-      <p class="mt-5 max-w-2xl text-base leading-relaxed text-cream/75 md:text-lg">{data.summary}</p>
+      <p class="mt-6 max-w-2xl text-base leading-relaxed text-cream/80 md:text-lg">{data.summary}</p>
     </div>
+
+    <!-- Cover dissolves into the page -->
+    <div class="dither-up dither-page absolute inset-x-0 bottom-0" aria-hidden="true"></div>
   </section>
 
-  <section class="container grid grid-cols-1 gap-12 py-16 md:grid-cols-[minmax(0,1fr)_300px] md:gap-16 md:py-24">
+  <section class="container grid grid-cols-1 gap-12 py-14 md:grid-cols-[minmax(0,1fr)_300px] md:gap-16 md:py-24">
     <article class="prose-case font-sans text-ink dark:text-cream">
       <Content />
     </article>
 
-    <aside class="card-surface h-fit rounded-xl p-6 text-sm md:sticky md:top-24" data-reveal data-reveal-delay="120">
-      <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-stone">Project record</p>
-      <dl class="space-y-5">
-        <div class="mt-5 border-t border-stone/20 pt-5">
-          <dt class="text-[11px] uppercase tracking-widest text-stone">Role</dt>
-          <dd class="mt-1">{data.role}</dd>
+    <aside class="h-fit border-t-2 border-gold pt-6 text-sm md:sticky md:top-24" data-reveal data-reveal-delay="120">
+      <p class="meta-mono text-accent">Project record</p>
+      <dl>
+        <div class="flex items-baseline justify-between gap-6 border-b border-line py-4">
+          <dt class="meta-mono">Status</dt>
+          <dd class="flex items-center gap-2 text-right">
+            <span class={`inline-block h-1.5 w-1.5 ${data.status === 'live' ? 'bg-leaf' : data.status === 'archived' ? 'bg-stone' : 'bg-gold'}`} aria-hidden="true"></span>
+            {statusLabel[data.status]}
+          </dd>
         </div>
-        <div>
-          <dt class="text-[11px] uppercase tracking-widest text-stone">Year</dt>
-          <dd class="mt-1 font-mono">{data.year}</dd>
+        <div class="flex items-baseline justify-between gap-6 border-b border-line py-4">
+          <dt class="meta-mono">Year</dt>
+          <dd class="font-mono text-[13px]">{data.year}</dd>
         </div>
-        <div>
-          <dt class="text-[11px] uppercase tracking-widest text-stone">Stack</dt>
-          <dd class="mt-2">
-            <ul class="flex flex-wrap gap-1.5">
+        <div class="flex items-baseline justify-between gap-6 border-b border-line py-4">
+          <dt class="meta-mono">Role</dt>
+          <dd class="max-w-[16ch] text-right leading-snug">{data.role}</dd>
+        </div>
+        <div class="border-b border-line py-4">
+          <dt class="meta-mono">Stack</dt>
+          <dd class="mt-3">
+            <ul class="space-y-1.5">
               {data.stack.map((s) => (
-                <li class="font-mono text-[11px] text-stone border border-stone/30 px-2 py-0.5 rounded">{s}</li>
+                <li class="flex items-baseline gap-2.5 font-mono text-[11px] uppercase tracking-[0.08em] text-stone">
+                  <span class="inline-block h-1 w-1 flex-none bg-gold/70" aria-hidden="true"></span>
+                  {s}
+                </li>
               ))}
             </ul>
           </dd>
         </div>
       </dl>
+      <a href="/work" data-cursor="hover" class="link-line mt-5 inline-block font-mono text-[11px] uppercase tracking-[0.14em] text-accent">
+        All projects →
+      </a>
     </aside>
   </section>
 
-  <nav class="container grid grid-cols-1 gap-5 border-t border-stone/20 pb-24 pt-10 md:grid-cols-2" aria-label="Case study pagination" data-reveal>
-    <div class="min-h-20">
-      {prev && (
-        <a href={`/work/${prev.slug}`} data-cursor="hover" class="group block rounded-lg border border-transparent p-3 transition-colors hover:border-stone/25">
-          <p class="text-[11px] uppercase tracking-widest text-stone">← Previous</p>
-          <p class="mt-2 font-display text-xl group-hover:text-gold transition-colors">{prev.data.title}</p>
-        </a>
-      )}
-    </div>
-    <div class="min-h-20 md:text-right">
-      {next && (
-        <a href={`/work/${next.slug}`} data-cursor="hover" class="group block rounded-lg border border-transparent p-3 transition-colors hover:border-stone/25">
-          <p class="text-[11px] uppercase tracking-widest text-stone">Next →</p>
-          <p class="mt-2 font-display text-xl group-hover:text-gold transition-colors">{next.data.title}</p>
-        </a>
-      )}
+  <nav class="container border-t border-line pb-24 pt-4" aria-label="Case study pagination" data-reveal>
+    <div class="grid grid-cols-1 md:grid-cols-2 md:divide-x md:divide-[color:var(--border)]">
+      <div class="min-h-24 py-6 md:pr-10">
+        {prev && (
+          <a href={`/work/${prev.slug}`} data-cursor="hover" class="group block">
+            <p class="meta-mono flex items-center gap-2">
+              <span aria-hidden="true" class="inline-block transition-transform duration-200 group-hover:-translate-x-1">←</span>
+              Previous
+            </p>
+            <p class="mt-3 font-display text-2xl leading-tight transition-colors group-hover:text-accent md:text-3xl">{prev.data.title}</p>
+          </a>
+        )}
+      </div>
+      <div class="min-h-24 border-t border-line py-6 md:border-t-0 md:pl-10 md:text-right">
+        {next && (
+          <a href={`/work/${next.slug}`} data-cursor="hover" class="group block">
+            <p class="meta-mono flex items-center gap-2 md:justify-end">
+              Next
+              <span aria-hidden="true" class="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+            </p>
+            <p class="mt-3 font-display text-2xl leading-tight transition-colors group-hover:text-accent md:text-3xl">{next.data.title}</p>
+          </a>
+        )}
+      </div>
     </div>
   </nav>
 

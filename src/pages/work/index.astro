@@ -19,62 +19,70 @@ const shippedCount = projectEntries.filter((entry) => ['live', 'completed'].incl
 const buildingNow = projectEntries
   .filter((entry) => entry.data.status === 'in-progress')
   .map((entry) => ({ slug: entry.slug, title: entry.data.title }));
+
+const stats = [
+  { label: 'Projects', value: projectEntries.length },
+  { label: 'Active', value: activeCount },
+  { label: 'Shipped', value: shippedCount },
+];
 ---
 
 <BaseLayout
   title="Work — Uzziel Malolos"
-  description="Indie games, AI agency, web work, and research from a Filipino full-stack creator."
+  description="Indie games, AI products, web work, and automation from a Filipino full-stack creator."
 >
-  <section class="container pb-12 pt-16 md:pb-16 md:pt-24">
-    <div class="grid gap-8 lg:grid-cols-[1fr_380px] lg:items-end">
+  <section class="container pb-12 pt-12 md:pt-16">
+    <div class="ledger-head" data-reveal>
+      <p class="eyebrow">The catalog · All projects</p>
+      <p class="meta-mono hidden sm:block">Verified against local files</p>
+    </div>
+
+    <div class="grid gap-10 pt-10 lg:grid-cols-[1fr_300px] lg:items-end lg:gap-16">
       <div data-reveal>
-        <p class="eyebrow">Verified work</p>
-        <h1 class="mt-5 max-w-3xl">Projects with files, decisions, and working evidence.</h1>
+        <h1 class="max-w-3xl" style="font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1;">
+          Projects with files, decisions, and <em class="text-accent">working evidence.</em>
+        </h1>
         <p class="mt-6 max-w-2xl text-lg leading-relaxed text-stone">
-          Games, agent systems, mobile tools, websites, and research. The catalog reflects what is present locally now, with concept samples kept separate below.
+          Games, agent systems, mobile tools, websites, and automation. The catalog reflects what is present locally now, with concept samples kept separate below.
         </p>
       </div>
-      <dl class="grid grid-cols-3 border-y border-stone/25 py-5 lg:border-y-0 lg:border-l lg:py-2 lg:pl-8" data-reveal data-reveal-delay="80">
-        <div>
-          <dt class="font-mono text-[9px] uppercase tracking-wider text-stone">Projects</dt>
-          <dd class="mt-1 font-display text-3xl">{projectEntries.length}</dd>
-        </div>
-        <div>
-          <dt class="font-mono text-[9px] uppercase tracking-wider text-stone">Active</dt>
-          <dd class="mt-1 font-display text-3xl">{activeCount}</dd>
-        </div>
-        <div>
-          <dt class="font-mono text-[9px] uppercase tracking-wider text-stone">Shipped</dt>
-          <dd class="mt-1 font-display text-3xl">{shippedCount}</dd>
-        </div>
+
+      <dl class="grid grid-cols-3 divide-x divide-[color:var(--border)] border-y border-line py-5 lg:grid-cols-1 lg:divide-x-0 lg:divide-y lg:border-y-0 lg:border-l lg:py-0 lg:pl-10" data-reveal data-reveal-delay="100">
+        {stats.map((stat) => (
+          <div class="px-3 first:pl-0 lg:px-0 lg:py-4 lg:first:pt-0 lg:last:pb-0">
+            <dd class="font-display text-3xl md:text-4xl">{stat.value}</dd>
+            <dt class="meta-mono mt-1">{stat.label}</dt>
+          </div>
+        ))}
       </dl>
     </div>
+
     {buildingNow.length > 0 && (
-      <div class="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-stone/20 pt-6" data-reveal data-reveal-delay="160">
-        <span class="font-mono text-[10px] uppercase tracking-[0.16em] text-gold dark:text-gold">
-          Building now
-          <span class="ml-1 text-stone" aria-hidden="true">·</span>
-          <span class="ml-1 text-stone">{buildingNow.length}</span>
+      <div class="mt-10 flex flex-wrap items-baseline gap-x-4 gap-y-2 border-t border-line pt-6" data-reveal data-reveal-delay="160">
+        <span class="meta-mono flex items-center gap-2 text-accent">
+          <span class="inline-block h-1.5 w-1.5 bg-gold" aria-hidden="true"></span>
+          Building now · {buildingNow.length}
         </span>
-        <ul class="flex flex-wrap items-center gap-x-2 gap-y-1.5 text-sm" aria-label="In-progress projects">
+        <ul class="flex flex-wrap items-baseline gap-x-2 gap-y-1.5 text-sm" aria-label="In-progress projects">
           {buildingNow.map((entry, i) => (
-            <li class="inline-flex items-center gap-2">
+            <li class="inline-flex items-baseline gap-2">
               <a
                 href={`/work/${entry.slug}`}
                 data-cursor="hover"
-                class="group inline-flex items-center gap-1.5 font-mono text-[12px] text-ink underline decoration-gold/40 decoration-1 underline-offset-[3px] transition-colors hover:decoration-gold dark:text-cream"
+                class="font-mono text-[12px] text-ink underline decoration-gold/40 decoration-1 underline-offset-[3px] transition-colors hover:decoration-gold dark:text-cream"
               >
                 {entry.title}
               </a>
               {i < buildingNow.length - 1 && (
-                <span class="text-stone/60" aria-hidden="true">×</span>
+                <span class="text-stone" aria-hidden="true">·</span>
               )}
             </li>
           ))}
         </ul>
       </div>
     )}
-    <div class="mt-10 border-t border-stone/20 pt-6">
+
+    <div class="mt-8 border-t border-line pt-6">
       <WorkFilter client:idle gridId="project-work-grid" />
     </div>
   </section>
@@ -83,19 +91,29 @@ const buildingNow = projectEntries
     <WorkGrid entries={projectEntries} id="project-work-grid" />
   </section>
 
-  <section id="sample-portfolios" class="container pb-32" data-reveal>
-    <div class="mb-10 rounded-xl border border-stone/25 bg-ink px-5 py-6 text-cream md:px-8 md:py-8">
-      <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-gold mb-3">Sample portfolio builds · {sampleEntries.length}</p>
-      <div class="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-6 md:gap-10 items-end">
-        <h2 class="font-display leading-[1.05] tracking-tight" style="font-size: clamp(2rem, 4vw, 3.25rem);">
-          Landing pages and PDF samples built for quick review.
-        </h2>
-        <p class="text-sm leading-relaxed text-cream/70">
-          Fictional briefs and AI-assisted portfolio PDFs, labeled separately so concept work never reads like a client claim.
-        </p>
+  <!-- Concept samples — separated on an ink band so they never read as client claims -->
+  <section id="sample-portfolios" class="relative">
+    <div class="dither-up dither-ink" aria-hidden="true"></div>
+    <div class="section-ink relative overflow-hidden">
+      <div class="ledger-grid pointer-events-none absolute inset-0 opacity-60" aria-hidden="true"></div>
+      <div class="container relative py-16 md:py-20">
+        <div class="ledger-head" data-reveal>
+          <p class="eyebrow">Samples · {sampleEntries.length}</p>
+          <p class="meta-mono hidden sm:block">Concept work, labeled as such</p>
+        </div>
+
+        <div class="grid gap-6 pb-12 pt-10 md:grid-cols-[1fr_320px] md:items-end">
+          <h2 class="max-w-2xl text-cream" data-reveal>
+            Landing pages and PDF samples built for quick review.
+          </h2>
+          <p class="text-sm leading-relaxed text-cream/65 md:justify-self-end" data-reveal data-reveal-delay="100">
+            Fictional briefs and AI-assisted portfolio PDFs, kept separate so concept work never reads like a client claim.
+          </p>
+        </div>
+
+        <WorkGrid entries={sampleEntries} id="sample-work-grid" />
       </div>
     </div>
-
-    <WorkGrid entries={sampleEntries} id="sample-work-grid" />
+    <div class="dither-down dither-ink" aria-hidden="true"></div>
   </section>
 </BaseLayout>

@@ -7,7 +7,6 @@ const ROUTES: Array<{ path: string; slug: string; titleContains: string }> = [
   { path: '/work/tirador/',      slug: 'tirador',  titleContains: 'TIRADOR' },
   { path: '/work/heart-and-soil/', slug: 'heart-and-soil', titleContains: 'Heart and Soil' },
   { path: '/about/',             slug: 'about',    titleContains: 'About' },
-  { path: '/research/',          slug: 'research', titleContains: 'Research' },
   { path: '/services/',          slug: 'services', titleContains: 'Services' },
   { path: '/contact/',           slug: 'contact',  titleContains: 'Contact' },
 ];
