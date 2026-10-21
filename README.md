@@ -2,7 +2,7 @@
 
 **Live:** [uzziel.dev](https://uzziel.dev) (also [uzziel-portfolio.netlify.app](https://uzziel-portfolio.netlify.app) until DNS propagates)
 
-Personal site of Emmanuel Uzziel A. Malolos — full-stack creator and ACEU AI Solutions co-founder from Bay, Laguna. The site catalogs shipped and in-progress projects across indie games, AI systems, mobile apps, volunteer web work, and small-business tools.
+Personal site of Emmanuel Uzziel A. Malolos — full-stack creator and Levi Co. co-founder from Bay, Laguna. The site catalogs shipped and in-progress projects across indie games, AI systems, mobile apps, volunteer web work, and small-business tools.
 
 ## Stack
 

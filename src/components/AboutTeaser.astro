@@ -1,5 +1,5 @@
 ---
-// Home page: ACEU studio band (co-founder showcase) + practice section.
+// Home page: Levi Co. studio band (co-founder showcase) + practice section.
 const method = [
   { n: '01', title: 'Frame', text: 'Real constraints, useful scope, clear outcomes. The problem gets written down before anything gets built.' },
   { n: '02', title: 'Build', text: 'Web, mobile, desktop, agent systems. Legible code, data-driven content, working drafts you can react to.' },
@@ -7,85 +7,74 @@ const method = [
 ];
 ---
 
-<!-- The studio — full-bleed void band, ACEU's own accent system -->
-<section class="relative" aria-labelledby="aceu-studio-title">
-  <div class="dither-up" style="background: #05060a;" aria-hidden="true"></div>
-  <div class="relative overflow-hidden bg-[#05060a] text-white">
+<!-- The studio — full-bleed navy band in Levi Co.'s own blue palette -->
+<section class="relative" aria-labelledby="levi-studio-title">
+  <div class="dither-up" style="background: #061632;" aria-hidden="true"></div>
+  <div class="relative overflow-hidden bg-[#061632] text-white">
     <div
-      class="absolute inset-0 bg-[linear-gradient(rgba(31,107,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(31,107,255,0.05)_1px,transparent_1px)] bg-[size:44px_44px]"
+      class="absolute inset-0 bg-[linear-gradient(rgba(111,160,230,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(111,160,230,0.06)_1px,transparent_1px)] bg-[size:44px_44px]"
       aria-hidden="true"
     ></div>
-    <div class="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-[#1f6bff]/15 blur-3xl" aria-hidden="true"></div>
+    <div class="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-[#3468bd]/25 blur-3xl" aria-hidden="true"></div>
 
     <div class="container relative py-16 md:py-24">
       <div class="flex flex-wrap items-baseline justify-between gap-3 border-b border-white/10 pb-4" data-reveal>
-        <p class="font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-[#8fb1ff]">03 · The studio</p>
+        <p class="font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-[#8db6ee]">03 · The studio</p>
         <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-white/40">Co-founder · Design & engineering</p>
       </div>
 
       <div class="grid gap-12 pt-12 lg:grid-cols-12 lg:items-center lg:gap-10">
         <div class="lg:col-span-7" data-reveal>
-          <p class="font-sans text-3xl font-semibold tracking-[-0.04em] text-white md:text-4xl">
-            <span class="text-[#1f6bff]" aria-hidden="true">▲</span>CEU
-            <span class="ml-2 align-middle font-mono text-[10px] font-medium uppercase tracking-[0.24em] text-white/50">AI Solutions</span>
+          <p class="flex items-center gap-3 font-sans text-3xl font-semibold tracking-[-0.04em] text-white md:text-4xl">
+            <img src="/logos/levi-co.webp" alt="" width="52" height="40" class="h-8 w-auto md:h-10" />
+            Levi Co.
+            <span class="ml-1 font-mono text-[10px] font-medium uppercase tracking-[0.24em] text-white/50">Ideas to impact</span>
           </p>
           <h2
-            id="aceu-studio-title"
+            id="levi-studio-title"
             class="mt-7 max-w-2xl font-sans font-semibold leading-[1.04] tracking-[-0.045em] text-white"
             style="font-size: clamp(2rem, 4.4vw, 3.5rem);"
           >
-            Building useful AI systems with founders in the room.
+            Websites, apps, and business software, built by three founders.
           </h2>
           <p class="mt-6 max-w-xl text-base leading-relaxed text-white/65">
-            I co-founded ACEU AI Solutions with Aaron Panergayo. We design and ship automation, AI products, and production-ready systems for small teams.
+            I co-founded Levi Co. with Philip James Lizardo and Aaron Christian Panergayo. We're an independent team in the Philippines building websites, apps, business software, games, and automations.
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
             <a
-              href="https://aceu-ai-solutions-portfolio.netlify.app"
+              href="https://levi-co-official.comtus-ai.xyz"
               target="_blank"
               rel="noopener noreferrer"
               data-cursor="hover"
               data-cursor-label="Visit studio"
               data-magnetic
-              class="inline-flex min-h-12 items-center gap-2 rounded-[2px] bg-[#1f6bff] px-5 py-3 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-[#3d7fff]"
+              class="inline-flex min-h-12 items-center gap-2 rounded-[2px] bg-[#0b4db0] px-5 py-3 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-[#2160c4]"
             >
-              Visit ACEU <span aria-hidden="true">↗</span>
-            </a>
-            <a
-              href="/work/aceu-ai-solutions"
-              data-cursor="hover"
-              data-cursor-label="View case"
-              class="inline-flex min-h-12 items-center gap-2 rounded-[2px] border border-white/25 px-5 py-3 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-white/80 transition-colors hover:border-white/60 hover:text-white"
-            >
-              Case study <span aria-hidden="true">→</span>
+              Visit Levi Co. <span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>
 
         <div class="relative lg:col-span-5" data-reveal data-reveal-delay="120">
-          <svg viewBox="0 0 420 320" class="mx-auto w-full max-w-md text-[#1f6bff]" fill="none" aria-hidden="true">
-            <ellipse cx="210" cy="160" rx="165" ry="58" stroke="currentColor" stroke-width="1.5" opacity=".72" transform="rotate(-18 210 160)" />
-            <ellipse cx="210" cy="160" rx="165" ry="58" stroke="currentColor" stroke-width="1.5" opacity=".4" transform="rotate(38 210 160)" />
-            <ellipse cx="210" cy="160" rx="165" ry="58" stroke="currentColor" stroke-width="1.5" opacity=".2" transform="rotate(92 210 160)" />
-            <circle cx="210" cy="160" r="34" fill="currentColor" opacity=".95" />
-            <circle cx="352" cy="102" r="7" fill="white" opacity=".85" />
-            <circle cx="88" cy="236" r="5" fill="white" opacity=".55" />
-          </svg>
-          <dl class="mt-6 grid grid-cols-2 gap-4 border-t border-white/10 pt-5 font-mono text-[10px] uppercase tracking-[0.14em]">
+          <div class="relative mx-auto w-full max-w-[15rem] sm:max-w-sm" aria-hidden="true">
+            <div class="absolute inset-[12%] rounded-full bg-[#3468bd]/30 blur-3xl"></div>
+            <img src="/logos/levi-co.webp" alt="" width="720" height="557" loading="lazy" decoding="async" class="relative w-full" />
+          </div>
+          <dl class="mt-8 grid grid-cols-2 gap-4 border-t border-white/10 pt-5 font-mono text-[10px] uppercase tracking-[0.14em]">
             <div>
               <dt class="text-white/40">Founders</dt>
-              <dd class="mt-1.5 text-white/75">Panergayo · Malolos</dd>
+              <dd class="mt-1.5 text-white/75">Malolos · Lizardo · Panergayo</dd>
             </div>
             <div>
-              <dt class="text-white/40">Ships</dt>
-              <dd class="mt-1.5 text-white/75">Automation · AI products</dd>
+              <dt class="text-white/40">Builds</dt>
+              <dd class="mt-1.5 text-white/75">Websites · Apps · Automations</dd>
             </div>
           </dl>
         </div>
       </div>
     </div>
   </div>
-  <div class="dither-down" style="background: #05060a;" aria-hidden="true"></div>
+  <div class="dither-down" style="background: #061632;" aria-hidden="true"></div>
 </section>
 
 <!-- The practice -->
