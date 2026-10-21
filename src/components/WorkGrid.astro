@@ -10,6 +10,8 @@ type Entry = {
     summary: string;
     stack: string[];
     cover: string;
+    logo?: string;
+    highlight?: boolean;
     role: string;
   };
 };
@@ -41,6 +43,8 @@ const aspects: Array<'wide' | 'tall'> = ['wide', 'tall', 'tall', 'wide', 'wide',
           summary={e.data.summary}
           stack={e.data.stack}
           cover={e.data.cover}
+          logo={e.data.logo}
+          highlight={e.data.highlight}
           index={i}
           aspect={aspects[i % aspects.length]}
         />
@@ -59,6 +63,8 @@ const aspects: Array<'wide' | 'tall'> = ['wide', 'tall', 'tall', 'wide', 'wide',
         summary={e.data.summary}
         stack={e.data.stack}
         cover={e.data.cover}
+        logo={e.data.logo}
+        highlight={e.data.highlight}
         index={i}
       />
     ))}

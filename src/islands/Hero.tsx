@@ -1,251 +1,80 @@
-import { useEffect, useState } from 'react';
-import { animate, motion, useReducedMotion } from 'framer-motion';
-import { motionTokens } from '../lib/motionTokens';
+import { useEffect, useRef, useState } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
-type HeroProps = {
-  projectCount: number;
-  activeCount: number;
-  shippedCount: number;
-};
+type HeroProps = { projectCount: number };
 
-const CURRENT_DESK = [
-  { name: 'Project Nero', detail: 'Browser cyberpunk pixel MMORPG', label: 'Building' },
-  { name: 'ShirtKo', detail: 'Apparel storefront — web + mobile', label: 'Live' },
-  { name: 'Needs vs. Wants', detail: 'Android spending trainer', label: 'Shipping' },
-];
-
-// Last word carries the italic accent.
-const HEADLINE = ['I', 'design,', 'build,', 'and', 'ship.'];
-
-const now = new Date();
-const DESK_STAMP = `${String(now.getMonth() + 1).padStart(2, '0')} / ${now.getFullYear()}`;
-
-/* Server and client must render identical markup, so reduced motion is
-   expressed only through durations/delays (and the global CSS kill-switch),
-   never through conditional structure — that would break hydration. */
-
-function CountUp({ value, reduced, delay = 0.5 }: { value: number; reduced: boolean; delay?: number }) {
-  const [display, setDisplay] = useState(0);
-
+export default function Hero({ projectCount }: HeroProps) {
+  const section = useRef<HTMLElement>(null);
+  const [reduced, setReduced] = useState(true);
   useEffect(() => {
-    if (reduced) {
-      setDisplay(value);
-      return;
-    }
-    const controls = animate(0, value, {
-      duration: 1.3,
-      delay,
-      ease: motionTokens.easing.smooth,
-      onUpdate: (v) => setDisplay(Math.round(v)),
-    });
-    return () => controls.stop();
-  }, [value, reduced, delay]);
-
-  return <>{display}</>;
-}
-
-function HeadlineWord({
-  word,
-  index,
-  last,
-  reduced,
-}: {
-  word: string;
-  index: number;
-  last: boolean;
-  reduced: boolean;
-}) {
-  return (
-    <span className="-mb-[0.14em] inline-block overflow-hidden pb-[0.14em] align-bottom">
-      <motion.span
-        className="inline-block"
-        initial={{ y: '115%' }}
-        animate={{ y: 0 }}
-        transition={{
-          duration: reduced ? 0 : 0.8,
-          delay: reduced ? 0 : 0.12 + index * 0.08,
-          ease: motionTokens.easing.smooth,
-        }}
-      >
-        {last ? (
-          <em className="text-accent" style={{ letterSpacing: '-0.02em' }}>
-            {word}
-          </em>
-        ) : (
-          word
-        )}
-      </motion.span>
-      {!last ? '\u00a0' : ''}
-    </span>
-  );
-}
-
-export default function Hero({ projectCount, activeCount, shippedCount }: HeroProps) {
-  const reduced = useReducedMotion() ?? false;
-  const enter = (delay = 0) => ({
-    initial: { opacity: 0, y: motionTokens.distance.md },
-    animate: { opacity: 1, y: 0 },
-    transition: {
-      duration: reduced ? 0 : motionTokens.duration.slow,
-      delay: reduced ? 0 : delay,
-      ease: motionTokens.easing.smooth,
-    },
-  });
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const sync = () => setReduced(preference.matches);
+    sync();
+    preference.addEventListener('change', sync);
+    return () => preference.removeEventListener('change', sync);
+  }, []);
+  const { scrollYProgress } = useScroll({ target: section, offset: ['start start', 'end start'] });
+  const gameTransform = useTransform(scrollYProgress, [0, 1], [
+    'translateY(0px) rotate(-6deg)', 'translateY(-55px) rotate(-2deg)',
+  ]);
+  const webTransform = useTransform(scrollYProgress, [0, 1], [
+    'translateY(0px) rotate(7deg)', 'translateY(-100px) rotate(2deg)',
+  ]);
+  const appTransform = useTransform(scrollYProgress, [0, 1], [
+    'translateY(0px) rotate(4deg)', 'translateY(-25px) rotate(-3deg)',
+  ]);
 
   return (
-    <section className="relative">
-      <div className="container pt-8 md:pt-12">
-        {/* Ledger meta row */}
-        <motion.div
-          {...enter(0)}
-          className="meta-mono flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-b border-line pb-4"
-        >
-          <span>Emmanuel Uzziel A. Malolos — Portfolio</span>
-          <span className="hidden sm:inline">Bay · Laguna — 14.18°N, 121.28°E — GMT+8</span>
-        </motion.div>
-
-        <div className="grid gap-12 pb-16 pt-10 md:pt-14 lg:grid-cols-12 lg:gap-10 lg:pb-24">
-          {/* Headline column */}
-          <div className="flex flex-col justify-center lg:col-span-8">
-            <motion.p {...enter(0.05)} className="eyebrow">
-              Full-stack creator · ACEU AI Solutions co-founder
-            </motion.p>
-
-            <h1
-              className="mt-6 text-ink dark:text-cream"
-              style={{
-                fontSize: 'clamp(3rem, 9.5vw, 8.25rem)',
-                lineHeight: 0.98,
-                letterSpacing: '-0.03em',
-                maxWidth: '12ch',
-              }}
-              aria-label="I design, build, and ship."
-            >
-              <span aria-hidden="true">
-                {HEADLINE.map((word, i) => (
-                  <HeadlineWord
-                    key={word}
-                    word={word}
-                    index={i}
-                    last={i === HEADLINE.length - 1}
-                    reduced={reduced}
-                  />
-                ))}
-              </span>
-            </h1>
-
-            <motion.p {...enter(0.35)} className="mt-8 max-w-xl text-lg leading-relaxed text-stone md:text-xl">
-              I turn business problems, rough workflows, and game ideas into tested systems people can actually use.
-            </motion.p>
-
-            <motion.div {...enter(0.45)} className="mt-10 flex flex-wrap items-center gap-3">
-              <a href="/work" data-cursor="hover" data-magnetic className="button-primary">
-                Explore the work
-                <span aria-hidden="true">↗</span>
-              </a>
-              <a href="/contact" data-cursor="hover" data-magnetic className="button-secondary">
-                Start a conversation
-              </a>
-            </motion.div>
-
-            <motion.p {...enter(0.55)} className="mt-9 flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.14em] text-stone">
-              <span className="relative flex h-2 w-2" aria-hidden="true">
-                <span className="absolute inline-flex h-full w-full animate-ping bg-leaf opacity-60" />
-                <span className="relative inline-flex h-2 w-2 bg-leaf" />
-              </span>
-              Open to focused freelance and product collaborations
-            </motion.p>
-          </div>
-
-          {/* Portrait column */}
-          <motion.figure
-            initial={{ opacity: 0, y: motionTokens.distance.lg }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: reduced ? 0 : motionTokens.duration.slow,
-              delay: reduced ? 0 : 0.25,
-              ease: motionTokens.easing.smooth,
-            }}
-            className="relative mx-auto w-full max-w-sm self-center lg:col-span-4 lg:max-w-none"
-          >
-            <div className="relative">
-              {/* Offset gold frame */}
-              <div
-                className="absolute -bottom-3 -right-3 h-full w-full border border-gold/50"
-                aria-hidden="true"
-              ></div>
-              <div className="relative overflow-hidden border border-line-strong">
-                <img
-                  src="/photos/uzziel-formal.png"
-                  alt="Uzziel Malolos — formal portrait"
-                  width="640"
-                  height="800"
-                  loading="eager"
-                  decoding="async"
-                  fetchPriority="high"
-                  className="aspect-[4/5] w-full object-cover"
-                />
-                {/* Photo dissolves into the page — the dither signature. */}
-                <div className="dither-up dither-page absolute inset-x-0 bottom-0" aria-hidden="true"></div>
-              </div>
+    <section ref={section} className="hero-section relative" aria-labelledby="hero-heading">
+      <div className="container">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line py-5 text-xs text-stone">
+          <span>Emmanuel Uzziel A. Malolos</span>
+          <span>Independent creator · Bay, Laguna, PH</span>
+        </div>
+        <div className="hero-layout grid items-center gap-10 py-12 lg:grid-cols-2 lg:gap-4 lg:py-20">
+          <div className="relative z-10">
+            <div className="mb-7 flex items-center gap-3">
+              <img src="/photos/uzziel-formal.png" alt="Uzziel Malolos" width="48" height="48" className="h-12 w-12 rounded-full object-cover object-top" />
+              <p className="text-sm leading-snug text-stone">Full-stack creator.<br /><span className="text-ink dark:text-cream">A little bit of everything. All the way through.</span></p>
             </div>
-            <figcaption className="meta-mono mt-4 flex items-center justify-between gap-4">
-              <span>Uzziel Malolos</span>
-              <span>Bay, Laguna — PH</span>
-            </figcaption>
-          </motion.figure>
+            <h1 id="hero-heading" className="hero-heading" aria-label="I design, build, and ship.">
+              <span className="hero-line" aria-hidden="true"><span>I design,</span></span>
+              <span className="hero-line" aria-hidden="true"><span>build, and</span></span>
+              <span className="hero-line" aria-hidden="true"><em className="text-accent">ship.</em></span>
+            </h1>
+            <p className="mt-7 max-w-[37ch] text-lg leading-relaxed text-stone">
+              Useful apps. Worlds you can get lost in. Websites for real businesses.
+              Made with care, from the Philippines.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="#selected-work" data-cursor="hover" data-magnetic className="button-primary">Explore my work <span aria-hidden="true">↘</span></a>
+              <a href="/contact" data-cursor="hover" className="button-secondary">Let’s make something <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+          <div className="hero-stage" aria-label="A few things I’ve made">
+            <div className="hero-stage-orbit" aria-hidden="true"></div>
+            <span className="hero-stage-note" aria-hidden="true">From the working desk</span>
+            <motion.a href="/work/long-way-around" className="hero-artifact hero-artifact-game" style={{ transform: reduced ? 'none' : gameTransform }} data-cursor-label="Explore Long Way Around">
+              <div className="artifact-chrome"><span className="flex gap-1" aria-hidden="true"><i /><i /><i /></span><span>Long Way Around · A pixel RPG</span></div>
+              <img src="/work/project-screenshots/long-way-around/village.png" alt="Long Way Around: a pixel-art conversation in the village" width="1153" height="646" fetchPriority="high" className="aspect-video w-full object-cover" />
+              <div className="artifact-caption"><span>There’s a story around here.</span><span aria-hidden="true">↗</span></div>
+            </motion.a>
+            <motion.a href="/work/saklay" className="hero-artifact hero-artifact-web" style={{ transform: reduced ? 'none' : webTransform }} data-cursor-label="Explore Saklay">
+              <div className="artifact-chrome"><span className="flex gap-1" aria-hidden="true"><i /><i /><i /></span><span>saklay · Community website</span></div>
+              <img src="/work/project-screenshots/saklay-home-live.png" alt="Saklay community website with its warm editorial design" width="1440" height="900" loading="eager" className="aspect-[16/10] w-full object-cover object-top" />
+            </motion.a>
+            <motion.a href="/work/eco-man" className="hero-artifact hero-artifact-app" style={{ transform: reduced ? 'none' : appTransform }} data-cursor-label="Explore Eco-Man">
+              <img src="/work/eco-man/today.webp" alt="Eco-Man, an Android record book, showing this month’s sales, expenses, and a Scan a receipt button" width="540" height="1128" className="block w-full" />
+              <img src="/logos/eco-man.webp" alt="" width="52" height="52" className="hero-app-badge app-logo" />
+            </motion.a>
+            <span className="hero-stage-caption">Games, websites & things that work.</span>
+          </div>
+        </div>
+        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-line py-6 text-sm text-stone">
+          <p className="flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-leaf" aria-hidden="true" /> Open to freelance & product collaborations</p>
+          <a href="/work" className="link-line" data-cursor="hover">{projectCount} projects, and counting <span aria-hidden="true">↗</span></a>
         </div>
       </div>
-
-      {/* Desk band — the working ledger, full bleed on ink */}
-      <motion.div {...enter(0.3)} aria-label="Current work and portfolio statistics">
-        <div className="dither-up dither-ink" aria-hidden="true"></div>
-        <div className="section-ink relative overflow-hidden">
-          <div className="ledger-grid pointer-events-none absolute inset-0 opacity-70" aria-hidden="true"></div>
-          <div className="container relative py-10 md:py-12">
-            <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-line pb-4">
-              <p className="meta-mono text-gold">On the desk — {DESK_STAMP}</p>
-              <p className="meta-mono hidden md:block">Work in motion</p>
-            </div>
-
-            <ol className="grid divide-y divide-[rgba(244,236,216,0.14)] md:grid-cols-3 md:divide-x md:divide-y-0">
-              {CURRENT_DESK.map((item, index) => (
-                <li
-                  key={item.name}
-                  className="group flex items-start gap-4 py-6 transition-colors duration-200 hover:bg-cream/[0.03] md:px-6 md:first:pl-0 md:last:pr-0"
-                >
-                  <span className="font-mono text-[11px] leading-6 text-cream/50 transition-colors group-hover:text-gold">
-                    0{index + 1}
-                  </span>
-                  <div className="min-w-0">
-                    <p className="font-display text-xl text-cream">{item.name}</p>
-                    <p className="mt-1 text-sm leading-snug text-cream/60">{item.detail}</p>
-                    <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-gold">{item.label}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-
-            <dl className="grid grid-cols-3 gap-4 border-t border-line pt-6">
-              {[
-                { label: 'Projects', value: projectCount, delay: 0.45 },
-                { label: 'Active', value: activeCount, delay: 0.55 },
-                { label: 'Shipped', value: shippedCount, delay: 0.65 },
-              ].map((stat) => (
-                <div key={stat.label} className="flex items-baseline gap-3">
-                  <dt className="order-2 font-mono text-[9px] uppercase tracking-[0.16em] text-cream/55">
-                    {stat.label}
-                  </dt>
-                  <dd className="order-1 font-display text-3xl text-gold md:text-4xl">
-                    <CountUp value={stat.value} reduced={reduced} delay={stat.delay} />
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </div>
-        <div className="dither-down dither-ink" aria-hidden="true"></div>
-      </motion.div>
     </section>
   );
 }

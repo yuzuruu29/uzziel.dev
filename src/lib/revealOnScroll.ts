@@ -16,11 +16,15 @@ export function initRevealOnScroll(root: ParentNode = document) {
     return;
   }
 
+  // Only hide content once an observer is available; failed scripts leave it readable.
+  fresh.forEach((el) => el.classList.add('reveal-ready'));
+
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const el = entry.target as HTMLElement;
+          const el = entry.target;
+          if (!(el instanceof HTMLElement)) return;
           const delay = Number(el.dataset.revealDelay ?? '0');
           if (delay > 0) el.style.transitionDelay = `${delay}ms`;
           el.classList.add('in');
@@ -32,4 +36,5 @@ export function initRevealOnScroll(root: ParentNode = document) {
   );
 
   fresh.forEach((el) => io.observe(el));
+  document.addEventListener('astro:before-swap', () => io.disconnect(), { once: true });
 }

@@ -1,0 +1,78 @@
+---
+// Home page highlight: Eco-Man in its own app palette (record-book green, receipt orange).
+const steps = [
+  { n: '01', title: 'Read', text: 'Scan a receipt or bank statement. Eco-Man turns it into a draft, not a saved record.' },
+  { n: '02', title: 'Review', text: 'The owner checks dates, amounts, and categories. Nothing counts until someone saves it.' },
+  { n: '03', title: 'Keep', text: 'Originals stay private, backups restore, and sharing is its own explicit choice.' },
+];
+const facts = [
+  { label: 'Platform', value: 'Android' },
+  { label: 'Languages', value: 'English · Filipino' },
+  { label: 'Built with', value: 'Kotlin · Compose · FastAPI' },
+];
+---
+
+<section id="highlight" class="eco-spotlight relative" aria-labelledby="eco-spotlight-title">
+  <div class="dither-up bg-[#173f2d]" aria-hidden="true"></div>
+  <div class="eco-band relative overflow-hidden">
+    <div class="eco-margin" aria-hidden="true"></div>
+
+    <div class="container relative py-16 md:py-24">
+      <div class="flex flex-wrap items-baseline justify-between gap-3 border-b border-[#fdfaf2]/15 pb-4" data-reveal>
+        <p class="font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-[#eaa977]">01 · Highlight</p>
+        <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-[#fdfaf2]/50">Android app · In testing</p>
+      </div>
+
+      <div class="grid gap-14 pt-12 lg:grid-cols-12 lg:items-center lg:gap-10">
+        <div class="lg:col-span-6" data-reveal>
+          <div class="flex items-center gap-4">
+            <img src="/logos/eco-man.webp" alt="Eco-Man logo" width="64" height="64" class="app-logo h-16 w-16" />
+            <div>
+              <p class="font-display text-3xl leading-none">Eco-Man</p>
+              <p class="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-[#fdfaf2]/55">Business record book</p>
+            </div>
+          </div>
+
+          <h2 id="eco-spotlight-title" class="mt-9 max-w-xl text-[#fdfaf2]" style="font-size: clamp(2.2rem, 4.6vw, 3.6rem);">
+            Scan the receipt. Check it. <em class="text-[#eaa977]">Then it counts.</em>
+          </h2>
+          <p class="mt-6 max-w-lg text-base leading-relaxed text-[#fdfaf2]/70 md:text-lg">
+            Small businesses keep their books in receipts, bank statements, and memory. Eco-Man gives them one calm record book that reads the paperwork and waits for the owner to confirm.
+          </p>
+
+          <ol class="mt-10 border-t border-[#fdfaf2]/15">
+            {steps.map((step) => (
+              <li class="grid grid-cols-[2.25rem_1fr] items-baseline gap-x-4 gap-y-1 border-b border-[#fdfaf2]/15 py-4 sm:grid-cols-[2.5rem_5.5rem_1fr]">
+                <span class="font-mono text-[11px] text-[#eaa977]" aria-hidden="true">{step.n}</span>
+                <span class="font-display text-xl">{step.title}</span>
+                <span class="col-start-2 text-sm leading-relaxed text-[#fdfaf2]/70 sm:col-start-auto">{step.text}</span>
+              </li>
+            ))}
+          </ol>
+
+          <a href="/work/eco-man" data-cursor="hover" data-cursor-label="View case" data-magnetic class="button-primary mt-10">
+            Read the case study <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div class="lg:col-span-6" data-reveal data-reveal-delay="120">
+          <div class="eco-stage">
+            <img class="eco-phone eco-phone-left" src="/work/eco-man/books.webp" alt="Eco-Man Books screen listing dated expenses with amounts and a Needs Info flag" width="540" height="1128" loading="lazy" decoding="async" />
+            <img class="eco-phone eco-phone-right" src="/work/eco-man/sheets.webp" alt="Eco-Man Sheets screen showing transactions in rows with a missing payment date warning" width="540" height="1128" loading="lazy" decoding="async" />
+            <img class="eco-phone eco-phone-front" src="/work/eco-man/today.webp" alt="Eco-Man Today screen with recorded sales, expenses, and a Scan a receipt button" width="540" height="1128" loading="lazy" decoding="async" />
+            <img class="eco-mascot" src="/work/eco-man/mascot.webp" alt="" width="634" height="640" loading="lazy" decoding="async" />
+          </div>
+          <dl class="mx-auto mt-8 grid max-w-[560px] grid-cols-3 gap-4 border-t border-[#fdfaf2]/15 pt-5 font-mono text-[10px] uppercase tracking-[0.14em]">
+            {facts.map((fact) => (
+              <div>
+                <dt class="text-[#fdfaf2]/45">{fact.label}</dt>
+                <dd class="mt-1.5 leading-relaxed text-[#fdfaf2]/85">{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dither-down bg-[#173f2d]" aria-hidden="true"></div>
+</section>

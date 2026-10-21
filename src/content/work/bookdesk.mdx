@@ -1,0 +1,29 @@
+---
+title: "Bookdesk"
+role: "Product designer · Full-stack developer"
+year: 2026
+stack: ["Tauri", "Rust", "React", "TypeScript", "SQLite", "FastAPI"]
+summary: "A local-first bookkeeping desktop app with transaction ingestion, categorization, duplicate review, approval checks, and a durable audit trail."
+cover: "/covers/bookdesk.svg"
+status: "in-progress"
+order: -26
+featured: false
+---
+
+Bookdesk is a desktop bookkeeping workspace designed for a small accounting practice. Its central job is to move imported transactions toward a reviewable decision: what belongs together, what needs another look, and what is ready for approval.
+
+I built the application with a Tauri and Rust shell, React and TypeScript interface, and local SQLite database. The desktop keeps deterministic bookkeeping workflows available locally. A separate FastAPI boundary provides contracts for hosted services without making the local review queue depend on an always-available provider.
+
+## A queue with consequences
+
+Transaction ingestion feeds categorization, directive matching, duplicate detection, and transfer review. Rules can suggest a path, but people retain the approval step. Pre-approval checks are calculated from the current evidence, so an old screen cannot silently authorize a changed transaction.
+
+Amounts use integer cents. Posted records are protected from ordinary editing, and important transitions leave an audit trail. Client scope follows transactions and integration operations throughout the workflow. Those decisions shape the interface as much as the storage layer: a reviewer needs to know which client they are working on and why an action is blocked.
+
+## Evidence before automation
+
+The broader workspace includes reconciliation, document questions, close collaboration, and reporting surfaces. Reports are generated from their own source records and saved as approved artifacts. Backup and restore tools verify manifests and checksums before a recovery is accepted.
+
+AI and accounting-provider connections sit behind explicit boundaries. Replay adapters make their behavior testable without claiming a live connection. Hosted features remain disabled until the required provider and deployment decisions are made. A generated suggestion is advisory; publication still needs current authorization and evidence.
+
+Bookdesk has working desktop builds and local verification across the transaction engine, migrations, backend contracts, and release tools. It remains a pilot-stage product. Signed distribution, live provider qualification, and real-client acceptance are separate steps toward putting it into daily use.

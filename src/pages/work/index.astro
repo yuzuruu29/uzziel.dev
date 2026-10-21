@@ -22,36 +22,38 @@ const buildingNow = projectEntries
 
 const stats = [
   { label: 'Projects', value: projectEntries.length },
-  { label: 'Active', value: activeCount },
-  { label: 'Shipped', value: shippedCount },
+  { label: 'In progress', value: activeCount },
+  { label: 'Live + complete', value: shippedCount },
 ];
+const filterProjects = projectEntries.map(({ data }) => ({ stack: data.stack, status: data.status }));
 ---
 
 <BaseLayout
   title="Work — Uzziel Malolos"
-  description="Indie games, AI products, web work, and automation from a Filipino full-stack creator."
+  description="Apps, indie games, websites, and AI systems designed and built by Uzziel Malolos, a Filipino full-stack creator."
 >
-  <section class="container pb-12 pt-12 md:pt-16">
+  <section class="container pb-10 pt-12 md:pb-12 md:pt-20">
     <div class="ledger-head" data-reveal>
-      <p class="eyebrow">The catalog · All projects</p>
-      <p class="meta-mono hidden sm:block">Verified against local files</p>
+      <p class="eyebrow">The collection · All work</p>
+      <p class="meta-mono hidden sm:block">Apps · Games · Websites · Systems</p>
     </div>
 
-    <div class="grid gap-10 pt-10 lg:grid-cols-[1fr_300px] lg:items-end lg:gap-16">
+    <div class="grid gap-10 pt-10 md:pt-14 lg:grid-cols-[1fr_240px] lg:items-end lg:gap-20">
       <div data-reveal>
-        <h1 class="max-w-3xl" style="font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1;">
-          Projects with files, decisions, and <em class="text-accent">working evidence.</em>
+        <h1 class="max-w-4xl text-[clamp(3.25rem,7vw,6rem)] leading-[0.95] tracking-[-0.03em]">
+          Useful things.<br />
+          <em class="text-accent">Playful worlds.</em>
         </h1>
-        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-stone">
-          Games, agent systems, mobile tools, websites, and automation. The catalog reflects what is present locally now, with concept samples kept separate below.
+        <p class="mt-7 max-w-xl text-lg leading-relaxed text-stone md:text-xl">
+          Apps for everyday problems, games to get lost in, and websites and systems that help people get things done. Here’s what I’ve been building.
         </p>
       </div>
 
-      <dl class="grid grid-cols-3 divide-x divide-[color:var(--border)] border-y border-line py-5 lg:grid-cols-1 lg:divide-x-0 lg:divide-y lg:border-y-0 lg:border-l lg:py-0 lg:pl-10" data-reveal data-reveal-delay="100">
+      <dl class="grid grid-cols-3 divide-x divide-[color:var(--border)] border-y border-line py-5 lg:grid-cols-1 lg:divide-x-0 lg:divide-y lg:border-y-0 lg:border-l lg:py-0 lg:pl-8" data-reveal data-reveal-delay="100">
         {stats.map((stat) => (
           <div class="px-3 first:pl-0 lg:px-0 lg:py-4 lg:first:pt-0 lg:last:pb-0">
-            <dd class="font-display text-3xl md:text-4xl">{stat.value}</dd>
-            <dt class="meta-mono mt-1">{stat.label}</dt>
+            <dd class="font-display text-4xl tracking-[-0.04em] md:text-5xl">{String(stat.value).padStart(2, '0')}</dd>
+            <dt class="meta-mono mt-1 leading-relaxed">{stat.label}</dt>
           </div>
         ))}
       </dl>
@@ -61,7 +63,7 @@ const stats = [
       <div class="mt-10 flex flex-wrap items-baseline gap-x-4 gap-y-2 border-t border-line pt-6" data-reveal data-reveal-delay="160">
         <span class="meta-mono flex items-center gap-2 text-accent">
           <span class="inline-block h-1.5 w-1.5 bg-gold" aria-hidden="true"></span>
-          Building now · {buildingNow.length}
+          On the workbench · {buildingNow.length}
         </span>
         <ul class="flex flex-wrap items-baseline gap-x-2 gap-y-1.5 text-sm" aria-label="In-progress projects">
           {buildingNow.map((entry, i) => (
@@ -82,8 +84,8 @@ const stats = [
       </div>
     )}
 
-    <div class="mt-8 border-t border-line pt-6">
-      <WorkFilter client:idle gridId="project-work-grid" />
+    <div class="mt-10 border-t border-line pt-6 md:mt-12">
+      <WorkFilter client:load gridId="project-work-grid" projects={filterProjects} />
     </div>
   </section>
 
@@ -98,16 +100,16 @@ const stats = [
       <div class="ledger-grid pointer-events-none absolute inset-0 opacity-60" aria-hidden="true"></div>
       <div class="container relative py-16 md:py-20">
         <div class="ledger-head" data-reveal>
-          <p class="eyebrow">Samples · {sampleEntries.length}</p>
-          <p class="meta-mono hidden sm:block">Concept work, labeled as such</p>
+          <p class="eyebrow">The sketchbook · {sampleEntries.length} samples</p>
+          <p class="meta-mono hidden sm:block">Room to try things</p>
         </div>
 
         <div class="grid gap-6 pb-12 pt-10 md:grid-cols-[1fr_320px] md:items-end">
           <h2 class="max-w-2xl text-cream" data-reveal>
-            Landing pages and PDF samples built for quick review.
+            A few ideas<br />taken for a spin.
           </h2>
           <p class="text-sm leading-relaxed text-cream/65 md:justify-self-end" data-reveal data-reveal-delay="100">
-            Fictional briefs and AI-assisted portfolio PDFs, kept separate so concept work never reads like a client claim.
+            Landing pages for fictional businesses and AI-assisted design samples. Self-directed concepts, made to explore a brief.
           </p>
         </div>
 

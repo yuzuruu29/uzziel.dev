@@ -1,0 +1,40 @@
+---
+title: "Eco-Man"
+role: "Product designer · Android and backend developer"
+year: 2026
+stack: ["Kotlin", "Jetpack Compose", "Room", "FastAPI", "PostgreSQL"]
+summary: "An Android business record book for reviewed receipts, sales, expenses, and statements — with private originals, portable backups, and explicit sharing."
+cover: "/covers/eco-man.webp"
+logo: "/logos/eco-man.webp"
+status: "in-progress"
+order: -40
+featured: true
+highlight: true
+---
+
+Eco-Man starts with a familiar small-business problem: the records exist, but they are scattered across receipts, statements, and somebody's memory. The Android app gives those records a home. Owners can review document details, save sales and expenses, and read their books through a calm, legible interface.
+
+I work across the native Kotlin and Jetpack Compose application, its Room database, and the FastAPI backend. The design uses the character of a desk calculator and a ruled record book. Large amounts, readable labels, and direct actions matter more than filling a dashboard with charts.
+
+<figure class="case-figure case-phones">
+  <div>
+    <img src="/work/eco-man/today.webp" alt="Today screen: the month's recorded sales and expenses on a calculator-style panel, with Scan a receipt and Add expense buttons" width="540" height="1128" loading="lazy" />
+    <img src="/work/eco-man/books.webp" alt="Books screen: dated expenses with vendors, categories, amounts, and a Needs Info flag" width="540" height="1128" loading="lazy" />
+    <img src="/work/eco-man/sheets.webp" alt="Sheets screen: transactions in rows, with a warning about records missing a payment date" width="540" height="1128" loading="lazy" />
+  </div>
+  <figcaption>Today, Books, and Sheets in the light theme, filled with sample records from testing.</figcaption>
+</figure>
+
+## Read, review, then save
+
+Receipt and bank-statement capture lead into different review flows. Extracted text is a draft. The owner checks dates, amounts, classifications, and selected rows before saving. Repayments and transfers need their own meaning so they do not quietly become another purchase or sale.
+
+Original documents stay private by default. The app keeps the source available beside the saved record and supports portable backup and restore. Missing details stay unknown until someone supplies them; a blank payment date should never become an invented transaction date.
+
+## Sharing is a decision
+
+Account-owned local Books and optional Cloud Books serve different working needs. Team access follows business membership and explicit consent. A shared financial record does not automatically give someone its original document. Read-only document sharing and original transfer require their own choices.
+
+The assistant can discuss saved information and explain available summaries. People remain responsible for their records and review. Eco-Man does not file government forms or certify compliance.
+
+Android is the current priority, with English and Filipino interfaces, enlarged-text layouts, and recoverable error states. Working tester builds and backend deployments support continued development; store, physical-device, and business-pilot acceptance remain separate milestones. The aim is a dependable record book that a busy owner can return to tomorrow.

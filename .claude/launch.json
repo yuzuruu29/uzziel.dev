@@ -25,6 +25,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--", "--port", "4321", "--host"],
       "port": 4321
+    },
+    {
+      "name": "portfolio-preview",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "preview", "--", "--port", "4331", "--host", "127.0.0.1"],
+      "port": 4331
     }
   ]
 }

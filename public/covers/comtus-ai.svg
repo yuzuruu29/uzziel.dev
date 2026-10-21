@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Comtus AI project cover</title>
+  <desc id="desc">A paper-and-ink Comtus AI wordmark with three overlapping geometric source sheets and brass rules.</desc>
+  <rect width="1600" height="1000" fill="#e8dfca"/>
+  <path d="M80 110H1520M80 884H1520" stroke="#a38a52" stroke-width="2"/>
+  <g transform="translate(1100 252) rotate(9)">
+    <rect width="290" height="410" fill="#ccd4bf" stroke="#8a927e" stroke-width="2"/>
+  </g>
+  <g transform="translate(1055 284) rotate(-6)">
+    <rect width="290" height="410" fill="#f6f0e2" stroke="#b7a98a" stroke-width="2"/>
+    <path d="M40 95H250M40 125H250M40 155H214M40 225H250M40 255H230M40 285H250" stroke="#c7bda5" stroke-width="3"/>
+  </g>
+  <path d="M1285 250h35v126l-17-12-18 12Z" fill="#9c7b36"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="84" y="76" fill="#756b55" font-size="24" letter-spacing="4">SOURCE-BASED STUDY WORKSPACE</text>
+    <text x="1516" y="76" fill="#756b55" font-size="24" text-anchor="end" letter-spacing="3">WEB APP</text>
+  </g>
+  <text x="78" y="408" fill="#2f332b" font-family="Georgia, 'Times New Roman', serif" font-size="190" letter-spacing="-9">Comtus</text>
+  <text x="84" y="580" fill="#9c7b36" font-family="Georgia, 'Times New Roman', serif" font-size="160" font-style="italic">AI.</text>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="88" y="750" fill="#494d40" font-size="33">Gather material. Connect ideas. Recall.</text>
+    <text x="88" y="943" fill="#756b55" font-size="24" letter-spacing="2">SOURCES / NOTES / PRACTICE</text>
+    <text x="1516" y="943" fill="#756b55" font-size="24" text-anchor="end" letter-spacing="2">2026</text>
+  </g>
+</svg>

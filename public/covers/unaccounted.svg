@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Unaccounted project cover</title>
+  <desc id="desc">Ivory Unaccounted lettering over charcoal, with a ledger grid interrupted by one missing coral square.</desc>
+  <rect width="1600" height="1000" fill="#252a27"/>
+  <path d="M80 110H1520M80 884H1520" stroke="#60695d" stroke-width="2"/>
+  <g stroke="#60695d" stroke-width="2" fill="none">
+    <path d="M88 625H1512M88 701H1512M88 777H1512M88 853H1512"/>
+    <path d="M242 625V853M474 625V853M706 625V853M938 625V853M1170 625V853M1402 625V853"/>
+  </g>
+  <path d="M1170 701H1402V777H1170Z" fill="#d88c70"/>
+  <path d="M1210 736H1362" stroke="#252a27" stroke-width="4"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="84" y="76" fill="#b4bdad" font-size="24" letter-spacing="4">SOCIAL DEDUCTION / SHARED PONDO</text>
+    <text x="1516" y="76" fill="#b4bdad" font-size="24" text-anchor="end" letter-spacing="3">ROBLOX</text>
+    <text x="78" y="369" fill="#f1ead9" font-size="139" font-weight="700" letter-spacing="-6">UNACCOUNTED</text>
+    <text x="88" y="477" fill="#d88c70" font-size="36">Build the project. Follow the money.</text>
+    <text x="88" y="943" fill="#b4bdad" font-size="24" letter-spacing="2">WORK / INVESTIGATE / VOTE</text>
+    <text x="1516" y="943" fill="#b4bdad" font-size="24" text-anchor="end" letter-spacing="2">2026</text>
+  </g>
+</svg>

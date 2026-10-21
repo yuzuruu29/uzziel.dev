@@ -123,7 +123,10 @@ const inputClass =
               {socials.map((s) =>
                 s.url ? (
                   <li>
-                    <a href={s.url} data-cursor="hover" target="_blank" rel="noopener noreferrer" class="group text-stone transition-colors hover:text-accent">
+                    <a href={s.url} data-cursor="hover" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2.5 text-stone transition-colors hover:text-accent">
+                      {s.icon && (
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d={s.icon} /></svg>
+                      )}
                       <span class="link-line">{s.platform}</span> <span aria-hidden="true" class="inline-block transition-transform duration-200 group-hover:translate-x-0.5">↗</span>
                     </a>
                   </li>

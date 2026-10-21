@@ -2,22 +2,29 @@
 title: "Needs vs. Wants"
 role: "Product designer · Android developer"
 year: 2026
-stack: ["Kotlin", "Jetpack Compose", "Supabase", "PayPal", "Remotion"]
-summary: "A spending trainer, not a ledger: every purchase forces one binary choice. Shipped to 2.0.15 with Pro and Max tiers, PHP-priced billing, and a cited AI advisor."
+stack: ["Kotlin", "Jetpack Compose", "Room", "Supabase"]
+summary: "An Android spending trainer built around one deliberate choice: save a purchase as a Need or a Want, then see its place in your daily budget."
 cover: "/covers/needs-vs-wants.svg"
+logo: "/logos/needs-vs-wants.webp"
 status: "live"
 order: -9
 featured: true
 ---
 
-Most budgeting apps are ledgers — you find out you overspent at month-end, when the money is already gone. Needs vs. Wants makes you confront the impulse at the register: every entry forces one binary choice, Need or Want, before the purchase gets logged. Need is green like produce, Want is red like a stop light. The palette borrows from the supermarkets Filipinos actually shop in — Puregold crimson, Robinsons green, warm receipt-paper white.
+Needs vs. Wants asks for one deliberate choice before a purchase becomes a record: is it a Need or a Want? That small pause is the product. The daily budget and history help a person see what their choices add up to, without turning every entry into an accounting exercise.
 
-The Android app is Kotlin and Jetpack Compose, offline-first by design. The diary lives on the phone in Room and never touches project servers. Entries fill a 5-column ledger sheet — date, time, item, cost, type — capped at 20 rows per sheet like a real notepad, with a 30-day history grouped by day. Cost is stored as `Long` cents so currency changes never corrupt the math. An optional daily budget adds a meter to the log screen and a dry "Log anyway?" confirmation when you're about to blow past it.
+I designed and built the native Android app in Kotlin and Jetpack Compose. Green Need, crimson Want, warm paper, and readable ruled rows give it a familiar register-and-notepad character. Motion follows those materials through page changes, stamp feedback, and small control transitions, with a reduced-motion path throughout.
 
-## From side project to shipping product
+## The diary stays on the phone
 
-The app has moved through fifteen releases to 2.0.15, and grew a real business model on the way: a free tier with a daily log quota, Pro at PHP 49 a month for unlimited sheets and lifetime history, and Max at PHP 99 which unlocks an AI Financial Advisor grounded in NotebookLM economics study notebooks — a RAG engine that cites its sources in footnotes and runs from an offline asset index. Billing goes through PayPal or PayMongo with signed custom IDs, webhook-granted entitlements, and a sign-out that actually revokes Pro on the device. The test suite sits at 343 green.
+Room stores purchases locally, with amounts represented as integer cents. A person can start another page without losing the previous one, review history by day, edit a record, and select multiple purchases for an explicit removal. Budget summaries explain the period they describe instead of making a rolling total look like today's spending.
 
-The soft-launch site serves the APK directly with honest copy, live pricing, install and backup how-tos, and a homepage teaser cut from a 10-video Remotion ad campaign — including scenario ads like "Sweldo Day" and "Petsa de Peligro" that stage the app inside real Filipino payday math.
+Backup and restore use Android's file picker, so the user chooses where their copy lives. Recovery, enlarged text, keyboard access, and clear selected states are everyday requirements for a diary somebody may keep for months.
 
-Sentry crash reporting is opt-out, backups go through Android's file picker to a folder the user owns, and the update check tells you when the site has a newer APK. The point of the whole system is a user who, thirty days in, can see exactly which category is eating their sweldo.
+## Guidance beside the decision
+
+An optional online Advisor can help work through a typed question and relevant budget context. The purchase diary remains local. Membership screens explain the available access and restore state without treating a failed refresh as a reason to sell the same access again.
+
+The [public website](https://needs-vs-wants.vercel.app) shows real app screens, explains installation and backup, and offers a browser practice flow. App previews, direct downloads, and prepared store bundles have different release steps, so the site identifies what is actually available.
+
+The aim stays specific: make spending visible while the choice is still fresh, then give the person a record they can understand and revisit.

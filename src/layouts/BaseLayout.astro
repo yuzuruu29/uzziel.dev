@@ -39,6 +39,9 @@ const ogImage = new URL(image, Astro.site ?? 'https://uzziel.dev').toString();
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#1a1410" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="canonical" href={canonical.toString()} />
 
     <meta property="og:type" content="website" />
@@ -116,15 +119,21 @@ const ogImage = new URL(image, Astro.site ?? 'https://uzziel.dev').toString();
       import { initRevealOnScroll } from '../lib/revealOnScroll.ts';
       import { initMagnetic } from '../lib/magnetic.ts';
 
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (!reduced) {
-        const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
-        const raf = (time: number) => {
-          lenis.raf(time);
-          requestAnimationFrame(raf);
-        };
-        requestAnimationFrame(raf);
-      }
+      const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let lenis: Lenis | undefined;
+      const syncMotion = () => {
+        lenis?.destroy();
+        lenis = undefined;
+        if (!motionPreference.matches) {
+          lenis = new Lenis({ duration: 1.05, smoothWheel: true, autoRaf: true, anchors: true });
+        }
+      };
+      syncMotion();
+      motionPreference.addEventListener('change', syncMotion);
+      document.addEventListener('astro:before-swap', () => {
+        lenis?.destroy();
+        lenis = undefined;
+      });
 
       // Header chrome: translucent + shadow once the page scrolls.
       const syncNav = () => {
@@ -136,8 +145,8 @@ const ogImage = new URL(image, Astro.site ?? 'https://uzziel.dev').toString();
       // Gold spotlight follows the pointer across work cards (CSS reads --mx/--my).
       document.addEventListener('pointermove', (e) => {
         const target = e.target;
-        if (!(target instanceof Element)) return;
-        const card = target.closest<HTMLElement>('[data-work-card] article');
+        if (!(target instanceof Element) || motionPreference.matches || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+        const card = target.closest<HTMLElement>('[data-work-card] .work-cover');
         if (!card) return;
         const r = card.getBoundingClientRect();
         card.style.setProperty('--mx', `${e.clientX - r.left}px`);
@@ -146,6 +155,8 @@ const ogImage = new URL(image, Astro.site ?? 'https://uzziel.dev').toString();
 
       // Fire on initial load and re-run after every Astro view transition.
       const initPage = () => {
+        if (!lenis) syncMotion();
+        else lenis.resize();
         initRevealOnScroll();
         initMagnetic();
         syncNav();

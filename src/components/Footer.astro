@@ -8,7 +8,7 @@ const links = [
   { href: '/services', label: 'Services' },
   { href: '/contact', label: 'Contact' },
 ];
-const footerSocials = socials.filter((social) => ['GitHub', 'LinkedIn', 'itch.io'].includes(social.platform));
+const footerSocials = socials.filter((social) => social.url);
 const year = new Date().getFullYear();
 ---
 
@@ -55,13 +55,13 @@ const year = new Date().getFullYear();
           <ul class="mt-4 space-y-2.5">
             {footerSocials.map((social) => (
               <li>
-                {social.url ? (
-                  <a href={social.url} data-cursor="hover" target="_blank" rel="noopener noreferrer" class="group text-sm text-cream/75 transition-colors hover:text-gold">
-                    <span class="link-line">{social.platform}</span> <span aria-hidden="true" class="inline-block transition-transform duration-200 group-hover:translate-x-0.5">↗</span>
-                  </a>
-                ) : (
-                  <span class="text-sm text-cream/55">{social.label}</span>
-                )}
+                <a href={social.url} data-cursor="hover" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2.5 text-sm text-cream/75 transition-colors hover:text-gold">
+                  {social.icon && (
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d={social.icon} /></svg>
+                  )}
+                  <span class="link-line">{social.platform}</span>
+                  <span aria-hidden="true" class="inline-block transition-transform duration-200 group-hover:translate-x-0.5">↗</span>
+                </a>
               </li>
             ))}
           </ul>

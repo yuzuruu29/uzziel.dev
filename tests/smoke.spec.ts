@@ -5,6 +5,7 @@ const ROUTES: Array<{ path: string; slug: string; titleContains: string }> = [
   { path: '/cv/',                slug: 'cv',       titleContains: 'CV' },
   { path: '/work/',              slug: 'work',     titleContains: 'Work' },
   { path: '/work/tirador/',      slug: 'tirador',  titleContains: 'TIRADOR' },
+  { path: '/work/eco-man/',      slug: 'eco-man',  titleContains: 'Eco-Man' },
   { path: '/work/heart-and-soil/', slug: 'heart-and-soil', titleContains: 'Heart and Soil' },
   { path: '/about/',             slug: 'about',    titleContains: 'About' },
   { path: '/services/',          slug: 'services', titleContains: 'Services' },

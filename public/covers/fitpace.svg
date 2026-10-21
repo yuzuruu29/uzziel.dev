@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Fitness Pace project cover</title>
+  <desc id="desc">Oversized ivory Fitness Pace lettering and a geometric training track on deep forest green.</desc>
+  <rect width="1600" height="1000" fill="#103c32"/>
+  <g fill="none" stroke="#3e7864" stroke-width="2">
+    <path d="M80 110H1520M80 884H1520"/>
+    <path d="M1115 306h113a180 180 0 0 1 0 360h-113a120 120 0 0 1 0-240h113a60 60 0 0 1 0 120h-113"/>
+    <path d="M1115 366h113a120 120 0 0 1 0 240h-113a60 60 0 0 1 0-120h113"/>
+    <path d="M1115 246h113a240 240 0 0 1 0 480h-113"/>
+  </g>
+  <path d="M1115 306h113a180 180 0 0 1 180 180" fill="none" stroke="#a9d784" stroke-width="15"/>
+  <circle cx="1408" cy="486" r="13" fill="#a9d784"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <g fill="#b6cbbd" font-size="24" letter-spacing="4">
+      <text x="84" y="76">FITNESS COMPANION</text>
+      <text x="1516" y="76" text-anchor="end">APP + WEB</text>
+    </g>
+    <text x="76" y="386" fill="#f3f2df" font-size="192" font-weight="700" letter-spacing="-12">Fitness</text>
+    <text x="76" y="574" fill="#a9d784" font-size="192" font-weight="700" letter-spacing="-12">Pace.</text>
+    <text x="88" y="738" fill="#f3f2df" font-size="31">Make a plan. Put in the work. See the progress.</text>
+    <g fill="#b6cbbd" font-size="24" letter-spacing="2">
+      <text x="88" y="943">WORKOUTS / NUTRITION / PACE</text>
+      <text x="1516" y="943" text-anchor="end">2026</text>
+    </g>
+  </g>
+</svg>

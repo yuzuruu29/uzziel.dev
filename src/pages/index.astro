@@ -3,8 +3,8 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../islands/Hero.tsx';
 import AboutTeaser from '../components/AboutTeaser.astro';
+import EcoManSpotlight from '../components/EcoManSpotlight.astro';
 import WorkGrid from '../components/WorkGrid.astro';
-import Marquee from '../components/Marquee.astro';
 import KonamiEgg from '../islands/KonamiEgg.tsx';
 
 const all = await getCollection('work');
@@ -16,40 +16,36 @@ const sampleSlugs = new Set([
   'ai-youtube-thumbnail-design-portfolio',
 ]);
 const projects = all.filter((entry) => !sampleSlugs.has(entry.slug));
-const featured = all
-  .filter((e) => e.data.featured)
+// Eco-Man has its own highlight band, so the grid shows the next six.
+const selectedSlugs = new Set(['fitpace', 'comtus-ai', 'shirtko', 'needs-vs-wants', 'project-nero', 'tirador']);
+const featured = projects
+  .filter((e) => selectedSlugs.has(e.slug))
   .sort((a, b) => a.data.order - b.data.order)
   .slice(0, 6);
-const activeCount = projects.filter((entry) => entry.data.status === 'in-progress').length;
-const shippedCount = projects.filter((entry) => ['live', 'completed'].includes(entry.data.status)).length;
 ---
 
 <BaseLayout
   title="Uzziel Malolos — Product builder and full-stack creator"
   description="Full-stack creator and ACEU AI Solutions co-founder from Bay, Laguna. I design, build, and ship."
 >
-  <Hero
-    client:load
-    projectCount={projects.length}
-    activeCount={activeCount}
-    shippedCount={shippedCount}
-  />
-  <Marquee />
+  <Hero client:load projectCount={projects.length} />
 
-  <!-- 01 · Selected work -->
-  <section class="container py-20 md:py-28">
-    <div class="ledger-head" data-reveal>
-      <p class="eyebrow">01 · Selected work</p>
-      <p class="meta-mono hidden sm:block">Six of {projects.length} projects</p>
+  <EcoManSpotlight />
+
+  <!-- 02 · Selected work -->
+  <section id="selected-work" class="container scroll-mt-24 py-20 md:py-28" aria-labelledby="selected-work-title">
+    <div class="flex items-baseline justify-between gap-4 border-b border-line pb-5" data-reveal>
+      <h2 id="selected-work-title">A few things <em class="text-accent">I’ve put into the world.</em></h2>
+      <p class="meta-mono hidden shrink-0 sm:block">02 · Selected work</p>
     </div>
 
     <div class="grid gap-6 pt-10 pb-12 md:grid-cols-[1fr_340px] md:items-end md:pb-14">
-      <h2 class="max-w-2xl" data-reveal>
-        Built, not just drafted. <em class="text-accent">Used, not just shipped.</em>
-      </h2>
+      <p class="max-w-xl text-lg leading-relaxed text-stone" data-reveal>
+        From everyday tools to after-hours worlds. Here’s what I’ve been making lately.
+      </p>
       <div class="md:justify-self-end" data-reveal data-reveal-delay="120">
         <p class="max-w-sm text-sm leading-relaxed text-stone">
-          A working set across agent systems, indie games, local-first tools, Philippine SME sites, and mobile products.
+          Apps, games, and websites. Open a project for the story, the decisions, and where it stands today.
         </p>
       </div>
     </div>

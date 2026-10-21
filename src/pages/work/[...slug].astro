@@ -78,8 +78,18 @@ const indexLabel = `${String(position).padStart(2, '0')} / ${String(total).padSt
       class="absolute inset-0 h-full w-full object-cover will-change-transform"
     />
     <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/40 to-ink/25" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-ink/60 via-ink/20 to-transparent" aria-hidden="true"></div>
 
     <div class="container relative pb-16 pt-28 md:pb-20">
+      {data.logo && (
+        <img
+          src={data.logo}
+          alt={`${data.title} logo`}
+          width="80"
+          height="80"
+          class="app-logo mb-7 h-16 w-16 md:h-20 md:w-20"
+        />
+      )}
       <div class="mb-6 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[10px] uppercase tracking-[0.16em] text-cream/70">
         <a href="/work" data-cursor="hover" class="link-line text-cream/70 transition-colors hover:text-gold">← Work</a>
         <span aria-hidden="true" class="text-cream/40">/</span>

@@ -8,11 +8,13 @@ interface Props {
   summary: string;
   stack: string[];
   cover: string;
+  logo?: string;
+  highlight?: boolean;
   index?: number;
   aspect?: 'wide' | 'tall';
 }
 
-const { slug, title, role, year, status, summary, stack, cover, index = 0, aspect = 'wide' } = Astro.props;
+const { slug, title, role, year, status, summary, stack, cover, logo, highlight = false, index = 0, aspect = 'wide' } = Astro.props;
 
 const dotClasses: Record<Props['status'], string> = {
   live: 'bg-[#9ec87f]',
@@ -29,6 +31,8 @@ const statusLabel: Record<Props['status'], string> = {
 };
 
 const aspectClass = aspect === 'tall' ? 'aspect-[4/3]' : 'aspect-[16/10]';
+// SVG covers are left-aligned typography; anchoring left keeps the title whole when cropped.
+const coverPosition = cover.endsWith('.svg') ? 'object-left' : 'object-center';
 const visibleStack = stack.slice(0, 3);
 const remainingStack = Math.max(stack.length - visibleStack.length, 0);
 const stackLine = visibleStack.join(' · ') + (remainingStack > 0 ? ` +${remainingStack}` : '');
@@ -45,10 +49,9 @@ const stackLine = visibleStack.join(' · ') + (remainingStack > 0 ? ` +${remaini
   data-reveal
   data-reveal-delay={Math.min(index * 70, 420)}
   class="group block h-full focus-visible:outline-offset-4"
-  style="transition: opacity 280ms ease, transform 280ms cubic-bezier(0.22, 1, 0.36, 1);"
 >
-  <article class="flex h-full flex-col overflow-hidden border border-line bg-raised transition-[border-color,box-shadow,transform] duration-300 ease-out group-hover:-translate-y-1 group-hover:border-line-strong group-hover:shadow-[0_24px_60px_rgba(26,20,16,0.14)]">
-    <div class={`relative overflow-hidden border-b border-line ${aspectClass}`}>
+  <article class="flex h-full flex-col">
+    <div class={`work-cover relative overflow-hidden rounded-lg bg-surface ${aspectClass}`}>
       <img
         src={cover}
         alt={`${title} project cover`}
@@ -57,21 +60,40 @@ const stackLine = visibleStack.join(' · ') + (remainingStack > 0 ? ` +${remaini
         loading={index < 3 ? 'eager' : 'lazy'}
         decoding="async"
         transition:name={`cover-${slug}`}
-        class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+        class={`absolute inset-0 h-full w-full object-cover ${coverPosition} transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.035]`}
       />
-      <div class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-ink/45 to-transparent" aria-hidden="true"></div>
 
       <span class="absolute left-4 top-4 inline-flex items-center gap-1.5 bg-ink/75 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-cream backdrop-blur-sm">
         <span class={`h-1.5 w-1.5 ${dotClasses[status]}`} aria-hidden="true"></span>
         {statusLabel[status]}
       </span>
 
+      {highlight && (
+        <span class="absolute right-4 top-4 bg-gold px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-ink">
+          Highlight
+        </span>
+      )}
+
       <span class="absolute bottom-2 right-4 font-display text-3xl text-cream/90 mix-blend-difference" aria-hidden="true">
         {String(index + 1).padStart(2, '0')}
       </span>
     </div>
 
-    <div class="flex flex-1 flex-col p-5 md:p-6">
+    <div class="relative flex flex-1 flex-col border-b border-line py-5 md:py-6">
+      {/* Without a logo, a spacer matches its net height so titles line up across a row. */}
+      {logo ? (
+        <img
+          src={logo}
+          alt=""
+          width="56"
+          height="56"
+          loading="lazy"
+          decoding="async"
+          class="app-logo relative z-10 -mt-12 mb-4 h-14 w-14"
+        />
+      ) : (
+        <span class="block h-6" aria-hidden="true"></span>
+      )}
       <div class="meta-mono flex items-baseline justify-between gap-4">
         <span class="truncate">{role}</span>
         <span class="flex-none">{year}</span>
@@ -89,7 +111,7 @@ const stackLine = visibleStack.join(' · ') + (remainingStack > 0 ? ` +${remaini
         </p>
         <span
           aria-hidden="true"
-          class="inline-flex h-9 w-9 flex-none items-center justify-center border border-line-strong text-sm transition-all duration-200 group-hover:border-gold group-hover:bg-gold group-hover:text-ink"
+          class="inline-flex h-9 w-9 flex-none items-center justify-center border border-line-strong text-sm transition-colors duration-200 group-hover:border-gold group-hover:bg-gold group-hover:text-ink"
         >
           →
         </span>
